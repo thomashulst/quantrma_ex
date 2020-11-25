@@ -3,10 +3,9 @@ bookdown::gitbook:
   config:
     toc:
       before: |
-        <li><a href="./">Statistics Lab Manual</a></li>
+        <li><a href="./">QuantRMA Exercises</a></li>
       after: |
         <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
-    edit: https://github.com/CrumpLab/statisticsLab/blob/master/%s
     download: ["pdf"]
 bookdown::pdf_book:
   includes:

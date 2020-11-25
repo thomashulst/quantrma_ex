@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title> 3 Week 3: Correlation and Causation | Quantitative Research Methods &amp; Analysis: Exercises</title>
+  <meta name="description" content="The exercises related to the introductory textbook for quantitative research methods and data analysis at EUC. This text was adapted from “Answering questions with data: Labe Manual” by Matthew J.C. Crump and colleagues (https://crumplab.github.io/statistics/)" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content=" 3 Week 3: Correlation and Causation | Quantitative Research Methods &amp; Analysis: Exercises" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="The exercises related to the introductory textbook for quantitative research methods and data analysis at EUC. This text was adapted from “Answering questions with data: Labe Manual” by Matthew J.C. Crump and colleagues (https://crumplab.github.io/statistics/)" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content=" 3 Week 3: Correlation and Causation | Quantitative Research Methods &amp; Analysis: Exercises" />
+  
+  <meta name="twitter:description" content="The exercises related to the introductory textbook for quantitative research methods and data analysis at EUC. This text was adapted from “Answering questions with data: Labe Manual” by Matthew J.C. Crump and colleagues (https://crumplab.github.io/statistics/)" />
+  
+
+<meta name="author" content="Matthew J. C. Crump, Anjali Krishnan, Stephen Volz, and Alla Chavarga" />
+<meta name="author" content="Adapted for use at EUC by Thomas Hulst" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="week-2-describing-data.html"/>
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
+
+
+
+<link rel="stylesheet" href="tufte.css" type="text/css" />
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">QuantRMA Exercises</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
+<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#important-notes"><i class="fa fa-check"></i><b>0.1</b> Important notes</a><ul>
+<li class="chapter" data-level="0.1.1" data-path="index.html"><a href="index.html#attributions"><i class="fa fa-check"></i><b>0.1.1</b> Attributions</a></li>
+<li class="chapter" data-level="0.1.2" data-path="index.html"><a href="index.html#cc-by-sa-4.0-license"><i class="fa fa-check"></i><b>0.1.2</b> CC BY-SA 4.0 license</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="week-1-introduction.html"><a href="week-1-introduction.html"><i class="fa fa-check"></i><b>1</b> Week 1: Introduction</a><ul>
+<li class="chapter" data-level="1.0.1" data-path="week-1-introduction.html"><a href="week-1-introduction.html#why-r"><i class="fa fa-check"></i><b>1.0.1</b> Why R?</a></li>
+<li class="chapter" data-level="1.0.2" data-path="week-1-introduction.html"><a href="week-1-introduction.html#installing-r-and-r-studio"><i class="fa fa-check"></i><b>1.0.2</b> Installing R and R Studio</a></li>
+<li class="chapter" data-level="1.0.3" data-path="week-1-introduction.html"><a href="week-1-introduction.html#r-studio-notes-and-tips"><i class="fa fa-check"></i><b>1.0.3</b> R studio notes and tips</a></li>
+<li class="chapter" data-level="1.0.4" data-path="week-1-introduction.html"><a href="week-1-introduction.html#how-to-complete-the-r-labs"><i class="fa fa-check"></i><b>1.0.4</b> How to complete the R Labs</a></li>
+<li class="chapter" data-level="1.0.5" data-path="week-1-introduction.html"><a href="week-1-introduction.html#screencast-tutorial"><i class="fa fa-check"></i><b>1.0.5</b> Screencast tutorial</a></li>
+<li class="chapter" data-level="1.0.6" data-path="week-1-introduction.html"><a href="week-1-introduction.html#r-studio-cloud"><i class="fa fa-check"></i><b>1.0.6</b> R-studio Cloud</a></li>
+<li class="chapter" data-level="1.1" data-path="week-1-introduction.html"><a href="week-1-introduction.html#graphing-data"><i class="fa fa-check"></i><b>1.1</b> Graphing data</a></li>
+<li class="chapter" data-level="1.2" data-path="week-1-introduction.html"><a href="week-1-introduction.html#general-goals"><i class="fa fa-check"></i><b>1.2</b> General Goals</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="week-1-introduction.html"><a href="week-1-introduction.html#important-info"><i class="fa fa-check"></i><b>1.2.1</b> Important info</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="week-1-introduction.html"><a href="week-1-introduction.html#r"><i class="fa fa-check"></i><b>1.3</b> R</a><ul>
+<li class="chapter" data-level="1.3.1" data-path="week-1-introduction.html"><a href="week-1-introduction.html#download-the-lab-templates"><i class="fa fa-check"></i><b>1.3.1</b> Download the lab templates</a></li>
+<li class="chapter" data-level="1.3.2" data-path="week-1-introduction.html"><a href="week-1-introduction.html#get-some-data"><i class="fa fa-check"></i><b>1.3.2</b> Get some data</a></li>
+<li class="chapter" data-level="1.3.3" data-path="week-1-introduction.html"><a href="week-1-introduction.html#look-at-the-data"><i class="fa fa-check"></i><b>1.3.3</b> Look at the data</a></li>
+<li class="chapter" data-level="1.3.4" data-path="week-1-introduction.html"><a href="week-1-introduction.html#make-plots-to-answer-questions"><i class="fa fa-check"></i><b>1.3.4</b> Make Plots to answer questions</a></li>
+<li class="chapter" data-level="1.3.5" data-path="week-1-introduction.html"><a href="week-1-introduction.html#ggplot2-basics"><i class="fa fa-check"></i><b>1.3.5</b> ggplot2 basics</a></li>
+<li class="chapter" data-level="1.3.6" data-path="week-1-introduction.html"><a href="week-1-introduction.html#more-questions-about-nyc-films"><i class="fa fa-check"></i><b>1.3.6</b> More questions about NYC films</a></li>
+<li class="chapter" data-level="1.3.7" data-path="week-1-introduction.html"><a href="week-1-introduction.html#gapminder-data"><i class="fa fa-check"></i><b>1.3.7</b> Gapminder Data</a></li>
+<li class="chapter" data-level="1.3.8" data-path="week-1-introduction.html"><a href="week-1-introduction.html#asking-questions-with-the-gap-minder-data"><i class="fa fa-check"></i><b>1.3.8</b> Asking Questions with the gap minder data</a></li>
+<li class="chapter" data-level="1.3.9" data-path="week-1-introduction.html"><a href="week-1-introduction.html#generalization-exercise"><i class="fa fa-check"></i><b>1.3.9</b> Generalization Exercise</a></li>
+<li class="chapter" data-level="1.3.10" data-path="week-1-introduction.html"><a href="week-1-introduction.html#writing-assignment"><i class="fa fa-check"></i><b>1.3.10</b> Writing assignment</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="week-2-describing-data.html"><a href="week-2-describing-data.html"><i class="fa fa-check"></i><b>2</b> Week 2: Describing Data</a><ul>
+<li class="chapter" data-level="2.1" data-path="week-2-describing-data.html"><a href="week-2-describing-data.html#general-goals-1"><i class="fa fa-check"></i><b>2.1</b> General Goals</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="week-2-describing-data.html"><a href="week-2-describing-data.html#important-info-1"><i class="fa fa-check"></i><b>2.1.1</b> Important info</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="week-2-describing-data.html"><a href="week-2-describing-data.html#r-1"><i class="fa fa-check"></i><b>2.2</b> R</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="week-2-describing-data.html"><a href="week-2-describing-data.html#descriptives-basics-in-r"><i class="fa fa-check"></i><b>2.2.1</b> Descriptives basics in R</a></li>
+<li class="chapter" data-level="2.2.2" data-path="week-2-describing-data.html"><a href="week-2-describing-data.html#central-tendency"><i class="fa fa-check"></i><b>2.2.2</b> Central Tendency</a></li>
+<li class="chapter" data-level="2.2.3" data-path="week-2-describing-data.html"><a href="week-2-describing-data.html#variation"><i class="fa fa-check"></i><b>2.2.3</b> Variation</a></li>
+<li class="chapter" data-level="2.2.4" data-path="week-2-describing-data.html"><a href="week-2-describing-data.html#descriptives-by-conditions"><i class="fa fa-check"></i><b>2.2.4</b> Descriptives by conditions</a></li>
+<li class="chapter" data-level="2.2.5" data-path="week-2-describing-data.html"><a href="week-2-describing-data.html#describing-gapminder"><i class="fa fa-check"></i><b>2.2.5</b> Describing gapminder</a></li>
+<li class="chapter" data-level="2.2.6" data-path="week-2-describing-data.html"><a href="week-2-describing-data.html#generalization-exercise-1"><i class="fa fa-check"></i><b>2.2.6</b> Generalization Exercise</a></li>
+<li class="chapter" data-level="2.2.7" data-path="week-2-describing-data.html"><a href="week-2-describing-data.html#writing-assignment-1"><i class="fa fa-check"></i><b>2.2.7</b> Writing assignment</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="week-3-correlation-and-causation.html"><a href="week-3-correlation-and-causation.html"><i class="fa fa-check"></i><b>3</b> Week 3: Correlation and Causation</a><ul>
+<li class="chapter" data-level="3.1" data-path="week-3-correlation-and-causation.html"><a href="week-3-correlation-and-causation.html#general-goals-2"><i class="fa fa-check"></i><b>3.1</b> General Goals</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="week-3-correlation-and-causation.html"><a href="week-3-correlation-and-causation.html#important-info-2"><i class="fa fa-check"></i><b>3.1.1</b> Important Info</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="week-3-correlation-and-causation.html"><a href="week-3-correlation-and-causation.html#r-2"><i class="fa fa-check"></i><b>3.2</b> R</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="week-3-correlation-and-causation.html"><a href="week-3-correlation-and-causation.html#cor-for-correlation"><i class="fa fa-check"></i><b>3.2.1</b> cor for correlation</a></li>
+<li class="chapter" data-level="3.2.2" data-path="week-3-correlation-and-causation.html"><a href="week-3-correlation-and-causation.html#world-happiness-report"><i class="fa fa-check"></i><b>3.2.2</b> World Happiness Report</a></li>
+<li class="chapter" data-level="3.2.3" data-path="week-3-correlation-and-causation.html"><a href="week-3-correlation-and-causation.html#generalization-exercise-2"><i class="fa fa-check"></i><b>3.2.3</b> Generalization Exercise</a></li>
+<li class="chapter" data-level="3.2.4" data-path="week-3-correlation-and-causation.html"><a href="week-3-correlation-and-causation.html#writing-assignment-2"><i class="fa fa-check"></i><b>3.2.4</b> Writing assignment</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Quantitative Research Methods &amp; Analysis: Exercises</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="week-3-correlation-and-causation" class="section level1">
+<h1><span class="header-section-number"> 3</span> Week 3: Correlation and Causation</h1>
+<p><span class="newthought">
+If … we choose a group of social phenomena with no antecedent knowledge of the causation or absence of causation among them, then the calculation of correlation coefficients, total or partial, will not advance us a step toward evaluating the importance of the causes at work.
+—Sir Ronald Fisher
+</span></p>
+<p>In lecture and in the textbook, we have been discussing the idea of correlation. This is the idea that two things that we measure can be somehow related to one another. For example, your personal happiness, which we could try to measure say with a questionnaire, might be related to other things in your life that we could also measure, such as number of close friends, yearly salary, how much chocolate you have in your bedroom, or how many times you have said the word Nintendo in your life. Some of the relationships that we can measure are meaningful, and might reflect a causal relationship where one thing causes a change in another thing. Some of the relationships are spurious, and do not reflect a causal relationship.</p>
+<p>In this lab you will learn how to compute correlations between two variables in software, and then ask some questions about the correlations that you observe.</p>
+<div id="general-goals-2" class="section level2">
+<h2><span class="header-section-number">3.1</span> General Goals</h2>
+<ol style="list-style-type: decimal">
+<li>Compute Pearson’s r between two variables using software</li>
+<li>Discuss the possible meaning of correlations that you observe</li>
+</ol>
+<div id="important-info-2" class="section level3">
+<h3><span class="header-section-number">3.1.1</span> Important Info</h3>
+<p>We use data from the <a href="http://worldhappiness.report">World Happiness Report</a>. A .csv of the data can be found here: <a href="https://raw.githubusercontent.com/CrumpLab/statisticsLab/master/data/WHR2018.csv" download>WHR2018.csv</a></p>
+</div>
+</div>
+<div id="r-2" class="section level2">
+<h2><span class="header-section-number">3.2</span> R</h2>
+<p>In this lab we use explore to explore correlations between any two variables, and also show how to do a regression line. There will be three main parts. Getting R to compute the correlation, and looking at the data using scatter plots. We’ll look at some correlations from the World Happiness Report. Then you’ll look at correlations using data we collect from ourselves. It will be fun.</p>
+<div id="cor-for-correlation" class="section level3">
+<h3><span class="header-section-number">3.2.1</span> cor for correlation</h3>
+<p>R has the <code>cor</code> function for computing Pearson’s r between any two variables. In fact this same function computes other versions of correlation, but we’ll skip those here. To use the function you just need two variables with numbers in them like this:</p>
+<pre><code>## [1] 0.76539</code></pre>
+<p>Well, that was easy.</p>
+<div id="scatterplots" class="section level4">
+<h4><span class="header-section-number">3.2.1.1</span> scatterplots</h4>
+<p>Let’s take our silly example, and plot the data in a scatter plot using ggplot2, and let’s also return the correlation and print it on the scatter plot. Remember, ggplot2 wants the data in a data.frame, so we first put our x and y variables in a data frame.</p>
+<p><img src="quantrma_ex_files/figure-html/unnamed-chunk-33-1.png" width="672" /></p>
+<p>Wow, we’re moving fast here.</p>
+</div>
+<div id="lots-of-scatterplots" class="section level4">
+<h4><span class="header-section-number">3.2.1.2</span> lots of scatterplots</h4>
+<p>Before we move on to real data, let’s look at some fake data first. Often we will have many measures of X and Y, split between a few different conditions, for example, A, B, C, and D. Let’s make some fake data for X and Y, for each condition A, B, C, and D, and then use facet_wrapping to look at four scatter plots all at once</p>
+<p><img src="quantrma_ex_files/figure-html/unnamed-chunk-34-1.png" width="672" /></p>
+</div>
+<div id="computing-the-correlations-all-at-once" class="section level4">
+<h4><span class="header-section-number">3.2.1.3</span> computing the correlations all at once</h4>
+<p>We’ve seen how we can make four graphs at once. Facet_wrap will always try to make as many graphs as there are individual conditions in the column variable. In this case there are four, so it makes four.</p>
+<p>Notice, the scatter plots don’t show the correlation (r) values. Getting these numbers on there is possible, but we have to calculate them first. We’ll leave it to you to Google how to do this, if it’s something you want to do. Instead, what we will do is make a table of the correlations in addition to the scatter plot. We again use <code>dplyr</code> to do this:</p>
+<p>OK, we are basically ready to turn to some real data and ask if there are correlations between interesting variables…You will find that there are some… But before we do that, we do one more thing. This will help you become a little bit more skeptical of these “correlations”.</p>
+</div>
+<div id="chance-correlations" class="section level4">
+<h4><span class="header-section-number">3.2.1.4</span> Chance correlations</h4>
+<p>As you learned from the textbook. We can find correlations by chance alone, even when there is no true correlation between the variables. For example, if we sampled randomly into x, and then sampled some numbers randomly into y. We know they aren’t related, because we randomly sampled the numbers. However, doing this creates some correlations some of the time just by chance. You can demonstrate this to yourself with the following code. It’s a repeat of what we already saw, jut with a few more conditions added. Let’s look at 20 conditions, with random numbers for x and y in each. For each, sample size will be 10. We’ll make the fake data, then make a big graph to look at all. And, even though we get to regression later in the lab, I’ll put the best fit line onto each scatter plot, so you can “see the correlations”.</p>
+<p><img src="quantrma_ex_files/figure-html/unnamed-chunk-35-1.png" width="672" /></p>
+<p>You can see that the slope of the blue line is not always flat. Sometimes it looks like there is a correlation, when we know there shouldn’t be. You can keep re-doing this graph, by re-knitting your R Markdown document, or by pressing the little green play button. This is basically you simulating the outcomes as many times as you press the button.</p>
+<p>The point is, now you know you can find correlations by chance. So, in the next section, you should always wonder if the correlations you find reflect meaningful association between the x and y variable, or could have just occurred by chance.</p>
+</div>
+</div>
+<div id="world-happiness-report" class="section level3">
+<h3><span class="header-section-number">3.2.2</span> World Happiness Report</h3>
+<p>Let’s take a look at some correlations in real data. We are going to look at responses to a questionnaire about happiness that was sent around the world, from the <a href="http://worldhappiness.report">world happiness report</a></p>
+<div id="load-the-data" class="section level4">
+<h4><span class="header-section-number">3.2.2.1</span> Load the data</h4>
+<p>We load the data into a data frame. Reminder, the following assumes that you have downloaded the <a href="https://github.com/CrumpLab/statisticsLab/raw/master/RMarkdownsLab.zip">RMarkdownsLab.zip</a> file which contains the data file in the data folder.</p>
+<p>You can also load the data using the following URL</p>
+</div>
+<div id="look-at-the-data-1" class="section level4">
+<h4><span class="header-section-number">3.2.2.2</span> Look at the data</h4>
+<p>You should be able to see that there is data for many different countries, across a few different years. There are lots of different kinds of measures, and each are given a name. I’ll show you some examples of asking questions about correlations with this data, then you get to ask and answer your own questions.</p>
+</div>
+<div id="my-question-1" class="section level4">
+<h4><span class="header-section-number">3.2.2.3</span> My Question #1</h4>
+<p>For the year 2017 only, does a countries measure for “freedom to make life choices” correlate with that countries measure for " Confidence in national government"?</p>
+<p>Let’s find out. We calculate the correlation, and then we make the scatter plot.</p>
+<pre><code>## [1] NA</code></pre>
+<p><img src="quantrma_ex_files/figure-html/unnamed-chunk-39-1.png" width="672" /></p>
+<p>Interesting, what happened here? We can see some dots, but the correlation was NA (meaning undefined). This occurred because there are some missing data points in the data. We can remove all the rows with missing data first, then do the correlation. We will do this a couple steps, first creating our own data.frame with only the numbers we want to analyse. We can select the columns we want to keep using <code>select</code>. Then we use <code>filter</code> to remove the rows with NAs.</p>
+<pre><code>## [1] 0.4080963</code></pre>
+<p>Now we see the correlation is .408.</p>
+<p>Although the scatter plot shows the dots are everywhere, it generally shows that as Freedom to make life choices increases in a country, that countries confidence in their national government also increase. This is a positive correlation. Let’s do this again and add the best fit line, so the trend is more clear, we use <code>geom_smooth(method=lm, se=FALSE)</code>. I also change the <code>alpha</code> value of the dots so they blend it bit, and you can see more of them.</p>
+<pre><code>## [1] 0.4080963</code></pre>
+<p><img src="quantrma_ex_files/figure-html/unnamed-chunk-41-1.png" width="672" /></p>
+</div>
+<div id="my-question-2" class="section level4">
+<h4><span class="header-section-number">3.2.2.4</span> My Question #2</h4>
+<p>After all that work, we can now speedily answer more questions. For example, what is the relationship between positive affect in a country and negative affect in a country. I wouldn’t be surprised if there was a negative correlation here: when positive feelings generally go up, shouldn’t negative feelings generally go down?</p>
+<p>To answer this question, we just copy paste the last code block, and change the DVs to be <code>Positive affect</code>, and <code>Negative affect</code></p>
+<pre><code>## [1] -0.3841123</code></pre>
+<p><img src="quantrma_ex_files/figure-html/unnamed-chunk-42-1.png" width="672" /></p>
+<p>Bam, there we have it. As positive affect goes up, negative affect goes down. A negative correlation.</p>
+</div>
+</div>
+<div id="generalization-exercise-2" class="section level3">
+<h3><span class="header-section-number">3.2.3</span> Generalization Exercise</h3>
+<p>This generalization exercise will explore the idea that correlations between two measures can arise by chance alone. There are two questions to answer. For each question you will be sampling random numbers from uniform distribution. To conduct the estimate, you will be running a simulation 100 times. The questions are:</p>
+<ol style="list-style-type: decimal">
+<li><p>Estimate the range (minimum and maximum) of correlations (using pearons’s r) that could occur by chance between two variables with n=10.</p></li>
+<li><p>Estimate the range (minimum and maximum) of correlations (using pearons’s r) that could occur bychance between two variables with n = 100.</p></li>
+</ol>
+<p>Use these tips to answer the question.</p>
+<p>Tip 1: You can use the <code>runif()</code> function to sample random numbers between a minimum value, and maximum value. The example below sample 10 (n=10) random numbers between the range 0 (min = 0) and 10 (max=10). Everytime you run this code, the 10 values in x will be re-sampled, and will be 10 new random numbers</p>
+<p>Tip 2: You can compute the correlation between two sets of random numbers, by first sampling random numbers into each variable, and then running the <code>cor()</code> function.</p>
+<pre><code>## [1] -0.0742583</code></pre>
+<p>Running the above code will give different values for the correlation each time, because the numbers in x and y are always randomly different. We might expect that because x and y are chosen randomly that there should be a 0 correlation. However, what we see is that random sampling can produce “fake” correlations just by chance alone. We want to estimate the range of correlations that chance can produce.</p>
+<p>Tip 3: One way to estimate the range of correlations that chance can produce is to repeat the above code many times. For example, if you ran the above code 100 times, you could save the correlations each time, then look at the smallest and largest correlation. This would be an estimate of the range of correlations that can be produced by chance. How can you repeat the above code many times to solve this problem?</p>
+<p>We can do this using a <code>for</code> loop. The code below shows how to repeat everything inside the for loop 100 times. The variable <code>i</code> is an index, that goes from 1 to 100. The <code>saved_value</code> variable starts out as an empty variable, and then we put a value into it (at index position i, from 1 to 100). In this code, we put the sum of the products of x and y into the <code>saved_value</code> variable. At the end of the simulation, the <code>save_value</code> variable contains 100 numbers. The <code>min()</code> and <code>max()</code> functions are used to find the minimum and maximum values for each of the 100 simulations. You should be able to modify this code by replacing <code>sum(x*y)</code> with <code>cor(x,y)</code>. Doing this will allow you to run the simulation 100 times, and find the minimum correlation and maximum correlation that arises by chance. This will be estimate for question 1. To provide an estimate for question 2, you will need to change <code>n=10</code> to <code>n=100</code>.</p>
+<pre><code>## [1] 69.94595</code></pre>
+<pre><code>## [1] 457.7134</code></pre>
+</div>
+<div id="writing-assignment-2" class="section level3">
+<h3><span class="header-section-number">3.2.4</span> Writing assignment</h3>
+<p>Answer the following questions with complete sentences. When you have finished everything. Knit the document and hand in your stuff (you can submit your .RMD file to blackboard if it does not knit.)</p>
+<ol style="list-style-type: decimal">
+<li><p>Imagine a researcher found a positive correlation between two variables, and reported that the r value was +.3. One possibility is that there is a true correlation between these two variables. Discuss one alternative possibility that would also explain the observation of +.3 value between the variables.</p></li>
+<li><p>Explain the difference between a correlation of r = .3 and r = .7. What does a larger value of r represent?</p></li>
+<li><p>Explain the difference between a correlation of r = .5, and r = -.5.</p></li>
+</ol>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="week-2-describing-data.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["quantrma_ex.pdf"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

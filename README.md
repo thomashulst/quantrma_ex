@@ -1,23 +1,25 @@
-## What it this?
+## Important notes
+This is the exercise manual for Quantitative Research Methods & Analysis at EUC. As with the textbook, this manual was adapted from "Answering questions with data" by Mattew J.C. Crump. 
 
-This textbook is a collection of notes for a course on programming for psychologists, taught at the Graduate Center of CUNY in 2014, by Matthew Crump. This github repo contain all of the source code to compile the book using bookdown...I hacked the together the style files for the gitbook style and the tufte style, and may have changed some .css settings in the bookdown package itself on my computer (so I apologize in advance if it doesn't compile properly).
+The original text is part of a [larger OER (Open Educational Resource) course](https://osf.io/3s68c/) for teaching undergraduate statistics in psychology. As such, the text assumes you are a psychology student and many of the examples are drawn from the field of psychology. This does not mean that this course is only useful for you if you have an interest in psychology. The field of psychology will serve as a vehicle to teach you important concepts and skills in quantitative research methods and data analysis, but the concepts and skills taught are universal. 
 
-The textbook can be viewed as a webook here at [https://crumplab.github.io/programmingforpsych/](https://crumplab.github.io/programmingforpsych/).
+This manual provides the exercises we will work on during tutorials. We use open-data sets that are usually paired with a primary research article. The manual is a free and open resource. See below for more information about copying, making change, or contributing to the lab manual.
 
-## Contributing to the textbook while you read it
+### Attributions
+This lab manual was authored by Matt Crump. The exercises for weeks 6, 7, and 8 were adapted and expanded from [Open Stats Labs](https://sites.trinity.edu/osl). Thanks to Open Stats Labs (Dr. Kevin P. McIntyre) for their fantastic work.
 
-1. Use Hypothes.is, an amazing tool for annotating the web.
-  
-  a. Go to [Hypothes.is](https://web.hypothes.is/), and "get-started"
-  
-  b. Install the the add-on for chrome, or other browser
-  
-  c. That's it, turn on Hypothes.is when you are reading this textbook, and you will see all public annotations made by anyone else.
-  
-## Contribute by making push reqeusts
+### CC BY-SA 4.0 license
+All resources are released under a creative commons licence [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). Click the link to read more about the license, or read more below:
 
-2. The source code for this textbook is available in this repo. 
- 
- a. Edit the .Rmd files, and then submit pull requests
-  
- b. When you are reading the textbook, the edit link in the top bar of the textbook should automatically take you to the source .Rmd file
+This license means that you are free to:
+
+- Share: copy and redistribute the material in any medium or format
+- Adapt: remix, transform, and build upon the material for any purpose, even commercially.
+
+The licensor cannot revoke these freedoms as long as you follow the license terms.
+
+Under the following terms:
+
+- Attribution: You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.
+- ShareAlike: If you remix, transform, or build upon the material, you must distribute your contributions under the same license as the original.
+- No additional restrictions: You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits.
