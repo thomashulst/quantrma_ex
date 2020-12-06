@@ -2,7 +2,7 @@
 title: "Quantitative Research Methods & Analysis: Exercises"
 author: 
 - "Matthew J. C. Crump, Anjali Krishnan, Stephen Volz, and Alla Chavarga"
-- "Adapted for use at EUC by Thomas Hulst"
+- "Adapted for use at EUC by Thomas Hulst and Thanos Kostopoulos"
 date: "Last Compiled `r Sys.Date()`"
 site: bookdown::bookdown_site
 output: 
@@ -51,3 +51,139 @@ Under the following terms:
 - Attribution: You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.
 - ShareAlike: If you remix, transform, or build upon the material, you must distribute your contributions under the same license as the original.
 - No additional restrictions: You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits.
+
+# Getting started {-}
+
+In this course we will be using R as a tool to analyze data, and as a tool to help us gain a better understanding of what our analyses are doing. Throughout each tutorial we will show you how to use R to solve specific problems, and then you will use the examples to solve assignments. R is a very deep programming language, and in many ways we will only be skimming the surface of what R can do. Along the way, there will be many pointers to more advanced techniques that interested students can follow to become experts in using R for data-analysis, and computer programming in general.
+
+R is primarily a computer programming language for statistical analysis. It is *free*, and *open-source* (many people contribute to developing it), and runs on most operating systems. It is a powerful language that can be used for all sorts of mathematical operations, data-processing, analysis, and graphical display of data. I even used R to write this tutorial manual. And, I use R all the time for my own research, because it makes data-analyis fast, efficient, transparent, reproducible, and exciting.
+
+## Why R?
+
+There are lots of different options for using computers to analyze data, so why use R? 
+
+<div class="marginnote">
+Other well-known statistical software packages:
+
+-   [SPSS](http://www-01.ibm.com/software/analytics/spss/)
+-   [SAS](http://www.sas.com/en_us/home.html)
+-   [JASP](https://jasp-stats.org)
+-   [Julia](http://julialang.org)
+-   [Matlab](http://www.mathworks.com/products/matlab/)
+-   [Python with SciPy packages](https://www.python.org)
+
+</div>
+
+The options all have pros and cons, and can be used in different ways to solve a range of different problems. Some software allows you to load in data, and then analyze the data by clicking different options in a menu. This can sometimes be fast and convenient. For example, once the data is loaded, all you have to do is click a couple buttons to analyse the data! However, many aspects of data-analysis are not so easy. For example, particular analyses often require that the data be formatted in a particular way so that the program can analyze it properly. Often times when a researcher wants to ask a new question of an existing data set, they have to spend time re-formatting the data. If the data is large, then reformatting by hand is very slow, and can lead to errors. Another option, is to use a scripting language to instruct the computer how reformat the data. This is very fast and efficient. R provides the ability to everything all in one place. You can load in data, reformat it any way you like, then anlayze it anyway you like, and create beautiful graphs and tables (publication quality) to display your findings. Once you get the hang of R, it becomes very fast and efficient.
+
+## Installing R and R Studio
+
+Download and install R onto your computer. The R website is: <http://www.r-project.org>
+
+Find the download R using the link. This will take you to a page with many different mirror links. You can click any of these links to download a version of R that will work on your computer. After you have installed R you can continue.
+
+After you have installed R on your computer, you should want to install another program called R Studio. This program provides a user-friendly interface for using R. You must already have installed R before you perform this step. The R-studio website is: <http://www.rstudio.com>
+
+Find the download link on the front-page, and then download R studio desktop version for your computer. After you have installed R studio you will be ready to start using R.
+
+<div class="marginnote">
+The website [R Studio Cloud](http://rstudio.cloud) allows you to run R scripts in the cloud, so you can practice R from your web-browser!
+</div>
+
+## R Studio notes and tips
+
+```{r 2rstudiod, fig.cap="The R-studio workspace", echo=FALSE,dev='png'}
+knitr::include_graphics('figures/FigRStudio.png')
+```
+
+### Console
+
+When you open up R studio you will see three or four main windows (the placement of each are configurable). In the above example, the bottom left window is the command line (terminal or console) for R. This is used to directly enter commands into R. Once you have entered a command here, press enter to execute the command. The console is useful for entering single lines of code and running them. Often times this occurs when you are learning how to correctly execute a line of code in R. Your first few attempts may be incorrect resulting in errors, but trying out different variations on your code in the command line can help you produce the correct code. Pressing the up arrow while in the console will scroll through the most recently executed lines of code.
+
+### Script Editor
+
+The top left corner contains the script editor. This is a simple text editor for writing and saving R scripts with many lines. Several tabs can be opened at once, with each tab representing a different R script. R scripts can be saved from the editor (resulting in a .r file). Whole scripts can be run by copy and pasting them into the console and pressing enter. Alternatively, you can highlight portions of the script that you want to run (in the script editor) and pressing the button for running the current line/section: green arrow pointing right.
+
+### Workspace and History
+
+The top right panel contains (at least) two tabs, one for the workspace and another for history. The workspace lists out all of the variables and functions that are currently loaded in R’s memory. You can inspect each of the variables by clicking on them. This is generally only useful for variables that do not contain large amounts of information. The history tab provides a record of the recent commands executed in the console.
+
+### File, Plot, Packages, Help
+
+The bottom-right window has four tabs for files, plots, packages, and help. The files tab allows browsing of the computers file directory. An important concept in R is the **current working directory**. This is file folder that R points to by default. Many functions in R will save things directly to this directory, or attempt to read files from this directory. The current working directory can be changed by navigating to the desired folder in the file menu, and then clicking on the more option to set that folder to the current working directory. This is especially important when reading in data to R. The current working directory should be set to the folder containing the data to be inputted into R. The plots tab will show recent plots and figures made in R. The packages tab lists the current R libraries loaded into memory, and provides the ability to download and enable new R packages (more about that later). The help menu is an invaluable tool. Here, you can search for individual R commands to see examples of how they are used. Sometimes the help files for individual commands are opaque and difficult to understand, so it is necessary to do a Google search to find better examples of using these commands.
+
+## How to complete the tutorials
+
+Each of the tutorials focuses on particular data-analysis problems, from graphing data, computing descriptive statistics, to running inferential tests in R. The R exercises usually come in three parts: a training part, a generalization part, and a writing part. The training part includes step-by-step examples of R code that solves particular problems. The generalization part gives short assignments to change parts of the provided code to solve a new problem. The writing part tasks you with answering questions about statistical concepts. 
+
+The way to complete each tutorial is to open a new R Markdown document in R Studio, and then document your progression through each of the parts. By doing this, you will become familiar with how R and R Studio works, and how to create documents that preserve both the code and your notes all in one place. You will upload the R Markdown document at the end of each tutorial to complete your work. There are a few tricks to getting started that are outlined below.
+
+### R projects
+What is an R project? As you work inside R Studio you will be creating text documents and doing things like loading data and saving the results of your analyses. As your work grows and becomes more complex, you can often find yourself creating many different files. **The R project folder is a very useful way of organizing your files all in one place so you can find them later.** If you double-clik an R project file, R-studio will automatically load and restore your last session. In the tutorials, you will be using your R project folder to:
+
+1. save data files into this folder
+2. save R-markdown files that you will use to write your R-code and tutorial notes
+3. save the results of your analyses
+
+We will provide the R project for this course later in this getting started guide.
+
+### Installing libraries
+
+When you install R and R Studio, you get what is called Base R. Base R contains many libraries that allow you to conduct statistical anlayses. Because R is free and open-source, many other developers have created add-on libraries that extend the functionality of R. **We use some of these libraries, and you need to install them before you can do the tutorials**.
+
+For example, in any of the tutorials, whenever you see a line code that uses the word library like this `library(libraryname)`, this line of code telling R to load up that library so it can be used. The `libraryname` would be replaced with the actual name of the library. For example, you will see code like this in the tutorials:
+
+```
+library(data.table)
+```
+
+This line of code is saying that the `data.table` library needs to be loaded. You can check to see if any library is already loaded by clicking on the "packages" tab in the bottom right hand panel. You will see many packages listed in alphabetical order. Packages that are currently loaded and available have a checkmark. If you scroll down and find that you **do not** have `data.table` installed, then you need to install it. To install any package follow these steps:
+
+1. Click on the packages tab
+2. Find the "install" button in the top left hand corner of the packages tab.
+3. Click the install button
+4. Make sure "install from:" is set to CRAN repository
+5. Make sure "dependencies" is clicked on (with a checkmark)
+6. Type the name of the library into the search bar. 
+7. As you type, you should see the names of different packages you can install pop-up in a drop-down menu. **You must be connected to the internet to install packages from CRAN**
+8. Once you find the package (e.g., `data.table`), click it, or just make sure the full, correctly spelled name, is in the search bar
+9. Press the install button
+
+You should see some text appear in the console while R installs the package.
+
+10. After you have installed the package, you should now see that it is listed in the packages tab.
+11. You can turn the package on by clicking it in the package tab.
+12. OR, you can turn the package on by running the command `library(data.table)` in the console. To do this type `library(data.table)` into the console, and press enter.
+
+### Quick install
+
+Fortunately, we can also tell R to install all of the packages we need in one go. Copy the following lines of code into the console, and press enter. Note you can select all of the lines at once, then copy them, then paste all of them into the console, and press enter to run them all. After each of the packages are installed, you will then be able to load them using `library()`.
+
+```
+install.packages("ggplot2")
+install.packages("dplyr")
+install.packages("data.table")
+install.packages("summarytools")
+install.packages("gapminder")
+install.packages("ggpubr")
+```
+
+### R Markdown
+
+Once you have the necessary packages installed you can begin creating R Markdown documents for each tutorial. We admit that at the beginning, R Markdown documents might seem a little bit confusing, but you will find they are extremely useful and flexible. Basically, what R Markdown allows you to do is combine two kinds of writing, 1) writing R code to conduct analyses, and 2) writing normal text, with headers, sub-headers, and paragraphs. You can think of this like a lab journal, that contains both your writing about what you are doing (e.g., notes to self), and the code that you use for analysis. Additionally, when your code does something like make a graph, or run a statistical test, you can ask R Markdown to print the results.
+
+The R Markdown website has an excellent tutorial that is well worth checking out in your own time: [https://rmarkdown.rstudio.com/lesson-1.html](https://rmarkdown.rstudio.com/lesson-1.html)
+
+### R Markdown tutorial templates
+
+We have created a set of template documents for each tutorial that can be downloaded here: [download tutorial templates](https://github.com/thomashulst/quantrma_ex/raw/master/RMarkdownsTutorials.zip).
+
+When you unzip the file you should find the following:
+
+1. A new folder titled "RMarkdownsTutorials"
+2. Inside the folder you will see the "RMarkdownsTutorials.Rproj" file
+3. A data folder containing data files for the tutorials
+4. A "TutorialTemplates" folder containing the R Markdown tutorials for each tutorial.
+
+Each template .rmd file contains three sections for the R part of the tutorial. You will write things inside each section and upload your finalized .rmd file to Canvas to complete the tutorial.
+

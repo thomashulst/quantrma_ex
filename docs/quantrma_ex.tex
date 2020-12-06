@@ -37,7 +37,7 @@
 \IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
 \hypersetup{
   pdftitle={Quantitative Research Methods \& Analysis: Exercises},
-  pdfauthor={Matthew J. C. Crump, Anjali Krishnan, Stephen Volz, and Alla Chavarga; Adapted for use at EUC by Thomas Hulst},
+  pdfauthor={Matthew J. C. Crump, Anjali Krishnan, Stephen Volz, and Alla Chavarga; Adapted for use at EUC by Thomas Hulst and Thanos Kostopoulos},
   hidelinks,
   pdfcreator={LaTeX via pandoc}}
 \urlstyle{same} % disable monospaced font for URLs
@@ -81,8 +81,8 @@
 \bibliographystyle{apalike}
 
 \title{Quantitative Research Methods \& Analysis: Exercises}
-\author{Matthew J. C. Crump, Anjali Krishnan, Stephen Volz, and Alla Chavarga \and Adapted for use at EUC by Thomas Hulst}
-\date{Last Compiled 2020-11-25}
+\author{Matthew J. C. Crump, Anjali Krishnan, Stephen Volz, and Alla Chavarga \and Adapted for use at EUC by Thomas Hulst and Thanos Kostopoulos}
+\date{Last Compiled 2020-12-06}
 
 \begin{document}
 \maketitle
@@ -138,14 +138,20 @@ Under the following terms:
   No additional restrictions: You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits.
 \end{itemize}
 
-\hypertarget{week-1-introduction}{%
-\chapter{Week 1: Introduction}\label{week-1-introduction}}
+\hypertarget{getting-started}{%
+\chapter*{Getting started}\label{getting-started}}
+\addcontentsline{toc}{chapter}{Getting started}
 
-In this course we will be using R as a tool to analyze data, and as a tool to help us gain a better understanding of what our analyses are doing. Throughout each lab we will show you how to use R to solve specific problems, and then you will use the examples to solve homework and lab assignments. R is a very deep programming language, and in many ways we will only be skimming the surface of what R can do. Along the way, there will be many pointers to more advanced techniques that interested students can follow to become experts in using R for data-analysis, and computer programming in general.
+In this course we will be using R as a tool to analyze data, and as a tool to help us gain a better understanding of what our analyses are doing. Throughout each tutorial we will show you how to use R to solve specific problems, and then you will use the examples to solve assignments. R is a very deep programming language, and in many ways we will only be skimming the surface of what R can do. Along the way, there will be many pointers to more advanced techniques that interested students can follow to become experts in using R for data-analysis, and computer programming in general.
 
-R is primarily a computer programming language for statistical analysis. It is \emph{free}, and \emph{open-source} (many people contribute to developing it), and runs on most operating systems. It is a powerful language that can be used for all sorts of mathematical operations, data-processing, analysis, and graphical display of data. I even used R to write this lab manual. And, I use R all the time for my own research, because it makes data-analyis fast, efficient, transparent, reproducible, and exciting.
+R is primarily a computer programming language for statistical analysis. It is \emph{free}, and \emph{open-source} (many people contribute to developing it), and runs on most operating systems. It is a powerful language that can be used for all sorts of mathematical operations, data-processing, analysis, and graphical display of data. I even used R to write this tutorial manual. And, I use R all the time for my own research, because it makes data-analyis fast, efficient, transparent, reproducible, and exciting.
 
-Statistics Software
+\hypertarget{why-r}{%
+\section{Why R?}\label{why-r}}
+
+There are lots of different options for using computers to analyze data, so why use R?
+
+Other well-known statistical software packages:
 
 \begin{itemize}
 \tightlist
@@ -154,99 +160,70 @@ Statistics Software
 \item
   \href{http://www.sas.com/en_us/home.html}{SAS}
 \item
-  \href{http://www.jmp.com}{JMP}
-\item
-  \href{http://www.r-project.org}{R}
+  \href{https://jasp-stats.org}{JASP}
 \item
   \href{http://julialang.org}{Julia}
 \item
   \href{http://www.mathworks.com/products/matlab/}{Matlab}
+\item
+  \href{https://www.python.org}{Python with SciPy packages}
 \end{itemize}
 
-\hypertarget{why-r}{%
-\subsection{Why R?}\label{why-r}}
-
-There are lots of different options for using computers to analyze data, why use R?. The options all have pros and cons, and can be used in different ways to solve a range of different problems. Some software allows you to load in data, and then analyze the data by clicking different options in a menu. This can sometimes be fast and convenient. For example, once the data is loaded, all you have to do is click a couple buttons to analyse the data! However, many aspects of data-analysis are not so easy. For example, particular analyses often require that the data be formatted in a particular way so that the program can analyze it properly. Often times when a researcher wants to ask a new question of an existing data set, they have to spend time re-formatting the data. If the data is large, then reformatting by hand is very slow, and can lead to errors. Another option, is to use a scripting language to instruct the computer how reformat the data. This is very fast and efficient. R provides the ability to everything all in one place. You can load in data, reformat it any way you like, then anlayze it anyway you like, and create beautiful graphs and tables (publication quality) to display your findings. Once you get the hang of R, it becomes very fast and efficient.
+The options all have pros and cons, and can be used in different ways to solve a range of different problems. Some software allows you to load in data, and then analyze the data by clicking different options in a menu. This can sometimes be fast and convenient. For example, once the data is loaded, all you have to do is click a couple buttons to analyse the data! However, many aspects of data-analysis are not so easy. For example, particular analyses often require that the data be formatted in a particular way so that the program can analyze it properly. Often times when a researcher wants to ask a new question of an existing data set, they have to spend time re-formatting the data. If the data is large, then reformatting by hand is very slow, and can lead to errors. Another option, is to use a scripting language to instruct the computer how reformat the data. This is very fast and efficient. R provides the ability to everything all in one place. You can load in data, reformat it any way you like, then anlayze it anyway you like, and create beautiful graphs and tables (publication quality) to display your findings. Once you get the hang of R, it becomes very fast and efficient.
 
 \hypertarget{installing-r-and-r-studio}{%
-\subsection{Installing R and R Studio}\label{installing-r-and-r-studio}}
+\section{Installing R and R Studio}\label{installing-r-and-r-studio}}
 
 Download and install R onto your computer. The R website is: \url{http://www.r-project.org}
 
 Find the download R using the link. This will take you to a page with many different mirror links. You can click any of these links to download a version of R that will work on your computer. After you have installed R you can continue.
 
-After you have installed R on your computer, you should want to install another program called R studio. This program provides a user-friendly interface for using R. You must already have installed R before you perform this step. The R-studio website is: \url{http://www.rstudio.com}
+After you have installed R on your computer, you should want to install another program called R Studio. This program provides a user-friendly interface for using R. You must already have installed R before you perform this step. The R-studio website is: \url{http://www.rstudio.com}
 
 Find the download link on the front-page, and then download R studio desktop version for your computer. After you have installed R studio you will be ready to start using R.
 
-The website \href{http://www.r-fiddle.org}{R-fiddle} allows you to run R scripts in the cloud, so you can practice R from your web-browser!
+The website \href{http://rstudio.cloud}{R Studio Cloud} allows you to run R scripts in the cloud, so you can practice R from your web-browser!
 
 \hypertarget{r-studio-notes-and-tips}{%
-\subsection{R studio notes and tips}\label{r-studio-notes-and-tips}}
+\section{R Studio notes and tips}\label{r-studio-notes-and-tips}}
 
 \begin{figure}
 \centering
-\includegraphics{figures/FigRstudio.pdf}
+\includegraphics{figures/FigRStudio.png}
 \caption{\label{fig:2rstudiod}The R-studio workspace}
 \end{figure}
 
 \hypertarget{console}{%
-\subsubsection{Console}\label{console}}
+\subsection{Console}\label{console}}
 
-When you open up R studio you will see three or four main windows (the placement of each are configurable). In the above example, the bottom left window is the command line (terminal or console) for R. This is used to directly enter commands into R. Once you have entered a command here, press enter to execute the command. The console is useful for entering single lines of code and running them. Oftentimes this occurs when you are learning how to correctly execute a line of code in R. Your first few attempts may be incorrect resulting in errors, but trying out different variations on your code in the command line can help you produce the correct code. Pressing the up arrow while in the console will scroll through the most recently executed lines of code.
+When you open up R studio you will see three or four main windows (the placement of each are configurable). In the above example, the bottom left window is the command line (terminal or console) for R. This is used to directly enter commands into R. Once you have entered a command here, press enter to execute the command. The console is useful for entering single lines of code and running them. Often times this occurs when you are learning how to correctly execute a line of code in R. Your first few attempts may be incorrect resulting in errors, but trying out different variations on your code in the command line can help you produce the correct code. Pressing the up arrow while in the console will scroll through the most recently executed lines of code.
 
 \hypertarget{script-editor}{%
-\subsubsection{Script Editor}\label{script-editor}}
+\subsection{Script Editor}\label{script-editor}}
 
-The top left corner contains the script editor. This is a simple text editor for writing and saving R scripts with many lines. Several tabs can be opened at once, with each tab representing a different R script. R scripts can be saved from the editor (resulting in a .r file). Whole scripts can be run by copy and pasting them into the console and pressing enter. Alternatively, you can highlight portions of the script that you want to run (in the script editor) and press command-enter to automatically run that portion in the console (or press the button for running the current line/section: green arrow pointing right).
+The top left corner contains the script editor. This is a simple text editor for writing and saving R scripts with many lines. Several tabs can be opened at once, with each tab representing a different R script. R scripts can be saved from the editor (resulting in a .r file). Whole scripts can be run by copy and pasting them into the console and pressing enter. Alternatively, you can highlight portions of the script that you want to run (in the script editor) and pressing the button for running the current line/section: green arrow pointing right.
 
 \hypertarget{workspace-and-history}{%
-\subsubsection{Workspace and History}\label{workspace-and-history}}
+\subsection{Workspace and History}\label{workspace-and-history}}
 
-The top right panel contains two tabs, one for the workspace and another for history. The workspace lists out all of the variables and functions that are currently loaded in R's memory. You can inspect each of the variables by clicking on them. This is generally only useful for variables that do not contain large amounts of information. The history tab provides a record of the recent commands executed in the console.
+The top right panel contains (at least) two tabs, one for the workspace and another for history. The workspace lists out all of the variables and functions that are currently loaded in R's memory. You can inspect each of the variables by clicking on them. This is generally only useful for variables that do not contain large amounts of information. The history tab provides a record of the recent commands executed in the console.
 
 \hypertarget{file-plot-packages-help}{%
-\subsubsection{File, Plot, Packages, Help}\label{file-plot-packages-help}}
+\subsection{File, Plot, Packages, Help}\label{file-plot-packages-help}}
 
-The bottom-right window has four tabs for files, plots, packages, and help. The files tab allows browsing of the computers file directory. An important concept in R is the \textbf{current working directory}. This is file folder that R points to by default. Many functions in R will save things directly to this direct, or attempt to read files from this directory. The current working directory can be changed by navigating to the desired folder in the file menu, and then clicking on the more option to set that folder to the current working directory. This is especially important when reading in data to R. The current working directory should be set to the folder containing the data to be inputted into R. The plots tab will show recent plots and figures made in R. The packages tab lists the current R libraries loaded into memory, and provides the ability to download and enable new R packages. The help menu is an invaluable tool. Here, you can search for individual R commands to see examples of how they are used. Sometimes the help files for individual commands are opaque and difficult to understand, so it is necessary to do a Google search to find better examples of using these commands.
+The bottom-right window has four tabs for files, plots, packages, and help. The files tab allows browsing of the computers file directory. An important concept in R is the \textbf{current working directory}. This is file folder that R points to by default. Many functions in R will save things directly to this directory, or attempt to read files from this directory. The current working directory can be changed by navigating to the desired folder in the file menu, and then clicking on the more option to set that folder to the current working directory. This is especially important when reading in data to R. The current working directory should be set to the folder containing the data to be inputted into R. The plots tab will show recent plots and figures made in R. The packages tab lists the current R libraries loaded into memory, and provides the ability to download and enable new R packages (more about that later). The help menu is an invaluable tool. Here, you can search for individual R commands to see examples of how they are used. Sometimes the help files for individual commands are opaque and difficult to understand, so it is necessary to do a Google search to find better examples of using these commands.
 
-\hypertarget{how-to-complete-the-r-labs}{%
-\subsection{How to complete the R Labs}\label{how-to-complete-the-r-labs}}
+\hypertarget{how-to-complete-the-tutorials}{%
+\section{How to complete the tutorials}\label{how-to-complete-the-tutorials}}
 
-Each of the labs focuses on particular data-analysis problems, from graphing data, computing descriptive statistics, to running inferential tests in R. All of the labs come in three parts, a training part, a generalization part, and a writing part. The training part includes step-by-step examples of R code that solves particular problems. The R code is always highlighted in grey. The generalization part gives short assignments to change parts of the provided code to solve a new problem. The writing part tasks you with answering questions about statitiscal concepts.
+Each of the tutorials focuses on particular data-analysis problems, from graphing data, computing descriptive statistics, to running inferential tests in R. The R exercises usually come in three parts: a training part, a generalization part, and a writing part. The training part includes step-by-step examples of R code that solves particular problems. The generalization part gives short assignments to change parts of the provided code to solve a new problem. The writing part tasks you with answering questions about statistical concepts.
 
-The way to complete each lab is to open a new R Markdown document in R-studio, and then document your progression through each of the parts. By doing this, you will become familiar with how R and R-studio works, and how to create documents that preserve both the code and your notes all in one place. There are a few tricks to getting started that are outline below.
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  Open R-studio
-\end{enumerate}
+The way to complete each tutorial is to open a new R Markdown document in R Studio, and then document your progression through each of the parts. By doing this, you will become familiar with how R and R Studio works, and how to create documents that preserve both the code and your notes all in one place. You will upload the R Markdown document at the end of each tutorial to complete your work. There are a few tricks to getting started that are outlined below.
 
 \hypertarget{r-projects}{%
-\subsubsection{R projects}\label{r-projects}}
+\subsection{R projects}\label{r-projects}}
 
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\setcounter{enumi}{1}
-\tightlist
-\item
-  Create a new R project
-
-  \begin{enumerate}
-  \def\labelenumii{\alph{enumii}.}
-  \tightlist
-  \item
-    Go to the file menu and select new project, or go to the top right-hand corner of R-studio, you should see a blue cube with an R in it, then select New project from the dropdown menu
-  \end{enumerate}
-\item
-  Save the new R project somewhere that you can find it. If you are working on a lab computer, then save the new R project to the desktop.
-\end{enumerate}
-
-What is an R project? When you create a new R project you are creating two things, 1) a new folder on your computer, and 2) a ``.Rproj'' file. For example, if you gave your R project the name ``Lab1'', then you will have created a folder title ``Lab1'', and inside the folder you will find an R project file called ``Lab1.Rproj''.
-
-As you work inside R-studio you will be creating text documents, and you will be doing things like loading data, and saving the results of your analyses. As your work grows and becomes more complex, you can often find yourself creating many different files. \textbf{The R project folder is a very useful way of organizing your files all in one place so you can find them later.} If you double-clik an R project file, R-studio will automatically load and restore your last session. In the labs, you will be using your R project folder to:
+What is an R project? As you work inside R Studio you will be creating text documents and doing things like loading data and saving the results of your analyses. As your work grows and becomes more complex, you can often find yourself creating many different files. \textbf{The R project folder is a very useful way of organizing your files all in one place so you can find them later.} If you double-clik an R project file, R-studio will automatically load and restore your last session. In the tutorials, you will be using your R project folder to:
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -254,17 +231,19 @@ As you work inside R-studio you will be creating text documents, and you will be
 \item
   save data files into this folder
 \item
-  save R-markdown files that you will use to write your R-code and lab notes
+  save R-markdown files that you will use to write your R-code and tutorial notes
 \item
-  save the results of your analysis
+  save the results of your analyses
 \end{enumerate}
 
+We will provide the R project for this course later in this getting started guide.
+
 \hypertarget{installing-libraries}{%
-\subsubsection{Installing libraries}\label{installing-libraries}}
+\subsection{Installing libraries}\label{installing-libraries}}
 
-When you install R and R-studio, you get what is called Base R. Base R contains many libraries that allow you to conduct statistical anlayses. Because R is free and open-source, many other developers have created add-on libraries that extend the functionality of R. \textbf{We use some of these libraries, and you need to install them before you can do the labs}.
+When you install R and R Studio, you get what is called Base R. Base R contains many libraries that allow you to conduct statistical anlayses. Because R is free and open-source, many other developers have created add-on libraries that extend the functionality of R. \textbf{We use some of these libraries, and you need to install them before you can do the tutorials}.
 
-For example, in any of the labs, whenever you see a line code that uses the word library like this \texttt{library(libraryname)}, this line of code telling R to load up that library so it can be used. The \texttt{libraryname} would be replaced with the actual name of the library. For example, you will see code like this in the labs:
+For example, in any of the tutorials, whenever you see a line code that uses the word library like this \texttt{library(libraryname)}, this line of code telling R to load up that library so it can be used. The \texttt{libraryname} would be replaced with the actual name of the library. For example, you will see code like this in the tutorials:
 
 \begin{verbatim}
 library(data.table)
@@ -286,7 +265,7 @@ This line of code is saying that the \texttt{data.table} library needs to be loa
 \item
   Make sure ``dependencies'' is clicked on (with a checkmark)
 \item
-  type the name of the library into the search bar.
+  Type the name of the library into the search bar.
 \item
   As you type, you should see the names of different packages you can install pop-up in a drop-down menu. \textbf{You must be connected to the internet to install packages from CRAN}
 \item
@@ -306,34 +285,34 @@ You should see some text appear in the console while R installs the package.
 \item
   You can turn the package on by clicking it in the package tab.
 \item
-  OR, you can turn the packge on by running the command \texttt{library(data.table)} in the console, to do this type \texttt{library(data.table)} into the console, and press enter.
+  OR, you can turn the package on by running the command \texttt{library(data.table)} in the console. To do this type \texttt{library(data.table)} into the console, and press enter.
 \end{enumerate}
 
 \hypertarget{quick-install}{%
-\subsubsection{Quick install}\label{quick-install}}
+\subsection{Quick install}\label{quick-install}}
 
-If you are using R on one of the lab computers, you may find that some of the packages are not installed. The lab computers get wiped everynight, so it may be necessary to install packages each time you come back to the lab. Fortunately, we can tell R to install all of the packages we need in one go. Copy the following lines of code into the console, and press enter. Note you can select all of the lines at once, then copy them, then paste all of them into the console, and press enter to run them all. After each of the packages are installed, you will then be able to load them using \texttt{library()}.
+Fortunately, we can also tell R to install all of the packages we need in one go. Copy the following lines of code into the console, and press enter. Note you can select all of the lines at once, then copy them, then paste all of them into the console, and press enter to run them all. After each of the packages are installed, you will then be able to load them using \texttt{library()}.
 
 \begin{verbatim}
-install.packages(ggplot2)
-install.packages(dplyr)
-install.packages(data.table)
-install.packages(summarytools)
-install.packages(gapminder)
-install.packages(ggpubr)
+install.packages("ggplot2")
+install.packages("dplyr")
+install.packages("data.table")
+install.packages("summarytools")
+install.packages("gapminder")
+install.packages("ggpubr")
 \end{verbatim}
 
 \hypertarget{r-markdown}{%
-\subsubsection{R markdown}\label{r-markdown}}
+\subsection{R Markdown}\label{r-markdown}}
 
-Once you have the necessary packages installed you can begin creating R markdown documents for each lab. We admit that at the beginning, R markdown documents might seem a little bit confusing, but you will find they are extremely useful and flexible. Basically, what R markdown allows you to do is combine two kinds of writing, 1) writing R code to conduct analyses, and 2) writing normal text, with headers, sub-headers, and paragraphs. You can think of this like a lab journal, that contains both your writing about what you are doing (e.g., notes to self), and the code that you use for analysis. Additionally, when your code does something like make a graph, or run a statistical test, you can ask R markdown to print the results.
+Once you have the necessary packages installed you can begin creating R Markdown documents for each tutorial. We admit that at the beginning, R Markdown documents might seem a little bit confusing, but you will find they are extremely useful and flexible. Basically, what R Markdown allows you to do is combine two kinds of writing, 1) writing R code to conduct analyses, and 2) writing normal text, with headers, sub-headers, and paragraphs. You can think of this like a lab journal, that contains both your writing about what you are doing (e.g., notes to self), and the code that you use for analysis. Additionally, when your code does something like make a graph, or run a statistical test, you can ask R Markdown to print the results.
 
-The R markdown website has an excellent tutorial that is well worth your time to check out: \url{https://rmarkdown.rstudio.com/lesson-1.html}
+The R Markdown website has an excellent tutorial that is well worth checking out in your own time: \url{https://rmarkdown.rstudio.com/lesson-1.html}
 
-\hypertarget{r-markdown-lab-templates}{%
-\subsubsection{R markdown lab templates}\label{r-markdown-lab-templates}}
+\hypertarget{r-markdown-tutorial-templates}{%
+\subsection{R Markdown tutorial templates}\label{r-markdown-tutorial-templates}}
 
-We have created a set of template documents for each lab that can be downloaded here: \href{https://github.com/CrumpLab/statisticsLab/raw/master/RMarkdownsLab.zip}{download lab templates}.
+We have created a set of template documents for each tutorial that can be downloaded here: \href{https://github.com/thomashulst/quantrma_ex/raw/master/RMarkdownsTutorials.zip}{download tutorial templates}.
 
 When you unzip the file you should find the following:
 
@@ -341,82 +320,46 @@ When you unzip the file you should find the following:
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  A new folder titled ``RMarkdownsLab''
+  A new folder titled ``RMarkdownsTutorials''
 \item
-  Inside the folder you will see the ``RMarkdownsLab.Rproj'' file
+  Inside the folder you will see the ``RMarkdownsTutorials.Rproj'' file
 \item
-  A data folder containing data files for the labs
+  A data folder containing data files for the tutorials
 \item
-  A ``LabTemplates'' folder containing the R markdown templates for each lab.
+  A ``TutorialTemplates'' folder containing the R Markdown tutorials for each tutorial.
 \end{enumerate}
 
-To get started with Lab 1, follow these steps:
+Each template .rmd file contains three sections for the R part of the tutorial. You will write things inside each section and upload your finalized .rmd file to Canvas to complete the tutorial.
 
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  copy the template file for lab 1, ``Lab 01 Graphing\_Student Name.Rmd'', and place it into the ``RMarkdownsLab'' (copy it out of the template folder, and into the RMarkdownsLab folder).
-\item
-  Rename the file to add your own name, eg., ``Lab1GraphingMattCrump.Rmd''
-\item
-  double-click the ``RMarkdownsLab.Rproj'' file
-\item
-  R-studio will now load up.
-\item
-  If you click the files tab, you will see all of the files and folders inside the ``RMarkdownsLab'' folder
-\item
-  Click on your lab1 .rmd file, it will now load into the editor window.
-\end{enumerate}
+\hypertarget{week-1-introduction}{%
+\chapter{Week 1: Introduction}\label{week-1-introduction}}
 
-Each lab template .rmd file contains three main sections, one for each part of the lab. You will write things inside each section to complete the lab.
+This first tutorial consists of two parts. In the first part we will work on several exercises related to the readings about research methods. In the second part you will learn how to graph data using R. This tutorial assumes you have read the required readings of {[}Week1{]} (\url{https://thomashulst.github.io/quantrma/Introduction.html}) and completed the \href{https://thomashulst.github.io/quantrma_ex/getting-started.html}{Getting started} guide. You will be completing each tutorial by writing your notes and code in an R Markdown document. You should have setup your files as described in the \href{https://thomashulst.github.io/quantrma_ex/getting-started.html}{Getting started section}. At the end of this tutorial you will upload the document with your answers to Canvas.
 
-\hypertarget{screencast-tutorial}{%
-\subsection{Screencast tutorial}\label{screencast-tutorial}}
+\hypertarget{part-one-research-methods}{%
+\section{Part one: Research methods}\label{part-one-research-methods}}
 
-Follow this guide to get up running for Lab 1.
-
-\hypertarget{r-studio-cloud}{%
-\subsection{R-studio Cloud}\label{r-studio-cloud}}
-
-R-studio is also in the cloud. This means that if you want to use R and R-studio through your web-browser you can do that without even installing R or R-studio on your computer. It's also free!
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\item
-  sign up for an R-studio cloud account here: \url{https://rstudio.cloud}
-\item
-  You can make new R projects, work inside them, and everything is saved in the cloud!
-\item
-  To see how everything would work, follow the steps in this video. You will need to download this \href{https://github.com/CrumpLab/statisticsLab/raw/master/RstudioCloud.zip}{.zip file to your computer to get started}
-\end{enumerate}
-
-The link to the video is \url{https://www.youtube.com/watch?v=WsbnV0t7FE4}, or you can watch it here:
-
-\hypertarget{graphing-data}{%
-\section{Graphing data}\label{graphing-data}}
+\hypertarget{part-two-graphing-data}{%
+\section{Part two: Graphing data}\label{part-two-graphing-data}}
 
 {
 The commonality between science and art is in trying to see profoundly - to develop strategies of seeing and showing.
 ---Edward Tufte
 }
 
-As we have found out from the textbook and lecture, when we measure things, we get lots of numbers. Too many. Sometimes so many your head explodes just thinking about them. One of \textbf{the most helpful things} you can do to begin to make sense of these numbers, is to look at them in graphical form. Unfortunately, for sight-impaired individuals, graphical summary of data is much more well-developed than other forms of summarizing data for our human senses. Some researchers are developing auditory versions of visual graphs, a process called \textbf{sonification}, but we aren't prepared to demonstrate that here. Instead, we will make charts, and plots, and things to look at, rather than the numbers themselves, mainly because these are tools that are easiest to get our hands on, they are the most developed, and they work really well for visual summary. If time permits, at some point I would like to come back here and do the same things with sonification. I think that would be really, really cool!
+As we have found out from the textbook and lecture, when we measure things, we get lots of numbers. Too many numbers. Sometimes so many your head explodes just thinking about them. One of \textbf{the most helpful things} you can do to begin to make sense of these numbers, is to look at them in graphical form. Unfortunately, for sight-impaired individuals, graphical summary of data is much more well-developed than other forms of summarizing data for our human senses. Some researchers are developing auditory versions of visual graphs, a process called \textbf{sonification}, but we aren't prepared to demonstrate that here. Instead, we will make charts, and plots, and things to look at, rather than the numbers themselves, mainly because these are tools that are easiest to get our hands on, they are the most developed, and they work really well for visual summary. If time permits, at some point I would like to come back here and do the same things with sonification. I think that would be really, really cool!
 
-\hypertarget{general-goals}{%
-\section{General Goals}\label{general-goals}}
-
-Our general goals for this first lab are to get your feet wet, so to speak. We'll do these things:
+During this part of the tutorial we'll do these things in R:
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  Load in some data to a statistical software program
+  Load some data in R
 \item
   Talk a little bit about how the data is structured
 \item
-  Make graphs of the data so we can look at it and make sense of it.
+  Make graphs of the data so we can look at it and make sense of it
 \end{enumerate}
 
 \hypertarget{important-info}{%
@@ -430,50 +373,32 @@ Our general goals for this first lab are to get your feet wet, so to speak. We'l
   Gapminder data from the gapminder project (copied from the R gapminder library) can be downloaded in .csv format here: gapminder.csv
 \end{enumerate}
 
-\hypertarget{r}{%
-\section{R}\label{r}}
+\hypertarget{lets-get-started}{%
+\subsection{Let's get started!}\label{lets-get-started}}
 
-\hypertarget{download-the-lab-templates}{%
-\subsection{Download the lab templates}\label{download-the-lab-templates}}
-
-You will be completing each lab by writing your code and notes in an R Markdown document.
+To get started with the R part of this tutorial, follow these steps:
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  Download the \href{https://github.com/CrumpLab/statisticsLab/raw/master/RMarkdownsLab.zip}{RMarkdownsLab.zip} to your computer.
+  copy the template file for lab 1, ``Tutorial01\_Graphing\_StudentNumber.Rmd'', and place it into the ``RMarkdownsTutorials'' folder (i.e.~copy it out of the template folder, and into the RMarkdownsTutorials folder).
 \item
-  Unzip the file, this will produce a new folder with three important parts
-
-  \begin{enumerate}
-  \def\labelenumii{\alph{enumii}.}
-  \tightlist
-  \item
-    data folder (contains data files for all labs)
-  \item
-    LabTemplates folder (contains blank templates for completing all the labs)
-  \item
-    RMarkdownsLab.Rproj A file with a little blue cube with an R in it.
-  \end{enumerate}
+  Rename the file to add your own student number, eg., ``Tutorial01\_Graphing\_311476''
 \item
-  Double-click the RMarkdownsLab.Rproj file, this will automatically open R-studio (if you are at home, you must \href{https://crumplab.github.io/statisticsLab/software.html\#installing-r-and-r-studio}{install R and R-studio first}, or you can use \href{https://crumplab.github.io/statisticsLab/software.html\#r-studio-cloud}{R-studio Cloud} through your web-browser)
+  double-click the ``RMarkdownsTutorials.Rproj'' file
 \item
-  Copy the template .Rmd file for lab 1 from the LabTemplates folder into the main folder, then open it, and use it to begin adding your code and notes for lab 1.
+  R Studio will now load up.
 \item
-  Watch this screencast to help you get started.
+  If you click the files tab, you will see all of the files and folders inside the ``RMarkdownsTutorials'' folder
+\item
+  Click on your Tutorial01 .rmd file and it will now load into the editor window.
 \end{enumerate}
 
-Your lab instructor will show you how to open R-studio on the lab computer. Just find it and double-click. Now you have R-studio. Your lab instructor will also walk you through the steps to get started completing the first lab. We also wrote down the steps \href{https://crumplab.github.io/statisticsLab/software.html\#how-to-complete-the-r-labs}{here}.
+When we made this course, we assumed that most students would be unfamiliar with R and R Studio, and might even be frightened of it. Don't worry. It's going to be way easier than you think. We know that it will seem challenging at first. But, we think that with lots of working examples, you will get the hang of it, and by the end of the course you will be able to do things you might never have dreamed you can do. It's really a fantastic skill to learn, even if you aren't planning on going on to do research. With that, let's begin.
 
-There are numerous resources for learning about R, we put some of them on the course website, under the \href{https://crumplab.github.io/psyc3400/Resources.html}{resouces page}. You will find these resources helpful as you learn. We also have a kind of \href{https://crumplab.github.io/statisticsLab/software.html\#r}{general introduction to R and Rstudio here}. This shows you how to download R and R-studio at home (it's free). Throughout the labs you will be writing things called R Markdown documents. You will learn how to do this throughout the labs, but it can also be worthwhile reading other tutorials, such as the one provided by \href{https://rmarkdown.rstudio.com/lesson-1.html}{R Markdown}.
-
-When we made this course, we assumed that most students would be unfamiliar with R and R-studio, and might even be frightened of it, because it is a computer programming language (OOOOHHH NOOOOOOO, I NEED TO DROP THIS COURSE NOW)\ldots Don't worry. It's going to be way easier than you think. Let's compare to other statistics courses where you would learn something like SPSS. That is also a limited programming language, but you would mostly learn how to point with a mouse, and click with button. I bet you already know how to do that. I bet you also already know how to copy and paste text, and press enter. That's mostly what we'll be doing to learn R. We will be doing statistics by typing commands, rather than by clicking buttons. However, lucky for you, all of the commands are already written for you. You just have to copy/paste them.
-
-We know that this will seem challenging at first. But, we think that with lots of working examples, you will get the hang of it, and by the end of the course you will be able to do things you might never have dreamed you can do. It's really a fantastic skill to learn, even if you aren't planning on going on to do research in Psychology (in which case, this kind of thing is necessary skill to learn). With that, let's begin.
-
-\hypertarget{get-some-data}{%
-\subsection{Get some data}\label{get-some-data}}
+\hypertarget{generate-some-data}{%
+\subsection{Generate some data}\label{generate-some-data}}
 
 In order to graph data, we need to have some data first\ldots Actually, with R, that's not quite true. Run this bit of code and see what happens:
 
@@ -481,36 +406,40 @@ In order to graph data, we need to have some data first\ldots Actually, with R, 
 
 You just made R sample 100 numbers, and then plot the results in a histogram. Pretty neat. We'll be doing some of this later in the course, where get R to make fake data for us, and then we learn to think about how data behaves under different kinds of assumptions.
 
-For now, let's do something that might be a little bit more interesting\ldots what movies are going to be filming in NYC? It turns out that NYC makes a lot of data about a lot things open and free for anyone to download and look at. This is the NYC Open Data website: \url{https://opendata.cityofnewyork.us}. I searched through the data, and found a data file that lists the locations of film permits for shooting movies all throughout the Burroughs. There are multiple ways to load this data into R.
+For now, let's do something that might be a little bit more interesting\ldots{} let's figure out what movies are going to be filmed in NYC. It turns out that NYC makes a lot of data about a lot things open and free for anyone to download and look at. This is the NYC Open Data website: \url{https://opendata.cityofnewyork.us}. I searched through the data, and found a data file that lists the locations of film permits for shooting movies all throughout the Burroughs. There are multiple ways to load this data into R.
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \item
-  If you have downloaded the \href{https://github.com/CrumpLab/statisticsLab/raw/master/RMarkdownsLab.zip}{RMarkdownsLab.zip} file, then you already have the data file in the data folder. Assuming you are working in your main directory (your .rmd file is saved in the main folder that contains both the data and template folders), then use the following commands to load the data.
+  If you have downloaded the \href{}{RMarkdownsTutorials.zip} file, then you already have the data file in the data folder. Assuming you are working in your main directory (your .rmd file is saved in the main folder that contains both the data and template folders), then use the following commands to load the data.
 \item
   If the above method doesn't work, you can try loading the data from the course website using:
 \end{enumerate}
 
-If you are having issues getting the data loaded, then talk to your lab instructor
+If you are having issues getting the data loaded, talk to your tutor.
 
 \hypertarget{look-at-the-data}{%
 \subsection{Look at the data}\label{look-at-the-data}}
 
-You will be downloading and analyzing all kinds of data files this semester. We will follow the very same steps every time. The steps are to load the data, then look at it. You want to see what you've got.
+You will be downloading and analyzing all kinds of data files this quad. We will follow the very same steps every time. The steps are to load the data, then look at it. You want to see what you've got.
 
-In R-studio, you will now see a variable called \texttt{nyc\_films} in the top right-hand corner of the screen, in the environment tab. If you click this thing, it will show you the contents of the data in a new window. The data is stored in something we call a \texttt{data\ frame}. It's R lingo, for the thing that contains the data. Notice is a square, with rows going across, and columns going up and down. It looks kind of like an excel spreadsheet if you are familiar with Excel.
+In R Studio, you will now see a variable called \texttt{nyc\_films} in the top right-hand corner of the screen, in the environment tab. If you click this thing, it will show you the contents of the data in a new window. The data is stored in something we call a \texttt{data\ frame}. It's R lingo, for the thing that contains the data. Notice it is shaped like a rectangle, with rows going across, and columns going up and down. It looks kind of like an excel spreadsheet if you are familiar with Excel.
 
 It's useful to know you can look at the data frame this way if you need to. But, this data frame is really big, it has 50,728 rows of data. That's a lot too much to look at.
 
 \hypertarget{summarytools}{%
 \subsubsection{summarytools}\label{summarytools}}
 
-The summarytools packages give a quick way to summarize all of the data in a data frame. Here's how. When you run this code you will see the summary in the viewer on the bottom right hand side. There's a little browser button (arrow on top of little window) that you can click to expand and see the whole thing in a browser.
+The summarytools package gives a quick way to summarize all of the data in a data frame. Here's how. When you run this code you will see the summary in the viewer on the bottom right hand side. There's a little browser button (arrow on top of little window) that you can click to expand and see the whole thing in a browser.
+
+{
+On some MacOS versions, the summarytools package might require XQuartz to properly display your data summary. If you receive an error running the R code, try installing \href{xquartz.macosforge.org}{XQuartz}
+}
 
 That is super helpful, but it's still a lot to look at. Because there is so much data here, it's pretty much mind-boggling to start thinking about what to do with it.
 
 \hypertarget{make-plots-to-answer-questions}{%
-\subsection{Make Plots to answer questions}\label{make-plots-to-answer-questions}}
+\subsection{Make plots to answer questions}\label{make-plots-to-answer-questions}}
 
 Let's walk through a couple questions we might have about this data. We can see that there were 50,728 film permits made. We can also see that there are different columns telling us information about each of the film permits. For example, the \texttt{Borough} column lists the Borough for each request, whether it was made for: Manhattan, Brooklyn, Bronx, Queen's, or Staten Island. Now we can ask our first question, and learn how to do some plotting in R.
 
@@ -545,12 +474,12 @@ OK, so this figure might look a bit weird because the labels on the bottom are r
 \item
   I changed \texttt{Borough} to \texttt{Category}. That was the main thing
 \item
-  I left out a bunch of things from before. None of the \texttt{library()} commands are used again, and I didn't re-run the very early code to get the data. R already has those things in it's memory, so we don't need to do that first. If you ever clear the memory of R, then you will need to reload those things. First-things come first.
+  I left out a bunch of things from before. None of the \texttt{library()} commands are used again, and I didn't re-run the very early code to get the data. R already has those things in it's memory, so we don't need to do that first. If you ever clear the memory of R, then you will need to reload those things.
 \end{enumerate}
 
-Fine, so how do we fix the graph? Good question. To be honest, I don't know right now. I totally forgot how. But, I know ggplot2 can do this, and I'm going to Google it, right now. Then I'm going to find the answer, and use it here. The googling of your questions is a fine way to learn. It's what everybody does these days\ldots.{[}goes to Google\ldots{]}.
+Fine, so how do we fix the graph? Good question. You probably have no idea how to do this, but googling your questions is a great way to learn R. It's what everybody does.
 
-Found it, actually found a lot of ways to do this. The trick is to add the last line. I just copy-pasted it from the solution I found on \href{https://stackoverflow.com/questions/1330989/rotating-and-spacing-axis-labels-in-ggplot2}{stack overflow} (you will become friend's with stack overflow, there are many solutions there to all of your questions)
+When you Google this question, you will likely find a lot of ways to fix your graph. The trick I used is to add the last line in the R code below. I just copy-pasted it from the solution I found on \href{https://stackoverflow.com/questions/1330989/rotating-and-spacing-axis-labels-in-ggplot2}{stack overflow} (you will become friend's with stack overflow, there are many solutions there to all of your questions)
 
 \includegraphics{quantrma_ex_files/figure-latex/1categoryB-1.pdf}
 
@@ -559,7 +488,7 @@ Found it, actually found a lot of ways to do this. The trick is to add the last 
 
 Before we go further, I want to point out some basic properties of ggplot2, just to give you a sense of how it is working. This will make more sense in a few weeks, so come back here to remind yourself. We'll do just a bit a basics, and then move on to making more graphs, by copying and pasting.
 
-The ggplot function uses layers. Layers you say? What are these layers? Well, it draws things from the bottom up. It lays down one layer of graphics, then you can keep adding on top, drawing more things. So the idea is something like: Layer 1 + Layer 2 + Layer 3, and so on. If you want Layer 3 to be Layer 2, then you just switch them in the code.
+The ggplot function makes use of so-called layers. Layers you say? What are these layers? Well, it draws things from the bottom up. It lays down one layer of graphics, then you can keep adding on top, drawing more things. So the idea is something like: Layer 1 + Layer 2 + Layer 3, and so on. If you want Layer 3 to be Layer 2, then you just switch them in the code.
 
 Here is a way of thinking about ggplot code
 
@@ -572,7 +501,7 @@ ggplot(name_of_data, aes(x = name_of_x_variable, y = name_of_y_variable)) +
 
 What I want you to focus on in the above description is the \(+\) signs. What we are doing with the plus signs is adding layers to plot. The layers get added in the order that they are written. If you look back to our previous code, you will see we add a \texttt{geom\_bar} layer, then we added another layer to change the rotation of the words on the x-axis. This is how it works.
 
-BUT WAIT? How am I supposed to know what to add? This is nuts! We know. You're not supposed to know just yet, how could you? We'll give you lots of examples where you can copy and paste, and they will work. That's how you'll learn. If you really want to read the \href{https://ggplot2.tidyverse.org/reference/index.html}{help manual} you can do that too. It's on the ggplot2 website. This will become useful after you already know what you are doing, before that, it will probably just seem very confusing. However, it is pretty neat to look and \href{http://www.ggplot2-exts.org/gallery/}{see all of the different things you can do}, it's very powerful.
+BUT WAIT? How am I supposed to know and remember what to add? This is nuts! We know. You're not supposed to know just yet, how could you? We'll give you lots of examples where you can copy and paste, and they will work. That's how you'll learn for now. If you really want to read the \href{https://ggplot2.tidyverse.org/reference/index.html}{help manual} you can do that too. It's on the ggplot2 website. This will become useful after you already know what you are doing, but before that, it will probably just seem very confusing. However, it is pretty neat to look and \href{https://exts.ggplot2.tidyverse.org/gallery/}{see all of the different things you can do}, it's very powerful.
 
 For now, let's the get the hang of adding things to the graph that let us change some stuff we might want to change. For example, how do you add a title? Or change the labels on the axes? Or add different colors, or change the font-size, or change the background? You can change all of these things by adding different lines to the existing code.
 
@@ -630,7 +559,7 @@ The rest is often just visual preference. For example, the graph above has this 
 \hypertarget{sometimes-layer-order-matters}{%
 \subsubsection{Sometimes layer order matters}\label{sometimes-layer-order-matters}}
 
-Interesting, \texttt{theme\_classic()} is misbehaving a little bit. It looks like we have some of our layer out of order, let's re-order. I just moved \texttt{theme\_classic()} to just underneath the \texttt{geom\_bar()} line. Now everything get's drawn properly.
+Interesting, \texttt{theme\_classic()} is misbehaving a little bit and incorrectly renders the axis labels and reintroduces the legend. It looks like we have some of our layers out of order, let's re-order. I just moved \texttt{theme\_classic()} to just underneath the \texttt{geom\_bar()} line. Now everything get's drawn properly.
 
 \includegraphics{quantrma_ex_files/figure-latex/1categoryJ-1.pdf}
 
@@ -833,8 +762,8 @@ Describing comic sensibility is near impossible. It's sort of an abstract sillin
 
 The purpose of this lab is to show you how to compute basic descriptive statistics, including measures of central tendency (mean, mode, median) and variation (range, variance, standard deviation).
 
-\hypertarget{general-goals-1}{%
-\section{General Goals}\label{general-goals-1}}
+\hypertarget{general-goals}{%
+\section{General Goals}\label{general-goals}}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -852,8 +781,8 @@ The purpose of this lab is to show you how to compute basic descriptive statisti
 
 We will be using data from the gapminder project. You can download a small snippet of the data in .csv format from this link (note this dataset was copied from the gapminder library for R) gapminder.csv. If you are using R, then you can install the gapminder package. This method is described later in the R section.
 
-\hypertarget{r-1}{%
-\section{R}\label{r-1}}
+\hypertarget{r}{%
+\section{R}\label{r}}
 
 \hypertarget{descriptives-basics-in-r}{%
 \subsection{Descriptives basics in R}\label{descriptives-basics-in-r}}
@@ -1246,8 +1175,8 @@ In lecture and in the textbook, we have been discussing the idea of correlation.
 
 In this lab you will learn how to compute correlations between two variables in software, and then ask some questions about the correlations that you observe.
 
-\hypertarget{general-goals-2}{%
-\section{General Goals}\label{general-goals-2}}
+\hypertarget{general-goals-1}{%
+\section{General Goals}\label{general-goals-1}}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -1263,8 +1192,8 @@ In this lab you will learn how to compute correlations between two variables in 
 
 We use data from the \href{http://worldhappiness.report}{World Happiness Report}. A .csv of the data can be found here: WHR2018.csv
 
-\hypertarget{r-2}{%
-\section{R}\label{r-2}}
+\hypertarget{r-1}{%
+\section{R}\label{r-1}}
 
 In this lab we use explore to explore correlations between any two variables, and also show how to do a regression line. There will be three main parts. Getting R to compute the correlation, and looking at the data using scatter plots. We'll look at some correlations from the World Happiness Report. Then you'll look at correlations using data we collect from ourselves. It will be fun.
 
