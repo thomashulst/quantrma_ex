@@ -31,14 +31,18 @@ Discuss the questions about research methods below in groups of 2-3 and register
 
 4. Suppose you want to study financial literacy, given the numerous benefits it brings to society, and given the documented lack of financial education, would you use the following operational definition of financial literacy: “The ability to correctly predict short term fluctuations in the stock market?"
 
-5. The graph below is a visual representation of the concepts of validity and reliability. 
+5. The graph below is a visual representation of the concepts of validity and reliability.
 
-    For each one of the three statements below, indicate whether it corresponds to dart board A, B, C or none.
-    
-    * The measure of our concept is valid, but nor reliable.
-    * The measure of our concept is reliable, but not valid.
-    * The measure of our concept is neither valid, not reliable.
-    * The measure of our concept is both valid and reliable. <br><br>
+```{r validreliab, fig.cap="An illustration of the concepts validity and reliability. Imagine the theoretical construct you want to measure is the bullseye of the dartboard and the dots represent an attempt at measurement of the concept. Adapted from illustration by Nevit Dilmen, Wikimedia Commons", echo=FALSE,eval=TRUE,dev='png'}
+knitr::include_graphics('figures/ValidReliab.png')
+```
+
+For each one of the three statements below, indicate whether it corresponds to dart board A, B, C or none.
+
+* The measure of our concept is valid, but nor reliable.
+* The measure of our concept is reliable, but not valid.
+* The measure of our concept is neither valid, not reliable.
+* The measure of our concept is both valid and reliable. <br><br>
     
 6. The National Health Care Institute of the Netherlands partners with local schools to provide a weekly physical exercise program for children ages 6-14. The sessions are designed to last throughout the whole academic year, and they will take place in afternoon hours. They also consist of both a theoretical and a practical part. In the theoretical part, volunteers strive to increase children’s exercise habits by teaching them about the benefits of regular exercise, whereas in the practical part, they organize various age-appropriate sports activities for children to participate in. Changes in exercise habits are measured via a questionnaire at the end of the program. However, the program manager is concerned that the questionnaire is not producing high-quality observations, particularly for questions that ask children about their exercise habits before participating in the program. Assuming the problem is with measurement and not with the program design…
 

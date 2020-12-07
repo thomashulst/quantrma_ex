@@ -1,3 +1,4 @@
+fig:validreliab
 why-r
 installing-r-and-r-studio
 r-studio-notes-and-tips
