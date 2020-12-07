@@ -1,5 +1,6 @@
 book_filename: "quantrma_ex"
 output_dir: "docs"
+repo: https://github.com/thomashulst/quantrma_ex
 language:
   ui:
     chapter_name: " "

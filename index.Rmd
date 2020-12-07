@@ -1,42 +1,34 @@
---- 
-title: "Quantitative Research Methods & Analysis: Exercises"
+---
+title: "Exercise manual QuantRMA"
 author: 
 - "Matthew J. C. Crump, Anjali Krishnan, Stephen Volz, and Alla Chavarga"
 - "Adapted for use at EUC by Thomas Hulst and Thanos Kostopoulos"
 date: "Last Compiled `r Sys.Date()`"
 site: bookdown::bookdown_site
-output: 
-  bookdown::gitbook:
-    css: [tufte.css, style.css]
-    fontsettings:
-      theme: white
-      family: sans
-      size: 1
 documentclass: book
 bibliography: [QuantRMA_Ex.bib]
 biblio-style: apalike
 link-citations: yes
-#github-repo: rstudio/bookdown-demo
 description: "The exercises related to the introductory textbook for quantitative research methods and data analysis at EUC. This text was adapted from \"Answering questions with data: Labe Manual\" by Matthew J.C. Crump and colleagues (https://crumplab.github.io/statistics/)"
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE,message=FALSE,warning=FALSE, cache=TRUE)
+knitr::opts_chunk$set(echo = TRUE,message=FALSE,warning=FALSE, cache=TRUE,eval=FALSE)
 library(dplyr)
 ```
 # Preface {-}
 
-## Important notes
+## Important notes {-}
 This is the exercise manual for Quantitative Research Methods & Analysis at EUC. As with the textbook, this manual was adapted from "Answering questions with data" by Mattew J.C. Crump. 
 
 The original text is part of a [larger OER (Open Educational Resource) course](https://osf.io/3s68c/) for teaching undergraduate statistics in psychology. As such, the text assumes you are a psychology student and many of the examples are drawn from the field of psychology. This does not mean that this course is only useful for you if you have an interest in psychology. The field of psychology will serve as a vehicle to teach you important concepts and skills in quantitative research methods and data analysis, but the concepts and skills taught are universal. 
 
 This manual provides the exercises we will work on during tutorials. We use open-data sets that are usually paired with a primary research article. The manual is a free and open resource. See below for more information about copying, making change, or contributing to the lab manual.
 
-### Attributions
-This lab manual was authored by Matt Crump. The exercises for weeks 6, 7, and 8 were adapted and expanded from [Open Stats Labs](https://sites.trinity.edu/osl). Thanks to Open Stats Labs (Dr. Kevin P. McIntyre) for their fantastic work.
+### Attributions {-}
+The original lab manual was authored by Matt Crump with exercises adapted and expanded from [Open Stats Labs](https://sites.trinity.edu/osl).
 
-### CC BY-SA 4.0 license
+### CC BY-SA 4.0 license {-}
 All resources are released under a creative commons licence [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). Click the link to read more about the license, or read more below:
 
 This license means that you are free to:
@@ -60,35 +52,28 @@ R is primarily a computer programming language for statistical analysis. It is *
 
 ## Why R?
 
-There are lots of different options for using computers to analyze data, so why use R? 
+There are lots of different options for using computers to analyze data, so why use R?[^Other] The options all have pros and cons, and can be used in different ways to solve a range of different problems. Some software allows you to load in data, and then analyze the data by clicking different options in a menu. This can sometimes be fast and convenient. For example, once the data is loaded, all you have to do is click a couple buttons to analyze the data! 
 
-<div class="marginnote">
-Other well-known statistical software packages:
+[^Other]: Other well-known statistical software packages are:
 
--   [SPSS](http://www-01.ibm.com/software/analytics/spss/)
--   [SAS](http://www.sas.com/en_us/home.html)
--   [JASP](https://jasp-stats.org)
--   [Julia](http://julialang.org)
--   [Matlab](http://www.mathworks.com/products/matlab/)
--   [Python with SciPy packages](https://www.python.org)
+    * [SPSS](http://www-01.ibm.com/software/analytics/spss/)
+    * [SAS](http://www.sas.com/en_us/home.html)
+    * [JASP](https://jasp-stats.org)
+    * [Julia](http://julialang.org)
+    * [Matlab](http://www.mathworks.com/products/matlab/)
+    * [Python with SciPy packages](https://www.python.org)
 
-</div>
-
-The options all have pros and cons, and can be used in different ways to solve a range of different problems. Some software allows you to load in data, and then analyze the data by clicking different options in a menu. This can sometimes be fast and convenient. For example, once the data is loaded, all you have to do is click a couple buttons to analyse the data! However, many aspects of data-analysis are not so easy. For example, particular analyses often require that the data be formatted in a particular way so that the program can analyze it properly. Often times when a researcher wants to ask a new question of an existing data set, they have to spend time re-formatting the data. If the data is large, then reformatting by hand is very slow, and can lead to errors. Another option, is to use a scripting language to instruct the computer how reformat the data. This is very fast and efficient. R provides the ability to everything all in one place. You can load in data, reformat it any way you like, then anlayze it anyway you like, and create beautiful graphs and tables (publication quality) to display your findings. Once you get the hang of R, it becomes very fast and efficient.
+However, many aspects of data-analysis are not so easy. For example, particular analyses often require that the data be formatted in a particular way so that the program can analyze it properly. Often times when a researcher wants to ask a new question of an existing data set, they have to spend time re-formatting the data. If the data is large, then reformatting by hand is very slow, and can lead to errors. Another option, is to use a scripting language to instruct the computer how reformat the data. This is very fast and efficient. R provides the ability to everything all in one place. You can load in data, reformat it any way you like, then anlayze it anyway you like, and create beautiful graphs and tables (publication quality) to display your findings. Once you get the hang of R, it becomes very fast and efficient.
 
 ## Installing R and R Studio
 
 Download and install R onto your computer. The R website is: <http://www.r-project.org>
 
-Find the download R using the link. This will take you to a page with many different mirror links. You can click any of these links to download a version of R that will work on your computer. After you have installed R you can continue.
+Find the "download R" page using the link above. The download page is a page with many different mirror links. You can click any of these links to download a version of R that will work on your computer.
 
-After you have installed R on your computer, you should want to install another program called R Studio. This program provides a user-friendly interface for using R. You must already have installed R before you perform this step. The R-studio website is: <http://www.rstudio.com>
+After you have installed R on your computer, you should want to install another program called R Studio. This program provides a user-friendly interface for using R. You must already have installed R before you perform this step. The R Studio website is: <http://www.rstudio.com>. The website [R Studio Cloud](http://rstudio.cloud) allows you to run R scripts in the cloud, so you can also practice R from your web-browser!
 
-Find the download link on the front-page, and then download R studio desktop version for your computer. After you have installed R studio you will be ready to start using R.
-
-<div class="marginnote">
-The website [R Studio Cloud](http://rstudio.cloud) allows you to run R scripts in the cloud, so you can practice R from your web-browser!
-</div>
+Find the download link on the front-page, and then download R Studio desktop version for your computer. After you have installed R Studio you will be ready to start using R.
 
 ## R Studio notes and tips
 
@@ -131,9 +116,9 @@ We will provide the R project for this course later in this getting started guid
 
 When you install R and R Studio, you get what is called Base R. Base R contains many libraries that allow you to conduct statistical anlayses. Because R is free and open-source, many other developers have created add-on libraries that extend the functionality of R. **We use some of these libraries, and you need to install them before you can do the tutorials**.
 
-For example, in any of the tutorials, whenever you see a line code that uses the word library like this `library(libraryname)`, this line of code telling R to load up that library so it can be used. The `libraryname` would be replaced with the actual name of the library. For example, you will see code like this in the tutorials:
+For example, in any of the tutorials, whenever you see a line code that uses the word library like this `library("libraryname")`, this line of code telling R to load up that library so it can be used. The `libraryname` would be replaced with the actual name of the library. For example, you will see code like this in the tutorials:
 
-```
+```{r, echo=TRUE,eval=FALSE}
 library(data.table)
 ```
 
@@ -157,15 +142,17 @@ You should see some text appear in the console while R installs the package.
 
 ### Quick install
 
-Fortunately, we can also tell R to install all of the packages we need in one go. Copy the following lines of code into the console, and press enter. Note you can select all of the lines at once, then copy them, then paste all of them into the console, and press enter to run them all. After each of the packages are installed, you will then be able to load them using `library()`.
+Fortunately, we can also tell R to install all of the packages we need in one go. Copy the following lines of code into the console, and press enter. From now on, any text in the grey blocks is R code which can be run by copy/pasting it in the R Studio console and pressing enter. Note you can select all of the lines at once, then copy them, then paste all of them into the console, and press enter to run them all. After each of the packages are installed, you will then be able to load them using `library()`.
 
-```
+```{r, echo=TRUE,eval=FALSE}
 install.packages("ggplot2")
 install.packages("dplyr")
 install.packages("data.table")
 install.packages("summarytools")
 install.packages("gapminder")
 install.packages("ggpubr")
+install.packages("knitr")
+install.packages("rmarkdown")
 ```
 
 ### R Markdown
@@ -185,5 +172,4 @@ When you unzip the file you should find the following:
 3. A data folder containing data files for the tutorials
 4. A "TutorialTemplates" folder containing the R Markdown tutorials for each tutorial.
 
-Each template .rmd file contains three sections for the R part of the tutorial. You will write things inside each section and upload your finalized .rmd file to Canvas to complete the tutorial.
-
+Each template .Rmd file contains three sections for the R part of the tutorial. You will write your notes and answers to the question in the .Rmd file. At the end of each tutorial you will "knit" the file (knitting is a term for making your documents look prettier) and upload the result to Canvas.

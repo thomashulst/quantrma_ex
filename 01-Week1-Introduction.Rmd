@@ -1,15 +1,61 @@
 # Week 1: Introduction
 
-This first tutorial consists of two parts. In the first part we will work on several exercises related to the readings about research methods. In the second part you will learn how to graph data using R. This tutorial assumes you have read the required readings of [Week1] (https://thomashulst.github.io/quantrma/Introduction.html) and completed the [Getting started](https://thomashulst.github.io/quantrma_ex/getting-started.html) guide. You will be completing each tutorial by writing your notes and code in an R Markdown document. You should have setup your files as described in the [Getting started section](https://thomashulst.github.io/quantrma_ex/getting-started.html). At the end of this tutorial you will upload the document with your answers to Canvas. 
+This first tutorial consists of two parts. In the first part we will work on several exercises related to the readings about research methods. In the second part you will learn how to graph data using R. This tutorial assumes you have read the required readings of [Week 1](https://thomashulst.github.io/quantrma/Introduction.html) and completed the [Getting started](https://thomashulst.github.io/quantrma_ex/getting-started.html) guide. You will be completing each tutorial by writing your notes and code in an R Markdown document. You should have setup your files as described [in this part](https://thomashulst.github.io/quantrma_ex/getting-started.html#how-to-complete-the-tutorials) of the Getting started section. At the end of this tutorial you will upload the document with your answers to Canvas. 
+
+## Let's get started! {-}
+
+Follow these steps:
+
+1. Copy the template file for tutorial 1, "Tutorial01_Introduction_StudentNumber.Rmd", and place it into the "RMarkdownsTutorials" folder (i.e. copy it out of the template folder, and into the RMarkdownsTutorials folder).
+2. Rename the file to add your own student number, eg., "Tutorial01_Introduction_311476"
+3. Double-click the "RMarkdownsTutorials.Rproj" file
+4. R Studio will now load up.
+5. If you click the files tab, you will see all of the files and folders inside the "RMarkdownsTutorials" folder
+6. Click the tutorial file and it will now load into the editor window.
+7. You can keep your notes, copy/paste R code, as well as answer the questions of this tutorial in the document.
+
+When we made this course, we assumed that most students would be unfamiliar with R and R Studio, and might even be frightened of it. Don't worry. It's going to be way easier than you think. We know that it will seem challenging at first. But, we think that with lots of working examples, you will get the hang of it, and by the end of the course you will be able to do things you might never have dreamed you can do. It's really a fantastic skill to learn, even if you aren't planning on going on to do research. If anything during this tutorial is unclear, please do not hesitate to ask your tutor.
 
 ## Part one: Research methods 
+Discuss the questions about research methods below in groups of 2-3 and register the answers in the .Rmd file for this tutorial.
+
+1. In the required readings of this week we called to process of clarifying abstract concepts and translating them into specific, observable measures **operationalization**. This involves both a **nominal** and an **operational** definition. Describe in your own words what these terms mean. 
+
+2. Two different definitions of **emotional well-being** are provided by the Mental Health Foundation. For each of the following definitions, decide whether it constitutes a nominal or an operational definition:
+    a. "A positive sense of well-being which enables an individual to be able to function in society and meet the demands of everyday life."
+    b. "People in good mental health have the ability to recover effectively from illness, change or misfortune."<br><br>
+    
+3. Two different definitions of **financial literacy** can be found in literature. For each of the following definitions, decide whether it constitutes a nominal or an operational definition:
+    a. "The ability to read, analyze, manage and communicate about the personal financial conditions that affect material well-being."
+    b. "The ability to manage effectively personal savings, credits and borrowed money as well as personal investments."<br><br>
+
+4. Suppose you want to study financial literacy, given the numerous benefits it brings to society, and given the documented lack of financial education, would you use the following operational definition of financial literacy: “The ability to correctly predict short term fluctuations in the stock market?"
+
+5. The graph below is a visual representation of the concepts of validity and reliability. 
+
+    For each one of the three statements below, indicate whether it corresponds to dart board A, B, C or none.
+    
+    * The measure of our concept is valid, but nor reliable.
+    * The measure of our concept is reliable, but not valid.
+    * The measure of our concept is neither valid, not reliable.
+    * The measure of our concept is both valid and reliable. <br><br>
+    
+6. The National Health Care Institute of the Netherlands partners with local schools to provide a weekly physical exercise program for children ages 6-14. The sessions are designed to last throughout the whole academic year, and they will take place in afternoon hours. They also consist of both a theoretical and a practical part. In the theoretical part, volunteers strive to increase children’s exercise habits by teaching them about the benefits of regular exercise, whereas in the practical part, they organize various age-appropriate sports activities for children to participate in. Changes in exercise habits are measured via a questionnaire at the end of the program. However, the program manager is concerned that the questionnaire is not producing high-quality observations, particularly for questions that ask children about their exercise habits before participating in the program. Assuming the problem is with measurement and not with the program design…
+
+    * What is the most likely measurement problem? Reliability or validity?
+    * What type of error is most likely producing this problem? Constant error, random error and/or correlated error? 
+    * How might the program address this measurement problem?<br><br>
+    
+7. The Dutch Environmental Assessment Agency aims to identify sections of Dutch rivers for stream bank restoration. The goal of this work is to create stream bank conditions that can lead to eventual water quality improvements. Crews of national service volunteers implement remediation in accordance with the waterway management plan, including removal of trash and debris from stream banks, removal of invasive plants, reintroduction of native plants, and erosion abatement. Land managers from the Ministry of Infrastructure and Water Management inspect project sites within two weeks of project completion. The assessment instrument used by land managers contains checkbox items to indicate whether various remediation actions were taken but does not provide a way to assess the quality of these remediation actions with respect to environmental standards. This problem should be of high concern to the land managers, given the fact that high quality environmental standards are hard to meet, even when all the appropriate actions have been taken. Assuming the problem is with measurement and not with the program design…
+
+    * What is the most likely measurement problem? Reliability or validity?
+    * What type of error is most likely producing this problem? Constant error, random error and/or correlated error? 
+    * How might the program address this measurement problem?
 
 ## Part two: Graphing data
 
-<span class="newthought">
-The commonality between science and art is in trying to see profoundly - to develop strategies of seeing and showing.
----Edward Tufte
-</span>
+>The commonality between science and art is in trying to see profoundly - to develop strategies of seeing and showing.
+>---Edward Tufte
 
 As we have found out from the textbook and lecture, when we measure things, we get lots of numbers. Too many numbers. Sometimes so many your head explodes just thinking about them. One of **the most helpful things** you can do to begin to make sense of these numbers, is to look at them in graphical form. Unfortunately, for sight-impaired individuals, graphical summary of data is much more well-developed than other forms of summarizing data for our human senses. Some researchers are developing auditory versions of visual graphs, a process called **sonification**, but we aren't prepared to demonstrate that here. Instead, we will make charts, and plots, and things to look at, rather than the numbers themselves, mainly because these are tools that are easiest to get our hands on, they are the most developed, and they work really well for visual summary. If time permits, at some point I would like to come back here and do the same things with sonification. I think that would be really, really cool!
 
@@ -21,27 +67,14 @@ During this part of the tutorial we'll do these things in R:
 
 ### Important info
 
-1. Data for NYC film permits was obtained from the NYC open data website. The .csv file can be found here: <a href="https://raw.githubusercontent.com/CrumpLab/statisticsLab/master/data/Film_Permits.csv" download>Film_Permits.csv</a>
+1. Data for NYC film permits was obtained from the NYC open data website. The raw .csv file can be found here: <a href="https://raw.githubusercontent.com/thomashulst/quantrma_ex/master/data/Film_Permits.csv" download>Film_Permits.csv</a>
 
 
-2. Gapminder data from the gapminder project (copied from the R gapminder library) can be downloaded in .csv format here: <a href="https://raw.githubusercontent.com/CrumpLab/statisticsLab/master/data/gapminder.csv" download>gapminder.csv</a>
-
-### Let's get started!
-
-To get started with the R part of this tutorial, follow these steps:
-
-1. copy the template file for lab 1, "Tutorial01_Graphing_StudentNumber.Rmd", and place it into the "RMarkdownsTutorials" folder (i.e. copy it out of the template folder, and into the RMarkdownsTutorials folder).
-2. Rename the file to add your own student number, eg., "Tutorial01_Graphing_311476"
-2. double-click the "RMarkdownsTutorials.Rproj" file
-3. R Studio will now load up.
-4. If you click the files tab, you will see all of the files and folders inside the "RMarkdownsTutorials" folder
-5. Click on your Tutorial01 .rmd file and it will now load into the editor window. 
-
-When we made this course, we assumed that most students would be unfamiliar with R and R Studio, and might even be frightened of it. Don't worry. It's going to be way easier than you think. We know that it will seem challenging at first. But, we think that with lots of working examples, you will get the hang of it, and by the end of the course you will be able to do things you might never have dreamed you can do. It's really a fantastic skill to learn, even if you aren't planning on going on to do research. With that, let's begin.
+2. Gapminder data from the gapminder project (copied from the R gapminder library) can be downloaded in raw .csv format here: <a href="https://raw.githubusercontent.com/thomashulst/quantrma_ex/master/data//gapminder.csv" download>gapminder.csv</a>
 
 ### Generate some data
 
-In order to graph data, we need to have some data first...Actually, with R, that's not quite true. Run this bit of code and see what happens:
+In order to graph data, we need to have some data first...Actually, with R, that's not quite true. Run the following bit of code and see what happens. Note that from now on, any text in the grey blocks is R code which can be run by copy/pasting it in the R Studio console and pressing enter. Additionally, you can copy and paste the code below to your tutorial file so as to keep notes of your work. 
 
 ```{r}
 hist(rnorm(100, mean=50, sd=25))
@@ -51,7 +84,7 @@ You just made R sample 100 numbers, and then plot the results in a histogram. Pr
 
 For now, let's do something that might be a little bit more interesting... let's figure out what movies are going to be filmed in NYC. It turns out that NYC makes a lot of data about a lot things open and free for anyone to download and look at. This is the NYC Open Data website: [https://opendata.cityofnewyork.us](https://opendata.cityofnewyork.us). I searched through the data, and found a data file that lists the locations of film permits for shooting movies all throughout the Burroughs. There are multiple ways to load this data into R.
 
-1. If you have downloaded the [RMarkdownsTutorials.zip]() file, then you already have the data file in the data folder. Assuming you are working in your main directory (your .rmd file is saved in the main folder that contains both the data and template folders), then use the following commands to load the data.
+1. If you have downloaded the [RMarkdownsTutorials.zip](https://github.com/thomashulst/quantrma_ex/blob/master/RMarkdownsTutorials.zip?raw=true) file, then you already have the data file in the data folder. Assuming you are working in your main directory (your .rmd file is saved in the main folder that contains both the data and template folders), then use the following commands to load the data.
 
 ```{r}
 library(data.table)
@@ -60,9 +93,9 @@ nyc_films <-fread("data/Film_Permits.csv")
 
 2. If the above method doesn't work, you can try loading the data from the course website using:
 
-```{r, eval=F}
+```{r, eval=FALSE}
 library(data.table)
-nyc_films <- fread("")
+nyc_films <- fread("https://raw.githubusercontent.com/thomashulst/quantrma_ex/master/data/Film_Permits.csv")
 ```
 
 If you are having issues getting the data loaded, talk to your tutor.
@@ -79,11 +112,7 @@ It's useful to know you can look at the data frame this way if you need to. But,
 
 The summarytools package gives a quick way to summarize all of the data in a data frame. Here's how. When you run this code you will see the summary in the viewer on the bottom right hand side. There's a little browser button (arrow on top of little window) that you can click to expand and see the whole thing in a browser.
 
-<span class="newthought">
-On some MacOS versions, the summarytools package might require XQuartz to properly display your data summary. If you receive an error running the R code, try installing [XQuartz](xquartz.macosforge.org)
-</span>
-
-```{r, eval=F}
+```{r}
 library(summarytools)
 view(dfSummary(nyc_films))
 ```
@@ -98,9 +127,9 @@ Let's walk through a couple questions we might have about this data. We can see 
 
 Do you have any guesses? Is it Manhattan, or Brooklyn, of the Bronx? Or Queen's or Staten Island? We can find out by plotting the data using a bar plot. We just need to count how many film permits are made in each borough, and then make different bars represent the the counts.
 
-First, we do the counting in R. Run the following code.
+First, we do the counting in R. Run the following code:
 
-```{r}
+```{r, eval=TRUE}
 library(dplyr)
 
 counts <- nyc_films %>%
@@ -113,9 +142,9 @@ The above grouped the data by each of the five Borough's, and then counted the n
 
 If you click on the `counts` variable, you will see the five boroughs listed, along with the counts for how many film permits were requested in each Borough. These are the numbers that we want to plot in a graph.
 
-We do the plot using a fantastic package called `ggplot2`. It is very powerful once you get the hand of it, and when you do, you will be able to make all sorts of interesting graphs. Here's the code to make the plot
+We do the plot using a fantastic package called `ggplot2`. It is very powerful once you get the hand of it, and when you do, you will be able to make all sorts of interesting graphs. Here's the code to make the plot:
 
-```{r 1borough}
+```{r 1borough,echo=TRUE,eval=TRUE}
 library(ggplot2)
 
 ggplot(counts, aes(x = Borough, y = count_of_permits )) +
@@ -130,7 +159,7 @@ There it is, we're done here! We can easily look at this graph, and answer our q
 
 We think you might be skeptical of what you are doing here, copying and pasting things. Soon you'll see just how fast you can do things by copying and pasting, and make a few little changes. Let's quickly ask another question about what kinds of films are being made. The column `Category`, gives us some information about that. Let's just copy paste the code we already made, and see what kinds of categories the films fall into. See if you can tell what I changed in the code to make this work, I'll do it all at once:
 
-```{r 1category}
+```{r 1category,echo=TRUE,eval=TRUE}
 
 counts <- nyc_films %>%
           group_by(Category) %>%
@@ -149,10 +178,10 @@ OK, so this figure might look a bit weird because the labels on the bottom are r
 
 Fine, so how do we fix the graph? Good question. You probably have no idea how to do this, but googling your questions is a great way to learn R. It's what everybody does.
 
-When you Google this question, you will likely find a lot of ways to fix your graph. The trick I used is to add the last line in the R code below. I just copy-pasted it from the solution I found on [stack overflow](https://stackoverflow.com/questions/1330989/rotating-and-spacing-axis-labels-in-ggplot2) (you will become friend's with stack overflow, there are many solutions there to all of your questions)
+When you Google this question, you will likely find a lot of ways to fix your graph. The trick I used is to add the last line in the R code below. I just copy-pasted it from the solution I found on [stack overflow](https://stackoverflow.com/questions/1330989/rotating-and-spacing-axis-labels-in-ggplot2) (you will become friend's with stack overflow, there are many solutions there to all of your questions).
 
 
-```{r 1categoryB}
+```{r 1categoryB,echo=TRUE,eval=TRUE}
 
 counts <- nyc_films %>%
           group_by(Category) %>%
@@ -172,7 +201,7 @@ The ggplot function makes use of so-called layers. Layers you say? What are thes
 
 Here is a way of thinking about ggplot code
 
-```
+```{r, echo=TRUE,eval=FALSE}
 ggplot(name_of_data, aes(x = name_of_x_variable, y = name_of_y_variable)) +
     geom_layer()+
     geom_layer()+
@@ -190,7 +219,7 @@ For now, let's the get the hang of adding things to the graph that let us change
 
 The last graph had `count_of_permits` as the label on the y-axis. That doesn't look right. ggplot2 automatically took the label from the column, and made it be the name on the y-axis. We can change that by adding `ylab("what we want")`. We do this by adding a $+$ to the last line, then adding `ylab()`
 
-```{r 1categoryC}
+```{r 1categoryC,echo=TRUE,eval=TRUE}
 ggplot(counts, aes(x = Category, y = count_of_permits )) +
   geom_bar(stat="identity") + 
   theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
@@ -201,7 +230,7 @@ ggplot(counts, aes(x = Category, y = count_of_permits )) +
 
 Let's slightly modify the x label too:
 
-```{r 1categoryD}
+```{r 1categoryD, echo=TRUE,eval=TRUE}
 ggplot(counts, aes(x = Category, y = count_of_permits )) +
   geom_bar(stat="identity") + 
   theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
@@ -214,7 +243,7 @@ ggplot(counts, aes(x = Category, y = count_of_permits )) +
 
 Let's give our graph a title
 
-```{r 1categoryE}
+```{r 1categoryE, echo=TRUE,eval=TRUE}
 ggplot(counts, aes(x = Category, y = count_of_permits )) +
   geom_bar(stat="identity") + 
   theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
@@ -227,7 +256,7 @@ ggplot(counts, aes(x = Category, y = count_of_permits )) +
 
 Let's make the bars different colors. To do this, we add new code to the inside of the `aes()` part:
 
-```{r 1categoryF}
+```{r 1categoryF, echo=TRUE,eval=TRUE}
 ggplot(counts, aes(x = Category, y = count_of_permits, color=Category )) +
   geom_bar(stat="identity") + 
   theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
@@ -240,7 +269,7 @@ ggplot(counts, aes(x = Category, y = count_of_permits, color=Category )) +
 
 Let's make the bars different colors. To do this, we add new code to the inside of the `aes()` part...Notice I've started using new lines to make the code more readable. 
 
-```{r 1categoryG}
+```{r 1categoryG, echo=TRUE,eval=TRUE}
 ggplot(counts, aes(x = Category, y = count_of_permits, 
                    color=Category, 
                    fill= Category )) +
@@ -257,7 +286,7 @@ Sometimes you just don't want the legend on the side, to remove it add
 
 `theme(legend.position="none")`
 
-```{r 1categoryH}
+```{r 1categoryH, echo=TRUE,eval=TRUE}
 ggplot(counts, aes(x = Category, y = count_of_permits, 
                    color=Category, 
                    fill= Category )) +
@@ -273,7 +302,7 @@ ggplot(counts, aes(x = Category, y = count_of_permits,
 
 The rest is often just visual preference. For example, the graph above has this grey grid behind the bars. For a clean classic no nonsense look, use `theme_classic()` to take away the grid.
 
-```{r 1categoryI}
+```{r 1categoryI, echo=TRUE,eval=TRUE}
 ggplot(counts, aes(x = Category, y = count_of_permits, 
                    color=Category, 
                    fill= Category )) +
@@ -290,7 +319,7 @@ ggplot(counts, aes(x = Category, y = count_of_permits,
 
 Interesting, `theme_classic()` is misbehaving a little bit and incorrectly renders the axis labels and reintroduces the legend. It looks like we have some of our layers out of order, let's re-order. I just moved `theme_classic()` to just underneath the `geom_bar()` line. Now everything get's drawn properly.
 
-```{r 1categoryJ}
+```{r 1categoryJ, echo=TRUE,eval=TRUE}
 ggplot(counts, aes(x = Category, y = count_of_permits, 
                    color=Category, 
                    fill= Category )) +
@@ -309,7 +338,7 @@ ggplot(counts, aes(x = Category, y = count_of_permits,
 
 Changing font-size is often something you want to do. ggplot2 can do this in different ways. I suggest using the `base_size` option inside `theme_classic()`. You set one number for the largest font size in the graph, and everything else gets scaled to fit with that that first number. It's really convenient. Look for the inside of `theme_classic()`
 
-```{r 1categoryK}
+```{r 1categoryK, echo=TRUE,eval=TRUE}
 ggplot(counts, aes(x = Category, y = count_of_permits, 
                    color=Category, 
                    fill= Category )) +
@@ -325,7 +354,7 @@ ggplot(counts, aes(x = Category, y = count_of_permits,
 ```
 or make things small... just to see what happens
 
-```{r 1categoryL}
+```{r 1categoryL, echo=TRUE,eval=TRUE}
 ggplot(counts, aes(x = Category, y = count_of_permits, 
                    color=Category, 
                    fill= Category )) +
@@ -350,9 +379,11 @@ That's enough of the ggplot2 basics for now. You will discover that many things 
  
 Notice the `nyc_films` data frame also has a column for `SubCategoryName`. Let's see what's going on there with a quick plot.
 
-```{r 1subcategory}
+```{r 1subcategory, echo=TRUE,eval=TRUE}
 
-# get the counts (this is a comment it's just here for you to read)
+# get the counts (this is a comment)
+# comments are really useful: R will ignore them, but they can explain to a reader 
+# what is going on in the code
 
 counts <- nyc_films %>%
           group_by(SubCategoryName) %>%
@@ -381,9 +412,9 @@ Let's see one more really useful thing about ggplot2. It's called `facet_wrap()`
 
 Here's our question. We know that some films are made in different Boroughs, and that same films are made in different categories, but do different Boroughs have different patterns for the kinds of categories of films they request permits for? Are their more TV shows in Brooklyn? How do we find out? Watch, just like this:
 
-```{r 1facetwrap}
+```{r 1facetwrap, echo=TRUE,eval=TRUE}
 
-# get the counts (this is a comment it's just here for you to read)
+# get the counts
 
 counts <- nyc_films %>%
           group_by(Borough,Category) %>%
@@ -410,7 +441,7 @@ We did two important things. First we added `Borough` and `Category` into the `g
 The nice thing about this is we can switch things around if we want. For example, we could do it this way by switching the `Category` with `Borough`, and facet-wrapping by Category instead of Borough like we did above. Do what works for you.
 
 
-```{r 1facetwrap2}
+```{r 1facetwrap2, echo=TRUE,eval=TRUE}
 ggplot(counts, aes(x = Borough, y = count_of_permits, 
                    color=Borough, 
                    fill= Borough )) +
@@ -427,19 +458,19 @@ ggplot(counts, aes(x = Borough, y = count_of_permits,
 
 ### Gapminder Data
 
-[https://www.gapminder.org](https://www.gapminder.org) is an organization that collects some really interesting worldwide data. They also make cool visualization tools for looking at the data. There are many neat examples, and they have visualization tools built right into their website that you can play around with [https://www.gapminder.org/tools/](https://www.gapminder.org/tools/). That's fun check it out.
+[Gapminder](https://www.gapminder.org) is an organization that collects some really interesting worldwide data. They also make cool visualization tools for looking at the data. There are many neat examples, and they have visualization tools built right into their website that you can play around with [https://www.gapminder.org/tools/](https://www.gapminder.org/tools/). That's fun to check out.
 
 There is also an R package called `gapminder`. When you install this package, it loads in some of the data from gapminder, so we can play with it in R.
 
 If you don't have the gapminder package installed, you can install it by running this code
 
-```{r, eval=FALSE}
+```{r, eval=FALSE,echo=TRUE}
 install.packages("gapminder")
 ```
 
 Once the package is installed, you need to load the new library, like this. Then, you can put the `gapminder` data into a data frame, like we do here: `gapminder_df`.
 
-```{r}
+```{r, echo=TRUE,eval=TRUE}
 library(gapminder)
 gapminder_df<-gapminder
 ```
@@ -448,28 +479,28 @@ gapminder_df<-gapminder
 
 You can look at the data frame to see what is in it, and you can use `summarytools` again to view a summary of the data.
 
-```{r, eval=FALSE}
+```{r, echo=TRUE,eval=FALSE}
 view(dfSummary(gapminder_df))
 ```
 
 There are 1704 rows of data, and we see some columns for country, continent, year, life expectancy, population, and GDP per capita.
 
-### Asking Questions with the gap minder data
+### Asking questions about the gapminder data
 
 We will show you how to graph some the data to answer a few different kinds of questions. Then you will form your own questions, and see if you can answer them with ggplot2 yourself. All you will need to do is copy and paste the following examples, and change them up a little bit
 
-#### Life Expectancy histogram
+#### Life expectancy histogram
 
 How long are people living all around the world according to this data set? There are many ways we could plot the data to find out. The first way is a histogram. We have many numbers for life expectancy in the column `lifeExp`. This is a big sample, full of numbers for 142 countries across many years. It's easy to make a histogram in ggplot to view the distribution:
 
-```{r 1gapminder}
+```{r 1gapminder, echo=TRUE,eval=TRUE}
 ggplot(gapminder_df, aes(x=lifeExp))+
   geom_histogram(color="white")
 ```
 
 See, that was easy. Next, is a code block that adds more layers and settings if you wanted to modify parts of the graph:
 
-```{r 1gapminderB}
+```{r 1gapminderB, echo=TRUE,eval=TRUE}
 
 ggplot(gapminder_df, aes(x = lifeExp)) +
   geom_histogram(color="white")+ 
@@ -484,7 +515,7 @@ The histogram shows a wide range of life expectancies, from below 40 to just ove
 
 One final thing about histograms in ggplot. You may want to change the bin size. That controls how wide or narrow, or the number of bars (how they split across the range), in the histogram. You need to set the `bins=` option in `geom_histogram()`.
 
-```{r 1gapminderC}
+```{r 1gapminderC, echo=TRUE,eval=TRUE}
 
 ggplot(gapminder_df, aes(x = lifeExp)) +
   geom_histogram(color="white", bins=50)+ 
@@ -497,13 +528,13 @@ ggplot(gapminder_df, aes(x = lifeExp)) +
 
 See, same basic patter, but now breaking up the range into 50 little equal sized bins, rather than 30, which is the default. You get to choose what you want to do.
 
-#### Life Expectancy by year Scatterplot
+#### Life expectancy scatterplot
 
 We can see we have data for life expectancy and different years. So, does worldwide life expectancy change across the years in the data set? As we go into the future, are people living longer?
 
 Let's look at this using a scatter plot. We can set the x-axis to be year, and the y-axis to be life expectancy. Then we can use `geom_point()` to display a whole bunch of dots, and then look at them. Here's the simple code:
 
-```{r 1scatterplot}
+```{r 1scatterplot, echo=TRUE,eval=TRUE}
 ggplot(gapminder_df, aes(y= lifeExp, x= year))+
   geom_point()
 ```
@@ -512,13 +543,13 @@ Whoa, that's a lot of dots! Remember that each country is measured each year. So
 
 #### One country, life expectancy by year
 
-I'm (Matt) from Canada, so maybe I want to know if life expectancy for Canadians is going up over the years. To find out the answer for one country, we first need to split the full data set, into another smaller data set that only contains data for Canada. In other words, we want only the rows where the word "Canada" is found in the `country` column. We will use the `filter` function from `dplyr` for this:
+I'm (Thomas) from The Netherlands, so maybe I want to know if life expectancy for Dutch people is going up over the years. To find out the answer for one country, we first need to split the full data set, into another smaller data set that only contains data for The Netherlands. In other words, we want only the rows where the word "Netherlands" is found in the `country` column. We will use the `filter` function from `dplyr` for this:
 
-```{r 1scatterB}
+```{r 1scatterB, echo=TRUE,eval=TRUE}
 # filter rows to contain Canada
 
 smaller_df <- gapminder_df %>% 
-                 filter(country == "Canada")
+                 filter(country == "Netherlands")
 
 # plot the new data contained in smaller_df
 
@@ -527,18 +558,18 @@ ggplot(smaller_df, aes(y= lifeExp, x= year))+
 
 ```
 
-I would say things are looking good for Canadians, their life expectancy is going up over the years!
+I would say things are looking good for Dutch people, their life expectancy is going up over the years!
 
 #### Multiple countries scatterplot
 
 What if we want to look at a few countries altogether. We can do this too. We just change how we filter the data so more than one country is allowed, then we plot the data. We will also add some nicer color options and make the plot look pretty. First, the simple code:
 
-```{r 1scatterC}
+```{r 1scatterC, echo=TRUE,eval=TRUE}
 
 # filter rows to contain countries of choice
 
 smaller_df <- gapminder_df %>% 
-                 filter(country %in% c("Canada","France","Brazil") == TRUE)
+                 filter(country %in% c("Netherlands","France","Brazil") == TRUE)
 
 # plot the new data contained in smaller_df
 
@@ -549,7 +580,7 @@ ggplot(smaller_df, aes(y= lifeExp, x= year, group= country))+
 
 Nice, we can now see three sets of dots, but which are countries do they represent? Let's add a legend, and make the graph better looking.
 
-```{r 1scatterD}
+```{r 1scatterD, echo=TRUE,eval=TRUE}
 ggplot(smaller_df,aes(y= lifeExp, x= year, 
                       group= country, color = country)) +
   geom_point()+ 
@@ -564,7 +595,7 @@ ggplot(smaller_df,aes(y= lifeExp, x= year,
 
 We might also want to connect the dots with a line, to make it easier to see the connection! Remember, ggplot2 draws layers on top of layers. So, we add in a new `geom_line()` layer.
 
-```{r 1scatline}
+```{r 1scatline, echo=TRUE,eval=TRUE}
 ggplot(smaller_df,aes(y= lifeExp, x= year, 
                       group= country, color = country)) +
   geom_point()+ 
@@ -578,27 +609,19 @@ ggplot(smaller_df,aes(y= lifeExp, x= year,
 
 ### Generalization Exercise
 
-The following generalization exercise and writing assignment is also in your lab R Markdown document for this lab. Complete your work in that document and hand it in.
+The following generalization exercises and writing assignment can be answered in the R Markdown document for this tutorial. Complete your work in that document and "knit" the file. Hand in your final product (knitting should generate an .html file) to Canvas. If you are unable to knit, submit the .Rmd file instead. 
 
-(1 point - Pass/Fail)
+Use the code from above to attempt to solve the extra things we ask you do for this assignment. Your generalization exercises are as follows:
 
-Use the code from above to attempt to solve the extra things we ask you do for this assignment. You generalization exercises are as follows:
+1. Make a graph plotting Life Expectancy by year for the five continents, using the `continent` factor. Make sure you change the title as well.
 
-1. Make a graph plotting Life Expectancy by year for the five continents, using the `continent` factor. Make sure you change the title so it reads correctly
+2. Make a graph plotting GDP per capita by year for the USA, Canada, and Mexico. Use the `gdpPercap` column for the GDP per capita data.
 
-2. Make a graph plotting GDP per capita by year for the USA, Canada, and Mexico. Use the `gdpPercap` column for the GDP per capita data
-
-3. Make a new graph plotting anything you are interested in using the gapminder dataset. It just needs to be a plot that we have not given an example for
+3. Make a new graph plotting anything you are interested in using the gapminder dataset. It just needs to be a plot that we have not given an example for.
 
 ### Writing assignment
 
-Complete the writing assignment described in your R Markdown document for this lab. When you have finished everything. Knit the document and hand in your stuff (you can submit your .RMD file to blackboard if it does not knit.)
-
-The question for this lab is a long answer question about histograms. Here is the question:
-
 Describe what histograms are, how to interpret them, and what they are useful for. You should answer each of these questions:
-
-The answers to each of these questions are worth .25 points each, for a total of 2 points
 
 a. What do the bars on a histogram represent?
 b. How many bars can a histogram have?
@@ -607,20 +630,4 @@ d. What is on the x-axis and y-axis of a histogram
 e. What does the tallest bar on a histogram tell you?
 f. What does the shortest bar on a histogram tell you?
 g. What are some uses for histograms, why would you want to look at a histogram of some numbers that you collected?
-h. Imagine you had two histograms, one was very wide and spread out, the other was very narrow with a very tall peak. Which histogram would you expect to contain more consistent numbers (numbers that are close to each other), explain why.
-
-**Rubric**
-
-General grading. 
-
-- You will receive 0 points for missing answers (say, if you do not answer question c, then you will receive 0 out .25 points for that question)
-- You must write in complete sentences. Point form sentences will be given 0 points.
-- Completely incorrect answers will receive 0 points. For example, if you incorrectly describe what the x and y-axes refer to, then you will receive 0 points for that question.
-- If your answer is generally correct but very difficult to understand and unclear you may receive half points for the question
-
-
-
-
-
-
-
+h. Imagine you had two histograms, one was very wide and spread out, the other was very narrow with a very tall peak. Which histogram would you expect to contain more consistent numbers (numbers that are close to each other) and explain why.
