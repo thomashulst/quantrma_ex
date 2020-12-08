@@ -19,42 +19,60 @@ When we made this course, we assumed that most students would be unfamiliar with
 ## Part one: Research methods 
 Discuss the questions about research methods below in groups of 2-3 and register the answers in the .Rmd file for this tutorial.
 
-1. In the required readings of this week we called to process of clarifying abstract concepts and translating them into specific, observable measures **operationalization**. This involves both a **nominal** and an **operational** definition. Describe in your own words what these terms mean. 
+**Question 1**
 
-2. Two different definitions of **emotional well-being** are provided by the Mental Health Foundation. For each of the following definitions, decide whether it constitutes a nominal or an operational definition:
-    a. "A positive sense of well-being which enables an individual to be able to function in society and meet the demands of everyday life."
-    b. "People in good mental health have the ability to recover effectively from illness, change or misfortune."<br><br>
-    
-3. Two different definitions of **financial literacy** can be found in literature. For each of the following definitions, decide whether it constitutes a nominal or an operational definition:
-    a. "The ability to read, analyze, manage and communicate about the personal financial conditions that affect material well-being."
-    b. "The ability to manage effectively personal savings, credits and borrowed money as well as personal investments."<br><br>
+In the required readings of this week we called to process of clarifying abstract concepts and translating them into specific, observable measures **operationalization**. This involves both a **nominal** and an **operational** definition. Describe in your own words what these terms mean. 
 
-4. Suppose you want to study financial literacy, given the numerous benefits it brings to society, and given the documented lack of financial education, would you use the following operational definition of financial literacy: “The ability to correctly predict short term fluctuations in the stock market?"
+**Question 2**
 
-5. The graph below is a visual representation of the concepts of validity and reliability.
+Two different definitions of **emotional well-being** are provided by the Mental Health Foundation. For each of the following definitions, decide whether it constitutes a nominal or an operational definition:
 
-```{r validreliab, fig.cap="An illustration of the concepts validity and reliability. Imagine the theoretical construct you want to measure is the bullseye of the dartboard and the dots represent an attempt at measurement of the concept. Adapted from illustration by Nevit Dilmen, Wikimedia Commons", echo=FALSE,eval=TRUE,dev='png'}
+a. "A positive sense of well-being which enables an individual to be able to function in society and meet the demands of everyday life."
+b. "People in good mental health have the ability to recover effectively from illness, change or misfortune."
+
+**Question 3**
+
+Two different definitions of **financial literacy** can be found in literature. For each of the following definitions, decide whether it constitutes a nominal or an operational definition:
+
+a. "The ability to read, analyze, manage and communicate about the personal financial conditions that affect material well-being."
+b. "The ability to manage effectively personal savings, credits and borrowed money as well as personal investments."
+
+**Question 4**
+
+Suppose you want to study financial literacy, given the numerous benefits it brings to society, and given the documented lack of financial education. Would you use the following operational definition of financial literacy: “The ability to correctly predict short term fluctuations in the stock market?"
+
+**Question 5**
+
+The graph below is a visual representation of the concepts of validity and reliability.
+
+```{r validreliab, fig.cap="A visual representation of the concepts validity and reliability. Imagine the theoretical construct you want to measure is the bullseye of the dartboard and the dots represent an attempt at measurement. Illustration adapted from an illustration by Nevit Dilmen, Wikimedia Commons.", echo=FALSE,eval=TRUE,dev='png'}
 knitr::include_graphics('figures/ValidReliab.png')
 ```
 
 For each one of the three statements below, indicate whether it corresponds to dart board A, B, C or none.
 
-* The measure of our concept is valid, but nor reliable.
+* The measure of our concept is valid, but not reliable.
 * The measure of our concept is reliable, but not valid.
 * The measure of our concept is neither valid, not reliable.
-* The measure of our concept is both valid and reliable. <br><br>
-    
-6. The National Health Care Institute of the Netherlands partners with local schools to provide a weekly physical exercise program for children ages 6-14. The sessions are designed to last throughout the whole academic year, and they will take place in afternoon hours. They also consist of both a theoretical and a practical part. In the theoretical part, volunteers strive to increase children’s exercise habits by teaching them about the benefits of regular exercise, whereas in the practical part, they organize various age-appropriate sports activities for children to participate in. Changes in exercise habits are measured via a questionnaire at the end of the program. However, the program manager is concerned that the questionnaire is not producing high-quality observations, particularly for questions that ask children about their exercise habits before participating in the program. Assuming the problem is with measurement and not with the program design…
+* The measure of our concept is both valid and reliable.
 
-    * What is the most likely measurement problem? Reliability or validity?
-    * What type of error is most likely producing this problem? Constant error, random error and/or correlated error? 
-    * How might the program address this measurement problem?<br><br>
-    
-7. The Dutch Environmental Assessment Agency aims to identify sections of Dutch rivers for stream bank restoration. The goal of this work is to create stream bank conditions that can lead to eventual water quality improvements. Crews of national service volunteers implement remediation in accordance with the waterway management plan, including removal of trash and debris from stream banks, removal of invasive plants, reintroduction of native plants, and erosion abatement. Land managers from the Ministry of Infrastructure and Water Management inspect project sites within two weeks of project completion. The assessment instrument used by land managers contains checkbox items to indicate whether various remediation actions were taken but does not provide a way to assess the quality of these remediation actions with respect to environmental standards. This problem should be of high concern to the land managers, given the fact that high quality environmental standards are hard to meet, even when all the appropriate actions have been taken. Assuming the problem is with measurement and not with the program design…
 
-    * What is the most likely measurement problem? Reliability or validity?
-    * What type of error is most likely producing this problem? Constant error, random error and/or correlated error? 
-    * How might the program address this measurement problem?
+**Question 6**
+
+The National Health Care Institute of the Netherlands partners with local schools to provide a weekly physical exercise program for children ages 6-14. The sessions are designed to last throughout the whole academic year, and they will take place in afternoon hours. They also consist of both a theoretical and a practical part. In the theoretical part, volunteers strive to increase children’s exercise habits by teaching them about the benefits of regular exercise, whereas in the practical part, they organize various age-appropriate sports activities for children to participate in. Changes in exercise habits are measured via a questionnaire at the end of the program. However, the program manager is concerned that the questionnaire is not producing high-quality observations, particularly for questions that ask children about their exercise habits before participating in the program. Assuming the problem is with measurement and not with the program design…
+
+* What is the most likely measurement problem? Reliability or validity?
+* What type of error is most likely producing this problem? Constant error, random error and/or correlated error? 
+* How might the program address this measurement problem?<br><br>
+    
+
+**Question 7**
+
+The Dutch Environmental Assessment Agency aims to identify sections of Dutch rivers for stream bank restoration. The goal of this work is to create stream bank conditions that can lead to eventual water quality improvements. Crews of national service volunteers implement remediation in accordance with the waterway management plan, including removal of trash and debris from stream banks, removal of invasive plants, reintroduction of native plants, and erosion abatement. Land managers from the Ministry of Infrastructure and Water Management inspect project sites within two weeks of project completion. The assessment instrument used by land managers contains checkbox items to indicate whether various remediation actions were taken but does not provide a way to assess the quality of these remediation actions with respect to environmental standards. This problem should be of high concern to the land managers, given the fact that high quality environmental standards are hard to meet, even when all the appropriate actions have been taken. Assuming the problem is with measurement and not with the program design…
+
+* What is the most likely measurement problem? Reliability or validity?
+* What type of error is most likely producing this problem? Constant error, random error and/or correlated error? 
+* How might the program address this measurement problem?
 
 ## Part two: Graphing data
 
@@ -629,8 +647,8 @@ Describe what histograms are, how to interpret them, and what they are useful fo
 
 a. What do the bars on a histogram represent?
 b. How many bars can a histogram have?
-c. What do the heights of the bars tell you
-d. What is on the x-axis and y-axis of a histogram
+c. What do the heights of the bars tell you?
+d. What is on the x-axis and y-axis of a histogram?
 e. What does the tallest bar on a histogram tell you?
 f. What does the shortest bar on a histogram tell you?
 g. What are some uses for histograms, why would you want to look at a histogram of some numbers that you collected?
