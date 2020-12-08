@@ -1,3 +1,4 @@
+fig:2rstudiod
 fig:validreliab
 why-r
 installing-r-and-r-studio

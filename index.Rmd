@@ -63,21 +63,21 @@ There are lots of different options for using computers to analyze data, so why 
     * [Matlab](http://www.mathworks.com/products/matlab/)
     * [Python with SciPy packages](https://www.python.org)
 
-However, many aspects of data-analysis are not so easy. For example, particular analyses often require that the data be formatted in a particular way so that the program can analyze it properly. Often times when a researcher wants to ask a new question of an existing data set, they have to spend time re-formatting the data. If the data is large, then reformatting by hand is very slow, and can lead to errors. Another option, is to use a scripting language to instruct the computer how reformat the data. This is very fast and efficient. R provides the ability to everything all in one place. You can load in data, reformat it any way you like, then anlayze it anyway you like, and create beautiful graphs and tables (publication quality) to display your findings. Once you get the hang of R, it becomes very fast and efficient.
+However, many aspects of data-analysis are not so easy. For example, particular analyses often require that the data be formatted in a particular way so that the program can analyze it properly. Often times when a researcher wants to ask a new question of an existing data set, they have to spend time re-formatting the data. If the data is large, then reformatting by hand is very slow, and can lead to errors. Another option, is to use a scripting language to instruct the computer how reformat the data. This is very fast and efficient. R provides the ability to do everything all in one place. You can load in data, reformat it any way you like, then analyze it anyway you like, and create beautiful graphs and tables (publication quality) to display your findings. Once you get the hang of R, it becomes very fast and efficient.
 
 ## Installing R and R Studio
 
-Download and install R onto your computer. The R website is: <http://www.r-project.org>
+Download and install R onto your computer. The website for downloading R is: <https://cloud.r-project.org>. Make sure to select the version of R which is right for your operating system (i.e. Windows for Windows and Mac OS for Mac's).
 
-Find the "download R" page using the link above. The download page is a page with many different mirror links. You can click any of these links to download a version of R that will work on your computer.
-
-After you have installed R on your computer, you should want to install another program called R Studio. This program provides a user-friendly interface for using R. You must already have installed R before you perform this step. The R Studio website is: <http://www.rstudio.com>. The website [R Studio Cloud](http://rstudio.cloud) allows you to run R scripts in the cloud, so you can also practice R from your web-browser!
+After you have installed R on your computer, you should want to install another program called R Studio. This program provides a user-friendly interface for using R. You must already have installed R before you perform this step. The R Studio website is: <http://www.rstudio.com>. 
 
 Find the download link on the front-page, and then download R Studio desktop version for your computer. After you have installed R Studio you will be ready to start using R.
 
+The website [R Studio Cloud](http://rstudio.cloud) even allows you to run R scripts in the cloud (with some minor limitations), so you can also practice R from your web-browser!
+
 ## R Studio notes and tips
 
-```{r 2rstudiod, fig.cap="The R-studio workspace", echo=FALSE,dev='png'}
+```{r 2rstudiod, fig.cap="The R-studio workspace", echo=FALSE, eval=TRUE,dev='png'}
 knitr::include_graphics('figures/FigRStudio.png')
 ```
 
