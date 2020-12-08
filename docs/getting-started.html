@@ -242,17 +242,17 @@ Figure 0.1: The R-studio workspace
 <p>The way to complete each tutorial is to open a new R Markdown document in R Studio, and then document your progression through each of the parts. By doing this, you will become familiar with how R and R Studio works, and how to create documents that preserve both the code and your notes all in one place. You will upload the R Markdown document at the end of each tutorial to complete your work. There are a few tricks to getting started that are outlined below.</p>
 <div id="r-projects" class="section level3">
 <h3><span class="header-section-number">0.4.1</span> R projects</h3>
-<p>What is an R project? As you work inside R Studio you will be creating text documents and doing things like loading data and saving the results of your analyses. As your work grows and becomes more complex, you can often find yourself creating many different files. <strong>The R project folder is a very useful way of organizing your files all in one place so you can find them later.</strong> If you double-clik an R project file, R-studio will automatically load and restore your last session. In the tutorials, you will be using your R project folder to:</p>
+<p>What is an R project? As you work inside R Studio you will be creating text documents and doing things like loading data and saving the results of your analyses. As your work grows and becomes more complex, you can often find yourself creating many different files. The R project folder is a very useful way of organizing your files all in one place so you can find them later. If you double-click an R project file, R-studio will automatically load and restore your last session. In the tutorials, you will be using your R project folder to:</p>
 <ol style="list-style-type: decimal">
 <li>save data files into this folder</li>
-<li>save R-markdown files that you will use to write your R-code and tutorial notes</li>
+<li>save R Markdown files that you will use to write your R-code and tutorial notes</li>
 <li>save the results of your analyses</li>
 </ol>
-<p>We will provide the R project for this course later in this getting started guide.</p>
+<p>We will provide an R Project which is setup for this course in particular below.</p>
 </div>
 <div id="installing-libraries" class="section level3">
 <h3><span class="header-section-number">0.4.2</span> Installing libraries</h3>
-<p>When you install R and R Studio, you get what is called Base R. Base R contains many libraries that allow you to conduct statistical anlayses. Because R is free and open-source, many other developers have created add-on libraries that extend the functionality of R. <strong>We use some of these libraries, and you need to install them before you can do the tutorials</strong>.</p>
+<p>When you install R and R Studio, you get what is called Base R. Base R contains many libraries that allow you to conduct statistical analyses. Because R is free and open-source, many other developers have created add-on libraries that extend the functionality of R. <strong>We use some of these libraries, and you need to install them before you can do the tutorials</strong>.</p>
 <p>For example, in any of the tutorials, whenever you see a line code that uses the word library like this <code>library("libraryname")</code>, this line of code telling R to load up that library so it can be used. The <code>libraryname</code> would be replaced with the actual name of the library. For example, you will see code like this in the tutorials:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="getting-started.html#cb1-1"></a><span class="kw">library</span>(data.table)</span></code></pre></div>
 <p>This line of code is saying that the <code>data.table</code> library needs to be loaded. You can check to see if any library is already loaded by clicking on the “packages” tab in the bottom right hand panel. You will see many packages listed in alphabetical order. Packages that are currently loaded and available have a checkmark. If you scroll down and find that you <strong>do not</strong> have <code>data.table</code> installed, then you need to install it. To install any package follow these steps:</p>
@@ -263,7 +263,7 @@ Figure 0.1: The R-studio workspace
 <li>Make sure “install from:” is set to CRAN repository</li>
 <li>Make sure “dependencies” is clicked on (with a checkmark)</li>
 <li>Type the name of the library into the search bar.</li>
-<li>As you type, you should see the names of different packages you can install pop-up in a drop-down menu. <strong>You must be connected to the internet to install packages from CRAN</strong></li>
+<li>As you type, you should see the names of different packages you can install pop-up in a drop-down menu. <strong>You must be connected to the internet to install packages</strong></li>
 <li>Once you find the package (e.g., <code>data.table</code>), click it, or just make sure the full, correctly spelled name, is in the search bar</li>
 <li>Press the install button</li>
 </ol>
@@ -276,7 +276,7 @@ Figure 0.1: The R-studio workspace
 </div>
 <div id="quick-install" class="section level3">
 <h3><span class="header-section-number">0.4.3</span> Quick install</h3>
-<p>Fortunately, we can also tell R to install all of the packages we need in one go. Copy the following lines of code into the console, and press enter. From now on, any text in the grey blocks is R code which can be run by copy/pasting it in the R Studio console and pressing enter. Note you can select all of the lines at once, then copy them, then paste all of them into the console, and press enter to run them all. After each of the packages are installed, you will then be able to load them using <code>library()</code>.</p>
+<p>That was a really longwinded way of installing libraries, but fortunately, we can also tell R to install all of the packages we need in one go. Copy the following lines of code into the console, and press enter. From now on, any text in the grey blocks is R code which can be run by copy/pasting it in the R Studio console and pressing enter. Note you can select all of the lines at once, then copy them, then paste all of them into the console, and press enter to run them all. After each of the packages are installed, you will then be able to load them using <code>library()</code>.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="getting-started.html#cb2-1"></a><span class="kw">install.packages</span>(<span class="st">&quot;ggplot2&quot;</span>)</span>
 <span id="cb2-2"><a href="getting-started.html#cb2-2"></a><span class="kw">install.packages</span>(<span class="st">&quot;dplyr&quot;</span>)</span>
 <span id="cb2-3"><a href="getting-started.html#cb2-3"></a><span class="kw">install.packages</span>(<span class="st">&quot;data.table&quot;</span>)</span>

@@ -104,17 +104,17 @@ Each of the tutorials focuses on particular data-analysis problems, from graphin
 The way to complete each tutorial is to open a new R Markdown document in R Studio, and then document your progression through each of the parts. By doing this, you will become familiar with how R and R Studio works, and how to create documents that preserve both the code and your notes all in one place. You will upload the R Markdown document at the end of each tutorial to complete your work. There are a few tricks to getting started that are outlined below.
 
 ### R projects
-What is an R project? As you work inside R Studio you will be creating text documents and doing things like loading data and saving the results of your analyses. As your work grows and becomes more complex, you can often find yourself creating many different files. **The R project folder is a very useful way of organizing your files all in one place so you can find them later.** If you double-clik an R project file, R-studio will automatically load and restore your last session. In the tutorials, you will be using your R project folder to:
+What is an R project? As you work inside R Studio you will be creating text documents and doing things like loading data and saving the results of your analyses. As your work grows and becomes more complex, you can often find yourself creating many different files. The R project folder is a very useful way of organizing your files all in one place so you can find them later. If you double-click an R project file, R-studio will automatically load and restore your last session. In the tutorials, you will be using your R project folder to:
 
 1. save data files into this folder
-2. save R-markdown files that you will use to write your R-code and tutorial notes
+2. save R Markdown files that you will use to write your R-code and tutorial notes
 3. save the results of your analyses
 
-We will provide the R project for this course later in this getting started guide.
+We will provide an R Project which is setup for this course in particular below.
 
 ### Installing libraries
 
-When you install R and R Studio, you get what is called Base R. Base R contains many libraries that allow you to conduct statistical anlayses. Because R is free and open-source, many other developers have created add-on libraries that extend the functionality of R. **We use some of these libraries, and you need to install them before you can do the tutorials**.
+When you install R and R Studio, you get what is called Base R. Base R contains many libraries that allow you to conduct statistical analyses. Because R is free and open-source, many other developers have created add-on libraries that extend the functionality of R. **We use some of these libraries, and you need to install them before you can do the tutorials**.
 
 For example, in any of the tutorials, whenever you see a line code that uses the word library like this `library("libraryname")`, this line of code telling R to load up that library so it can be used. The `libraryname` would be replaced with the actual name of the library. For example, you will see code like this in the tutorials:
 
@@ -130,7 +130,7 @@ This line of code is saying that the `data.table` library needs to be loaded. Yo
 4. Make sure "install from:" is set to CRAN repository
 5. Make sure "dependencies" is clicked on (with a checkmark)
 6. Type the name of the library into the search bar. 
-7. As you type, you should see the names of different packages you can install pop-up in a drop-down menu. **You must be connected to the internet to install packages from CRAN**
+7. As you type, you should see the names of different packages you can install pop-up in a drop-down menu. **You must be connected to the internet to install packages**
 8. Once you find the package (e.g., `data.table`), click it, or just make sure the full, correctly spelled name, is in the search bar
 9. Press the install button
 
@@ -142,7 +142,7 @@ You should see some text appear in the console while R installs the package.
 
 ### Quick install
 
-Fortunately, we can also tell R to install all of the packages we need in one go. Copy the following lines of code into the console, and press enter. From now on, any text in the grey blocks is R code which can be run by copy/pasting it in the R Studio console and pressing enter. Note you can select all of the lines at once, then copy them, then paste all of them into the console, and press enter to run them all. After each of the packages are installed, you will then be able to load them using `library()`.
+That was a really longwinded way of installing libraries, but fortunately, we can also tell R to install all of the packages we need in one go. Copy the following lines of code into the console, and press enter. From now on, any text in the grey blocks is R code which can be run by copy/pasting it in the R Studio console and pressing enter. Note you can select all of the lines at once, then copy them, then paste all of them into the console, and press enter to run them all. After each of the packages are installed, you will then be able to load them using `library()`.
 
 ```{r, echo=TRUE,eval=FALSE}
 install.packages("ggplot2")
