@@ -1,6 +1,6 @@
-book_filename: "quantrma_ex"
+book_filename: "quantrma_lab"
 output_dir: "docs"
-repo: https://github.com/thomashulst/quantrma_ex
+repo: https://github.com/thomashulst/quantrma_lab
 language:
   ui:
     chapter_name: " "

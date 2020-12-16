@@ -1,23 +1,23 @@
 # Week 1: Introduction
 
-This first tutorial consists of two parts. In the first part we will work on several exercises related to the readings about research methods. In the second part you will learn how to graph data using R. This tutorial assumes you have read the required readings of [Week 1](https://thomashulst.github.io/quantrma/Introduction.html) and completed the [Getting started](https://thomashulst.github.io/quantrma_ex/getting-started.html) guide. You will be completing each tutorial by writing your notes and code in an R Markdown document. You should have setup your files as described [in this part](https://thomashulst.github.io/quantrma_ex/getting-started.html#how-to-complete-the-tutorials) of the Getting started section. At the end of this tutorial you will upload the document with your answers to Canvas. 
+This first lab consists of two parts. In the first part we will work on several exercises related to the readings about research methods. In the second part you will learn how to graph data using R. This lab assumes you have read the required readings of [Week 1](https://thomashulst.github.io/quantrma/Introduction.html) and completed the [Getting started](https://thomashulst.github.io/quantrma_lab/getting-started.html) guide. You will be completing each lab by writing your notes and code in an R Markdown document. You should have setup your files as described [in this part](https://thomashulst.github.io/quantrma_lab/getting-started.html#how-to-complete-the-labs) of the Getting started section. At the end of this lab you will upload the document with your answers to Canvas. 
 
 ## Let's get started! {-}
 
 Follow these steps:
 
-1. Copy the template file for tutorial 1, "Tutorial01_Introduction_StudentNumber.Rmd", and place it into the "RMarkdownsTutorials" folder (i.e. copy it out of the template folder, and into the RMarkdownsTutorials folder).
-2. Rename the file to add your own student number, eg., "Tutorial01_Introduction_311476"
-3. Double-click the "RMarkdownsTutorials.Rproj" file
+1. Copy the template file for lab 1, "Lab01_Introduction_StudentNumber.Rmd", and place it into the "RMarkdownLabs" folder (i.e. copy it out of the template folder, and into the RMarkdownLabs folder).
+2. Rename the file to add your own student number, eg., "Lab01_Introduction_311476"
+3. Double-click the "RMarkdownLabs.Rproj" file
 4. R Studio will now load up.
-5. If you click the files tab, you will see all of the files and folders inside the "RMarkdownsTutorials" folder
-6. Click the tutorial file and it will now load into the editor window.
-7. You can keep your notes, copy/paste R code, as well as answer the questions of this tutorial in the document.
+5. If you click the files tab, you will see all of the files and folders inside the "RMarkdownLabs" folder
+6. Click the lab file and it will now load into the editor window.
+7. You can keep your notes, copy/paste R code, and answer the questions of this lab in the document.
 
-When we made this course, we assumed that most students would be unfamiliar with R and R Studio, and might even be frightened of it. Don't worry. It's going to be way easier than you think. We know that it will seem challenging at first. But, we think that with lots of working examples, you will get the hang of it, and by the end of the course you will be able to do things you might never have dreamed you can do. It's really a fantastic skill to learn, even if you aren't planning on going on to do research. If anything during this tutorial is unclear, please do not hesitate to ask your tutor.
+When we made this course, we assumed that most students would be unfamiliar with R and R Studio, and might even be frightened of it. Don't worry. It's going to be way easier than you think. We know that it will seem challenging at first. But, we think that with lots of working examples, you will get the hang of it, and by the end of the course you will be able to do things you might never have dreamed you can do. It's really a fantastic skill to learn, even if you aren't planning on going on to do research. If anything during this lab is unclear, please do not hesitate to ask your tutor.
 
 ## Part one: Research methods 
-Discuss the questions about research methods below in groups of 2-3 and register the answers in the .Rmd file for this tutorial.
+Discuss the questions about research methods below in groups of 3 and register the answers in the .Rmd file for this lab.
 
 **Question 1**
 
@@ -81,7 +81,7 @@ The Dutch Environmental Assessment Agency aims to identify sections of Dutch riv
 
 As we have found out from the textbook and lecture, when we measure things, we get lots of numbers. Too many numbers. Sometimes so many your head explodes just thinking about them. One of **the most helpful things** you can do to begin to make sense of these numbers, is to look at them in graphical form. Unfortunately, for sight-impaired individuals, graphical summary of data is much more well-developed than other forms of summarizing data for our human senses. Some researchers are developing auditory versions of visual graphs, a process called **sonification**, but we aren't prepared to demonstrate that here. Instead, we will make charts, and plots, and things to look at, rather than the numbers themselves, mainly because these are tools that are easiest to get our hands on, they are the most developed, and they work really well for visual summary. If time permits, at some point I would like to come back here and do the same things with sonification. I think that would be really, really cool!
 
-During this part of the tutorial we'll do these things in R:
+During this part of the lab we'll do these things in R:
 
 1. Load some data in R
 2. Talk a little bit about how the data is structured
@@ -89,14 +89,14 @@ During this part of the tutorial we'll do these things in R:
 
 ### Important info
 
-1. Data for NYC film permits was obtained from the NYC open data website. The raw .csv file can be found here: <a href="https://raw.githubusercontent.com/thomashulst/quantrma_ex/master/data/Film_Permits.csv" download>Film_Permits.csv</a>
+1. Data for NYC film permits was obtained from the NYC open data website. The raw .csv file can be found here: <a href="https://raw.githubusercontent.com/thomashulst/quantrma_lab/master/data/Film_Permits.csv" download>Film_Permits.csv</a>
 
 
-2. Gapminder data from the gapminder project (copied from the R gapminder library) can be downloaded in raw .csv format here: <a href="https://raw.githubusercontent.com/thomashulst/quantrma_ex/master/data//gapminder.csv" download>gapminder.csv</a>
+2. Gapminder data from the gapminder project (copied from the R gapminder library) can be downloaded in raw .csv format here: <a href="https://raw.githubusercontent.com/thomashulst/quantrma_lab/master/data//gapminder.csv" download>gapminder.csv</a>
 
 ### Generate some data
 
-In order to graph data, we need to have some data first...Actually, with R, that's not quite true. Run the following bit of code and see what happens. Note that from now on, any text in the grey blocks is R code which can be run by copy/pasting it in the R Studio console and pressing enter. Additionally, you can copy and paste the code below to your tutorial file so as to keep notes of your work. 
+In order to graph data, we need to have some data first...Actually, with R, that's not quite true. Run the following bit of code and see what happens. Note that from now on, any text in the grey blocks is R code which can be run by copy/pasting it in the R Studio console and pressing enter. Additionally, you can copy and paste the code below to your lab file so as to keep notes of your work. 
 
 ```{r}
 hist(rnorm(100, mean=50, sd=25))
@@ -106,9 +106,9 @@ You just made R sample 100 numbers, and then plot the results in a histogram. Pr
 
 For now, let's do something that might be a little bit more interesting... let's figure out what movies are going to be filmed in NYC. It turns out that NYC makes a lot of data about a lot things open and free for anyone to download and look at. This is the NYC Open Data website: [https://opendata.cityofnewyork.us](https://opendata.cityofnewyork.us). I searched through the data, and found a data file that lists the locations of film permits for shooting movies all throughout the Burroughs. There are multiple ways to load this data into R.
 
-1. If you have downloaded the [RMarkdownsTutorials.zip](https://github.com/thomashulst/quantrma_ex/blob/master/RMarkdownsTutorials.zip?raw=true) file, then you already have the data file in the data folder. Assuming you are working in your main directory (your .rmd file is saved in the main folder that contains both the data and template folders), then use the following commands to load the data.
+1. If you have downloaded the [RMarkdownLabs.zip](https://github.com/thomashulst/quantrma_lab/blob/master/RMarkdownsLabs.zip?raw=true) file, then you already have the data file in the data folder. Assuming you are working in your main directory (your .rmd file is saved in the main folder that contains both the data and template folders), then use the following commands to load the data.
 
-```{r}
+```{r, eval=TRUE}
 library(data.table)
 nyc_films <-fread("data/Film_Permits.csv")
 ```
@@ -117,7 +117,7 @@ nyc_films <-fread("data/Film_Permits.csv")
 
 ```{r, eval=FALSE}
 library(data.table)
-nyc_films <- fread("https://raw.githubusercontent.com/thomashulst/quantrma_ex/master/data/Film_Permits.csv")
+nyc_films <- fread("https://raw.githubusercontent.com/thomashulst/quantrma_lab/master/data/Film_Permits.csv")
 ```
 
 If you are having issues getting the data loaded, talk to your tutor.
@@ -631,7 +631,7 @@ ggplot(smaller_df,aes(y= lifeExp, x= year,
 
 ### Generalization Exercise
 
-The following generalization exercises and writing assignment can be answered in the R Markdown document for this tutorial. Complete your work in that document and "knit" the file. Hand in your final product (knitting should generate an .html file) to Canvas. If you are unable to knit, submit the .Rmd file instead. 
+The following generalization exercises and writing assignment can be answered in the R Markdown document for this lab. Complete your work in that document and "knit" the file. Hand in your final product (knitting should generate an .html file) to Canvas. If you are unable to knit, submit the .Rmd file instead. 
 
 Use the code from above to attempt to solve the extra things we ask you do for this assignment. Your generalization exercises are as follows:
 

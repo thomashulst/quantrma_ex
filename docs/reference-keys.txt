@@ -7,12 +7,12 @@ console
 script-editor
 workspace-and-history
 file-plot-packages-help
-how-to-complete-the-tutorials
+how-to-complete-the-labs
 r-projects
 installing-libraries
 quick-install
 r-markdown
-r-markdown-tutorial-templates
+r-markdown-lab-templates
 week-1-introduction
 part-one-research-methods
 part-two-graphing-data

@@ -1,15 +1,15 @@
 ---
-title: "Exercise manual QuantRMA"
+title: "Lab manual QuantRMA"
 author: 
 - "Matthew J. C. Crump, Anjali Krishnan, Stephen Volz, and Alla Chavarga"
 - "Adapted for use at EUC by Thomas Hulst and Thanos Kostopoulos"
 date: "Last Compiled `r Sys.Date()`"
 site: bookdown::bookdown_site
 documentclass: book
-bibliography: [QuantRMA_Ex.bib]
+bibliography: [QuantRMA_lab.bib]
 biblio-style: apalike
 link-citations: yes
-description: "The exercises related to the introductory textbook for quantitative research methods and data analysis at EUC. This text was adapted from \"Answering questions with data: Labe Manual\" by Matthew J.C. Crump and colleagues (https://crumplab.github.io/statistics/)"
+description: "The exercises related to the introductory textbook for quantitative research methods and data analysis at EUC. This text was adapted from \"Answering questions with data: Lab Manual\" by Matthew J.C. Crump and colleagues (https://crumplab.github.io/statistics/)"
 ---
 
 ```{r setup, include=FALSE}
@@ -19,11 +19,11 @@ library(dplyr)
 # Preface {-}
 
 ## Important notes {-}
-This is the exercise manual for Quantitative Research Methods & Analysis at EUC. As with the textbook, this manual was adapted from "Answering questions with data" by Mattew J.C. Crump. 
+This is the lab manual for Quantitative Research Methods & Analysis at EUC. As with the textbook, this manual was adapted from "Answering questions with data" by Mattew J.C. Crump. 
 
 The original text is part of a [larger OER (Open Educational Resource) course](https://osf.io/3s68c/) for teaching undergraduate statistics in psychology. As such, the text assumes you are a psychology student and many of the examples are drawn from the field of psychology. This does not mean that this course is only useful for you if you have an interest in psychology. The field of psychology will serve as a vehicle to teach you important concepts and skills in quantitative research methods and data analysis, but the concepts and skills taught are universal. 
 
-This manual provides the exercises we will work on during tutorials. We use open-data sets that are usually paired with a primary research article. The manual is a free and open resource. See below for more information about copying, making change, or contributing to the lab manual.
+This manual provides the exercises we will work on during labs. We use open-data sets that are usually paired with a primary research article. The manual is a free and open resource. See below for more information about copying, making change, or contributing to the lab manual.
 
 ### Attributions {-}
 The original lab manual was authored by Matt Crump with exercises adapted and expanded from [Open Stats Labs](https://sites.trinity.edu/osl).
@@ -46,9 +46,9 @@ Under the following terms:
 
 # Getting started {-}
 
-In this course we will be using R as a tool to analyze data, and as a tool to help us gain a better understanding of what our analyses are doing. Throughout each tutorial we will show you how to use R to solve specific problems, and then you will use the examples to solve assignments. R is a very deep programming language, and in many ways we will only be skimming the surface of what R can do. Along the way, there will be many pointers to more advanced techniques that interested students can follow to become experts in using R for data-analysis, and computer programming in general.
+In this course we will be using R as a tool to analyze data, and as a tool to help us gain a better understanding of what our analyses are doing. Throughout each lab we will show you how to use R to solve specific problems, and then you will use the examples to solve assignments. R is a very deep programming language, and in many ways we will only be skimming the surface of what R can do. Along the way, there will be many pointers to more advanced techniques that interested students can follow to become experts in using R for data-analysis, and computer programming in general.
 
-R is primarily a computer programming language for statistical analysis. It is *free*, and *open-source* (many people contribute to developing it), and runs on most operating systems. It is a powerful language that can be used for all sorts of mathematical operations, data-processing, analysis, and graphical display of data. I even used R to write this tutorial manual. And, I use R all the time for my own research, because it makes data-analyis fast, efficient, transparent, reproducible, and exciting.
+R is primarily a computer programming language for statistical analysis. It is *free*, and *open-source* (many people contribute to developing it), and runs on most operating systems. It is a powerful language that can be used for all sorts of mathematical operations, data-processing, analysis, and graphical display of data. I even used R to write this lab manual. And, I use R all the time for my own research, because it makes data-analyis fast, efficient, transparent, reproducible, and exciting.
 
 ## Why R?
 
@@ -97,26 +97,26 @@ The top right panel contains (at least) two tabs, one for the workspace and anot
 
 The bottom-right window has four tabs for files, plots, packages, and help. The files tab allows browsing of the computers file directory. An important concept in R is the **current working directory**. This is file folder that R points to by default. Many functions in R will save things directly to this directory, or attempt to read files from this directory. The current working directory can be changed by navigating to the desired folder in the file menu, and then clicking on the more option to set that folder to the current working directory. This is especially important when reading in data to R. The current working directory should be set to the folder containing the data to be inputted into R. The plots tab will show recent plots and figures made in R. The packages tab lists the current R libraries loaded into memory, and provides the ability to download and enable new R packages (more about that later). The help menu is an invaluable tool. Here, you can search for individual R commands to see examples of how they are used. Sometimes the help files for individual commands are opaque and difficult to understand, so it is necessary to do a Google search to find better examples of using these commands.
 
-## How to complete the tutorials
+## How to complete the labs
 
-Each of the tutorials focuses on particular data-analysis problems, from graphing data, computing descriptive statistics, to running inferential tests in R. The R exercises usually come in three parts: a training part, a generalization part, and a writing part. The training part includes step-by-step examples of R code that solves particular problems. The generalization part gives short assignments to change parts of the provided code to solve a new problem. The writing part tasks you with answering questions about statistical concepts. 
+Each of the labs focuses on particular data-analysis problems, from graphing data, computing descriptive statistics, to running inferential tests in R. The R exercises usually come in three parts: a training part, a generalization part, and a writing part. The training part includes step-by-step examples of R code that solves particular problems. The generalization part gives short assignments to change parts of the provided code to solve a new problem. The writing part tasks you with answering questions about statistical concepts. 
 
-The way to complete each tutorial is to open a new R Markdown document in R Studio, and then document your progression through each of the parts. By doing this, you will become familiar with how R and R Studio works, and how to create documents that preserve both the code and your notes all in one place. You will upload the R Markdown document at the end of each tutorial to complete your work. There are a few tricks to getting started that are outlined below.
+The way to complete each lab is to open a new R Markdown document in R Studio, and then document your progression through each of the parts. By doing this, you will become familiar with how R and R Studio works, and how to create documents that preserve both the code and your notes all in one place. You will upload the R Markdown document at the end of each lab to complete your work. There are a few tricks to getting started that are outlined below.
 
 ### R projects
-What is an R project? As you work inside R Studio you will be creating text documents and doing things like loading data and saving the results of your analyses. As your work grows and becomes more complex, you can often find yourself creating many different files. The R project folder is a very useful way of organizing your files all in one place so you can find them later. If you double-click an R project file, R-studio will automatically load and restore your last session. In the tutorials, you will be using your R project folder to:
+What is an R project? As you work inside R Studio you will be creating text documents and doing things like loading data and saving the results of your analyses. As your work grows and becomes more complex, you can often find yourself creating many different files. The R project folder is a very useful way of organizing your files all in one place so you can find them later. If you double-click an R project file, R-studio will automatically load and restore your last session. In the labs, you will be using your R project folder to:
 
 1. save data files into this folder
-2. save R Markdown files that you will use to write your R-code and tutorial notes
+2. save R Markdown files that you will use to write your R-code and lab notes
 3. save the results of your analyses
 
 We will provide an R Project which is setup for this course in particular below.
 
 ### Installing libraries
 
-When you install R and R Studio, you get what is called Base R. Base R contains many libraries that allow you to conduct statistical analyses. Because R is free and open-source, many other developers have created add-on libraries that extend the functionality of R. **We use some of these libraries, and you need to install them before you can do the tutorials**.
+When you install R and R Studio, you get what is called Base R. Base R contains many libraries that allow you to conduct statistical analyses. Because R is free and open-source, many other developers have created add-on libraries that extend the functionality of R. **We use some of these libraries, and you need to install them before you can do the labs**.
 
-For example, in any of the tutorials, whenever you see a line code that uses the word library like this `library("libraryname")`, this line of code telling R to load up that library so it can be used. The `libraryname` would be replaced with the actual name of the library. For example, you will see code like this in the tutorials:
+For example, in any of the labs, whenever you see a line code that uses the word library like this `library("libraryname")`, this line of code telling R to load up that library so it can be used. The `libraryname` would be replaced with the actual name of the library. For example, you will see code like this in the labs:
 
 ```{r, echo=TRUE,eval=FALSE}
 library(data.table)
@@ -157,19 +157,19 @@ install.packages("rmarkdown")
 
 ### R Markdown
 
-Once you have the necessary packages installed you can begin creating R Markdown documents for each tutorial. We admit that at the beginning, R Markdown documents might seem a little bit confusing, but you will find they are extremely useful and flexible. Basically, what R Markdown allows you to do is combine two kinds of writing, 1) writing R code to conduct analyses, and 2) writing normal text, with headers, sub-headers, and paragraphs. You can think of this like a lab journal, that contains both your writing about what you are doing (e.g., notes to self), and the code that you use for analysis. Additionally, when your code does something like make a graph, or run a statistical test, you can ask R Markdown to print the results.
+Once you have the necessary packages installed you can begin creating R Markdown documents for each lab. We admit that at the beginning, R Markdown documents might seem a little bit confusing, but you will find they are extremely useful and flexible. Basically, what R Markdown allows you to do is combine two kinds of writing, 1) writing R code to conduct analyses, and 2) writing normal text, with headers, sub-headers, and paragraphs. You can think of this like a lab journal, that contains both your writing about what you are doing (e.g., notes to self), and the code that you use for analysis. Additionally, when your code does something like make a graph, or run a statistical test, you can ask R Markdown to print the results.
 
 The R Markdown website has an excellent tutorial that is well worth checking out in your own time: [https://rmarkdown.rstudio.com/lesson-1.html](https://rmarkdown.rstudio.com/lesson-1.html)
 
-### R Markdown tutorial templates
+### R Markdown lab templates
 
-We have created a set of template documents for each tutorial that can be downloaded here: [download tutorial templates](https://github.com/thomashulst/quantrma_ex/raw/master/RMarkdownsTutorials.zip).
+We have created a set of template documents for each lab that can be downloaded here: [download lab templates](https://github.com/thomashulst/quantrma_lab/raw/master/RMarkdownLabs.zip).
 
 When you unzip the file you should find the following:
 
-1. A new folder titled "RMarkdownsTutorials"
-2. Inside the folder you will see the "RMarkdownsTutorials.Rproj" file
-3. A data folder containing data files for the tutorials
-4. A "TutorialTemplates" folder containing the R Markdown tutorials for each tutorial.
+1. A new folder titled "RMarkdownLabs"
+2. Inside the folder you will see the "RMarkdownLabs" file
+3. A data folder containing data files for the labs
+4. A "LabTemplates" folder containing the R Markdown for each lab
 
-Each template .Rmd file contains three sections for the R part of the tutorial. You will write your notes and answers to the question in the .Rmd file. At the end of each tutorial you will "knit" the file (knitting is a term for making your documents look prettier) and upload the result to Canvas.
+Each template .Rmd file contains three sections for the R part of the lab. You will write your notes and answers to the question in the .Rmd file. At the end of each lab you will "knit" the file (knitting is a term for making your documents look prettier) and upload the result to Canvas.
