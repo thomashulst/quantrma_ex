@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title> 1 Week 1: Introduction6 | Lab manual QuantRMA</title>
+  <meta name="description" content="The exercises related to the introductory textbook for quantitative research methods and data analysis at EUC. This text was adapted from “Answering questions with data: Lab Manual” by Matthew J.C. Crump and colleagues (https://crumplab.github.io/statistics/)" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content=" 1 Week 1: Introduction6 | Lab manual QuantRMA" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="The exercises related to the introductory textbook for quantitative research methods and data analysis at EUC. This text was adapted from “Answering questions with data: Lab Manual” by Matthew J.C. Crump and colleagues (https://crumplab.github.io/statistics/)" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content=" 1 Week 1: Introduction6 | Lab manual QuantRMA" />
+  
+  <meta name="twitter:description" content="The exercises related to the introductory textbook for quantitative research methods and data analysis at EUC. This text was adapted from “Answering questions with data: Lab Manual” by Matthew J.C. Crump and colleagues (https://crumplab.github.io/statistics/)" />
+  
+
+<meta name="author" content="Matthew J. C. Crump, Anjali Krishnan, Stephen Volz, and Alla Chavarga" />
+<meta name="author" content="Adapted for use at EUC by Thomas Hulst and Thanos Kostopoulos" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="getting-started-adapted1.html"/>
+<link rel="next" href="references.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Lab manual QuantRMA</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#important-notes"><i class="fa fa-check"></i>Important notes</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#attributions"><i class="fa fa-check"></i>Attributions</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#cc-by-sa-4.0-license"><i class="fa fa-check"></i>CC BY-SA 4.0 license</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="getting-started-adapted1.html"><a href="getting-started-adapted1.html"><i class="fa fa-check"></i>Getting started</a><ul>
+<li class="chapter" data-level="0.1" data-path="getting-started-adapted1.html"><a href="getting-started-adapted1.html#why-r"><i class="fa fa-check"></i><b>0.1</b> Why R?</a></li>
+<li class="chapter" data-level="0.2" data-path="getting-started-adapted1.html"><a href="getting-started-adapted1.html#downloading-and-installing-r"><i class="fa fa-check"></i><b>0.2</b> Downloading and installing R</a><ul>
+<li class="chapter" data-level="0.2.1" data-path="getting-started-adapted1.html"><a href="getting-started-adapted1.html#installing-r-on-a-mac"><i class="fa fa-check"></i><b>0.2.1</b> Installing R on a Mac</a></li>
+<li class="chapter" data-level="0.2.2" data-path="getting-started-adapted1.html"><a href="getting-started-adapted1.html#installing-r-on-a-windows-pc"><i class="fa fa-check"></i><b>0.2.2</b> Installing R on a Windows PC</a></li>
+<li class="chapter" data-level="0.2.3" data-path="getting-started-adapted1.html"><a href="getting-started-adapted1.html#installing-r-on-a-linux-pc"><i class="fa fa-check"></i><b>0.2.3</b> Installing R on a Linux PC</a></li>
+</ul></li>
+<li class="chapter" data-level="0.3" data-path="getting-started-adapted1.html"><a href="getting-started-adapted1.html#RStudio"><i class="fa fa-check"></i><b>0.3</b> Downloading and installing RStudio</a></li>
+<li class="chapter" data-level="0.4" data-path="getting-started-adapted1.html"><a href="getting-started-adapted1.html#understanding-rstudio"><i class="fa fa-check"></i><b>0.4</b> Understanding RStudio</a><ul>
+<li class="chapter" data-level="0.4.1" data-path="getting-started-adapted1.html"><a href="getting-started-adapted1.html#consoleR"><i class="fa fa-check"></i><b>0.4.1</b> Console</a></li>
+<li class="chapter" data-level="0.4.2" data-path="getting-started-adapted1.html"><a href="getting-started-adapted1.html#script-editor"><i class="fa fa-check"></i><b>0.4.2</b> Script Editor</a></li>
+<li class="chapter" data-level="0.4.3" data-path="getting-started-adapted1.html"><a href="getting-started-adapted1.html#workspace-and-history"><i class="fa fa-check"></i><b>0.4.3</b> Workspace and History</a></li>
+<li class="chapter" data-level="0.4.4" data-path="getting-started-adapted1.html"><a href="getting-started-adapted1.html#fileplot"><i class="fa fa-check"></i><b>0.4.4</b> File, Plot, Packages, Help</a></li>
+<li class="chapter" data-level="0.4.5" data-path="getting-started-adapted1.html"><a href="getting-started-adapted1.html#installing-libraries"><i class="fa fa-check"></i><b>0.4.5</b> Installing libraries</a></li>
+</ul></li>
+<li class="chapter" data-level="0.5" data-path="getting-started-adapted1.html"><a href="getting-started-adapted1.html#how-to-complete-the-labs"><i class="fa fa-check"></i><b>0.5</b> How to complete the labs</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="week-1-introductionadapted2.html"><a href="week-1-introductionadapted2.html"><i class="fa fa-check"></i><b>1</b> Week 1: Introduction</a><ul>
+<li class="chapter" data-level="" data-path="week-1-introductionadapted2.html"><a href="week-1-introductionadapted2.html#lets-get-started"><i class="fa fa-check"></i>Let’s get started!</a></li>
+<li class="chapter" data-level="1.1" data-path="week-1-introductionadapted2.html"><a href="week-1-introductionadapted2.html#part-one-research-methods"><i class="fa fa-check"></i><b>1.1</b> Part one: research methods</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="week-1-introductionadapted2.html"><a href="week-1-introductionadapted2.html#question-1"><i class="fa fa-check"></i><b>1.1.1</b> Question 1</a></li>
+<li class="chapter" data-level="1.1.2" data-path="week-1-introductionadapted2.html"><a href="week-1-introductionadapted2.html#question-2"><i class="fa fa-check"></i><b>1.1.2</b> Question 2</a></li>
+<li class="chapter" data-level="1.1.3" data-path="week-1-introductionadapted2.html"><a href="week-1-introductionadapted2.html#question-3"><i class="fa fa-check"></i><b>1.1.3</b> Question 3</a></li>
+<li class="chapter" data-level="1.1.4" data-path="week-1-introductionadapted2.html"><a href="week-1-introductionadapted2.html#question-4"><i class="fa fa-check"></i><b>1.1.4</b> Question 4</a></li>
+<li class="chapter" data-level="1.1.5" data-path="week-1-introductionadapted2.html"><a href="week-1-introductionadapted2.html#question-5"><i class="fa fa-check"></i><b>1.1.5</b> Question 5</a></li>
+<li class="chapter" data-level="1.1.6" data-path="week-1-introductionadapted2.html"><a href="week-1-introductionadapted2.html#question-6"><i class="fa fa-check"></i><b>1.1.6</b> Question 6</a></li>
+<li class="chapter" data-level="1.1.7" data-path="week-1-introductionadapted2.html"><a href="week-1-introductionadapted2.html#question-7"><i class="fa fa-check"></i><b>1.1.7</b> Question 7</a></li>
+<li class="chapter" data-level="1.1.8" data-path="week-1-introductionadapted2.html"><a href="week-1-introductionadapted2.html#question-8"><i class="fa fa-check"></i><b>1.1.8</b> Question 8</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="week-1-introductionadapted2.html"><a href="week-1-introductionadapted2.html#part-two-introduction-to-r"><i class="fa fa-check"></i><b>1.2</b> Part two: introduction to R</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="week-1-introductionadapted2.html"><a href="week-1-introductionadapted2.html#arithmetic"><i class="fa fa-check"></i><b>1.2.1</b> Doing simple calculations with R</a></li>
+<li class="chapter" data-level="1.2.2" data-path="week-1-introductionadapted2.html"><a href="week-1-introductionadapted2.html#usingfunctions"><i class="fa fa-check"></i><b>1.2.2</b> Using functions to do calculations</a></li>
+<li class="chapter" data-level="1.2.3" data-path="week-1-introductionadapted2.html"><a href="week-1-introductionadapted2.html#assign"><i class="fa fa-check"></i><b>1.2.3</b> Storing a number as a variable</a></li>
+<li class="chapter" data-level="1.2.4" data-path="week-1-introductionadapted2.html"><a href="week-1-introductionadapted2.html#using-comments"><i class="fa fa-check"></i><b>1.2.4</b> Using comments</a></li>
+<li class="chapter" data-level="1.2.5" data-path="week-1-introductionadapted2.html"><a href="week-1-introductionadapted2.html#r-is-pretty-stupid"><i class="fa fa-check"></i><b>1.2.5</b> R is pretty stupid?</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>2</b> References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Lab manual QuantRMA</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="week-1-introductionadapted2" class="section level1">
+<h1><span class="header-section-number"> 1</span> Week 1: Introduction<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a></h1>
+<p>This first lab consists of two parts. In the first part we will work on several exercises related to the readings about research methods. In the second part you be introduced to basic concepts in R. This lab assumes you have read the required readings of <a href="https://thomashulst.github.io/quantrma/Introduction.html">Week 1</a> and completed the <a href="https://thomashulst.github.io/quantrma_lab/getting-started.html">Getting started</a> guide. You will be completing each lab by writing your notes and code in an R Markdown document. You should have setup your files as described <a href="https://thomashulst.github.io/quantrma_lab/getting-started.html#how-to-complete-the-labs">in this part</a> of the Getting started section. At the end of this lab you will <strong>individually</strong> upload the document with your answers to Canvas.</p>
+<p>If you finish before the time is up, you can start with the required readings of Week 2 or help out your fellow students. If you are unable to finish the exercises during the lab, continue working on them at home and discuss your results with your peers. If you still have questions, please visit the office hours on Wednesday’s.</p>
+<p>The answers to all exercises will be uploaded to Canvas every Friday after 18:00.</p>
+<div id="lets-get-started" class="section level2 unnumbered">
+<h2>Let’s get started!</h2>
+<p>Follow these steps:</p>
+<ol style="list-style-type: decimal">
+<li>Copy the template file for lab 1, “Lab01_Introduction_StudentNumber.Rmd”, and place it into the “RMarkdownLabs” folder (i.e. copy it out of the template folder, and into the RMarkdownLabs folder)</li>
+<li>Rename the file to add your own student number, eg., “Lab01_Introduction_123456”</li>
+<li>Double-click the “RMarkdownLabs.Rproj” file</li>
+<li>RStudio will now load up</li>
+<li>If you click the files tab, you will see all of the files and folders inside the “RMarkdownLabs” folder</li>
+<li>Click the lab file and it will now load into the editor window</li>
+<li>You should keep your notes, copy/paste R code, and answer the questions of this lab in the lab RMarkdown document</li>
+</ol>
+<p>When we made this course, we assumed that most students would be unfamiliar with R and RStudio, and might even be frightened of it. Don’t worry. It’s going to be way easier than you think. We know that it will seem challenging at first. But, we think that with lots of working examples, you will get the hang of it, and by the end of the course you will be able to do things you might never have dreamed you can do. It’s really a fantastic skill to learn, even if you aren’t planning on going on to do research. If anything during this lab is unclear, please do not hesitate to ask your tutor.</p>
+</div>
+<div id="part-one-research-methods" class="section level2">
+<h2><span class="header-section-number">1.1</span> Part one: research methods</h2>
+<p>Discuss the questions about research methods below in groups of 3 and register the answers in the .Rmd file for this lab.</p>
+<div id="question-1" class="section level3">
+<h3><span class="header-section-number">1.1.1</span> Question 1</h3>
+<p>In the required readings of this week we called to process of clarifying abstract concepts and translating them into specific, observable measures <strong>operationalization</strong>. Operationalization involves both a <strong>nominal</strong> and an <strong>operational</strong> definition. Describe in your own words what these terms mean.</p>
+</div>
+<div id="question-2" class="section level3">
+<h3><span class="header-section-number">1.1.2</span> Question 2</h3>
+<p>To make sure you are able to submit your answers at the end of this lab, try to “knit” your R Markdown file by pressing the “Knit” button:</p>
+<p><img src="figures/knit.png" width="50%" /></p>
+<p>Knitting creates a formatted document which can be displayed by other programs. By default, the document is knitted as a .html file (which can be read by any web browser), but you can also knit your RMarkdown documents as a Word document (.docx)! To do so, press the downward arrow next to the knitting symbol and select “Knit to Word”. For your submission, the default (.html) format suffices.</p>
+</div>
+<div id="question-3" class="section level3">
+<h3><span class="header-section-number">1.1.3</span> Question 3</h3>
+<p>Two different definitions of <strong>emotional well-being</strong> are provided by the Mental Health Foundation. For each of the following definitions, decide whether it constitutes a nominal or an operational definition:</p>
+<ol style="list-style-type: lower-alpha">
+<li>“A positive sense of well-being which enables an individual to be able to function in society and meet the demands of everyday life.”</li>
+<li>“People in good mental health have the ability to recover effectively from illness, change or misfortune.”</li>
+</ol>
+</div>
+<div id="question-4" class="section level3">
+<h3><span class="header-section-number">1.1.4</span> Question 4</h3>
+<p>Two different definitions of <strong>financial literacy</strong> can be found in literature. For each of the following definitions, decide whether it constitutes a nominal or an operational definition:</p>
+<ol style="list-style-type: lower-alpha">
+<li>“The ability to read, analyze, manage and communicate about the personal financial conditions that affect material well-being.”</li>
+<li>“The ability to manage effectively personal savings, credits and borrowed money as well as personal investments.”</li>
+</ol>
+</div>
+<div id="question-5" class="section level3">
+<h3><span class="header-section-number">1.1.5</span> Question 5</h3>
+<p>Suppose you want to study financial literacy, given the numerous benefits it brings to society, and given the documented lack of financial education. Would you use the following operational definition of financial literacy: “The ability to correctly predict short term fluctuations in the stock market?”</p>
+</div>
+<div id="question-6" class="section level3">
+<h3><span class="header-section-number">1.1.6</span> Question 6</h3>
+<p>The graph below is a visual representation of the concepts of measure validity and reliability.</p>
+<div class="figure"><span id="fig:validreliab"></span>
+<img src="figures/ValidReliab.png" alt="A visual representation of the concepts measure validity and reliability. Imagine the theoretical construct you want to measure is the bullseye of the dartboard and the dots represent an attempt at measurement. Illustration adapted from an illustration by Nevit Dilmen, Wikimedia Commons." width="1805" />
+<p class="caption">
+Figure 1.1: A visual representation of the concepts measure validity and reliability. Imagine the theoretical construct you want to measure is the bullseye of the dartboard and the dots represent an attempt at measurement. Illustration adapted from an illustration by Nevit Dilmen, Wikimedia Commons.
+</p>
+</div>
+<p>For each one of the three statements below, indicate whether it corresponds to dart board A, B, C or none.</p>
+<ul>
+<li>The measure of our concept is valid, but not reliable.</li>
+<li>The measure of our concept is reliable, but not valid.</li>
+<li>The measure of our concept is neither valid, not reliable.</li>
+<li>The measure of our concept is both valid and reliable.</li>
+</ul>
+</div>
+<div id="question-7" class="section level3">
+<h3><span class="header-section-number">1.1.7</span> Question 7</h3>
+<p>The National Health Care Institute of the Netherlands partners with local schools to provide a weekly physical exercise program for children ages 6-14. The sessions are designed to last throughout the whole academic year, and they will take place in afternoon hours. They also consist of both a theoretical and a practical part. In the theoretical part, volunteers strive to increase children’s exercise habits by teaching them about the benefits of regular exercise, whereas in the practical part, they organize various age-appropriate sports activities for children to participate in. Changes in exercise habits are measured via a questionnaire at the end of the program. However, the program manager is concerned that the questionnaire is not producing high-quality observations, particularly for questions that ask children about their exercise habits before participating in the program. Assuming the problem is with measurement and not with the program design:</p>
+<ul>
+<li>What is the most likely measurement problem? Reliability or validity?</li>
+<li>What type of error is most likely producing this problem? Constant error, random error and/or correlated error?</li>
+<li>How might the program address this measurement problem?</li>
+</ul>
+</div>
+<div id="question-8" class="section level3">
+<h3><span class="header-section-number">1.1.8</span> Question 8</h3>
+<p>The Dutch Environmental Assessment Agency aims to identify sections of Dutch rivers for stream bank restoration. The goal of this work is to create stream bank conditions that can lead to eventual water quality improvements. Crews of national service volunteers implement remediation in accordance with the waterway management plan, including removal of trash and debris from stream banks, removal of invasive plants, reintroduction of native plants, and erosion abatement. Land managers from the Ministry of Infrastructure and Water Management inspect project sites within two weeks of project completion. The assessment instrument used by land managers contains checkbox items to indicate whether various remediation actions were taken but does not provide a way to assess the quality of these remediation actions with respect to environmental standards. This problem should be of high concern to the land managers, given the fact that high quality environmental standards are hard to meet, even when all the appropriate actions have been taken. Assuming the problem is with measurement and not with the program design:</p>
+<ul>
+<li>What is the most likely measurement problem? Reliability or validity?</li>
+<li>What type of error is most likely producing this problem? Constant error, random error and/or correlated error?</li>
+<li>How might the program address this measurement problem?</li>
+</ul>
+</div>
+</div>
+<div id="part-two-introduction-to-r" class="section level2">
+<h2><span class="header-section-number">1.2</span> Part two: introduction to R</h2>
+<p>This part of the lab manual will introduce you to the very basics of R. You are urged to follow along with the examples in your own RStudio window. The answers to the exercises can be registered in the R Markdown document of this lab. During this part of the lab, we’ll spend a bit of time using R as a simple calculator, since that’s the easiest thing to do with R, just to give you a feel for what it’s like to work in R. In <a href="https://thomashulst.github.io/quantrma_lab/getting-started.html">the Getting started</a> guide we learned to execute our first command in R, by typing 10 + 20 in the console and pressing enter. Try it out in RStudio:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="week-1-introductionadapted2.html#cb7-1"></a><span class="dv">10</span><span class="op">+</span><span class="dv">20</span></span></code></pre></div>
+<pre><code>## [1] 30</code></pre>
+<div id="arithmetic" class="section level3">
+<h3><span class="header-section-number">1.2.1</span> Doing simple calculations with R</h3>
+<p>First, let’s learn how to use one of the most powerful piece of statistical software in the world as a $2 calculator. So far, all we know how to do is addition. Clearly, a calculator that only did addition would be a bit stupid, so I should tell you about how to perform other simple calculations using R. But first, some more terminology. Addition is an example of an “operation” that you can perform (specifically, an arithmetic operation), and the <strong><em>operator</em></strong> that performs it is <code>+</code>. To people with a programming or mathematics background, this terminology probably feels pretty natural, but to other people it might feel like I’m trying to make something very simple (addition) sound more complicated than it is (by calling it an arithmetic operation). To some extent, that’s true: if addition was the only operation that we were interested in, it’d be a bit silly to introduce all this extra terminology. However, as we go along, we’ll start using more and more different kinds of operations, so it’s probably a good idea to get the language straight now, while we’re still talking about very familiar concepts like addition!</p>
+<div id="adding-subtracting-multiplying-and-dividing" class="section level4">
+<h4><span class="header-section-number">1.2.1.1</span> Adding, subtracting, multiplying and dividing</h4>
+<p>So, now that we have the terminology, let’s learn how to perform some arithmetic operations in R. To that end, the table below lists the operators that correspond to the basic arithmetic we learned in primary school: addition, subtraction, multiplication and division.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">operation</th>
+<th align="center">operator</th>
+<th align="center">example input</th>
+<th align="center">example output</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">addition</td>
+<td align="center"><code>+</code></td>
+<td align="center">10 + 2</td>
+<td align="center">12</td>
+</tr>
+<tr class="even">
+<td align="left">subtraction</td>
+<td align="center"><code>-</code></td>
+<td align="center">9 - 3</td>
+<td align="center">6</td>
+</tr>
+<tr class="odd">
+<td align="left">multiplication</td>
+<td align="center"><code>*</code></td>
+<td align="center">5 * 5</td>
+<td align="center">25</td>
+</tr>
+<tr class="even">
+<td align="left">division</td>
+<td align="center"><code>/</code></td>
+<td align="center">10 / 3</td>
+<td align="center">3</td>
+</tr>
+<tr class="odd">
+<td align="left">power</td>
+<td align="center"><code>^</code></td>
+<td align="center">5 ^ 2</td>
+<td align="center">25</td>
+</tr>
+</tbody>
+</table>
+<p>As you can see, R uses fairly standard symbols to denote each of the different operations you might want to perform: addition is done using the <code>+</code> operator, subtraction is performed by the <code>-</code> operator, and so on. So if I wanted to find out what 57 times 61 is (and who wouldn’t?), I can use R instead of a calculator, like so:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="week-1-introductionadapted2.html#cb9-1"></a><span class="dv">57</span> <span class="op">*</span><span class="st"> </span><span class="dv">61</span></span></code></pre></div>
+<pre><code>## [1] 3477</code></pre>
+<p>So that’s handy.</p>
+</div>
+<div id="bedmas" class="section level4">
+<h4><span class="header-section-number">1.2.1.2</span> Doing calculations in the right order</h4>
+<p>Okay. At this point, you know how to take one of the most powerful pieces of statistical software in the world, and use it as a $2 calculator. And as a bonus, you’ve learned a few very basic programming concepts. That’s not nothing (you could argue that you’ve just saved yourself $2) but on the other hand, it’s not very much either. In order to use R more effectively, we need to introduce more programming concepts.</p>
+<p>In most situations where you would want to use a calculator, you might want to do multiple calculations. R lets you do this, just by typing in longer commands.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="week-1-introductionadapted2.html#cb11-1"></a><span class="dv">1</span> <span class="op">+</span><span class="st"> </span><span class="dv">2</span> <span class="op">*</span><span class="st"> </span><span class="dv">4</span></span></code></pre></div>
+<pre><code>## [1] 9</code></pre>
+<p>Clearly, this isn’t a problem for R either. However, it’s worth stopping for a second, and thinking about what R just did. Clearly, since it gave us an answer of <code>9</code> it must have multiplied <code>2 * 4</code> (to get an interim answer of 8) and then added 1 to that. But, suppose it had decided to just go from left to right: if R had decided instead to add <code>1+2</code> (to get an interim answer of 3) and then multiplied by 4, it would have come up with an answer of <code>12</code>.</p>
+<p>To answer this, you need to know the <strong><em>order of operations</em></strong> that R uses. It’s actually the same order that (most of) you got taught when you were in high school: the “<strong><em>BEDMAS</em></strong>” order<a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a>. That is, first calculate things inside <strong>B</strong>rackets <code>()</code>, then calculate <strong>E</strong>xponents <code>^</code>, then <strong>D</strong>ivision <code>/</code> and <strong>M</strong>ultiplication <code>*</code>, then <strong>A</strong>ddition <code>+</code> and <strong>S</strong>ubtraction <code>-</code>. So, to continue the example above, if we want to force R to calculate the <code>1+2</code> part before the multiplication, all we would have to do is enclose it in brackets:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="week-1-introductionadapted2.html#cb13-1"></a>(<span class="dv">1</span> <span class="op">+</span><span class="st"> </span><span class="dv">2</span>) <span class="op">*</span><span class="st"> </span><span class="dv">4</span> </span></code></pre></div>
+<pre><code>## [1] 12</code></pre>
+<p>This is a fairly useful thing to be able to do. The only other thing I should point out about order of operations is what to expect when you have two operations that have the same priority: that is, how does R resolve ties? For instance, multiplication and division are actually the same priority, but what should we expect when we give R a problem like <code>4 / 2 * 3</code> to solve? If it evaluates the multiplication first and then the division, it would calculate a value of two-thirds. But if it evaluates the division first it calculates a value of 6. The answer, in this case, is that R goes from <em>left to right</em>, so in this case the division step would come first:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="week-1-introductionadapted2.html#cb15-1"></a><span class="dv">4</span> <span class="op">/</span><span class="st"> </span><span class="dv">2</span> <span class="op">*</span><span class="st"> </span><span class="dv">3</span></span></code></pre></div>
+<pre><code>## [1] 6</code></pre>
+<p>All of the above being said, it’s helpful to remember that <em>brackets always come first</em>. So, if you’re ever unsure about what order R will do things in, an easy solution is to enclose the thing <em>you</em> want it to do first in brackets. There’s nothing stopping you from typing <code>(4 / 2) * 3</code>. By enclosing the division in brackets we make it clear which thing is supposed to happen first. In this instance you wouldn’t have needed to, since R would have done the division first anyway, but when you’re first starting out it’s better to make sure R does what you want!</p>
+</div>
+<div id="arithmetics-exercises" class="section level4">
+<h4><span class="header-section-number">1.2.1.3</span> Arithmetics exercises</h4>
+<ol style="list-style-type: decimal">
+<li>Take your favorite number to the third power.</li>
+<li>Calculate the number of seconds in a year, on the simplifying assumption that a year contains exactly 365 days.</li>
+<li>Use R to calculate solution to <code>6/2*(1+2)</code>. Why is the solution not <code>1</code>?</li>
+</ol>
+</div>
+</div>
+<div id="usingfunctions" class="section level3">
+<h3><span class="header-section-number">1.2.2</span> Using functions to do calculations</h3>
+<p>The symbols <code>+</code>, <code>-</code>, <code>*</code> and so on are examples of operators. As we’ve seen, you can do quite a lot of calculations just by using these operators. However, in order to do more advanced calculations (and later on, to do actual statistics), you’re going to need to start using <strong><em>functions</em></strong>. To get started, suppose I wanted to take the square root of 225. The square root, in case your high school maths is a bit rusty, is just the opposite of squaring a number. So, for instance, since “5 squared is 25” I can say that “5 is the square root of 25”. The usual notation for this is</p>
+<p><span class="math display">\[
+\sqrt{25} = 5
+\]</span></p>
+<p>though sometimes you’ll also see it written like this
+<span class="math inline">\(25^{0.5} = 5.\)</span></p>
+<p>To calculate the square root of 25, I can do it in my head pretty easily, since I memorised my multiplication tables when I was a kid. It gets harder when the numbers get bigger, and pretty much impossible if they’re not whole numbers. This is where something like R comes in very handy. Let’s say I wanted to calculate <span class="math inline">\(\sqrt{225}\)</span>, the square root of 225. There’s two ways I could do this using R. Firstly, since the square root of 255 is the same thing as raising 225 to the power of 0.5, I could use the power operator <code>^</code>, just like we did earlier:</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="week-1-introductionadapted2.html#cb17-1"></a><span class="dv">225</span> <span class="op">^</span><span class="st"> </span><span class="fl">0.5</span></span></code></pre></div>
+<pre><code>## [1] 15</code></pre>
+<p>However, there’s a second way that we can do this, since R also provides a <strong><em>square root function</em></strong>: <code>sqrt()</code>. To calculate the square root of 255 using this function, what I do is insert the number <code>225</code> in the parentheses. That is, the command I type is this:</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="week-1-introductionadapted2.html#cb19-1"></a><span class="kw">sqrt</span>(<span class="dv">225</span>)</span></code></pre></div>
+<pre><code>## [1] 15</code></pre>
+<p>When we use a function to do something, we generally refer to this as <strong><em>calling</em></strong> the function, and the values that we type into the function (there can be more than one) are referred to as the <strong><em>arguments</em></strong> of that function.</p>
+<p>Obviously, the <code>sqrt()</code> function doesn’t really give us any new functionality, since we already knew how to do square root calculations by using the power operator <code>^</code>, though I do think it looks nicer when we use <code>sqrt()</code>. However, there are lots of other functions in R: in fact, almost everything of interest that we’ll use during our statistical analyses is an R function of some kind. For example, one function that can come in handy is the <strong>absolute value function</strong>. Compared to the square root function, it’s extremely simple: it just converts negative numbers to positive numbers, and leaves positive numbers alone. Calculating absolute values in R is pretty easy, since R provides the <code>abs</code> function that you can use for this purpose. For instance:</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="week-1-introductionadapted2.html#cb21-1"></a><span class="kw">abs</span>(<span class="op">-</span><span class="dv">13</span>)</span></code></pre></div>
+<pre><code>## [1] 13</code></pre>
+<p>Before moving on, it’s worth noting that – in the same way that R allows us to put multiple operations together into a longer command, like <code>1 + 2*4</code> for instance – it also lets us put functions together and even combine functions with operators if we so desire. For example, the following is a perfectly legitimate command:</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="week-1-introductionadapted2.html#cb23-1"></a><span class="kw">sqrt</span>( <span class="dv">1</span> <span class="op">+</span><span class="st"> </span><span class="kw">abs</span>(<span class="op">-</span><span class="dv">8</span>) )</span></code></pre></div>
+<pre><code>## [1] 3</code></pre>
+<p>When R executes this command, starts out by calculating the value of <code>abs(-8)</code>, which produces an intermediate value of <code>8</code>. Having done so, the command simplifies to <code>sqrt( 1 + 8 )</code>.</p>
+<div id="multiple-arguments" class="section level4">
+<h4><span class="header-section-number">1.2.2.1</span> Multiple arguments</h4>
+<p>There’s two more fairly important things that you need to understand about how functions work in R, and that’s the use of “named” arguments, and default values" for arguments. Not surprisingly, that’s not to say that this is the last we’ll hear about how functions work, but they are the last things we desperately need to discuss in order to get you started. To understand what these two concepts are all about, I’ll introduce another function. The <code>round()</code> function can be used to round some value to the nearest whole number. For example, I could type this:</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="week-1-introductionadapted2.html#cb25-1"></a><span class="kw">round</span>(<span class="fl">3.1415</span>)</span></code></pre></div>
+<pre><code>## [1] 3</code></pre>
+<p>Pretty straightforward, really. However, suppose I only wanted to round it to two decimal places: that is, I want to get <code>3.14</code> as the output. The <code>round()</code> function supports this, by allowing you to input a second argument to the function that specifies the number of decimal places that you want to round the number to. In other words, I could do this:</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="week-1-introductionadapted2.html#cb27-1"></a><span class="kw">round</span>(<span class="fl">3.1415</span>, <span class="dv">2</span>)</span></code></pre></div>
+<pre><code>## [1] 3.14</code></pre>
+<p>What’s happening here is that I’ve specified <em>two</em> arguments: the first argument is the number that needs to be rounded (i.e., <code>3.1415</code>), the second argument is the number of decimal places that it should be rounded to (i.e., <code>2</code>), and the two arguments are separated by a comma.</p>
+</div>
+<div id="argument-names" class="section level4">
+<h4><span class="header-section-number">1.2.2.2</span> Argument names</h4>
+<p>In this simple example, it’s quite easy to remember which one argument comes first and which one comes second, but for more complicated functions this is not easy. Fortunately, most R functions make use of <strong><em>argument names</em></strong>. For the <code>round()</code> function, for example the number that needs to be rounded is specified using the <code>x</code> argument, and the number of decimal points that you want it rounded to is specified using the <code>digits</code> argument. Because we have these names available to us, we can specify the arguments to the function by name. We do so like this:</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="week-1-introductionadapted2.html#cb29-1"></a><span class="kw">round</span>(<span class="dt">x =</span> <span class="fl">3.1415</span>, <span class="dt">digits =</span> <span class="dv">2</span>)</span></code></pre></div>
+<pre><code>## [1] 3.14</code></pre>
+<p>Notice that this is kind of similar in spirit to variable assignment, except that I used <code>=</code> here, rather than <code>&lt;-</code>. In both cases we’re specifying specific values to be associated with a label. However, there are some differences between what I was doing earlier on when creating variables, and what I’m doing here when specifying arguments, and so as a consequence it’s important that you use <code>=</code> in this context.</p>
+<p>As you can see, specifying the arguments by name involves a lot more typing, but it’s also a lot easier to read. Because of this, the commands in this lab manual will usually specify arguments by name, since that makes it clearer to you what I’m doing. However, one important thing to note is that when specifying the arguments using their names, it doesn’t matter what order you type them in. But if you don’t use the argument names, then you have to input the arguments in the correct order. In other words, these three commands all produce the same output…</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="week-1-introductionadapted2.html#cb31-1"></a><span class="kw">round</span>(<span class="fl">3.1415</span>, <span class="dv">2</span>)</span></code></pre></div>
+<pre><code>## [1] 3.14</code></pre>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="week-1-introductionadapted2.html#cb33-1"></a><span class="kw">round</span>(<span class="dt">x =</span> <span class="fl">3.1415</span>, <span class="dt">digits =</span> <span class="dv">2</span>)</span></code></pre></div>
+<pre><code>## [1] 3.14</code></pre>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="week-1-introductionadapted2.html#cb35-1"></a><span class="kw">round</span>(<span class="dt">digits =</span> <span class="dv">2</span>, <span class="dt">x =</span> <span class="fl">3.1415</span>)</span></code></pre></div>
+<pre><code>## [1] 3.14</code></pre>
+<p>but this one does not…</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="week-1-introductionadapted2.html#cb37-1"></a><span class="kw">round</span>( <span class="dv">2</span>, <span class="fl">3.14165</span> )</span></code></pre></div>
+<pre><code>## [1] 2</code></pre>
+</div>
+<div id="getting-help-with-functions" class="section level4">
+<h4><span class="header-section-number">1.2.2.3</span> Getting help with functions</h4>
+<p>How do you find out what the correct order is or what arguments a function uses? There’s a few different ways, but the easiest one is to look at the help documentation for the function. You can look up the documentation of any function by typing a question mark (?) and the function name as follows:</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="week-1-introductionadapted2.html#cb39-1"></a>?round</span></code></pre></div>
+<p>I have somewhat mixed feelings about the help documentation in R. On the plus side, there’s a lot of it, and it’s very thorough. On the minus side, there’s a lot of it, and it’s very thorough. There’s so much help documentation that it sometimes doesn’t help, and most of it is written with an advanced user in mind.</p>
+<p>Now, it’s probably beginning to dawn on you that there are going to be a <em>lot</em> of R functions, all of which have their own arguments. You’re probably also worried that you’re going to have to remember all of them! Thankfully, it’s not that bad. In fact, very few data analysts bother to try to remember all the commands. What they really do is use tricks to make their lives easier. The first trick is using the <code>?</code> command shown above to display the documentation on a particular function. Another trick is to use two question marks (<code>??</code>) to launch a search to all mentions of the word after <code>??</code> in the R documentation. The final, and arguably most important trick, is to use the internet. If you don’t know how a particular R function works, or you want to do something in R but are unsure how, <a href="https://www.google.com/search?q=round+numbers+in+r">Google it</a>.</p>
+</div>
+<div id="function-exercises" class="section level4">
+<h4><span class="header-section-number">1.2.2.4</span> Function exercises</h4>
+<ol style="list-style-type: decimal">
+<li>Use a function to calculate the square root of your favorite number.</li>
+<li>How many arguments does the function <code>log()</code> take?</li>
+<li>Use R to execute the following command: <code>rep("hello!",100)</code>. What does the <code>rep()</code> function do? Could you rewrite the command to use argument names?</li>
+</ol>
+</div>
+</div>
+<div id="assign" class="section level3">
+<h3><span class="header-section-number">1.2.3</span> Storing a number as a variable</h3>
+<p>One of the most important things to be able to do in R (or any programming language, for that matter) is to store information in <strong><em>variables</em></strong>. Variables in R aren’t exactly the same thing as the variables we talked about in the chapter on research methods, but they are similar. At a conceptual level you can think of a variable as <em>label</em> for a certain piece of information, or even several different pieces of information. When doing statistical analysis in R all of your data (the variables you measured in your study) will be stored as variables in R, but as well see later in the book you’ll find that you end up creating variables for other things too. However, before we delve into all the messy details of data sets and statistical analysis, let’s look at the very basics for how we create variables and work with them.</p>
+<div id="variable-assignment-using--" class="section level4">
+<h4><span class="header-section-number">1.2.3.1</span> Variable assignment using <code>&lt;-</code></h4>
+<p>Since we’ve been working with numbers so far, let’s start by creating variables to store our numbers. And since most people like concrete examples, let’s invent one.</p>
+<p>Suppose I’m trying to calculate how much money I’m going to make from selling my book about statistics. There’s several different numbers I might want to store. Firstly, I need to figure out how many copies I’ll sell. The book I’m writing isn’t exactly <em>Harry Potter</em>, so let’s assume I’m only going to sell one copy per student in my class. That’s about 200 sales, so let’s create a variable called <code>sales</code>. What I want to do is assign a <strong><em>value</em></strong> to my variable <code>sales</code>, and that value should be <code>200</code>. We do this by using the <strong><em>assignment operator</em></strong>, which is <code>&lt;-</code>. Here’s how we do it:</p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="week-1-introductionadapted2.html#cb40-1"></a>sales &lt;-<span class="st"> </span><span class="dv">200</span></span></code></pre></div>
+<p>When you hit enter, R doesn’t print out any output.<a href="#fn8" class="footnote-ref" id="fnref8"><sup>8</sup></a> It just gives you another command prompt. However, behind the scenes R has created a variable called <code>sales</code> and given it a value of <code>200</code>. You can check that this has happened by asking R to print the variable on screen. And the simplest way to do <em>that</em> is to type the name of the variable and hit enter.</p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="week-1-introductionadapted2.html#cb41-1"></a>sales</span></code></pre></div>
+<pre><code>## [1] 200</code></pre>
+</div>
+<div id="doing-calculations-using-variables" class="section level4">
+<h4><span class="header-section-number">1.2.3.2</span> Doing calculations using variables</h4>
+<p>Okay, let’s get back to my original story. In my quest to become rich, I’ve written this statistics textbook. To figure out how good a strategy this is, I’ve started creating some variables in R. In addition to defining a <code>sales</code> variable that counts the number of copies I’m going to sell, I can also create a variable called <code>royalty</code>, indicating how much money I get per copy. Let’s say that my royalties are about $7 per book:</p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="week-1-introductionadapted2.html#cb43-1"></a>sales &lt;-<span class="st"> </span><span class="dv">200</span></span>
+<span id="cb43-2"><a href="week-1-introductionadapted2.html#cb43-2"></a>royalty &lt;-<span class="st"> </span><span class="dv">7</span></span></code></pre></div>
+<p>The nice thing about variables (in fact, the whole point of having variables) is that we can do anything with a variable that we ought to be able to do with the information that it stores. That is, since R allows me to multiply <code>200</code> by <code>7</code></p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="week-1-introductionadapted2.html#cb44-1"></a><span class="dv">200</span> <span class="op">*</span><span class="st"> </span><span class="dv">7</span></span></code></pre></div>
+<pre><code>## [1] 1400</code></pre>
+<p>it also allows me to multiply <code>sales</code> by <code>royalty</code></p>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="week-1-introductionadapted2.html#cb46-1"></a>sales <span class="op">*</span><span class="st"> </span>royalty</span></code></pre></div>
+<pre><code>## [1] 1400</code></pre>
+<p>As far as R is concerned, the <code>sales * royalty</code> command is the same as the <code>200 * 7</code> command. Not surprisingly, I can assign the output of this calculation to a new variable, which I’ll call <code>revenue</code>. And when we do this, the new variable <code>revenue</code> gets the value <code>1400</code>. So let’s do that, and then get R to print out the value of <code>revenue</code> so that we can verify that it’s done what we asked:</p>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="week-1-introductionadapted2.html#cb48-1"></a>revenue &lt;-<span class="st"> </span>sales <span class="op">*</span><span class="st"> </span>royalty</span>
+<span id="cb48-2"><a href="week-1-introductionadapted2.html#cb48-2"></a>revenue</span></code></pre></div>
+<pre><code>## [1] 1400</code></pre>
+<p>That’s fairly straightforward. A slightly more subtle thing we can do is reassign the value of my variable, based on its current value. For instance, suppose that one of my students loves the book so much that he or she donates me an extra $550. The simplest way to capture this is by a command like this:</p>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="week-1-introductionadapted2.html#cb50-1"></a>revenue &lt;-<span class="st"> </span>revenue <span class="op">+</span><span class="st"> </span><span class="dv">550</span></span>
+<span id="cb50-2"><a href="week-1-introductionadapted2.html#cb50-2"></a>revenue</span></code></pre></div>
+<pre><code>## [1] 1950</code></pre>
+<p>In this calculation, R has taken the old value of <code>revenue</code> (i.e., 1400) and added 550 to that value, producing a value of 1950. This new value is assigned to the <code>revenue</code> variable, overwriting its previous value. In any case, we now know that I’m expecting to make $1950 off this. Hurray!</p>
+</div>
+<div id="exercises-variables" class="section level4">
+<h4><span class="header-section-number">1.2.3.3</span> Exercises variables</h4>
+<ol style="list-style-type: decimal">
+<li>Assign your favorite number to the variable <code>fav_num</code>.</li>
+<li>Assign a sequence of numbers from 1 to 10 the variable <code>seq_10</code> (hint: <code>seq()</code>).</li>
+<li>Multiply <code>fav_num</code> with <code>seq_10</code> and save the result in a variable called fav_num_seq10.<a href="#fn9" class="footnote-ref" id="fnref9"><sup>9</sup></a></li>
+</ol>
+</div>
+</div>
+<div id="using-comments" class="section level3">
+<h3><span class="header-section-number">1.2.4</span> Using comments</h3>
+<p>Another very useful feature of R is the comment character, #. It has a simple meaning in R: it tells R to ignore everything else you’ve written on the line after the # character. You won’t have much need of the # character immediately, but it’s very when writing longer scripts. For instance, if you read this</p>
+<pre class="{r"><code>seeker &lt;- 3.1415           # create the first variable
+lover &lt;- 2.7183            # create the second variable
+keeper &lt;- seeker * lover   # now multiply them to create a third one
+print(keeper)              # print out the value of &#39;keeper&#39;
+}</code></pre>
+<p>it’s a lot easier to understand what I’m doing than if I just write this:</p>
+<pre class="{r"><code>seeker &lt;- 3.1415
+lover &lt;- 2.7183
+keeper &lt;- seeker * lover
+print(keeper)    </code></pre>
+<p>You might have already noticed that some code extracts included the # character, as commenting makes any code a little easier to understand.</p>
+</div>
+<div id="r-is-pretty-stupid" class="section level3">
+<h3><span class="header-section-number">1.2.5</span> R is pretty stupid?</h3>
+<p>There are a couple of things you should keep in mind when working with R. The first thing is that, while R is good software, it’s still software. To some extent, I’m stating the obvious here, but it’s important. The people who wrote R are smart. You, the user, are smart. But R itself is dumb. And because it’s dumb, it has to be mindlessly obedient. It does <em>exactly</em> what you ask it to do. There is no equivalent to “autocorrect” in R, and for good reason. When doing advanced stuff – and even the simplest of statistics is pretty advanced in a lot of ways – it’s dangerous to let a mindless automaton like R try to overrule the human user. But because of this, it’s your responsibility to be careful. Always make sure you type <em>exactly what you mean</em>. When dealing with computers, it’s not enough to type “approximately” the right thing. In general, you absolutely <em>must</em> be precise in what you say to R … like all machines it is too stupid to be anything other than absurdly literal in its interpretation.</p>
+<div id="typos" class="section level4">
+<h4><span class="header-section-number">1.2.5.1</span> Typos</h4>
+<p>R takes it on faith that you meant to type <em>exactly</em> what you did type. For example, suppose that you forgot to hit the shift key when trying to type <code>+</code>, and as a result your command ended up being <code>10 = 20</code> rather than <code>10 + 20</code>.</p>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="week-1-introductionadapted2.html#cb54-1"></a><span class="dv">10</span> =<span class="st"> </span><span class="dv">20</span></span></code></pre></div>
+<pre><code>## Error in 10 = 20: invalid (do_set) left-hand side to assignment</code></pre>
+<p>What happens when you have R try to execute this command, is that it attempts to interpret <code>10 = 20</code> as a command, and spits out an error message because the command doesn’t make any sense. When a <em>human</em> looks at this, and then looks down at his or her keyboard and sees that <code>+</code> and <code>=</code> are on the same key, it’s pretty obvious that the command was a typo. But R doesn’t know this, so it gets upset. And, if you look at it from its perspective, this makes sense. All that R “knows” is that <code>10</code> is a legitimate number, <code>20</code> is a legitimate number, and <code>=</code> is a legitimate part of the language too. In other words, from its perspective this really does look like the user meant to type <code>10 = 20</code>, since all the individual parts of that statement are legitimate and it’s too stupid to realise that this is probably a typo. Therefore, R takes it on faith that this is exactly what you meant… it only “discovers” that the command is nonsense when it tries to follow your instructions, typo and all. And then it whinges, and spits out an error.</p>
+<p>Even more subtle is the fact that some typos won’t produce errors at all, because they happen to correspond to “well-formed” R commands. For instance, suppose that not only did I forget to hit the shift key when trying to type <code>10 + 20</code>, I also managed to press the key next to one I meant do. The resulting typo would produce the command <code>10 - 20</code>. Clearly, R has no way of knowing that you meant to <em>add</em> 20 to 10, not <em>subtract</em> 20 from 10, so what happens this time is this:</p>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="week-1-introductionadapted2.html#cb56-1"></a><span class="dv">10</span> <span class="op">-</span><span class="st"> </span><span class="dv">20</span></span></code></pre></div>
+<pre><code>## [1] -10</code></pre>
+<p>In this case, R produces the right answer, but to the the wrong question.</p>
+</div>
+<div id="r-is-flexible-with-spacing" class="section level4">
+<h4><span class="header-section-number">1.2.5.2</span> R is flexible with spacing?</h4>
+<p>I should point out that there are some exceptions. Or, more accurately, there are some situations in which R does show a bit more flexibility than my previous description suggests. The first thing R is smart enough to do is ignore redundant spacing. What I mean by this is that, when I typed <code>10 + 20</code> before, I could equally have done this</p>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="week-1-introductionadapted2.html#cb58-1"></a><span class="dv">10</span>    <span class="op">+</span><span class="st"> </span><span class="dv">20</span></span></code></pre></div>
+<pre><code>## [1] 30</code></pre>
+<p>or this</p>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="week-1-introductionadapted2.html#cb60-1"></a><span class="dv">10</span><span class="op">+</span><span class="dv">20</span></span></code></pre></div>
+<pre><code>## [1] 30</code></pre>
+<p>and I would get exactly the same answer. However, that doesn’t mean that you can insert spaces in any old place. For example, the <a href="getting-started-adapted1.html#consoleR">startup message of R</a> suggests you can type <code>citation()</code> to get some information about how to cite R. If I do so…</p>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="week-1-introductionadapted2.html#cb62-1"></a><span class="kw">citation</span>()</span></code></pre></div>
+<pre><code>## 
+## To cite R in publications use:
+## 
+##   R Core Team (2020). R: A language and environment for statistical
+##   computing. R Foundation for Statistical Computing, Vienna, Austria.
+##   URL https://www.R-project.org/.
+## 
+## A BibTeX entry for LaTeX users is
+## 
+##   @Manual{,
+##     title = {R: A Language and Environment for Statistical Computing},
+##     author = {{R Core Team}},
+##     organization = {R Foundation for Statistical Computing},
+##     address = {Vienna, Austria},
+##     year = {2020},
+##     url = {https://www.R-project.org/},
+##   }
+## 
+## We have invested a lot of time and effort in creating R, please cite it
+## when using it for data analysis. See also &#39;citation(&quot;pkgname&quot;)&#39; for
+## citing R packages.</code></pre>
+<p>… it tells me to cite the R manual <span class="citation">(R Core Team <a href="#ref-R2020" role="doc-biblioref">2020</a>)</span>. Let’s see what happens when we try changing the spacing. If you insert spaces in between the word and the parentheses, or inside the parentheses themselves, then all is well. That is, either of these two commands</p>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="week-1-introductionadapted2.html#cb64-1"></a><span class="kw">citation</span> ()</span></code></pre></div>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="week-1-introductionadapted2.html#cb65-1"></a><span class="kw">citation</span>(  )</span></code></pre></div>
+<p>will produce exactly the same response. However, what we can’t do is insert spaces in the middle of the word. If you try to do this, R gets upset:</p>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="week-1-introductionadapted2.html#cb66-1"></a>citat <span class="kw">ion</span>()</span></code></pre></div>
+<pre><code>## Error: &lt;text&gt;:1:7: unexpected symbol
+## 1: citat ion
+##           ^</code></pre>
+<p>Throughout this lab manual you will see varied uses of spacing, just to give you a feel for the different ways in which spacing can be used. We’ll try not to do it too much though, since it’s generally considered to be good practice to be consistent in how you format your commands.</p>
+</div>
+<div id="r-knows-youre-not-finished" class="section level4">
+<h4><span class="header-section-number">1.2.5.3</span> R knows you’re not finished?</h4>
+<p>One more thing we should point out. If you hit enter in a situation where it’s “obvious” to R that you haven’t actually finished typing the command, R is just smart enough to keep waiting. For example, if you type <code>10 +</code> and then press enter, even R is smart enough to realise that you probably wanted to type in another number. So here’s what happens:</p>
+<pre><code>&gt; 10+
++ </code></pre>
+<p>and there’s a blinking cursor next to the plus sign. What this means is that R is still waiting for you to finish. It “thinks” you’re still typing your command, so it hasn’t tried to execute it yet. In other words, this plus sign is actually another command prompt. It’s different from the usual one (i.e., the <code>&gt;</code> symbol) to remind you that R is going to “add” whatever you type now to what you typed last time. For example, if we then go on to type <code>20</code> and hit enter, what we get is this:</p>
+<pre><code>&gt; 10 +
++ 20
+[1] 30</code></pre>
+<p>And as far as R is concerned, this is <em>exactly</em> the same as if you had typed <code>10 + 20</code>. Similarly, consider the <code>citation()</code> command that we talked about in the previous section. Suppose you hit enter after typing <code>citation(</code>. Once again, R is smart enough to realise that there must be more coming – since you need to add the <code>)</code> character – so it waits. We can even hit enter several times and it will keep waiting:</p>
+<pre><code>&gt; citation(
++ 
++ 
++ )</code></pre>
+<p>We’ll make use of this a lot in this book. A lot of the commands that we’ll have to type are pretty long, and they’re visually a bit easier to read if we break it up over several lines. If you start doing this yourself, you’ll eventually get yourself in trouble (it happens to us all). Maybe you start typing a command, and then you realise you’ve screwed up. For example,</p>
+<pre><code>&gt; citblation( 
++ 
++ </code></pre>
+<p>You’d probably prefer R not to try running this command, right? If you want to get out of this situation, just hit the ‘escape’ key.<a href="#fn10" class="footnote-ref" id="fnref10"><sup>10</sup></a> R will return you to the normal command prompt (i.e. <code>&gt;</code>) <em>without</em> attempting to execute the botched command.</p>
+<p>That being said, it’s not often the case that R is smart enough to tell that there’s more coming.
+For instance, in the same way that I can’t add a space in the middle of a word, I can’t hit enter in the middle of a word either. If we hit enter after typing <code>citat</code> we get an error, because R thinks we’re interested in an “object” called <code>citat</code> and can’t find it:</p>
+<pre><code>&gt; citat
+Error: object &#39;citat&#39; not found</code></pre>
+<p>What about if we typed <code>citation</code> and hit enter? In this case we get something very odd, something that we definitely <em>don’t</em> want, at least at this stage. Here’s what happens:</p>
+<pre><code>citation
+## function (package = &quot;base&quot;, lib.loc = NULL, auto = NULL) 
+## {
+##     dir &lt;- system.file(package = package, lib.loc = lib.loc)
+##     if (dir == &quot;&quot;) 
+##         stop(gettextf(&quot;package &#39;%s&#39; not found&quot;, package), domain = NA)
+
+BLAH BLAH BLAH</code></pre>
+<p>where the <code>BLAH BLAH BLAH</code> goes on for rather a long time, and you don’t know enough R yet to understand what all this gibberish actually means (of course, it doesn’t actually say BLAH BLAH BLAH - it says some other things we don’t understand or need to know that I’ve edited for length) This incomprehensible output can be quite intimidating to novice users, and unfortunately it’s very easy to forget to type the parentheses; so almost certainly you’ll do this by accident. Do not panic when this happens. Simply ignore the gibberish. As you become more experienced this gibberish will start to make sense, and you’ll find it quite handy to print this stuff out.<a href="#fn11" class="footnote-ref" id="fnref11"><sup>11</sup></a> But for now just try to remember to add the parentheses when typing your commands.</p>
+</div>
+<div id="common-mistakes-exercises" class="section level4">
+<h4><span class="header-section-number">1.2.5.4</span> Common mistakes exercises</h4>
+<p>Figure out what is wrong with the following R commands and try to fix them:</p>
+<ol style="list-style-type: decimal">
+<li></li>
+</ol>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="week-1-introductionadapted2.html#cb74-1"></a>x &lt;-<span class="st"> </span><span class="dv">1</span></span>
+<span id="cb74-2"><a href="week-1-introductionadapted2.html#cb74-2"></a>y &lt;-<span class="st"> </span><span class="dv">5</span></span>
+<span id="cb74-3"><a href="week-1-introductionadapted2.html#cb74-3"></a>x<span class="op">*</span>z</span></code></pre></div>
+<ol start="2" style="list-style-type: decimal">
+<li></li>
+</ol>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="week-1-introductionadapted2.html#cb75-1"></a>x &lt;-<span class="st"> </span><span class="kw">Seq</span>(<span class="dv">1</span>,<span class="dv">10</span>)</span></code></pre></div>
+<ol start="3" style="list-style-type: decimal">
+<li></li>
+</ol>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="week-1-introductionadapted2.html#cb76-1"></a>x &lt;-<span class="st"> </span><span class="kw">sqrt</span>(<span class="kw">seq</span>(<span class="dv">1</span>,<span class="dv">10</span>)</span></code></pre></div>
+<ol start="4" style="list-style-type: decimal">
+<li></li>
+</ol>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="week-1-introductionadapted2.html#cb77-1"></a>This is actually my favorite number<span class="op">:</span></span>
+<span id="cb77-2"><a href="week-1-introductionadapted2.html#cb77-2"></a>fav_num &lt;-<span class="st"> </span><span class="fl">2.718</span></span></code></pre></div>
+<p>When you have completed all exercises and are happy with your progress today, please knit your document and submit it to Canvas. If you finish before the time is up, you can start with the required readings of Week 2 or help out your fellow students. If you are unable to finish the exercises during the lab, continue working on them at home and discuss your results with your peers. If you still have questions, please visit the office hours on Wednesday’s.</p>
+<p>The answers to all exercises will be uploaded to Canvas every Friday after 18:00.</p>
+
+</div>
+</div>
+</div>
+</div>
+<h3> References</h3>
+<div id="refs" class="references">
+<div id="ref-R2020">
+<p>R Core Team. 2020. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>.</p>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="6">
+<li id="fn6"><p>The R part of this lab was adapted from the book by Danielle Navarro<a href="week-1-introductionadapted2.html#fnref6" class="footnote-back">↩︎</a></p></li>
+<li id="fn7"><p>Alternatively: <strong>PEMDAS</strong>: Parentheses, Exponents, Multiplication, Division, Addition, Subtraction<a href="week-1-introductionadapted2.html#fnref7" class="footnote-back">↩︎</a></p></li>
+<li id="fn8"><p>If you are using RStudio, and the “environment” panel is visible when you typed the command, then you probably saw something happening there. That’s to be expected, and is quite helpful.<a href="week-1-introductionadapted2.html#fnref8" class="footnote-back">↩︎</a></p></li>
+<li id="fn9"><p>The output of this operation should result in a so-called <em>vector</em> of 10 numbers. We will encounter vectors later in the course, but basically a vector is a variable that can store multiple values.<a href="week-1-introductionadapted2.html#fnref9" class="footnote-back">↩︎</a></p></li>
+<li id="fn10"><p>If you’re running R from the terminal rather than from RStudio, escape doesn’t work: use CTRL-C instead.<a href="week-1-introductionadapted2.html#fnref10" class="footnote-back">↩︎</a></p></li>
+<li id="fn11"><p>For advanced users: yes, as you’ve probably guessed, R is printing out the source code for the function.<a href="week-1-introductionadapted2.html#fnref11" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="getting-started-adapted1.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

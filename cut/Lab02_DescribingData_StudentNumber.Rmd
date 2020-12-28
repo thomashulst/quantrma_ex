@@ -1,0 +1,30 @@
+
+# Generalization exercises R (second part)
+
+
+```{r, echo=TRUE,eval=TRUE}
+
+# Use the code from the tutorial manual examples to attempt to solve this assignment
+
+#1. Make a graph plotting Life Expectancy by year for the five continents, using the `continent` factor. Make sure you change the title as well.
+
+#2. Make a graph plotting GDP per capita by year for the USA, Canada, and Mexico. Use the `gdpPercap` column for the GDP per capita data.
+
+#3. Make a new graph plotting anything you are interested in using the gapminder dataset. It just needs to be a plot that we have not given an example for.
+
+```
+
+# Writing assignment R (second part)
+
+Describe what histograms are, how to interpret them, and what they are useful for. You should answer each of these questions:
+
+a. What do the bars on a histogram represent?
+b. How many bars can a histogram have?
+c. What do the heights of the bars tell you?
+d. What is on the x-axis and y-axis of a histogram?
+e. What does the tallest bar on a histogram tell you?
+f. What does the shortest bar on a histogram tell you?
+g. What are some uses for histograms, why would you want to look at a histogram of some numbers that you collected?
+h. Imagine you had two histograms, one was very wide and spread out, the other was very narrow with a very tall peak. Which histogram would you expect to contain more consistent numbers (numbers that are close to each other) and explain why.
+
+

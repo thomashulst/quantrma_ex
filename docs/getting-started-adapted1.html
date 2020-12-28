@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Getting started1 | Lab manual QuantRMA</title>
+  <meta name="description" content="The exercises related to the introductory textbook for quantitative research methods and data analysis at EUC. This text was adapted from “Answering questions with data: Lab Manual” by Matthew J.C. Crump and colleagues (https://crumplab.github.io/statistics/)" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Getting started1 | Lab manual QuantRMA" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="The exercises related to the introductory textbook for quantitative research methods and data analysis at EUC. This text was adapted from “Answering questions with data: Lab Manual” by Matthew J.C. Crump and colleagues (https://crumplab.github.io/statistics/)" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Getting started1 | Lab manual QuantRMA" />
+  
+  <meta name="twitter:description" content="The exercises related to the introductory textbook for quantitative research methods and data analysis at EUC. This text was adapted from “Answering questions with data: Lab Manual” by Matthew J.C. Crump and colleagues (https://crumplab.github.io/statistics/)" />
+  
+
+<meta name="author" content="Matthew J. C. Crump, Anjali Krishnan, Stephen Volz, and Alla Chavarga" />
+<meta name="author" content="Adapted for use at EUC by Thomas Hulst and Thanos Kostopoulos" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="week-1-introductionadapted2.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Lab manual QuantRMA</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#important-notes"><i class="fa fa-check"></i>Important notes</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#attributions"><i class="fa fa-check"></i>Attributions</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#cc-by-sa-4.0-license"><i class="fa fa-check"></i>CC BY-SA 4.0 license</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="getting-started-adapted1.html"><a href="getting-started-adapted1.html"><i class="fa fa-check"></i>Getting started</a><ul>
+<li class="chapter" data-level="0.1" data-path="getting-started-adapted1.html"><a href="getting-started-adapted1.html#why-r"><i class="fa fa-check"></i><b>0.1</b> Why R?</a></li>
+<li class="chapter" data-level="0.2" data-path="getting-started-adapted1.html"><a href="getting-started-adapted1.html#downloading-and-installing-r"><i class="fa fa-check"></i><b>0.2</b> Downloading and installing R</a><ul>
+<li class="chapter" data-level="0.2.1" data-path="getting-started-adapted1.html"><a href="getting-started-adapted1.html#installing-r-on-a-mac"><i class="fa fa-check"></i><b>0.2.1</b> Installing R on a Mac</a></li>
+<li class="chapter" data-level="0.2.2" data-path="getting-started-adapted1.html"><a href="getting-started-adapted1.html#installing-r-on-a-windows-pc"><i class="fa fa-check"></i><b>0.2.2</b> Installing R on a Windows PC</a></li>
+<li class="chapter" data-level="0.2.3" data-path="getting-started-adapted1.html"><a href="getting-started-adapted1.html#installing-r-on-a-linux-pc"><i class="fa fa-check"></i><b>0.2.3</b> Installing R on a Linux PC</a></li>
+</ul></li>
+<li class="chapter" data-level="0.3" data-path="getting-started-adapted1.html"><a href="getting-started-adapted1.html#RStudio"><i class="fa fa-check"></i><b>0.3</b> Downloading and installing RStudio</a></li>
+<li class="chapter" data-level="0.4" data-path="getting-started-adapted1.html"><a href="getting-started-adapted1.html#understanding-rstudio"><i class="fa fa-check"></i><b>0.4</b> Understanding RStudio</a><ul>
+<li class="chapter" data-level="0.4.1" data-path="getting-started-adapted1.html"><a href="getting-started-adapted1.html#consoleR"><i class="fa fa-check"></i><b>0.4.1</b> Console</a></li>
+<li class="chapter" data-level="0.4.2" data-path="getting-started-adapted1.html"><a href="getting-started-adapted1.html#script-editor"><i class="fa fa-check"></i><b>0.4.2</b> Script Editor</a></li>
+<li class="chapter" data-level="0.4.3" data-path="getting-started-adapted1.html"><a href="getting-started-adapted1.html#workspace-and-history"><i class="fa fa-check"></i><b>0.4.3</b> Workspace and History</a></li>
+<li class="chapter" data-level="0.4.4" data-path="getting-started-adapted1.html"><a href="getting-started-adapted1.html#fileplot"><i class="fa fa-check"></i><b>0.4.4</b> File, Plot, Packages, Help</a></li>
+<li class="chapter" data-level="0.4.5" data-path="getting-started-adapted1.html"><a href="getting-started-adapted1.html#installing-libraries"><i class="fa fa-check"></i><b>0.4.5</b> Installing libraries</a></li>
+</ul></li>
+<li class="chapter" data-level="0.5" data-path="getting-started-adapted1.html"><a href="getting-started-adapted1.html#how-to-complete-the-labs"><i class="fa fa-check"></i><b>0.5</b> How to complete the labs</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="week-1-introductionadapted2.html"><a href="week-1-introductionadapted2.html"><i class="fa fa-check"></i><b>1</b> Week 1: Introduction</a><ul>
+<li class="chapter" data-level="" data-path="week-1-introductionadapted2.html"><a href="week-1-introductionadapted2.html#lets-get-started"><i class="fa fa-check"></i>Let’s get started!</a></li>
+<li class="chapter" data-level="1.1" data-path="week-1-introductionadapted2.html"><a href="week-1-introductionadapted2.html#part-one-research-methods"><i class="fa fa-check"></i><b>1.1</b> Part one: research methods</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="week-1-introductionadapted2.html"><a href="week-1-introductionadapted2.html#question-1"><i class="fa fa-check"></i><b>1.1.1</b> Question 1</a></li>
+<li class="chapter" data-level="1.1.2" data-path="week-1-introductionadapted2.html"><a href="week-1-introductionadapted2.html#question-2"><i class="fa fa-check"></i><b>1.1.2</b> Question 2</a></li>
+<li class="chapter" data-level="1.1.3" data-path="week-1-introductionadapted2.html"><a href="week-1-introductionadapted2.html#question-3"><i class="fa fa-check"></i><b>1.1.3</b> Question 3</a></li>
+<li class="chapter" data-level="1.1.4" data-path="week-1-introductionadapted2.html"><a href="week-1-introductionadapted2.html#question-4"><i class="fa fa-check"></i><b>1.1.4</b> Question 4</a></li>
+<li class="chapter" data-level="1.1.5" data-path="week-1-introductionadapted2.html"><a href="week-1-introductionadapted2.html#question-5"><i class="fa fa-check"></i><b>1.1.5</b> Question 5</a></li>
+<li class="chapter" data-level="1.1.6" data-path="week-1-introductionadapted2.html"><a href="week-1-introductionadapted2.html#question-6"><i class="fa fa-check"></i><b>1.1.6</b> Question 6</a></li>
+<li class="chapter" data-level="1.1.7" data-path="week-1-introductionadapted2.html"><a href="week-1-introductionadapted2.html#question-7"><i class="fa fa-check"></i><b>1.1.7</b> Question 7</a></li>
+<li class="chapter" data-level="1.1.8" data-path="week-1-introductionadapted2.html"><a href="week-1-introductionadapted2.html#question-8"><i class="fa fa-check"></i><b>1.1.8</b> Question 8</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="week-1-introductionadapted2.html"><a href="week-1-introductionadapted2.html#part-two-introduction-to-r"><i class="fa fa-check"></i><b>1.2</b> Part two: introduction to R</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="week-1-introductionadapted2.html"><a href="week-1-introductionadapted2.html#arithmetic"><i class="fa fa-check"></i><b>1.2.1</b> Doing simple calculations with R</a></li>
+<li class="chapter" data-level="1.2.2" data-path="week-1-introductionadapted2.html"><a href="week-1-introductionadapted2.html#usingfunctions"><i class="fa fa-check"></i><b>1.2.2</b> Using functions to do calculations</a></li>
+<li class="chapter" data-level="1.2.3" data-path="week-1-introductionadapted2.html"><a href="week-1-introductionadapted2.html#assign"><i class="fa fa-check"></i><b>1.2.3</b> Storing a number as a variable</a></li>
+<li class="chapter" data-level="1.2.4" data-path="week-1-introductionadapted2.html"><a href="week-1-introductionadapted2.html#using-comments"><i class="fa fa-check"></i><b>1.2.4</b> Using comments</a></li>
+<li class="chapter" data-level="1.2.5" data-path="week-1-introductionadapted2.html"><a href="week-1-introductionadapted2.html#r-is-pretty-stupid"><i class="fa fa-check"></i><b>1.2.5</b> R is pretty stupid?</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>2</b> References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Lab manual QuantRMA</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="getting-started-adapted1" class="section level1 unnumbered">
+<h1>Getting started<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></h1>
+<p>In this course we will be using R as a tool to analyze data, and as a tool to help us gain a better understanding of what our analyses are doing. Throughout each lab we will show you how to use R to solve specific problems, and then you will use the examples to solve assignments. R is a very deep programming language, and in many ways we will only be skimming the surface of what R can do. Along the way, there will be many pointers to more advanced techniques that interested students can follow to become experts in using R for data-analysis, and computer programming in general.</p>
+<p>R is primarily a computer programming language for statistical analysis. It is <em>free</em>, and <em>open-source</em> (i.e. many people contribute to developing it), and runs on most operating systems. It is a powerful language that can be used for all sorts of mathematical operations, data-processing, analysis, and graphical display of data. I even used R to write this lab manual. And, I use R all the time for my own research, because it makes data-analysis fast, efficient, transparent and reproducible.</p>
+<div id="why-r" class="section level2">
+<h2><span class="header-section-number">0.1</span> Why R?</h2>
+<p>There are lots of different options for using computers to analyze data, so why use R?<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> The options all have pros and cons, and can be used in different ways to solve a range of different problems. Some software allows you to load in data, and then analyze the data by clicking different options in a menu. This can sometimes be fast and convenient. For example, once the data is loaded, all you have to do is click a couple buttons to analyze the data!</p>
+<p>However, many aspects of data-analysis are not so easy. For example, particular analyses often require that the data be formatted in a particular way so that the program can analyze it properly. Often times when a researcher wants to ask a new question of an existing data set, they have to spend time re-formatting the data. If the data is large, then reformatting by hand is very slow, and can lead to errors. Another option, is to use a scripting language to instruct the computer how reformat the data. This is very fast and efficient. R provides the ability to do everything all in one place. You can load in data, reformat it any way you like, then analyze it anyway you like, and create beautiful graphs and tables (publication quality) to display your findings.</p>
+</div>
+<div id="downloading-and-installing-r" class="section level2">
+<h2><span class="header-section-number">0.2</span> Downloading and installing R</h2>
+<p>Okay, enough with the sales pitch. The website for downloading R is: <a href="https://cloud.r-project.org" class="uri">https://cloud.r-project.org</a>. At the top of the page – under the heading “Download and Install R” – you’ll see separate links for Mac users, Windows users, and Linux users. If you follow the relevant link, you’ll see that the online instructions are pretty self-explanatory, but I’ll walk you through the installation anyway.</p>
+<div id="installing-r-on-a-mac" class="section level3">
+<h3><span class="header-section-number">0.2.1</span> Installing R on a Mac</h3>
+<p>The CRAN (Comprehensive R Archive Network) homepage changes from time to time, and it’s not particularly pretty, or all that well-designed quite frankly. But it’s not difficult to find what you’re after. When you click on the (Mac) OS X link, you should find yourself on a page with the title “R for Mac OS X”. There’s a fairly prominent link on the page under “Latest release” called “R-x.x.x.pkg” (where the x.x.x is replaced by the most current version number), which is the one you want. Click on that link and you’ll start downloading the installer file, which is (not surprisingly) called R-x.x.x.pkg.</p>
+<p>Once you’ve downloaded R-x.x.x.pkg, all you need to do is open it by double clicking on the package file. The installation should go smoothly from there: just follow all the instructions just like you usually do when you install something. Once it’s finished, you’ll find a file called R.app in the Applications folder. You can now open up R in the usual way if you want to, but what I’m going to suggest is that instead of doing that you should now install RStudio (see <a href="getting-started-adapted1.html#RStudio">this section</a> for instructions).</p>
+</div>
+<div id="installing-r-on-a-windows-pc" class="section level3">
+<h3><span class="header-section-number">0.2.2</span> Installing R on a Windows PC</h3>
+<p>You’ll find a link at the top of the page with the text “Download R for Windows”. If you click on that, it will take you to a page that offers you a few options. Again, at the very top of the page you’ll be told to click on a link that says to click here if you’re installing R for the first time. This will take you to a page that has a prominent link at the top called “Download R x.x.x for Windows” (where the x.x.x is replaced by the most current version number). That’s the one you want. Click on that and your browser should start downloading a file called R-x.x.x-win.exe. Once you’ve downloaded the file, double click to install it.</p>
+<p>As with any software you download online, Windows will ask you some questions about whether you trust the file and so on. After you click through those, it’ll ask you where you want to install it, and what components you want to install. The default values should be fine for most people, so again, just click through. Once all that is done, you should have R installed on your system. You can access it from the Start menu, or from the desktop if you asked it to add a shortcut there. You can now open up R in the usual way if you want to, but what I’m going to suggest is that instead of doing that you should now install RStudio (see <a href="getting-started-adapted1.html#RStudio">this section</a> for instructions).</p>
+</div>
+<div id="installing-r-on-a-linux-pc" class="section level3">
+<h3><span class="header-section-number">0.2.3</span> Installing R on a Linux PC</h3>
+<p>Honestly, if you are working on a Linux PC, you can probably figure this out yourself. If you have trouble installing R on your Linux box, please see the course coordinator during office hours. Once you’ve got R installed, you can run it from the command line just by typing R. However, if you’re feeling envious of Windows and Mac users for their fancy GUIs, you can download RStudio too (see <a href="getting-started-adapted1.html#RStudio">this section</a> for instructions).</p>
+</div>
+</div>
+<div id="RStudio" class="section level2">
+<h2><span class="header-section-number">0.3</span> Downloading and installing RStudio</h2>
+<p>Okay, so regardless of what operating system you’re using, the next thing we need to do is download and install RStudio. To understand why we install another program in addition to R, you need to understand a little bit more about R itself. The term R doesn’t really refer to a specific application on your computer. Rather, it refers to the underlying statistical language. You can use this language through lots of different applications. When you install R initially, it comes with one application that lets you do this: it’s the R.exe application on a Windows machine, and the R.app application on a Mac. But that’s not the only way to do it. There are lots of different applications that you can use that will let you interact with R. One of those is called RStudio, and it’s the one I’m going to suggest that you use. RStudio provides a clean, professional interface to R that I find much nicer to work with than either the Windows or Mac defaults. Like R itself, RStudio is free software: you can find all the details on their website. Download RStudio here: <a href="http://www.rstudio.com" class="uri">http://www.rstudio.com</a></p>
+<p>When you visit the RStudio website, you’ll probably be struck by how much cleaner and simpler it is than the CRAN website, and how obvious it is what you need to do: click the button that says “Download”<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a>.</p>
+<p>When you click on the download button on the homepage it will ask you to choose whether you want the desktop version or the server version. You want the desktop version. After choosing the desktop version it will take you to a page (<a href="http://www.rstudio.org/download/desktop" class="uri">http://www.rstudio.org/download/desktop</a>) that shows several possible downloads: there’s a different one for each operating system. However, the nice people at RStudio have designed the webpage so that it automatically recommends the download that is most appropriate for your computer. Click on the appropriate link, and the RStudio installer file will start downloading.</p>
+<p>Once it’s finished downloading, open the installer file in the usual way to install RStudio. After it’s finished installing, you can start R by opening RStudio. You don’t need to open R.app or R.exe in order to access R. RStudio will take care of that for you. To illustrate what RStudio looks like, Figure <a href="getting-started-adapted1.html#fig:2rstudiod">0.1</a> shows a screenshot of an R session in progress. In this screenshot, you can see that it’s running on a Mac, but it looks almost identical no matter what operating system you have. The Windows version looks more like a Windows application (e.g., the menus are attached to the application window and the colour scheme is slightly different), but it’s more or less identical. There are a few minor differences in where things are located in the menus (I’ll point them out as we go along) and in the shortcut keys, because RStudio is trying to “feel” like a proper Mac application or a proper Windows application, and this means that it has to change its behaviour a little bit depending on what computer it’s running on. Even so, these differences are very small.</p>
+<p>One final note: the website <a href="http://rstudio.cloud">RStudio Cloud</a> even allows you to run R scripts in the cloud, so you can also practice R from your web-browser, although this has some limitations (most importantly: the amount of hours you can use R in the cloud is limited for free accounts). It is therefore highly recommended to do your course work on your personal device, but RStudio Cloud can help you out in a pinch.</p>
+</div>
+<div id="understanding-rstudio" class="section level2">
+<h2><span class="header-section-number">0.4</span> Understanding RStudio</h2>
+<div class="figure"><span id="fig:2rstudiod"></span>
+<img src="figures/FigRStudio.png" alt="The RStudio workspace" width="819" />
+<p class="caption">
+Figure 0.1: The RStudio workspace
+</p>
+</div>
+<div id="consoleR" class="section level3">
+<h3><span class="header-section-number">0.4.1</span> Console</h3>
+<p>When you open up RStudio you will see three or four main windows (the placement of each are configurable). In the above example, the bottom left window is the command line (terminal or console) for R. Let’s focus on the console for now. The console is used to directly enter commands into R. There probably is a whole lot of text that doesn’t make much sense. It should look something like this:</p>
+<pre><code>R version 4.0.2 (2020-06-22) -- &quot;Taking Off Again&quot;
+Copyright (C) 2020 The R Foundation for Statistical Computing
+Platform: x86_64-apple-darwin17.0 (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type &#39;license()&#39; or &#39;licence()&#39; for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type &#39;contributors()&#39; for more information and
+&#39;citation()&#39; on how to cite R or R packages in publications.
+
+Type &#39;demo()&#39; for some demos, &#39;help()&#39; for on-line help, or
+&#39;help.start()&#39; for an HTML browser interface to help.
+Type &#39;q()&#39; to quit R.
+
+&gt; 
+</code></pre>
+<p>Most of this text is pretty uninteresting, and when doing real data analysis you’ll never really pay much attention to it. The important part of it is this…</p>
+<pre><code>&gt;</code></pre>
+<p>… which has a flashing cursor next to it. That’s the command prompt. When you see this, it means that R is waiting patiently for you to do something!</p>
+<p>One of the easiest things you can do with R is use it as a simple calculator, so it’s a good place to start. For instance, try typing 10 + 20, and hitting enter.<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a></p>
+<p>When you do this, you’ve entered a command, and R will “execute” that command. What you see on screen now will be this:</p>
+<pre><code>&gt; 10 + 20
+[1] 30</code></pre>
+<p>Not a lot of surprises in this extract. But there’s a few things worth talking about, even with such a simple example. Firstly, it’s important that you understand how to read the extract. In this example, what I typed was the <code>10 + 20</code> part. I didn’t type the <code>&gt;</code> symbol: that’s just the R command prompt and isn’t part of the actual command. And neither did I type the <code>[1] 30</code> part. That’s what R printed out in response to my command.</p>
+<p>Secondly, it’s important to understand how the output is formatted. Obviously, the correct answer to the sum <code>10 + 20</code> is <code>30</code>, and not surprisingly R has printed that out as part of its response. But it’s also printed out this <code>[1]</code> part, which probably doesn’t make a lot of sense to you right now. You’re going to see that a lot. I’ll talk about what this means in a bit more detail later on, but for now you can think of <code>[1] 30</code> as if R were saying “the answer to the 1st question you asked is 30”.</p>
+<p>The console is useful for entering single lines of code and running them. Often times this occurs when you are learning how to correctly execute a line of code in R. Your first few attempts may be incorrect resulting in errors, but trying out different variations on your code in the command line can help you produce the correct code. Pressing the up arrow while in the console will scroll through the most recently executed lines of code.</p>
+</div>
+<div id="script-editor" class="section level3">
+<h3><span class="header-section-number">0.4.2</span> Script Editor</h3>
+<p>The top left corner contains the script editor. This is a simple text editor for writing and saving R scripts with many lines. Several tabs can be opened at once, with each tab representing a different R script. R scripts can be saved from the editor (resulting in a .R file). Whole scripts can be run by copy and pasting them into the console and pressing enter or “sourcing” them with the source button (light blue arrow). Sourcing will run all the code in your script without the need to copy/paste. Alternatively, you can highlight portions of the script that you want to run (in the script editor) and pressing the button for running the current line/section: green arrow pointing right.</p>
+</div>
+<div id="workspace-and-history" class="section level3">
+<h3><span class="header-section-number">0.4.3</span> Workspace and History</h3>
+<p>The top right panel contains (at least) two tabs, one for the workspace and another for history. The workspace lists out all of the variables and functions that are currently loaded in R’s memory. You can inspect each of the variables by clicking on them. This is generally only useful for variables that do not contain large amounts of information. The history tab provides a record of the recent commands executed in the console.</p>
+</div>
+<div id="fileplot" class="section level3">
+<h3><span class="header-section-number">0.4.4</span> File, Plot, Packages, Help</h3>
+<p>The bottom-right window has four tabs for files, plots, packages, and help. The files tab allows browsing of the computers file directory. An important concept in R is the <strong>current working directory</strong>. This is file folder that R points to by default. Many functions in R will save things directly to this directory, or attempt to read files from this directory. The current working directory can be changed by navigating to the desired folder in the file menu, and then clicking on the more option to set that folder to the current working directory. This is especially important when loading data into R. The current working directory should be set to the folder containing the data to be inputted into R. The plots tab will show recent plots and figures made in R. The packages tab lists the current R libraries loaded into memory, and provides the ability to download and enable new R packages (more about that later). The help menu is an invaluable tool. Here, you can search for individual R commands to see examples of how they are used. Sometimes the help files for individual commands are opaque and difficult to understand, so it is necessary to do a Google search to find better examples of using these commands.</p>
+</div>
+<div id="installing-libraries" class="section level3">
+<h3><span class="header-section-number">0.4.5</span> Installing libraries</h3>
+<p>When you install R and RStudio, you get what is called Base R. Base R contains many libraries that allow you to conduct statistical analyses. Because R is free and open-source, many other developers have created add-on libraries that extend the functionality of R. <strong>We use some of these libraries, and you need to install them before you can do the labs</strong>.</p>
+<p>For example, in any of the labs, whenever you see a line code that uses the word library like this <code>library("libraryname")</code>, this line of code telling R to load up that library so it can be used. The <code>libraryname</code> would be replaced with the actual name of the library. For example, you will see code like this in the labs:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="getting-started-adapted1.html#cb5-1"></a><span class="kw">library</span>(ggplot2)</span></code></pre></div>
+<p>This line of code is saying that the <code>ggplot2</code> library needs to be loaded (ggplot2 is a library which allows you to generate beautiful graphs and figures). However, before a library can be loaded, it needs to be installed. Fortunately, we can tell R to install all of the packages we need for this course in one go. Copy the following lines of code into the console, and press enter.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="getting-started-adapted1.html#cb6-1"></a><span class="kw">install.packages</span>(<span class="st">&quot;ggplot2&quot;</span>)</span>
+<span id="cb6-2"><a href="getting-started-adapted1.html#cb6-2"></a><span class="kw">install.packages</span>(<span class="st">&quot;dplyr&quot;</span>)</span>
+<span id="cb6-3"><a href="getting-started-adapted1.html#cb6-3"></a><span class="kw">install.packages</span>(<span class="st">&quot;data.table&quot;</span>)</span>
+<span id="cb6-4"><a href="getting-started-adapted1.html#cb6-4"></a><span class="kw">install.packages</span>(<span class="st">&quot;summarytools&quot;</span>)</span>
+<span id="cb6-5"><a href="getting-started-adapted1.html#cb6-5"></a><span class="kw">install.packages</span>(<span class="st">&quot;gapminder&quot;</span>)</span>
+<span id="cb6-6"><a href="getting-started-adapted1.html#cb6-6"></a><span class="kw">install.packages</span>(<span class="st">&quot;ggpubr&quot;</span>)</span>
+<span id="cb6-7"><a href="getting-started-adapted1.html#cb6-7"></a><span class="kw">install.packages</span>(<span class="st">&quot;knitr&quot;</span>)</span>
+<span id="cb6-8"><a href="getting-started-adapted1.html#cb6-8"></a><span class="kw">install.packages</span>(<span class="st">&quot;rmarkdown&quot;</span>)</span></code></pre></div>
+<p>Note you can select all of the lines at once, then copy them, then paste all of them into the console, and press enter to run them all. After each of the packages are installed, you will then be able to load them using <code>library()</code>. You can see the installed packages by pressing the packages tab in the <a href="getting-started-adapted1.html#fileplot">bottom right window</a>. From this tab you can also update and install packages by clicking the update or install button respectively.</p>
+</div>
+</div>
+<div id="how-to-complete-the-labs" class="section level2">
+<h2><span class="header-section-number">0.5</span> How to complete the labs</h2>
+<p>Each of the labs focuses on particular data-analysis problems, from graphing data, computing descriptive statistics, to running inferential tests in R. Additionally, during the labs, we will discuss and answer questions about research design concepts. The R exercises (except the first week) usually come in three parts: a training part, a generalization part, and a writing part. The training part includes step-by-step examples of R code that solves particular problems. The generalization part gives short assignments to change parts of the provided code to solve a new problem. The writing part tasks you with answering questions about statistical concepts.</p>
+<p>To answer the questions during the labs, we will work in RStudio. As you work inside RStudio you will be creating text documents and doing things like loading data and saving the results of your analyses. As your work grows and becomes more complex, you can often find yourself creating many different files. An R project is a very useful way of organizing your files all in one place so you can find them later. When you double-click an R project file, R-studio will automatically load and restore your last session.</p>
+<p>We have created an R project file and template documents for the labs that can be downloaded here: <a href="https://github.com/thomashulst/quantrma_lab/raw/master/RMarkdownLabs.zip">download lab templates</a>.</p>
+<p>When you unzip the file you should find the following:</p>
+<ol style="list-style-type: decimal">
+<li>A folder titled “RMarkdownLabs”</li>
+<li>Inside the folder you will see the “RMarkdownLabs.proj” project file</li>
+<li>A data folder containing data files for the labs</li>
+<li>A “LabTemplates” folder containing RMarkdown files for each lab</li>
+</ol>
+<p>After downloading, you can double-click the R project file to make sure you are in the correct working directory to complete the labs. During the labs, you will write your notes and answers in one of the respective .Rmd (RMarkdown) files. At the end of each lab you will “knit” the file (knitting is a term for making your documents look prettier) and upload the result to Canvas.</p>
+<p>We admit that at the beginning, RMarkdown documents might seem a little bit confusing, but you will find they are extremely useful and flexible. Basically, what RMarkdown allows you to do is combine two kinds of writing, 1) writing R code to conduct analyses, and 2) writing normal text, with headers, sub-headers, and paragraphs. You can think of this like a lab journal, that contains both your writing about what you are doing (e.g., notes to self), and the code that you use for analysis. Additionally, when your code does something like make a graph, or run a statistical test, you can ask RMarkdown to print the results.<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a></p>
+<p>The way to complete each lab is to document your progression through each of the parts in your RMarkdown document and uploading the result to Canvas. By doing this, you will become familiar with how R and RStudio works, and how to create documents that preserve both the code and your notes all in one place.</p>
+
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>This getting started guide was adapted from the lab manual by Matthew Crump and Learning statistics with R by Danielle Navarro.<a href="getting-started-adapted1.html#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p>Other well-known statistical software packages are <a href="http://www-01.ibm.com/software/analytics/spss/">SPSS</a>, <a href="http://www.sas.com/en_us/home.html">SAS</a>, <a href="https://jasp-stats.org">JASP</a>, <a href="http://julialang.org">Julia</a>, <a href="http://www.mathworks.com/products/matlab/">MATLAB</a>, <a href="https://www.python.org">Python with SciPy packages</a> and the list goes on.<a href="getting-started-adapted1.html#fnref2" class="footnote-back">↩︎</a></p></li>
+<li id="fn3"><p>This is probably no coincidence: the people who design and distribute the core R language itself are focused on technical stuff. And sometimes they almost seem to forget that there’s an actual human user at the end. The people who design and distribute RStudio are focused on user interface. They want to make R as usable as possible. The two websites reflect that difference.<a href="getting-started-adapted1.html#fnref3" class="footnote-back">↩︎</a></p></li>
+<li id="fn4"><p>Seriously. If you’re in a position to do so, open up R and start typing. The simple act of typing it rather than “just reading” makes a big difference. It makes the concepts more concrete, and it ties the abstract ideas (programming and statistics) to the actual context in which you need to use them. Statistics is something you do, not just something you read about in a textbook.<a href="getting-started-adapted1.html#fnref4" class="footnote-back">↩︎</a></p></li>
+<li id="fn5"><p>The RMarkdown website has an excellent tutorial that is well worth checking out in your own time: <a href="https://rmarkdown.rstudio.com/lesson-1.html">https://rmarkdown.rstudio.com/lesson-1.html</a><a href="getting-started-adapted1.html#fnref5" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="week-1-introductionadapted2.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
