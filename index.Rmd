@@ -13,7 +13,7 @@ description: "The exercises related to the introductory textbook for quantitativ
 ---
 
 ```{r setup}
-knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE, error = TRUE, cache=FALSE, eval=TRUE)
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE, error = TRUE, cache=TRUE, eval=TRUE)
 ```
 # Preface {-}
 
@@ -169,7 +169,6 @@ This line of code is saying that the `ggplot2` library needs to be loaded (ggplo
 install.packages("ggplot2")
 install.packages("dplyr")
 install.packages("data.table")
-install.packages("summarytools")
 install.packages("gapminder")
 install.packages("ggpubr")
 install.packages("knitr")
@@ -179,9 +178,7 @@ install.packages("rmarkdown")
 Note you can select all of the lines at once, then copy them, then paste all of them into the console, and press enter to run them all. After each of the packages are installed, you will then be able to load them using `library()`. You can see the installed packages by pressing the packages tab in the [bottom right window](#fileplot). From this tab you can also update and install packages by clicking the update or install button respectively.  
 
 ## How to complete the labs
-Each of the labs focuses on particular data-analysis problems, from graphing data, computing descriptive statistics, to running inferential tests in R. Additionally, during the labs, we will discuss and answer questions about research design concepts. The R exercises (except the first week) usually come in three parts: a training part, a generalization part, and a writing part. The training part includes step-by-step examples of R code that solves particular problems. The generalization part gives short assignments to change parts of the provided code to solve a new problem. The writing part tasks you with answering questions about statistical concepts. 
-
-To answer the questions during the labs, we will work in RStudio. As you work inside RStudio you will be creating text documents and doing things like loading data and saving the results of your analyses. As your work grows and becomes more complex, you can often find yourself creating many different files. An R project is a very useful way of organizing your files all in one place so you can find them later. When you double-click an R project file, R-studio will automatically load and restore your last session. 
+Each of the labs focuses on particular data-analysis problems, from graphing data, computing descriptive statistics, to running inferential tests in R. Additionally, during the labs, we will discuss and answer questions about research design concepts. To answer the questions during the labs, we will work in RStudio. As you work inside RStudio you will be creating text documents and doing things like loading data and saving the results of your analyses. As your work grows and becomes more complex, you can often find yourself creating many different files. An R project is a very useful way of organizing your files all in one place so you can find them later. When you double-click an R project file, R-studio will automatically load and restore your last session. 
 
 We have created an R project file and template documents for the labs that can be downloaded here: [download lab templates](https://github.com/thomashulst/quantrma_lab/raw/master/RMarkdownLabs.zip).
 

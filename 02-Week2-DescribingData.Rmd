@@ -1,0 +1,785 @@
+# Week 2: Describing Data
+
+>The commonality between science and art is in trying to see profoundly - to develop strategies of seeing and showing.
+>---Edward Tufte
+
+The purpose of this lab is to show you how to generate graphs and compute basic descriptive statistics, including measures of central tendency (mean, mode, median) and variation (range, variance, standard deviation). We learned in the lecture and from the textbook that data we want to answer questions of, often comes with loads of numbers. Too many numbers to look at all at once. That's one reason we use descriptive statistics. To reduce the big set of numbers to one or two summary numbers or a pretty graph that tells us something about all of the numbers. R can produce descriptive statistics for you in many ways. We'll go over some R basics for descriptive statistics, and then use our new found skills to ask some questions about real data.
+
+Note: we are going to introduce a lot of new programming concepts very quickly and you might feel overwhelmed or unsure you fully grasp the new concepts. This is completely normal when learning a new programming language. We start with simply copy/pasting and dissecting R commands as a way to familiarize you with the language. You will see that by doing this you can very quickly learn to answer interesting questions about a data set, just from changing a couple of minor things in the code examples. In our experience, this works better than expecting you to code something from scratch at the start of learning a new language. As always, there are several ways to get help when coding in R:
+
+1. Use the ?help or ??help functions
+2. Google your question
+3. Ask a fellow student or your tutor for additional explanations
+
+## General Goals
+1. Learn how to load data into R
+2. Learn how data is structured
+3. Generate graphs using ggplot2
+4. Compute measures of central tendency and variation using R
+5. Answer some questions about data using descriptive statistics
+
+## Part one: describing data using graphs 
+In order to graph data, we need to have some data first... let's figure out what movies are going to be filmed in New York City. It turns out that NYC makes a lot of data about a lot things open and free for anyone to download and look at. This is the NYC Open Data website: [https://opendata.cityofnewyork.us](https://opendata.cityofnewyork.us). I searched through the data, and found a data file that lists the locations of film permits for shooting movies all throughout the Burroughs. There are multiple ways to load this data into R.
+
+1. If you have downloaded the [RMarkdownLabs.zip](https://github.com/thomashulst/quantrma_lab/blob/master/RMarkdownsLabs.zip?raw=true) file, then you already have the data file in the data folder. Assuming you are working in your main directory (your .Rmd file is saved in the main folder that contains both the data and template folders), use the following commands to load the data:
+
+```{r}
+library(data.table)
+nyc_films <-fread("data/Film_Permits.csv")
+```
+
+2. If the above method doesn't work, you can try loading the data from the course website using:
+
+```{r, eval=FALSE, tidy=TRUE}
+library(data.table)
+nyc_films <- fread("https://raw.githubusercontent.com/thomashulst/quantrma_lab/master/data/Film_Permits.csv")
+```
+
+Try to understand what is happening in the code above. In both cases, we first load the library `data.table`. Then, we use the function `fread()` (from the library `data.table`) to load the data and assign it to the variable `nyc_films`.
+
+If you are having issues getting the data loaded, talk to your tutor.
+
+### Look at the data
+You will be downloading and analyzing all kinds of data files this quad. We will follow the very same steps every time. The steps are to load the data, then look at it. You want to see what you've got.
+
+In RStudio, you will now see a variable called `nyc_films` in the top right-hand corner of the screen, in the environment tab. If you click this thing, it will show you the contents of the data in a new window. The data is stored in something we call a `data frame`. It's R lingo, for the thing that contains the data. Notice it is shaped like a rectangle, with rows going across, and columns going up and down. It looks kind of like an excel spreadsheet if you are familiar with Excel.
+
+You can also use the R functions `head()` and `tail()` to print out the first 6 or last 6 rows of our data frame in the R console:
+
+```{r, echo=TRUE,eval=FALSE}
+# head() prints the first 6 rows of a data frame
+head(nyc_films)
+
+# tail() prints the last 6 rows of a data frame
+tail(nyc_films)
+```
+
+Using the `head()` and `tail()` functions on this data frame, you'll see that the output in the R console doesn't look pretty. It's useful to know you can look at the data frame this way if you need to. But, this data frame is really big, it has 50,728 rows (or observations) and 14 columns (or variables). You can get the size of the data frame by looking in the environment tab or using the functions `nrow()` and `ncol()`: 
+
+```{r}
+nrow(nyc_films)
+ncol(nyc_films)
+```
+
+We can also use the `$` operator to request the data of a single column (i.e. variable). For example, to print the data of the first 6 rows of the `Category` column:
+
+```{r}
+head(nyc_films$Category)
+```
+### Data exercises
+1. What are the last 6 entries of the `Category` column in `nyc_films`? 
+2. What are the last 10 entries of the `EventType` column in `nyc_films`? 
+3. Use `fread()` to only load the `EventID` column and assign it to a variable named `nyc_films_eventid` (hint: ?fread()).
+
+### Make plots to answer questions
+Let's walk through a couple questions we might have about this data. We can see that there were 50,728 film permits made. We can also see that there are different columns telling us information about each of the film permits. For example, the `Borough` column lists the Borough for each request, whether it was made for: Manhattan, Brooklyn, Bronx, Queen's, or Staten Island.
+
+#### Answering our first question
+Where are the most film permits being requested? We can find out by using R to plot the data in a bar plot. A bar plot looks a bit like a histogram, but the bars on a bar plot represent the counts of *categorical* data instead of *continuous* data. To generate a bar plot, we first need to have R count how many film permits are made in each borough, and then make a plot where the bars represent the counts per borough.
+
+Run the following code:
+
+```{r, eval=TRUE}
+library(dplyr)
+
+counts <- nyc_films %>% 
+  group_by(Borough) %>% 
+  summarize(count_of_permits = length(Borough))
+
+```
+
+You might notice two things in the code above:
+
+1. We are loading the library `dplyr`. `dplyr` is a library that simplifies manipulating data frames.
+2. We are using a new operator you haven't encountered before: `%>%`. This operator is called the 'pipe' operator.  
+
+The pipe operator allows us to clearly express a sequence of multiple operations on a data frame. The code above first groups the data by each of the five Borough's, and then counts the number of times each Borough occurs. The result is saved in a new variable called `count`. The code above is equivalent to the code below which doesn't use the pipe operator, but assigns the outcome of an operation to an intermediate variable. 
+
+```{r, eval=FALSE}
+library(dplyr)
+nyc_films_grouped <- group_by(nyc_films, Borough)
+counts <- summarize(nyc_films_grouped, count_of_permits = length(Borough))
+```
+
+The difference between the first or second code block might seem a bit confusing or arbitrary, as both methods generate the same result, but especially when performing multiple operations on a data frame, the pipe operator results in much more efficient and readable code. Either way, if you click on the `counts` variable in your environment, you will see the five boroughs listed, along with the counts for how many film permits were requested in each Borough. These are the numbers that we want to plot in a graph.
+
+#### Making the plot
+We actually make the plot using a fantastic library called `ggplot2`. It is very powerful once you get the hand of it, and when you do, you will be able to make all sorts of interesting graphs. Here's the code to make the plot:
+
+```{r 1borough,echo=TRUE,eval=TRUE}
+library(ggplot2)
+
+ggplot(counts, aes(x = Borough, y = count_of_permits )) +
+  geom_bar(stat="identity")
+
+```
+
+There it is, we're done here! We can easily look at this graph, and answer our question. Most of the film permits were requested in Manhattan, followed by Brooklyn, then Queen's, the Bronx, and finally Staten Island. 
+
+#### What kind of films are being made?
+We think you might be skeptical of what you are doing here, just copying and pasting things. Soon you'll see how fast you can answer questions about data by copying and pasting and just making a few little changes to the code. Let's quickly answer another question about what kinds of films are being made. The column `Category`, gives us some information about that. Let's just copy paste the code we already made, and see what kinds of categories the films fall into. See if you can tell what I changed in the code to make this work:
+
+```{r 1category,echo=TRUE,eval=TRUE}
+
+counts <- nyc_films %>%
+          group_by(Category) %>%
+          summarize(count_of_permits = length(Category))
+
+ggplot(counts, aes(x = Category, y = count_of_permits )) +
+  geom_bar(stat="identity")
+
+```
+
+OK, so this figure might look a bit weird because the labels on the bottom are running into each other. We'll fix that in a bit. First, let's notice the changes. 
+
+1. I changed `Borough` to `Category`. That was the main thing.
+2. I left out a bunch of things from before. None of the `library()` commands are used again, and I didn't re-run the very early code to get the data. R already has those things in it's memory, so we don't need to do that first.
+
+Fine, so how do we fix the graph? Good question. You probably have no idea how to do this, but googling your questions is a great way to learn R. It's what everybody does.
+
+When you Google this question, you will likely find a lot of ways to fix your graph. The trick I used is to add the last line in the R code below. I just copy-pasted it from the solution I found on [stack overflow](https://stackoverflow.com/questions/1330989/rotating-and-spacing-axis-labels-in-ggplot2) (you will become friends with stack overflow this course, there are many solutions there to all of your questions).
+
+
+```{r 1categoryB,echo=TRUE,eval=TRUE}
+
+counts <- nyc_films %>%
+          group_by(Category) %>%
+          summarize(count_of_permits = length(Category))
+
+ggplot(counts, aes(x = Category, y = count_of_permits )) +
+  geom_bar(stat="identity")+ 
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+
+```
+
+#### ggplot2 basics
+Before we go further, I want to point out some basic properties of ggplot2, just to give you a sense of how it is working. This will make more sense in a few weeks, so come back here to remind yourself. We'll do just a bit of basics, and then move on to making more graphs, by copying/pasting and modifying existing code.
+
+The `ggplot` function makes use of so-called layers. Layers you say? What are these layers? Well, it draws things from the bottom up. It lays down one layer of graphics, then you can keep adding on top, drawing more things. So the idea is something like: Layer 1 + Layer 2 + Layer 3, and so on. If you want Layer 3 to be Layer 2, then you just switch them in the code.
+
+Here is a way of thinking about ggplot code
+
+```{r, echo=TRUE,eval=FALSE}
+ggplot(name_of_data, aes(x = name_of_x_variable, y = name_of_y_variable)) +
+    geom_layer()+
+    geom_layer()+
+    geom_layer()
+
+```
+
+What I want you to focus on in the above description is the $+$ signs. What we are doing with the plus signs is adding layers to plot. The layers get added in the order that they are written (a bit like the `%>%` operator for dataframes). If you look back to our previous code, you will see we add a `geom_bar` layer, then we added another layer to change the rotation of the words on the x-axis. This is how it works.
+
+BUT WAIT? How am I supposed to know and remember what to add? This is nuts! We know. You're not supposed to know just yet, how could you? We'll give you lots of examples where you can copy and paste, and they will work. That's how you'll learn for now. If you really want to read the [help manual](https://ggplot2.tidyverse.org/reference/index.html) you can do that too. There's also [this useful cheatsheet](https://rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf). This will become useful after you already know what you are doing, but before that, it will probably just seem very confusing. However, it is pretty neat to look and [see all of the different things you can do](https://exts.ggplot2.tidyverse.org/gallery/), it's very powerful.
+
+For now, let's the get the hang of adding things to the graph that let us change some stuff we might want to change. For example, how do you add a title? Or change the labels on the axes? Or add different colors, or change the font-size, or change the background? You can change all of these things by adding different lines to the existing code.
+
+#### ylab() changes y label
+The last graph had `count_of_permits` as the label on the y-axis. That doesn't look right. ggplot2 automatically took the label from the column name, and made it be the name on the y-axis. We can change that by adding `ylab("text")`. We do this by adding a $+$ to the last line, then adding `ylab()`
+
+```{r 1categoryC,echo=TRUE,eval=TRUE}
+ggplot(counts, aes(x = Category, y = count_of_permits )) +
+  geom_bar(stat="identity") + 
+  theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+  ylab("Number of Film Permits")
+```
+
+#### xlab() changes x label
+Let's slightly modify the x label too:
+
+```{r 1categoryD, echo=TRUE,eval=TRUE}
+ggplot(counts, aes(x = Category, y = count_of_permits )) +
+  geom_bar(stat="identity") + 
+  theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+  ylab("Number of Film Permits") + 
+  xlab("Category of film")
+```
+
+
+#### ggtitle() adds title
+Let's give our graph a title
+
+```{r 1categoryE, echo=TRUE,eval=TRUE}
+ggplot(counts, aes(x = Category, y = count_of_permits )) +
+  geom_bar(stat="identity") + 
+  theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+  ylab("Number of Film Permits") + 
+  xlab("Category of film") +
+  ggtitle("Number of Film permits in NYC by Category")
+```
+
+#### color() adds color
+Let's make the bars different colors. To do this, we add new code to the inside of the `aes()` part:
+
+```{r 1categoryF, echo=TRUE,eval=TRUE}
+ggplot(counts, aes(x = Category, y = count_of_permits, color=Category )) +
+  geom_bar(stat="identity") + 
+  theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+  ylab("Number of Film Permits") + 
+  xlab("Category of film") +
+  ggtitle("Number of Film permits in NYC by Category")
+```
+
+#### fill() fills in color
+Let's make the bars different colors. To do this, we add new code to the inside of the `aes()` part...Notice I've started using new lines to make the code more readable. 
+
+```{r 1categoryG, echo=TRUE,eval=TRUE}
+ggplot(counts, aes(x = Category, y = count_of_permits, 
+                   color=Category, 
+                   fill= Category )) +
+  geom_bar(stat="identity") + 
+  theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+  ylab("Number of Film Permits") + 
+  xlab("Category of film") +
+  ggtitle("Number of Film permits in NYC by Category")
+```
+
+#### Get rid of the legend
+Sometimes you just don't want the legend on the side, to remove it add 
+
+`theme(legend.position="none")`
+
+```{r 1categoryH, echo=TRUE,eval=TRUE}
+ggplot(counts, aes(x = Category, y = count_of_permits, 
+                   color=Category, 
+                   fill= Category )) +
+  geom_bar(stat="identity") + 
+  theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+  ylab("Number of Film Permits") + 
+  xlab("Category of film") +
+  ggtitle("Number of Film permits in NYC by Category") +
+  theme(legend.position="none")
+```
+
+#### theme_classic() makes white background
+The rest is often just visual preference. For example, the graph above has this grey grid behind the bars. For a clean classic no nonsense look, use `theme_classic()` to take away the grid.
+
+```{r 1categoryI, echo=TRUE,eval=TRUE}
+ggplot(counts, aes(x = Category, y = count_of_permits, 
+                   color=Category, 
+                   fill= Category )) +
+  geom_bar(stat="identity") + 
+  theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+  ylab("Number of Film Permits") + 
+  xlab("Category of film") +
+  ggtitle("Number of Film permits in NYC by Category") +
+  theme(legend.position="none") +
+  theme_classic()
+```
+
+#### Sometimes layer order matters
+Interesting, `theme_classic()` is misbehaving a little bit and incorrectly renders the axis labels and reintroduces the legend. It looks like we have some of our layers out of order, let's re-order. I just moved `theme_classic()` to just underneath the `geom_bar()` line. Now everything get's drawn properly.
+
+```{r 1categoryJ, echo=TRUE,eval=TRUE}
+ggplot(counts, aes(x = Category, y = count_of_permits, 
+                   color=Category, 
+                   fill= Category )) +
+  geom_bar(stat="identity") + 
+  theme_classic() +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+  ylab("Number of Film Permits") + 
+  xlab("Category of film") +
+  ggtitle("Number of Film permits in NYC by Category") +
+  theme(legend.position="none") 
+  
+
+```
+
+#### Font-size
+Changing font-size is often something you want to do. ggplot2 can do this in different ways. I suggest using the `base_size` option inside `theme_classic()`. You set one number for the largest font size in the graph, and everything else gets scaled to fit with that that first number. It's really convenient. Look for the inside of `theme_classic()`
+
+```{r 1categoryK, echo=TRUE,eval=TRUE}
+ggplot(counts, aes(x = Category, y = count_of_permits, 
+                   color=Category, 
+                   fill= Category )) +
+  geom_bar(stat="identity") + 
+  theme_classic(base_size = 15) +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+  ylab("Number of Film Permits") + 
+  xlab("Category of film") +
+  ggtitle("Number of Film permits in NYC by Category") +
+  theme(legend.position="none") 
+  
+
+```
+or make things small... just to see what happens
+
+```{r 1categoryL, echo=TRUE,eval=TRUE}
+ggplot(counts, aes(x = Category, y = count_of_permits, 
+                   color=Category, 
+                   fill= Category )) +
+  geom_bar(stat="identity") + 
+  theme_classic(base_size = 10) +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+  ylab("Number of Film Permits") + 
+  xlab("Category of film") +
+  ggtitle("Number of Film permits in NYC by Category") +
+  theme(legend.position="none") 
+  
+
+```
+
+#### ggplot2 summary
+That's enough of the ggplot2 basics for now. You will discover that many things are possible with ggplot2. It is amazing. We are going to get back to answering some questions about the data with graphs. But, now that we have built the code to make the graphs, all we need to do is copy-paste, and make a few small changes, and boom, we have our graph.
+
+### More questions about NYC films
+
+#### What are the sub-categories of films?
+Notice the `nyc_films` data frame also has a column for `SubCategoryName`. Let's see what's going on there with a quick plot.
+
+```{r 1subcategory, echo=TRUE,eval=TRUE,tidy=TRUE}
+
+# comments are really useful: R will ignore them, but they can explain to a reader 
+# what is going on in the code
+
+# get the counts 
+counts <- nyc_films %>%
+          group_by(SubCategoryName) %>% # group by SubCategoryName instead of Borough/Category
+          summarize(count_of_permits = length(SubCategoryName))
+
+# make the plot
+ggplot(counts, aes(x = SubCategoryName, y = count_of_permits, 
+                   color=SubCategoryName, 
+                   fill= SubCategoryName )) +
+  geom_bar(stat="identity") + 
+  theme_classic(base_size = 10) +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+  ylab("Number of Film Permits") + 
+  xlab("Sub-category of film") +
+  ggtitle("Number of Film permits in NYC by Sub-category") +
+  theme(legend.position="none") 
+
+```
+
+I guess "episodic series" are the most common. Using a graph like this gave us our answer super fast.
+
+#### Categories by different Boroughs
+Let's see one more really useful thing about ggplot2. It's called `facet_wrap()`. It's an ugly word, but you will see that it is very cool, and you can do next-level-super-hero graph styles with `facet_wrap` that other people can't do very easily. 
+
+Here's our question. We know that films are made in different Boroughs, and that films are made in different Categories, but do different Boroughs have different patterns for the kinds of categories of films they request permits for? Are their more TV shows in Brooklyn? How do we find out? Watch, just like this:
+
+```{r 1facetwrap, echo=TRUE,eval=TRUE}
+
+# get the counts
+counts <- nyc_films %>%
+          group_by(Borough,Category) %>% # group by two categories: Borough and Category 
+          summarize(count_of_permits = length(Category))
+
+# make the plot
+ggplot(counts, aes(x = Category, y = count_of_permits, 
+                   color=Category, 
+                   fill= Category )) +
+  geom_bar(stat="identity") + 
+  theme_classic(base_size = 10) +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+  ylab("Number of Film Permits") + 
+  xlab("Category of film") +
+  ggtitle("Number of Film permits in NYC by Category and Borough") +
+  theme(legend.position="none") +
+  facet_wrap(~Borough, ncol=3)
+
+```
+
+We did two important things. First we added `Borough` and `Category` into the `group_by()` function. This automatically gives separate counts for each category of film, for each Borough. Then we added `facet_wrap(~Borough, ncol=3)` to the end of the plot, and it automatically drew us 5 different bar graphs, one for each Borough! That was fast. Imagine doing that by hand.
+
+The nice thing about this is we can switch things around if we want. For example, we could do it this way by switching the `Category` with `Borough`, and facet-wrapping by Category instead of Borough like we did above. Do what works for you.
+
+
+```{r 1facetwrap2, echo=TRUE,eval=TRUE}
+ggplot(counts, aes(x = Borough, y = count_of_permits, 
+                   color=Borough, 
+                   fill= Borough )) +
+  geom_bar(stat="identity") + 
+  theme_classic(base_size = 10) +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+  ylab("Number of Film Permits") + 
+  xlab("Borough") +
+  ggtitle("Number of Film permits in NYC by Category and Borough") +
+  theme(legend.position="none") +
+  facet_wrap(~Category, ncol=5)
+
+```
+
+### Questions about the Gapminder dataset
+[Gapminder](https://www.gapminder.org) is an organization that collects some really interesting worldwide data. They also make cool visualization tools for looking at the data. There are many neat examples, and they have visualization tools built right into their website that you can play around with: [https://www.gapminder.org/tools/](https://www.gapminder.org/tools/). That's fun to check out.
+
+There is also an R package called `gapminder`. When you install this package, it loads in some of the data from gapminder, so we can play with it in R. If you don't have the gapminder package installed, you can install it by running this code
+
+```{r, eval=FALSE,echo=TRUE}
+install.packages("gapminder")
+```
+
+Once the package is installed, you need to load the new library and put the `gapminder` data into a data frame, like we do here:
+
+```{r, echo=TRUE,eval=TRUE}
+library(gapminder)
+gapminder_df<-gapminder
+```
+
+#### Look at the data frame
+You can look at the data frame in the environment tab to see what is in it, and/or you can use the `head()`/`tail()` and `nrow`/`ncol` functions again:
+
+```{r}
+head(gapminder)
+tail(gapminder)
+
+nrow(gapminder)
+ncol(gapminder)
+```
+
+There are 1704 rows of data, and we see 6 columns: country, continent, year, life expectancy, population, and GDP per capita. We will show you how to graph some the data to answer a few different kinds of questions. Then you will form your own questions, and see if you can answer them with ggplot2 yourself. All you will need to do is copy and paste the following examples, and change them up a little bit.
+
+#### Life expectancy histogram
+How long are people living all around the world according to this data set? There are many ways we could plot the data to find out. The first way is a histogram. We have many numbers for life expectancy in the column `lifeExp`. This is a big sample, full of numbers for 142 countries across many years. It's easy to make a histogram in ggplot to view the distribution:
+
+```{r 1gapminder, echo=TRUE,eval=TRUE}
+ggplot(gapminder_df, aes(x=lifeExp))+
+  geom_histogram(color="white")
+```
+
+See, that was easy. Next, is a code block that adds more layers and settings if you wanted to modify parts of the graph:
+
+```{r 1gapminderB, echo=TRUE,eval=TRUE}
+ggplot(gapminder_df, aes(x = lifeExp)) +
+  geom_histogram(color="white")+ 
+  theme_classic(base_size = 15) +
+  ylab("Frequency count") + 
+  xlab("Life Expectancy") +
+  ggtitle("Histogram of Life Expectancy from Gapminder")
+```
+
+The histogram shows a wide range of life expectancies, from below 40 to just over 80. Histograms are useful, they can show you what kinds of values happen more often than others.
+
+One final thing about histograms in ggplot. You may want to change the bin size. That controls how wide or narrow, or the number of bars (how they split across the range), in the histogram. You need to set the `bins=` option in `geom_histogram()`.
+
+```{r 1gapminderC, echo=TRUE,eval=TRUE}
+ggplot(gapminder_df, aes(x = lifeExp)) +
+  geom_histogram(color="white", bins=50)+ 
+  theme_classic(base_size = 15) +
+  ylab("Frequency count") + 
+  xlab("Life Expectancy") +
+  ggtitle("Histogram of Life Expectancy from Gapminder")
+```
+
+Same basic pattern, but now breaking up the range into 50 little equal sized bins, rather than 30, which is the default. You get to choose what you want to do.
+
+#### Life expectancy scatterplot
+We can see we have data for life expectancy and different years. So, does worldwide life expectancy change across the years in the data set? As we go into the future, are people living longer?
+
+Let's look at this using a scatter plot. We can set the x-axis to be year, and the y-axis to be life expectancy. Then we can use `geom_point()` to display a whole bunch of dots, and then look at them. Here's the simple code:
+
+```{r 1scatterplot, echo=TRUE,eval=TRUE}
+ggplot(gapminder_df, aes(y= lifeExp, x= year))+
+  geom_point()
+```
+
+Whoa, that's a lot of dots! Remember that each country is measured each year. So, the bands of dots you see, show the life expectancies for the whole range of countries within each year of the database. There is a big spread inside each year. But, on the whole it looks like groups of dots slowly go up over years.
+
+#### One country, life expectancy by year
+I'm from The Netherlands, so maybe I want to know if life expectancy for Dutch people is going up over the years. To find out the answer for one country, we first need to split the full data set, into another smaller data set that only contains data for The Netherlands. In other words, we want only the rows where the word "Netherlands" is found in the `country` column. We will use the `filter` function from `dplyr` for this:
+
+```{r 1scatterB, echo=TRUE,eval=TRUE}
+# filter rows to contain Netherlands
+smaller_df <- gapminder_df %>% 
+                 # use the "is equal to" operator to filter
+                 filter(country == "Netherlands") 
+
+# plot the new data contained in smaller_df
+ggplot(smaller_df, aes(y= lifeExp, x= year))+
+  geom_point()
+
+```
+
+Note that to filter, we are using the `==` (is equal to) operator. 
+
+I would say things are looking good for Dutch people, their life expectancy is going up over the years!
+
+#### Multiple countries scatterplot
+What if we want to look at a few countries together. We can do this too. We just change how we filter the data so more than one country is allowed, then we plot the data. We will also add some nicer color options and make the plot look pretty. First, the code:
+
+```{r 1scatterC, echo=TRUE,eval=TRUE}
+
+# filter rows to contain countries of choice
+# create a vector using c() with countries of choice
+countries_of_choice <- c("Netherlands","France","Brazil") 
+smaller_df <- gapminder_df %>% 
+                 # use the %in% operator for filtering with vector
+                 filter(country %in% countries_of_choice) 
+
+# plot the new data contained in smaller_df
+ggplot(smaller_df, aes(y= lifeExp, x= year, group= country))+
+  geom_point()
+
+```
+
+The code above contains two new concepts:
+
+1. We create a vector of `countries_of_choice` using `c()` (combine). A vector is simply a variable that holds multiple values. 
+2. We use the `%in%` operator to filter the column `country` by our vector `countries_of_choice`. We need to use the `%in%` operator when we filter with a vector (i.e filtering for multiple values) as opposed to the `==` (is equal to) operator we use when filtering for a single value. 
+
+Looking at the plot, we can now see three sets of dots, but which are countries do they represent? Let's add a legend, and make the graph better looking.
+
+```{r 1scatterD, echo=TRUE,eval=TRUE}
+ggplot(smaller_df,aes(y= lifeExp, x= year, 
+                      group= country, color = country)) +
+  geom_point()+ 
+  theme_classic(base_size = 15) +
+  ylab("Life Expectancy") + 
+  xlab("Year") +
+  ggtitle("Life expectancy by year for three countries")
+
+```
+
+#### geom_line() connecting the dots
+We might also want to connect the dots with a line, to make it easier to see the connection! Remember, ggplot2 draws layers on top of layers. So, we add in a new `geom_line()` layer.
+
+```{r 1scatline, echo=TRUE,eval=TRUE}
+ggplot(smaller_df,aes(y= lifeExp, x= year, 
+                      group= country, color = country)) +
+  geom_point()+ 
+  geom_line()+
+  theme_classic(base_size = 15) +
+  ylab("Life Expectancy") + 
+  xlab("Year") +
+  ggtitle("Life expectancy by year for three countries")
+
+```
+
+### Graphing exercises
+The following exercises can be answered in the R Markdown document for this lab. Complete your work in that document and "knit" the file. Hand in your final product (knitting should generate an .html file) to Canvas. 
+
+Use the code from above to attempt to solve the extra things we ask you do for the following exercises: 
+
+1. Make a graph plotting Life Expectancy by year for the five continents, using the `continent` factor. Make sure you change the title as well.
+2. Make a graph plotting GDP per capita by year for the USA, Canada, and Mexico. Use the `gdpPercap` column for the GDP per capita data.
+3. Make a new graph plotting anything you are interested in using the gapminder dataset. It just needs to be a plot that we have not given an example for.
+
+## Part two: describing data using numbers 
+In the second part of this lab, we will describe our data and answer questions using numbers. In order to do this, we need some numbers first. 
+
+### Playing with numbers
+As we've seen previously, we can put multiple numbers in a variable using the `c()` function:
+```{r}
+my_numbers <- c(1,2,3,4)
+```
+
+There a few handy ways to generate numbers. We can use `seq()` to make a sequence. Here it is making the numbers from 1 to 100
+```{r}
+one_to_one_hundred <- seq(1,100,1)
+```
+
+We can repeat things, using rep. Here's making 10 5s, and 25 1s:
+```{r}
+rep(10,5)
+rep(1,25)
+all_together_now <- c(rep(10,5),rep(1,25)) 
+```
+
+#### Sum
+Let's play with the numbers 1 to 100. First, let's use the `sum()` function to add them up
+```{r}
+one_to_one_hundred <- seq(1,100,1)
+sum(one_to_one_hundred)
+```
+
+#### Length
+We put 100 numbers into the variable `one_to_one_hundred`. We know how many numbers there are in there. How can we get R to tell us? We use `length()` for that. 
+```{r}
+length(one_to_one_hundred)
+```
+
+### Central Tendency
+
+#### Mean
+Remember the mean of some numbers is their sum, divided by the number of numbers. We can compute the mean like this:
+```{r}
+sum(one_to_one_hundred)/length(one_to_one_hundred)
+```
+
+Or, we could just use the `mean()` function like this:
+```{r}
+mean(one_to_one_hundred)
+```
+
+#### Median
+The median is the number in the exact middle of the numbers ordered from smallest to largest. If there are an even number of numbers (no number in the middle), then we take the number in between the two (decimal .5). Use the `median` function. There's only 3 numbers here. The middle one is 2, that should be the median
+
+```{r}
+median(c(1,2,3))
+```
+
+#### Mode
+R does not a base function for the mode, which might surprise you. There's a couple of reasons why, but we can workaround this omission. Firstly, you could install a library (like `modeest`) to import a function that can calculate the mode for you. Or you could write your own function. Below is an example of writing your own function, and then using it. Note I searched how to do this on Google, and am using the mode defined by [this answer on stack overflow](https://stackoverflow.com/questions/2547402/is-there-a-built-in-function-for-finding-the-mode)
+
+Remember, the mode is the most frequently occurring number in the set. 
+
+```{r}
+# write a function to calculate the mode
+my_mode_function <- function(x) {
+  ux <- unique(x)
+  ux[which.max(tabulate(match(x, ux)))]
+}
+
+# apply to function to a vector of numbers 
+my_mode_function(c(1,1,1,1,1,1,1,2,3,4))
+```
+Above 1 occurs the most, so the mode will be one.
+
+### Variation
+We often want to know how variable (i.e. different) the numbers in our data are. We are going to look at descriptive statistics to describe this such as the **range**, **variance**, the **standard deviation**, and a few others.
+
+First, let's remind ourselves what variation looks like (it's when the numbers are different). We will sample 100 numbers from a normal distribution (don't worry about this yet), with a mean of 10, and a standard deviation of 5, and then make a histogram so we can see the variation around 10..
+
+```{r}
+sample_numbers <- rnorm(100,10,5)
+# instead of using ggplot, we can also use a simpler function go generate a histogram
+# this is easier than ggplot, but more limited in what we can do
+hist(sample_numbers) 
+```
+
+#### Range
+The range is the minimum and maximum values in the set, we use the `range` function.
+
+```{r}
+range(sample_numbers)
+```
+
+#### var() = variance
+We can find the sample variance using `var()`:
+
+```{r}
+var(sample_numbers)
+```
+
+Note: the above variance calculation divides by $n-1$ instead of $n$. We will learn in later weeks why this is often preferred. If you would like to divide by $n$, you could write your own function based on the following code:
+
+```{r}
+x_bar <- mean(sample_numbers)
+var_n <- sum((sample_numbers - x_bar)^2)/length(sample_numbers)
+```
+
+#### sd = standard deviation
+
+We find the sample standard deviation using `sd()`:
+```{r}
+sd(sample_numbers)
+```
+
+Remember that the standard deviation is just the square root of the variance, see:
+```{r}
+sqrt(var(sample_numbers))
+```
+
+### All together
+Let's put all of the descriptives and other functions so far in one place:
+```{r}
+sample_numbers <- rnorm(100,10,5)
+
+sum(sample_numbers)
+length(sample_numbers)
+mean(sample_numbers)
+median(sample_numbers)
+my_mode_function(sample_numbers)
+range(sample_numbers)
+var(sample_numbers)
+sd(sample_numbers)
+
+```
+
+### Descriptives by conditions
+Sometimes you will have a single variable with some numbers, and you can use the above functions to find the descriptives for that variable. Other times (most often in this course), you will have a big data frame of numbers, with different numbers in different conditions. You will want to find descriptive statistics for each the sets of numbers inside each of the conditions. Fortunately, this is where R really shines, it does it all for you in one go. 
+
+Let's illustrate the problem. Here I make a date frame with 10 numbers in each condition. There are 10 conditions, each labelled, A, B, C, D, E, F, G, H, I, J.
+
+```{r}
+scores <- rnorm(100,10,5)
+conditions <- rep(c("A","B","C","D","E","F","G","H","I","J"), each =10)
+my_df <- data.frame(conditions,scores)
+```
+
+If you look at the `my_df` data frame, you will see it has 100 rows, there are 10 rows for each condition with a label in the `conditions` column, and 10 scores for each condition in the `scores` column. What if you wanted to know the mean of the scores in each condition? You would want to find 10 means.
+
+#### group_by and summarise
+We can easily do everything all at once using the `group_by` and `summarise` function from the `dplyr` package. Just watch:
+```{r}
+library(dplyr)
+
+my_df %>%
+  group_by(conditions) %>%
+  summarise(means = mean(scores))
+
+```
+
+A couple things now. First, the print out of this was ugly. We can fix that by putting the results of our code into a new variable, then use `knitr::kable` to print it out nicely when we `knit` the document
+
+```{r}
+summary_df <- my_df %>%
+               group_by(conditions) %>%
+               summarise(means = mean(scores))
+
+knitr::kable(summary_df)
+```
+
+#### Multiple descriptives
+The best thing about the `dplyr` method, is that we can add more than one function, and we'll get more than one summary returned, all in a nice format, let's add the standard deviation:
+
+```{r}
+summary_df <- my_df %>%
+               group_by(conditions) %>%
+               summarise(means = mean(scores),
+                         sds = sd(scores))
+
+knitr::kable(summary_df)
+```
+
+We'll add the min and the max too:
+```{r}
+summary_df <- my_df %>%
+               group_by(conditions) %>%
+               summarise(means = mean(scores),
+                         sds = sd(scores),
+                         min = min(scores),
+                         max = max(scores))
+
+knitr::kable(summary_df)
+
+```
+
+### Describing gapminder
+Now that we know how to get descriptive statistics from R, we can do this with some real data. Let's quickly ask a few questions about the gapminder data: 
+
+```{r}
+library(gapminder)
+gapminder_df <- gapminder
+```
+
+#### What are some descriptives for Life expectancy by continent?
+Copy the code from the last part of descriptives using `dplyr`, then change the names like this:
+
+```{r}
+
+summary_df <- gapminder_df %>%
+               group_by(continent) %>%
+               summarise(means = mean(lifeExp),
+                         sds = sd(lifeExp),
+                         min = min(lifeExp),
+                         max = max(lifeExp))
+
+knitr::kable(summary_df)
+
+```
+
+### Descriptive exercises
+1. What is the mean, standard deviation, minimum and maximum life expectancy for all the gapminder data (across all the years and countries) (hint: do not use `group_by`).
+2. What is the mean, standard deviation, minimum and maximum life expectancy for all of the continents in 2007, the most recent year in the dataset (hint: add another pipe using `filter(year==2007) %>%`).
+3. Answer the following questions in full sentences using simple plain language:
+  a. Define the mode.
+  b. Explain what would need to happen in order for a set of numbers to have two modes
+  c. Define the median 
+  d. Define the mean 
+  e. Define the range
+  f. When calculating the standard deviation, explain what the difference scores represent
+  g. Explain why the difference scores are squared when calculating the standard deviation
+  h. If one set of numbers had a standard deviation of 5, and another had a standard deviation of 10, which set of numbers would have greater variance? Explain why.
+
+When you have completed all exercises and are happy with your progress today, please knit your document and submit it to Canvas. If you finish before the time is up, start with the required readings of Week 3 or help out your fellow students. 
+

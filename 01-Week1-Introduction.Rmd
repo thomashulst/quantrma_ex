@@ -1,9 +1,7 @@
 # Week 1: Introduction[^Adapted2]
 This first lab consists of two parts. In the first part we will work on several exercises related to the readings about research methods. In the second part you be introduced to basic concepts in R. This lab assumes you have read the required readings of [Week 1](https://thomashulst.github.io/quantrma/Introduction.html) and completed the [Getting started](https://thomashulst.github.io/quantrma_lab/getting-started.html) guide. You will be completing each lab by writing your notes and code in an R Markdown document. You should have setup your files as described [in this part](https://thomashulst.github.io/quantrma_lab/getting-started.html#how-to-complete-the-labs) of the Getting started section. At the end of this lab you will **individually** upload the document with your answers to Canvas. 
 
-If you finish before the time is up, you can start with the required readings of Week 2 or help out your fellow students. If you are unable to finish the exercises during the lab, continue working on them at home and discuss your results with your peers. If you still have questions, please visit the office hours on Wednesday's. 
-
-The answers to all exercises will be uploaded to Canvas every Friday after 18:00.
+If you finish before the time is up, you can start with the required readings of Week 2 or help out your fellow students. If you are unable to finish the exercises during the lab, continue working on them at home and discuss the exercises with your peers. You should upload your document to Canvas by Monday 23:59. The exercises will not be graded, and you will not receive personal feedback on your answers, but they should show a good effort trying to complete the exercises. The answers to the exercises will be uploaded to Canvas every Monday night. If you still have questions after finishing the exercises and reviewing the answer key, please visit the office hours on Wednesday's.
 
 [^Adapted2]: The R part of this lab was adapted from the book by Danielle Navarro
 
@@ -19,6 +17,13 @@ Follow these steps:
 7. You should keep your notes, copy/paste R code, and answer the questions of this lab in the lab RMarkdown document
 
 When we made this course, we assumed that most students would be unfamiliar with R and RStudio, and might even be frightened of it. Don't worry. It's going to be way easier than you think. We know that it will seem challenging at first. But, we think that with lots of working examples, you will get the hang of it, and by the end of the course you will be able to do things you might never have dreamed you can do. It's really a fantastic skill to learn, even if you aren't planning on going on to do research. If anything during this lab is unclear, please do not hesitate to ask your tutor.
+
+## General Goals
+1. Discuss fundamental concepts of research methods and design
+2. Learn how to knit an RMarkdown document 
+3. First steps in R and RStudio
+4. Learn about operators, functions, variables and comments in R
+5. Learn about getting help in R and debugging common errors 
 
 ## Part one: research methods 
 Discuss the questions about research methods below in groups of 3 and register the answers in the .Rmd file for this lab.
@@ -63,7 +68,6 @@ For each one of the three statements below, indicate whether it corresponds to d
 * The measure of our concept is reliable, but not valid.
 * The measure of our concept is neither valid, not reliable.
 * The measure of our concept is both valid and reliable.
-
 
 ### Question 7
 The National Health Care Institute of the Netherlands partners with local schools to provide a weekly physical exercise program for children ages 6-14. The sessions are designed to last throughout the whole academic year, and they will take place in afternoon hours. They also consist of both a theoretical and a practical part. In the theoretical part, volunteers strive to increase children’s exercise habits by teaching them about the benefits of regular exercise, whereas in the practical part, they organize various age-appropriate sports activities for children to participate in. Changes in exercise habits are measured via a questionnaire at the end of the program. However, the program manager is concerned that the questionnaire is not producing high-quality observations, particularly for questions that ask children about their exercise habits before participating in the program. Assuming the problem is with measurement and not with the program design:
@@ -318,7 +322,7 @@ There are a couple of things you should keep in mind when working with R. The fi
 #### Typos
 R takes it on faith that you meant to type *exactly* what you did type. For example, suppose that you forgot to hit the shift key when trying to type `+`, and as a result your command ended up being `10 = 20` rather than `10 + 20`. 
 
-```{r}
+```{r,eval=FALSE}
 10 = 20
 ```
 
@@ -362,7 +366,7 @@ citation(  )
 
 will produce exactly the same response. However, what we can't do is insert spaces in the middle of the word. If you try to do this, R gets upset:
 
-```{r}
+```{r,eval=FALSE}
 citat ion()
 ```
 
@@ -450,6 +454,6 @@ This is actually my favorite number:
 fav_num <- 2.718
 ```
 
-When you have completed all exercises and are happy with your progress today, please knit your document and submit it to Canvas. If you finish before the time is up, you can start with the required readings of Week 2 or help out your fellow students. If you are unable to finish the exercises during the lab, continue working on them at home and discuss your results with your peers. If you still have questions, please visit the office hours on Wednesday's. 
+When you have completed all exercises and are happy with your progress today, please knit your document and submit it to Canvas. If you finish before the time is up, you can start with the required readings of Week 2 or help out your fellow students. 
 
-The answers to all exercises will be uploaded to Canvas every Friday after 18:00.
+If you are unable to finish the exercises during the lab, continue working on them at home and discuss the exercises with your peers. You should upload your document to Canvas by Monday 23:59. The exercises will not be graded, and you will not receive personal feedback on your answers, but they should show a good effort trying to complete the exercises. The answers to all exercises will be uploaded to Canvas every Monday night. If you still have questions after finishing the exercises and reviewing the answer key, please visit the office hours on Wednesday's.
