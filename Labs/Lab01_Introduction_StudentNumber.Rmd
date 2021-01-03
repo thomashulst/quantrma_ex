@@ -1,0 +1,169 @@
+---
+title: "Lab 1 - Introduction"
+author: "Student Name"
+date: "xx/xx/xx"
+output:
+  html_document:
+    toc: yes
+    toc_float: yes
+  word_document:
+    toc: yes
+---
+
+```{r setup,include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, eval = TRUE, cache = FALSE, error = TRUE, message = TRUE, warning = TRUE, tidy = TRUE)
+```
+
+# Part one: research methods
+
+## Question 1
+In the required readings of this week we called to process of clarifying abstract concepts and translating them into specific, observable measures **operationalization**. Operationalization involves both a **nominal** and an **operational** definition. Describe in your own words what these terms mean. 
+
+Answer here.
+
+## Question 2
+To make sure you are able to submit your answers at the end of this lab, try to "knit" your R Markdown file by pressing the "Knit" button:
+
+```{r knit, fig.cap="", echo=FALSE,eval=TRUE,dev='png',out.width="50%"}
+knitr::include_graphics('data/knit.png')
+```
+
+Knitting creates a formatted document which can be displayed by other programs. By default, the document is knitted as a .html file  (which can be read by any web browser) but you can also knit your RMarkdown documents as a Word document (.docx)! To do so, press the downward arrow next to the knitting symbol and select "Knit to Word". For your submission, the default (.html) format suffices. 
+
+## Question 3
+Two different definitions of **emotional well-being** are provided by the Mental Health Foundation. For each of the following definitions, decide whether it constitutes a nominal or an operational definition:
+    a. "A positive sense of well-being which enables an individual to be able to function in society and meet the demands of everyday life."
+    b. "People in good mental health have the ability to recover effectively from illness, change or misfortune."
+
+Answer here.
+
+## Question 4
+Two different definitions of **financial literacy** can be found in literature. For each of the following definitions, decide whether it constitutes a nominal or an operational definition:
+    a. "The ability to read, analyze, manage and communicate about the personal financial conditions that affect material well-being."
+    b. "The ability to manage effectively personal savings, credits and borrowed money as well as personal investments."
+
+Answer here.
+
+## Question 5
+Suppose you want to study financial literacy, given the numerous benefits it brings to society, and given the documented lack of financial education. Would you use the following operational definition of financial literacy: “The ability to correctly predict short term fluctuations in the stock market?"
+
+Answer here.
+
+## Question 6
+The graph below is a visual representation of the concepts of measure validity and reliability.
+
+```{r validreliab, fig.cap="A visual representation of the concepts measure validity and reliability. Imagine the theoretical construct you want to measure is the bullseye of the dartboard and the dots represent an attempt at measurement. Illustration adapted from an illustration by Nevit Dilmen, Wikimedia Commons.", echo=FALSE,eval=TRUE,dev='png'}
+knitr::include_graphics('data/ValidReliab.png')
+```
+
+For each one of the three statements below, indicate whether it corresponds to dart board A, B, C or none.
+
+* The measure of our concept is valid, but not reliable.
+* The measure of our concept is reliable, but not valid.
+* The measure of our concept is neither valid, not reliable.
+* The measure of our concept is both valid and reliable.
+
+## Question 7
+The National Health Care Institute of the Netherlands partners with local schools to provide a weekly physical exercise program for children ages 6-14. The sessions are designed to last throughout the whole academic year, and they will take place in afternoon hours. They also consist of both a theoretical and a practical part. In the theoretical part, volunteers strive to increase children’s exercise habits by teaching them about the benefits of regular exercise, whereas in the practical part, they organize various age-appropriate sports activities for children to participate in. Changes in exercise habits are measured via a questionnaire at the end of the program. However, the program manager is concerned that the questionnaire is not producing high-quality observations, particularly for questions that ask children about their exercise habits before participating in the program. Assuming the problem is with measurement and not with the program design:
+
+* What is the most likely measurement problem? Reliability or validity?
+* What type of error is most likely producing this problem? Constant error, random error and/or correlated error? 
+* How might the program address this measurement problem?
+    
+Answer here.
+
+## Question 8
+The Dutch Environmental Assessment Agency aims to identify sections of Dutch rivers for stream bank restoration. The goal of this work is to create stream bank conditions that can lead to eventual water quality improvements. Crews of national service volunteers implement remediation in accordance with the waterway management plan, including removal of trash and debris from stream banks, removal of invasive plants, reintroduction of native plants, and erosion abatement. Land managers from the Ministry of Infrastructure and Water Management inspect project sites within two weeks of project completion. The assessment instrument used by land managers contains checkbox items to indicate whether various remediation actions were taken but does not provide a way to assess the quality of these remediation actions with respect to environmental standards. This problem should be of high concern to the land managers, given the fact that high quality environmental standards are hard to meet, even when all the appropriate actions have been taken. Assuming the problem is with measurement and not with the program design:
+
+Answer here.
+
+# Part two: introduction to R
+You can keep notes about the R part of the lab here and execute code like in the code block below:
+
+```{r}
+# Type or copy/paste R code in an R code block to have the code executed and the output printed in your final (knitted) document.
+10+20
+```
+
+## Arithmetics exercises
+
+#### 1. Take your favorite number to the third power.
+```{r}
+
+```
+
+#### 2. Calculate the number of seconds in a year, on the simplifying assumption that a year contains exactly 365 days.
+```{r}
+
+```
+
+#### 3. Use R to calculate solution to 6/2*(1+2). Why is the solution not 1?
+```{r}
+
+```
+The solution is not 1 because of the order of operations: BEDMAS. When operations are tied, R executes commands left to right.
+
+## Function exercises
+
+#### 1. Use a function to calculate the square root of your favorite number.
+```{r}
+
+```
+
+#### 2. How many arguments does the function log() take?
+```{r}
+
+```
+The function log() takes two arguments: x and base.
+
+#### 3. Use R to execute the following command: `rep("hello!",100)`. What does the `rep()` function do? Could you rewrite this command to use argument names?
+```{r}
+
+```
+The function rep() replicates the values of x, n times.
+
+## Variable exercises
+
+#### 1. Assign your favorite number to the variable `fav_num`.
+```{r}
+
+```
+
+#### 2. Assign a sequence of numbers from 1 to 10 the variable `seq_10` (hint: `seq()`).
+```{r}
+
+```
+
+#### 3. Multiply `fav_num` with `seq_10` and save the result in a variable called fav_num_seq10.
+```{r}
+
+```
+
+## Common mistakes exercises
+
+#### Figure out what is wrong with the following R commands and try to think if you can fix them:
+
+#### 1.
+```{r}
+x <- 1
+y <- 5
+x*z
+```
+
+#### 2.
+```{r}
+x <- Seq(1,10)
+```
+
+#### 3.
+```{r}
+x <- sqrt(seq(1,10)
+```
+
+#### 4.
+```{r}
+This is actually my favorite number:
+fav_num <- 2.718
+```
+
+When you have completed all exercises and are happy with your progress today, please knit your document and submit it to Canvas. If you finish before the time is up, start with the required readings of Week 2 or help out your fellow students. 

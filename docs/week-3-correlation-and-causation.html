@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title> 3 Week 3: Correlation and Causation | Lab manual QuantRMA</title>
+  <meta name="description" content="The exercises related to the introductory textbook for quantitative research methods and data analysis at EUC. This text was adapted from “Answering questions with data: Lab Manual” by Matthew J.C. Crump and colleagues (https://crumplab.github.io/statistics/)" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content=" 3 Week 3: Correlation and Causation | Lab manual QuantRMA" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="The exercises related to the introductory textbook for quantitative research methods and data analysis at EUC. This text was adapted from “Answering questions with data: Lab Manual” by Matthew J.C. Crump and colleagues (https://crumplab.github.io/statistics/)" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content=" 3 Week 3: Correlation and Causation | Lab manual QuantRMA" />
+  
+  <meta name="twitter:description" content="The exercises related to the introductory textbook for quantitative research methods and data analysis at EUC. This text was adapted from “Answering questions with data: Lab Manual” by Matthew J.C. Crump and colleagues (https://crumplab.github.io/statistics/)" />
+  
+
+<meta name="author" content="Matthew J. C. Crump, Anjali Krishnan, Stephen Volz, and Alla Chavarga" />
+<meta name="author" content="Adapted for use at EUC by Thomas Hulst and Thanos Kostopoulos" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="week-2-describing-data.html"/>
+<link rel="next" href="references.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Lab manual QuantRMA</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#important-notes"><i class="fa fa-check"></i>Important notes</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#attributions"><i class="fa fa-check"></i>Attributions</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#cc-by-sa-4.0-license"><i class="fa fa-check"></i>CC BY-SA 4.0 license</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="getting-started-adapted1.html"><a href="getting-started-adapted1.html"><i class="fa fa-check"></i>Getting started</a><ul>
+<li class="chapter" data-level="0.1" data-path="getting-started-adapted1.html"><a href="getting-started-adapted1.html#why-r"><i class="fa fa-check"></i><b>0.1</b> Why R?</a></li>
+<li class="chapter" data-level="0.2" data-path="getting-started-adapted1.html"><a href="getting-started-adapted1.html#downloading-and-installing-r"><i class="fa fa-check"></i><b>0.2</b> Downloading and installing R</a><ul>
+<li class="chapter" data-level="0.2.1" data-path="getting-started-adapted1.html"><a href="getting-started-adapted1.html#installing-r-on-a-mac"><i class="fa fa-check"></i><b>0.2.1</b> Installing R on a Mac</a></li>
+<li class="chapter" data-level="0.2.2" data-path="getting-started-adapted1.html"><a href="getting-started-adapted1.html#installing-r-on-a-windows-pc"><i class="fa fa-check"></i><b>0.2.2</b> Installing R on a Windows PC</a></li>
+<li class="chapter" data-level="0.2.3" data-path="getting-started-adapted1.html"><a href="getting-started-adapted1.html#installing-r-on-a-linux-pc"><i class="fa fa-check"></i><b>0.2.3</b> Installing R on a Linux PC</a></li>
+</ul></li>
+<li class="chapter" data-level="0.3" data-path="getting-started-adapted1.html"><a href="getting-started-adapted1.html#RStudio"><i class="fa fa-check"></i><b>0.3</b> Downloading and installing RStudio</a></li>
+<li class="chapter" data-level="0.4" data-path="getting-started-adapted1.html"><a href="getting-started-adapted1.html#understanding-rstudio"><i class="fa fa-check"></i><b>0.4</b> Understanding RStudio</a><ul>
+<li class="chapter" data-level="0.4.1" data-path="getting-started-adapted1.html"><a href="getting-started-adapted1.html#consoleR"><i class="fa fa-check"></i><b>0.4.1</b> Console</a></li>
+<li class="chapter" data-level="0.4.2" data-path="getting-started-adapted1.html"><a href="getting-started-adapted1.html#script-editor"><i class="fa fa-check"></i><b>0.4.2</b> Script Editor</a></li>
+<li class="chapter" data-level="0.4.3" data-path="getting-started-adapted1.html"><a href="getting-started-adapted1.html#workspace-and-history"><i class="fa fa-check"></i><b>0.4.3</b> Workspace and History</a></li>
+<li class="chapter" data-level="0.4.4" data-path="getting-started-adapted1.html"><a href="getting-started-adapted1.html#fileplot"><i class="fa fa-check"></i><b>0.4.4</b> File, Plot, Packages, Help</a></li>
+<li class="chapter" data-level="0.4.5" data-path="getting-started-adapted1.html"><a href="getting-started-adapted1.html#installing-libraries"><i class="fa fa-check"></i><b>0.4.5</b> Installing libraries</a></li>
+</ul></li>
+<li class="chapter" data-level="0.5" data-path="getting-started-adapted1.html"><a href="getting-started-adapted1.html#how-to-complete-the-labs"><i class="fa fa-check"></i><b>0.5</b> How to complete the labs</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="week-1-introductionadapted2.html"><a href="week-1-introductionadapted2.html"><i class="fa fa-check"></i><b>1</b> Week 1: Introduction</a><ul>
+<li class="chapter" data-level="" data-path="week-1-introductionadapted2.html"><a href="week-1-introductionadapted2.html#lets-get-started"><i class="fa fa-check"></i>Let’s get started!</a></li>
+<li class="chapter" data-level="1.1" data-path="week-1-introductionadapted2.html"><a href="week-1-introductionadapted2.html#general-goals"><i class="fa fa-check"></i><b>1.1</b> General Goals</a></li>
+<li class="chapter" data-level="1.2" data-path="week-1-introductionadapted2.html"><a href="week-1-introductionadapted2.html#part-one-research-methods"><i class="fa fa-check"></i><b>1.2</b> Part one: research methods</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="week-1-introductionadapted2.html"><a href="week-1-introductionadapted2.html#question-1"><i class="fa fa-check"></i><b>1.2.1</b> Question 1</a></li>
+<li class="chapter" data-level="1.2.2" data-path="week-1-introductionadapted2.html"><a href="week-1-introductionadapted2.html#question-2"><i class="fa fa-check"></i><b>1.2.2</b> Question 2</a></li>
+<li class="chapter" data-level="1.2.3" data-path="week-1-introductionadapted2.html"><a href="week-1-introductionadapted2.html#question-3"><i class="fa fa-check"></i><b>1.2.3</b> Question 3</a></li>
+<li class="chapter" data-level="1.2.4" data-path="week-1-introductionadapted2.html"><a href="week-1-introductionadapted2.html#question-4"><i class="fa fa-check"></i><b>1.2.4</b> Question 4</a></li>
+<li class="chapter" data-level="1.2.5" data-path="week-1-introductionadapted2.html"><a href="week-1-introductionadapted2.html#question-5"><i class="fa fa-check"></i><b>1.2.5</b> Question 5</a></li>
+<li class="chapter" data-level="1.2.6" data-path="week-1-introductionadapted2.html"><a href="week-1-introductionadapted2.html#question-6"><i class="fa fa-check"></i><b>1.2.6</b> Question 6</a></li>
+<li class="chapter" data-level="1.2.7" data-path="week-1-introductionadapted2.html"><a href="week-1-introductionadapted2.html#question-7"><i class="fa fa-check"></i><b>1.2.7</b> Question 7</a></li>
+<li class="chapter" data-level="1.2.8" data-path="week-1-introductionadapted2.html"><a href="week-1-introductionadapted2.html#question-8"><i class="fa fa-check"></i><b>1.2.8</b> Question 8</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="week-1-introductionadapted2.html"><a href="week-1-introductionadapted2.html#part-two-introduction-to-r"><i class="fa fa-check"></i><b>1.3</b> Part two: introduction to R</a><ul>
+<li class="chapter" data-level="1.3.1" data-path="week-1-introductionadapted2.html"><a href="week-1-introductionadapted2.html#arithmetic"><i class="fa fa-check"></i><b>1.3.1</b> Doing simple calculations with R</a></li>
+<li class="chapter" data-level="1.3.2" data-path="week-1-introductionadapted2.html"><a href="week-1-introductionadapted2.html#usingfunctions"><i class="fa fa-check"></i><b>1.3.2</b> Using functions to do calculations</a></li>
+<li class="chapter" data-level="1.3.3" data-path="week-1-introductionadapted2.html"><a href="week-1-introductionadapted2.html#assign"><i class="fa fa-check"></i><b>1.3.3</b> Storing a number as a variable</a></li>
+<li class="chapter" data-level="1.3.4" data-path="week-1-introductionadapted2.html"><a href="week-1-introductionadapted2.html#using-comments"><i class="fa fa-check"></i><b>1.3.4</b> Using comments</a></li>
+<li class="chapter" data-level="1.3.5" data-path="week-1-introductionadapted2.html"><a href="week-1-introductionadapted2.html#r-is-pretty-stupid"><i class="fa fa-check"></i><b>1.3.5</b> R is pretty stupid?</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="week-2-describing-data.html"><a href="week-2-describing-data.html"><i class="fa fa-check"></i><b>2</b> Week 2: Describing Data</a><ul>
+<li class="chapter" data-level="2.1" data-path="week-2-describing-data.html"><a href="week-2-describing-data.html#general-goals-1"><i class="fa fa-check"></i><b>2.1</b> General Goals</a></li>
+<li class="chapter" data-level="2.2" data-path="week-2-describing-data.html"><a href="week-2-describing-data.html#part-one-describing-data-using-graphs"><i class="fa fa-check"></i><b>2.2</b> Part one: describing data using graphs</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="week-2-describing-data.html"><a href="week-2-describing-data.html#look-at-the-data"><i class="fa fa-check"></i><b>2.2.1</b> Look at the data</a></li>
+<li class="chapter" data-level="2.2.2" data-path="week-2-describing-data.html"><a href="week-2-describing-data.html#data-exercises"><i class="fa fa-check"></i><b>2.2.2</b> Data exercises</a></li>
+<li class="chapter" data-level="2.2.3" data-path="week-2-describing-data.html"><a href="week-2-describing-data.html#make-plots-to-answer-questions"><i class="fa fa-check"></i><b>2.2.3</b> Make plots to answer questions</a></li>
+<li class="chapter" data-level="2.2.4" data-path="week-2-describing-data.html"><a href="week-2-describing-data.html#more-questions-about-nyc-films"><i class="fa fa-check"></i><b>2.2.4</b> More questions about NYC films</a></li>
+<li class="chapter" data-level="2.2.5" data-path="week-2-describing-data.html"><a href="week-2-describing-data.html#questions-about-the-gapminder-dataset"><i class="fa fa-check"></i><b>2.2.5</b> Questions about the Gapminder dataset</a></li>
+<li class="chapter" data-level="2.2.6" data-path="week-2-describing-data.html"><a href="week-2-describing-data.html#graphing-exercises"><i class="fa fa-check"></i><b>2.2.6</b> Graphing exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="week-2-describing-data.html"><a href="week-2-describing-data.html#part-two-describing-data-using-numbers"><i class="fa fa-check"></i><b>2.3</b> Part two: describing data using numbers</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="week-2-describing-data.html"><a href="week-2-describing-data.html#playing-with-numbers"><i class="fa fa-check"></i><b>2.3.1</b> Playing with numbers</a></li>
+<li class="chapter" data-level="2.3.2" data-path="week-2-describing-data.html"><a href="week-2-describing-data.html#central-tendency"><i class="fa fa-check"></i><b>2.3.2</b> Central Tendency</a></li>
+<li class="chapter" data-level="2.3.3" data-path="week-2-describing-data.html"><a href="week-2-describing-data.html#variation"><i class="fa fa-check"></i><b>2.3.3</b> Variation</a></li>
+<li class="chapter" data-level="2.3.4" data-path="week-2-describing-data.html"><a href="week-2-describing-data.html#all-together"><i class="fa fa-check"></i><b>2.3.4</b> All together</a></li>
+<li class="chapter" data-level="2.3.5" data-path="week-2-describing-data.html"><a href="week-2-describing-data.html#descriptives-by-conditions"><i class="fa fa-check"></i><b>2.3.5</b> Descriptives by conditions</a></li>
+<li class="chapter" data-level="2.3.6" data-path="week-2-describing-data.html"><a href="week-2-describing-data.html#describing-gapminder"><i class="fa fa-check"></i><b>2.3.6</b> Describing gapminder</a></li>
+<li class="chapter" data-level="2.3.7" data-path="week-2-describing-data.html"><a href="week-2-describing-data.html#descriptive-exercises"><i class="fa fa-check"></i><b>2.3.7</b> Descriptive exercises</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="week-3-correlation-and-causation.html"><a href="week-3-correlation-and-causation.html"><i class="fa fa-check"></i><b>3</b> Week 3: Correlation and Causation</a><ul>
+<li class="chapter" data-level="3.1" data-path="week-3-correlation-and-causation.html"><a href="week-3-correlation-and-causation.html#general-goals-2"><i class="fa fa-check"></i><b>3.1</b> General Goals</a></li>
+<li class="chapter" data-level="3.2" data-path="week-3-correlation-and-causation.html"><a href="week-3-correlation-and-causation.html#part-one-establishing-causal-relationships"><i class="fa fa-check"></i><b>3.2</b> Part one: establishing causal relationships</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="week-3-correlation-and-causation.html"><a href="week-3-correlation-and-causation.html#question-1-1"><i class="fa fa-check"></i><b>3.2.1</b> Question 1</a></li>
+<li class="chapter" data-level="3.2.2" data-path="week-3-correlation-and-causation.html"><a href="week-3-correlation-and-causation.html#question-2-1"><i class="fa fa-check"></i><b>3.2.2</b> Question 2</a></li>
+<li class="chapter" data-level="3.2.3" data-path="week-3-correlation-and-causation.html"><a href="week-3-correlation-and-causation.html#question-3-1"><i class="fa fa-check"></i><b>3.2.3</b> Question 3</a></li>
+<li class="chapter" data-level="3.2.4" data-path="week-3-correlation-and-causation.html"><a href="week-3-correlation-and-causation.html#question-4-1"><i class="fa fa-check"></i><b>3.2.4</b> Question 4</a></li>
+<li class="chapter" data-level="3.2.5" data-path="week-3-correlation-and-causation.html"><a href="week-3-correlation-and-causation.html#question-5-1"><i class="fa fa-check"></i><b>3.2.5</b> Question 5</a></li>
+<li class="chapter" data-level="3.2.6" data-path="week-3-correlation-and-causation.html"><a href="week-3-correlation-and-causation.html#question-6-1"><i class="fa fa-check"></i><b>3.2.6</b> Question 6</a></li>
+<li class="chapter" data-level="3.2.7" data-path="week-3-correlation-and-causation.html"><a href="week-3-correlation-and-causation.html#question-7-1"><i class="fa fa-check"></i><b>3.2.7</b> Question 7</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="week-3-correlation-and-causation.html"><a href="week-3-correlation-and-causation.html#part-two-correlations-in-r"><i class="fa fa-check"></i><b>3.3</b> Part two: correlations in R</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="week-3-correlation-and-causation.html"><a href="week-3-correlation-and-causation.html#cor-for-correlation"><i class="fa fa-check"></i><b>3.3.1</b> <code>cor()</code> for correlation</a></li>
+<li class="chapter" data-level="3.3.2" data-path="week-3-correlation-and-causation.html"><a href="week-3-correlation-and-causation.html#correlation-exercises"><i class="fa fa-check"></i><b>3.3.2</b> Correlation exercises</a></li>
+<li class="chapter" data-level="3.3.3" data-path="week-3-correlation-and-causation.html"><a href="week-3-correlation-and-causation.html#real-data"><i class="fa fa-check"></i><b>3.3.3</b> Real data</a></li>
+<li class="chapter" data-level="3.3.4" data-path="week-3-correlation-and-causation.html"><a href="week-3-correlation-and-causation.html#correlation-exercises-1"><i class="fa fa-check"></i><b>3.3.4</b> Correlation exercises</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>4</b> References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Lab manual QuantRMA</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="week-3-correlation-and-causation" class="section level1">
+<h1><span class="header-section-number"> 3</span> Week 3: Correlation and Causation</h1>
+<p>In lecture and in the textbook, we have been discussing the idea of correlation. This is the idea that two things that we measure can be somehow related to one another. For example, your personal happiness, which we could try to measure say with a questionnaire, might be related to other things in your life that we could also measure, such as number of close friends, yearly salary, how much chocolate you have in your bedroom, or how many times you have said the word Nintendo in your life. Some of the relationships that we can measure are meaningful, and might reflect a causal relationship where one thing causes a change in another thing. Some of the relationships are spurious, and do not reflect a causal relationship.</p>
+<p>In this lab we will discuss several concepts related to establishing causal relationship and you will learn how to compute correlations between two variables and ask some questions about the correlations that you observe.</p>
+<div id="general-goals-2" class="section level2">
+<h2><span class="header-section-number">3.1</span> General Goals</h2>
+<ol style="list-style-type: decimal">
+<li>Discuss relationships between variables and how to establish causal relationships</li>
+<li>Learn how to compute Pearson’s <span class="math inline">\(r\)</span> between two variables in R</li>
+<li>Discuss the possible meaning of correlations that you observe</li>
+</ol>
+</div>
+<div id="part-one-establishing-causal-relationships" class="section level2">
+<h2><span class="header-section-number">3.2</span> Part one: establishing causal relationships</h2>
+<div id="question-1-1" class="section level3">
+<h3><span class="header-section-number">3.2.1</span> Question 1</h3>
+<p>Take a close look at the following two examples. Each example consists of a graph showing the fluctuation of two variables and a statement suggesting how to interpret such evidence. Are these statements correct? Explain your answer.</p>
+<p>Example 1: There is a positive causal relationship between the number of people who drowned by falling into a pool and the number of films Nicolas Cage appeared in.</p>
+<div class="figure"><span id="fig:example1"></span>
+<img src="figures/cage.png" alt="Relationship between number of drownings and films Nicolage Cage appeared in. Illustration by [Tyler Vigen](#https://www.tylervigen.com/spurious-correlations/)." width="75%" />
+<p class="caption">
+Figure 3.1: Relationship between number of drownings and films Nicolage Cage appeared in. Illustration by <a href="#https://www.tylervigen.com/spurious-correlations/">Tyler Vigen</a>.
+</p>
+</div>
+<p>Example 2: There is a positive causal relationship between per capita consumption of mozzarella cheese and civil engineering doctorates awarded.</p>
+<div class="figure"><span id="fig:example2"></span>
+<img src="figures/mozerella.png" alt="Relationship between mozerella consumption and civil engineering doctorates. Illustration by [Tyler Vigen](#https://www.tylervigen.com/spurious-correlations/)." width="75%" />
+<p class="caption">
+Figure 3.2: Relationship between mozerella consumption and civil engineering doctorates. Illustration by <a href="#https://www.tylervigen.com/spurious-correlations/">Tyler Vigen</a>.
+</p>
+</div>
+</div>
+<div id="question-2-1" class="section level3">
+<h3><span class="header-section-number">3.2.2</span> Question 2</h3>
+<p>For each of the three scenarios described below, identify a confounder (variable Z) and visualize its association with variables X and Y.</p>
+<ol style="list-style-type: decimal">
+<li>The observation that when ice cream sales go up drownings of people in swimming pools increase, led the researcher to believe that ice cream consumption increases drownings.</li>
+<li>The observation that in European countries sales of school equipment (i.e. pencils, notebooks, textbooks, etc) rise when weather temperatures are on decline, led the researcher to believe that low weather temperatures make students more willing to study.</li>
+<li>The observation that there is a very strong correlation between the use of social media and symptoms of depression, led the researcher to believe that excessive use of social media causes symptoms of depression.</li>
+</ol>
+</div>
+<div id="question-3-1" class="section level3">
+<h3><span class="header-section-number">3.2.3</span> Question 3</h3>
+<p>The cases below present an empirical observation that leads to a proposition. First, you are asked to identify the problem with this proposition. Then, you must provide a solution to overcome this issue. Your proposed solution should strengthen claims of a causal relationship between variables X and Y.</p>
+<p>Hint: Your proposed solution should satisfy the following:</p>
+<ul>
+<li>Clearly identify the source of variation in the independent variable (i.e. define groups)</li>
+<li>Indicate how you would use the variation in the independent variable to test against the proposed causal relationship</li>
+<li>There is enough variation in the independent variable (i.e. number of groups) such that the effect of interest can be identified in sufficient detail.</li>
+</ul>
+<div id="case-1" class="section level4">
+<h4><span class="header-section-number">3.2.3.1</span> Case 1</h4>
+<p>Observation: We find that many individuals with a college degree earn very generous salaries<br />
+Proposition: Higher education leads to higher income
+Problem:
+Solution:</p>
+</div>
+<div id="case-2" class="section level4">
+<h4><span class="header-section-number">3.2.3.2</span> Case 2</h4>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>Observation: We observe that people who exercise their hobbies regularly tend to be happier.
+Proposition: The more one exercises his or her hobbies, the happier he or she will be.
+Problem:
+Solution:</li>
+</ol>
+</div>
+</div>
+<div id="question-4-1" class="section level3">
+<h3><span class="header-section-number">3.2.4</span> Question 4</h3>
+<p>In the previous question, you provided solutions to ambiguously formulated claims of causal relationships, in order to strengthen their empirical validity and to be able to draw meaningful conclusions. However, meaningful conclusions should be obtained from meaningful comparisons. According to the textbook, what does a meaningful comparison entail?</p>
+</div>
+<div id="question-5-1" class="section level3">
+<h3><span class="header-section-number">3.2.5</span> Question 5</h3>
+<p>According to the textbook, how can we obtain meaningful comparisons?</p>
+</div>
+<div id="question-6-1" class="section level3">
+<h3><span class="header-section-number">3.2.6</span> Question 6</h3>
+<p>The textbook discusses three different types of interventions (independent variables). Briefly describe what they are and provide an example of your own.</p>
+</div>
+<div id="question-7-1" class="section level3">
+<h3><span class="header-section-number">3.2.7</span> Question 7</h3>
+<p>Read the following two cases and decide whether or not the described experiment is internally valid. <em>If not</em>, identify the threat to internal validity by choosing from the options below.</p>
+<ol style="list-style-type: lower-alpha">
+<li>Selection bias</li>
+<li>Demand characteristics effect</li>
+<li>History effect</li>
+<li>Maturation effect</li>
+<li>Repeated testing effect</li>
+<li>Regression to the mean</li>
+<li>Differential attrition</li>
+<li>Non-response bias</li>
+<li>Experimenter bias</li>
+<li>Placebo effect</li>
+</ol>
+<div id="case-1-1" class="section level4">
+<h4><span class="header-section-number">3.2.7.1</span> Case 1</h4>
+<p>It was the start of a new swim season, and the coach was already concerned about her swimmers’ lack of effort during the 20-minute dry-land portion of practice. She felt they didn’t take it seriously enough, and too often they would be talking or slacking off rather than doing the required stretches and exercises. She consulted with a sports psychologist. He suggested that she write the names of all 20 swimmers on individual slips of paper, scramble them, and then pick ten without looking. This would be used to assign swimmers to a Non-contingent Group (the first ten), who would have trainings on Monday, Wednesday and Friday, and a Contingent Group (the remainder), who would have training on Tuesday, Thursday, and Saturday. The coach thought it would be easier simply to assign the swimmers to groups on the basis of friendship, but she changed her mind after the psychologist explained the rationale for this slightly more cumbersome procedure.</p>
+<p>The intervention was that swimmers in the Contingent Group were told that if their dry-land productivity as a group for the day was 15% better than their average in the previous week then music would be played at the following practice. The productivity of the Non-contingent Group had no bearing on the playing of music. Then, each practice day for one week, observers unobtrusively recorded the swimmers’ productive behaviors during the dry-land training portion and calculated the percentage of one-minute intervals in which all swimmers in a group were being productive. Following this intervention, the dry-land productivity of the Contingent group was found to be higher than that of the Non-Contingent group so we can conclude that making the playing of music contingent on the swimmers’ dry-land productivity resulted in an increase in that productivity.</p>
+</div>
+<div id="case-2-1" class="section level4">
+<h4><span class="header-section-number">3.2.7.2</span> Case 2</h4>
+<p>Psychoanalysts at two different hospitals were asked to judge the well-being of a young man being interviewed on videotape. By the flip of a coin, psychoanalysts at a publicly-funded hospital were assigned to the Normal Group and psychoanalysts at a privately-funded hospital were assigned to the Abnormal Group. In the Normal Group, the doctors were told that the young man was a job applicant; in the Abnormal Group, the doctors were told that he was a patient. The mean adjustment rating by psychoanalysts in the Normal Group was 7 out of 8 compared to a 3.5 out of 8 rating by doctors in the Abnormal Group. We can conclude that the psychoanalysts’ ratings were affected by the label used to describe the young man.</p>
+</div>
+</div>
+</div>
+<div id="part-two-correlations-in-r" class="section level2">
+<h2><span class="header-section-number">3.3</span> Part two: correlations in R</h2>
+<p>In this part of the lab we will use R to explore correlations between two variables.</p>
+<div id="cor-for-correlation" class="section level3">
+<h3><span class="header-section-number">3.3.1</span> <code>cor()</code> for correlation</h3>
+<p>R has the <code>cor</code> function for computing Pearson’s <span class="math inline">\(r\)</span> between any two variables. In fact this same function computes other versions of correlation, but we’ll skip those here. To use the function you just need two variables with numbers in them like this:</p>
+<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="week-3-correlation-and-causation.html#cb175-1"></a>x  &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">5</span>,<span class="dv">4</span>,<span class="dv">6</span>,<span class="dv">5</span>,<span class="dv">8</span>,<span class="dv">9</span>)</span>
+<span id="cb175-2"><a href="week-3-correlation-and-causation.html#cb175-2"></a>y  &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">6</span>,<span class="dv">5</span>,<span class="dv">8</span>,<span class="dv">7</span>,<span class="dv">9</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">10</span>,<span class="dv">13</span>)</span>
+<span id="cb175-3"><a href="week-3-correlation-and-causation.html#cb175-3"></a><span class="kw">cor</span>(x,y)</span></code></pre></div>
+<pre><code>## [1] 0.76539</code></pre>
+<p>Well, that was easy.</p>
+<div id="scatterplots" class="section level4">
+<h4><span class="header-section-number">3.3.1.1</span> Scatterplots</h4>
+<p>Let’s take our toy example, and plot the data in a scatterplot using ggplot2. Let’s also return the correlation and print it on the scatter plot. Remember, ggplot2 wants the data in a <code>data.frame</code>, so we first put our x and y variables in a data frame.</p>
+<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb177-1"><a href="week-3-correlation-and-causation.html#cb177-1"></a><span class="kw">library</span>(ggplot2)</span>
+<span id="cb177-2"><a href="week-3-correlation-and-causation.html#cb177-2"></a></span>
+<span id="cb177-3"><a href="week-3-correlation-and-causation.html#cb177-3"></a>df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(x,y)</span>
+<span id="cb177-4"><a href="week-3-correlation-and-causation.html#cb177-4"></a></span>
+<span id="cb177-5"><a href="week-3-correlation-and-causation.html#cb177-5"></a><span class="kw">ggplot</span>(df, <span class="kw">aes</span>(<span class="dt">x=</span>x,<span class="dt">y=</span>y))<span class="op">+</span></span>
+<span id="cb177-6"><a href="week-3-correlation-and-causation.html#cb177-6"></a><span class="st">  </span><span class="kw">geom_point</span>()<span class="op">+</span></span>
+<span id="cb177-7"><a href="week-3-correlation-and-causation.html#cb177-7"></a><span class="st">  </span><span class="kw">geom_text</span>(<span class="kw">aes</span>(<span class="dt">label =</span> <span class="kw">round</span>(<span class="kw">cor</span>(x,y), <span class="dt">digits=</span><span class="dv">2</span>), <span class="dt">y=</span><span class="dv">12</span>, <span class="dt">x=</span><span class="dv">2</span> ))</span></code></pre></div>
+<p><img src="quantrma_lab_files/figure-html/unnamed-chunk-72-1.png" width="672" /></p>
+<p>Wow, we’re moving fast here. Dissect the code above and see if you understand each step.</p>
+</div>
+<div id="lots-of-scatterplots" class="section level4">
+<h4><span class="header-section-number">3.3.1.2</span> Lots of scatterplots</h4>
+<p>Before we move on to real data, let’s generate some fake data first. Often we will have many measures of X and Y, split between a few different conditions, for example, A, B, C, and D. Let’s make some fake data for X and Y, for each condition A, B, C, and D, and then use <code>facet_wrap()</code> to look at four scatter plots all at once:</p>
+<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="week-3-correlation-and-causation.html#cb178-1"></a>x&lt;-<span class="kw">rnorm</span>(<span class="dv">40</span>,<span class="dv">0</span>,<span class="dv">1</span>) <span class="co"># rnorm() generates a normally distributed random variable</span></span>
+<span id="cb178-2"><a href="week-3-correlation-and-causation.html#cb178-2"></a>y&lt;-<span class="kw">rnorm</span>(<span class="dv">40</span>,<span class="dv">0</span>,<span class="dv">1</span>) <span class="co"># You can always use ? to see what a function does. </span></span>
+<span id="cb178-3"><a href="week-3-correlation-and-causation.html#cb178-3"></a>conditions&lt;-<span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;A&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;C&quot;</span>,<span class="st">&quot;D&quot;</span>), <span class="dt">each=</span><span class="dv">10</span>)</span>
+<span id="cb178-4"><a href="week-3-correlation-and-causation.html#cb178-4"></a></span>
+<span id="cb178-5"><a href="week-3-correlation-and-causation.html#cb178-5"></a>df_all &lt;-<span class="st"> </span><span class="kw">data.frame</span>(conditions, x, y)</span>
+<span id="cb178-6"><a href="week-3-correlation-and-causation.html#cb178-6"></a></span>
+<span id="cb178-7"><a href="week-3-correlation-and-causation.html#cb178-7"></a><span class="kw">ggplot</span>(df_all, <span class="kw">aes</span>(<span class="dt">x=</span>x,<span class="dt">y=</span>y))<span class="op">+</span></span>
+<span id="cb178-8"><a href="week-3-correlation-and-causation.html#cb178-8"></a><span class="st">  </span><span class="kw">geom_point</span>()<span class="op">+</span></span>
+<span id="cb178-9"><a href="week-3-correlation-and-causation.html#cb178-9"></a><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>conditions)</span></code></pre></div>
+<p><img src="quantrma_lab_files/figure-html/unnamed-chunk-73-1.png" width="672" /></p>
+</div>
+<div id="computing-the-correlations-all-at-once" class="section level4">
+<h4><span class="header-section-number">3.3.1.3</span> Computing the correlations all at once</h4>
+<p>We’ve seen how we can make four graphs at once. <code>facet_wrap()</code> will always try to make as many graphs as there are individual conditions in the column variable. In this case there are four, so it makes four.</p>
+<p>What we will do now is make a table of the correlations in addition to the scatter plot. We use functions from the <code>dplyr</code> library to calculate the correlations and the function <code>kable()</code> from the <code>knitr</code> library to output the table:</p>
+<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb179-1"><a href="week-3-correlation-and-causation.html#cb179-1"></a>df_cor &lt;-<span class="st"> </span>df_all <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(conditions) <span class="op">%&gt;%</span></span>
+<span id="cb179-2"><a href="week-3-correlation-and-causation.html#cb179-2"></a><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">correlation =</span> <span class="kw">cor</span>(x, y))</span>
+<span id="cb179-3"><a href="week-3-correlation-and-causation.html#cb179-3"></a></span>
+<span id="cb179-4"><a href="week-3-correlation-and-causation.html#cb179-4"></a>knitr<span class="op">::</span><span class="kw">kable</span>(df_cor)</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">conditions</th>
+<th align="right">correlation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">A</td>
+<td align="right">0.3835259</td>
+</tr>
+<tr class="even">
+<td align="left">B</td>
+<td align="right">0.0691988</td>
+</tr>
+<tr class="odd">
+<td align="left">C</td>
+<td align="right">0.0471978</td>
+</tr>
+<tr class="even">
+<td align="left">D</td>
+<td align="right">0.4876181</td>
+</tr>
+</tbody>
+</table>
+<p>OK, we are basically ready to turn to some real data and ask if there are correlations between interesting variables…</p>
+</div>
+</div>
+<div id="correlation-exercises" class="section level3">
+<h3><span class="header-section-number">3.3.2</span> Correlation exercises</h3>
+<ol style="list-style-type: decimal">
+<li>Notice, the facet_wrapped scatterplots above didn’t show the correlation (r) values. Getting these numbers on there is possible, but you have to use the <code>df_cor</code> data frame in <code>geom_text()</code>. Try to</li>
+</ol>
+</div>
+<div id="real-data" class="section level3">
+<h3><span class="header-section-number">3.3.3</span> Real data</h3>
+<p>Let’s take a look at some correlations in real data. We are going to look at responses to a questionnaire about happiness that was sent around the world, from the <a href="http://worldhappiness.report">World Happiness Report</a></p>
+<div id="load-the-data" class="section level4">
+<h4><span class="header-section-number">3.3.3.1</span> Load the data</h4>
+<p>We load the data into a data frame. Reminder, the following assumes that you have downloaded the zip file with the [lab templates] (<a href="https://github.com/thomashulst/quantrma_lab/raw/master/RMarkdownLabs.zip" class="uri">https://github.com/thomashulst/quantrma_lab/raw/master/RMarkdownLabs.zip</a>) which contains the data file in the data folder.</p>
+<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb180-1"><a href="week-3-correlation-and-causation.html#cb180-1"></a><span class="kw">library</span>(data.table)</span>
+<span id="cb180-2"><a href="week-3-correlation-and-causation.html#cb180-2"></a>whr_data &lt;-<span class="st"> </span><span class="kw">fread</span>(<span class="st">&#39;data/WHR2018.csv&#39;</span>)</span></code></pre></div>
+</div>
+<div id="look-at-the-data-1" class="section level4">
+<h4><span class="header-section-number">3.3.3.2</span> Look at the data</h4>
+<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb181-1"><a href="week-3-correlation-and-causation.html#cb181-1"></a><span class="kw">head</span>(whr_data, <span class="dt">n=</span><span class="dv">20</span>)</span>
+<span id="cb181-2"><a href="week-3-correlation-and-causation.html#cb181-2"></a><span class="kw">tail</span>(whr_data, <span class="dt">n=</span><span class="dv">20</span>)</span>
+<span id="cb181-3"><a href="week-3-correlation-and-causation.html#cb181-3"></a></span>
+<span id="cb181-4"><a href="week-3-correlation-and-causation.html#cb181-4"></a><span class="kw">nrow</span>(whr_data)</span>
+<span id="cb181-5"><a href="week-3-correlation-and-causation.html#cb181-5"></a><span class="kw">ncol</span>(whr_data)</span></code></pre></div>
+<p>You should be able to see that there is data for many different countries, across a few different years. There are lots of different kinds of measures, and each are given a name. You can find in the WHR what each of the measures represent. For now, I’ll show you some examples of asking questions about correlations with this data, then you get to ask and answer your own questions.</p>
+</div>
+<div id="question-1-2" class="section level4">
+<h4><span class="header-section-number">3.3.3.3</span> Question #1</h4>
+<p>For the year 2017, does a countries measure for “Social support” correlate with that countries measure for “Healthy life expectancy at birth”?</p>
+<p>Let’s find out. We calculate the correlation, and then we make the scatter plot. We did something similar in the textbook, so the following should look familiar to you:</p>
+<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb182-1"><a href="week-3-correlation-and-causation.html#cb182-1"></a><span class="kw">cor</span>(whr_data<span class="op">$</span><span class="st">`</span><span class="dt">Social support</span><span class="st">`</span>,</span>
+<span id="cb182-2"><a href="week-3-correlation-and-causation.html#cb182-2"></a>    whr_data<span class="op">$</span><span class="st">`</span><span class="dt">Healthy life expectancy at birth</span><span class="st">`</span>)</span></code></pre></div>
+<pre><code>## [1] NA</code></pre>
+<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="week-3-correlation-and-causation.html#cb184-1"></a><span class="kw">ggplot</span>(whr_data, <span class="kw">aes</span>(<span class="dt">x=</span><span class="st">`</span><span class="dt">Social support</span><span class="st">`</span>,</span>
+<span id="cb184-2"><a href="week-3-correlation-and-causation.html#cb184-2"></a>                     <span class="dt">y=</span><span class="st">`</span><span class="dt">Healthy life expectancy at birth</span><span class="st">`</span>))<span class="op">+</span></span>
+<span id="cb184-3"><a href="week-3-correlation-and-causation.html#cb184-3"></a><span class="st">  </span><span class="kw">geom_point</span>()<span class="op">+</span></span>
+<span id="cb184-4"><a href="week-3-correlation-and-causation.html#cb184-4"></a><span class="st">  </span><span class="kw">theme_classic</span>()</span></code></pre></div>
+<p><img src="quantrma_lab_files/figure-html/unnamed-chunk-77-1.png" width="672" /></p>
+<p>We see a lot of dots on the scatterplot, but the correlation has a value of NA (meaning undefined). This occurred because there are some missing data points in the data and R can’t calculate a correlation over missing data. We should remove all the rows with missing data first, then do the correlation.</p>
+<p>We need to do this a couple steps, first creating our own data.frame with only the numbers we want to analyse. We can select the columns we want to keep using <code>select</code>. Then we use <code>filter</code> to remove the rows with NAs.</p>
+<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb185-1"><a href="week-3-correlation-and-causation.html#cb185-1"></a><span class="kw">library</span>(dplyr)</span>
+<span id="cb185-2"><a href="week-3-correlation-and-causation.html#cb185-2"></a></span>
+<span id="cb185-3"><a href="week-3-correlation-and-causation.html#cb185-3"></a>smaller_df &lt;-<span class="st"> </span>whr_data <span class="op">%&gt;%</span></span>
+<span id="cb185-4"><a href="week-3-correlation-and-causation.html#cb185-4"></a><span class="st">               </span><span class="kw">select</span>(country,</span>
+<span id="cb185-5"><a href="week-3-correlation-and-causation.html#cb185-5"></a>                      <span class="st">`</span><span class="dt">Social support</span><span class="st">`</span>,</span>
+<span id="cb185-6"><a href="week-3-correlation-and-causation.html#cb185-6"></a>                      <span class="st">`</span><span class="dt">Healthy life expectancy at birth</span><span class="st">`</span>) <span class="op">%&gt;%</span></span>
+<span id="cb185-7"><a href="week-3-correlation-and-causation.html#cb185-7"></a><span class="st">               </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(<span class="st">`</span><span class="dt">Social support</span><span class="st">`</span>),</span>
+<span id="cb185-8"><a href="week-3-correlation-and-causation.html#cb185-8"></a>                      <span class="op">!</span><span class="kw">is.na</span>(<span class="st">`</span><span class="dt">Healthy life expectancy at birth</span><span class="st">`</span>))</span>
+<span id="cb185-9"><a href="week-3-correlation-and-causation.html#cb185-9"></a></span>
+<span id="cb185-10"><a href="week-3-correlation-and-causation.html#cb185-10"></a><span class="kw">cor</span>(smaller_df<span class="op">$</span><span class="st">`</span><span class="dt">Social support</span><span class="st">`</span>,</span>
+<span id="cb185-11"><a href="week-3-correlation-and-causation.html#cb185-11"></a>    smaller_df<span class="op">$</span><span class="st">`</span><span class="dt">Healthy life expectancy at birth</span><span class="st">`</span>)</span></code></pre></div>
+<pre><code>## [1] 0.5867593</code></pre>
+<p>Now we see the correlation is approximately 0.59. However, this is the correlation for all years in the dataset, not just 2017. So, we need to filter for the year 2017 as well:</p>
+<div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb187-1"><a href="week-3-correlation-and-causation.html#cb187-1"></a><span class="kw">library</span>(dplyr)</span>
+<span id="cb187-2"><a href="week-3-correlation-and-causation.html#cb187-2"></a></span>
+<span id="cb187-3"><a href="week-3-correlation-and-causation.html#cb187-3"></a>smaller_df &lt;-<span class="st"> </span>whr_data <span class="op">%&gt;%</span></span>
+<span id="cb187-4"><a href="week-3-correlation-and-causation.html#cb187-4"></a><span class="st">              </span><span class="kw">select</span>(country,</span>
+<span id="cb187-5"><a href="week-3-correlation-and-causation.html#cb187-5"></a>                    <span class="st">`</span><span class="dt">Social support</span><span class="st">`</span>,</span>
+<span id="cb187-6"><a href="week-3-correlation-and-causation.html#cb187-6"></a>                    <span class="st">`</span><span class="dt">Healthy life expectancy at birth</span><span class="st">`</span>,</span>
+<span id="cb187-7"><a href="week-3-correlation-and-causation.html#cb187-7"></a>                    <span class="st">`</span><span class="dt">year</span><span class="st">`</span>) <span class="op">%&gt;%</span></span>
+<span id="cb187-8"><a href="week-3-correlation-and-causation.html#cb187-8"></a><span class="st">              </span><span class="kw">filter</span>(<span class="st">`</span><span class="dt">year</span><span class="st">`</span> <span class="op">==</span><span class="st"> </span><span class="dv">2017</span>) <span class="op">%&gt;%</span></span>
+<span id="cb187-9"><a href="week-3-correlation-and-causation.html#cb187-9"></a><span class="st">              </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(<span class="st">`</span><span class="dt">Social support</span><span class="st">`</span>),</span>
+<span id="cb187-10"><a href="week-3-correlation-and-causation.html#cb187-10"></a>                    <span class="op">!</span><span class="kw">is.na</span>(<span class="st">`</span><span class="dt">Healthy life expectancy at birth</span><span class="st">`</span>))</span>
+<span id="cb187-11"><a href="week-3-correlation-and-causation.html#cb187-11"></a></span>
+<span id="cb187-12"><a href="week-3-correlation-and-causation.html#cb187-12"></a><span class="kw">cor</span>(smaller_df<span class="op">$</span><span class="st">`</span><span class="dt">Social support</span><span class="st">`</span>,</span>
+<span id="cb187-13"><a href="week-3-correlation-and-causation.html#cb187-13"></a>    smaller_df<span class="op">$</span><span class="st">`</span><span class="dt">Healthy life expectancy at birth</span><span class="st">`</span>)</span></code></pre></div>
+<pre><code>## [1] 0.7200551</code></pre>
+<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="week-3-correlation-and-causation.html#cb189-1"></a><span class="kw">ggplot</span>(smaller_df, <span class="kw">aes</span>(<span class="dt">x=</span><span class="st">`</span><span class="dt">Social support</span><span class="st">`</span>,</span>
+<span id="cb189-2"><a href="week-3-correlation-and-causation.html#cb189-2"></a>                       <span class="dt">y=</span><span class="st">`</span><span class="dt">Healthy life expectancy at birth</span><span class="st">`</span>))<span class="op">+</span></span>
+<span id="cb189-3"><a href="week-3-correlation-and-causation.html#cb189-3"></a><span class="st">  </span><span class="kw">geom_point</span>()<span class="op">+</span></span>
+<span id="cb189-4"><a href="week-3-correlation-and-causation.html#cb189-4"></a><span class="st">  </span><span class="kw">theme_classic</span>()</span></code></pre></div>
+<p><img src="quantrma_lab_files/figure-html/unnamed-chunk-79-1.png" width="672" /></p>
+<p>Although the scatter plot shows the dots are everywhere, it generally shows as social support increases, life expectancy increases. Let’s add a best fit line, so the trend is more clear. We use <code>geom_smooth(method=lm, se=FALSE)</code>. I also change the <code>alpha</code> value of the dots so they blend it bit, and you can see more of them.</p>
+<div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb190-1"><a href="week-3-correlation-and-causation.html#cb190-1"></a><span class="co"># select DVs and filter for NAs and year == 2017</span></span>
+<span id="cb190-2"><a href="week-3-correlation-and-causation.html#cb190-2"></a>smaller_df &lt;-<span class="st"> </span>whr_data <span class="op">%&gt;%</span></span>
+<span id="cb190-3"><a href="week-3-correlation-and-causation.html#cb190-3"></a><span class="st">              </span><span class="kw">select</span>(country,</span>
+<span id="cb190-4"><a href="week-3-correlation-and-causation.html#cb190-4"></a>                    <span class="st">`</span><span class="dt">Social support</span><span class="st">`</span>,</span>
+<span id="cb190-5"><a href="week-3-correlation-and-causation.html#cb190-5"></a>                    <span class="st">`</span><span class="dt">Healthy life expectancy at birth</span><span class="st">`</span>,</span>
+<span id="cb190-6"><a href="week-3-correlation-and-causation.html#cb190-6"></a>                    <span class="st">`</span><span class="dt">year</span><span class="st">`</span>) <span class="op">%&gt;%</span></span>
+<span id="cb190-7"><a href="week-3-correlation-and-causation.html#cb190-7"></a><span class="st">              </span><span class="kw">filter</span>(<span class="st">`</span><span class="dt">year</span><span class="st">`</span> <span class="op">==</span><span class="st"> </span><span class="dv">2017</span>) <span class="op">%&gt;%</span></span>
+<span id="cb190-8"><a href="week-3-correlation-and-causation.html#cb190-8"></a><span class="st">              </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(<span class="st">`</span><span class="dt">Social support</span><span class="st">`</span>),</span>
+<span id="cb190-9"><a href="week-3-correlation-and-causation.html#cb190-9"></a>                    <span class="op">!</span><span class="kw">is.na</span>(<span class="st">`</span><span class="dt">Healthy life expectancy at birth</span><span class="st">`</span>))</span>
+<span id="cb190-10"><a href="week-3-correlation-and-causation.html#cb190-10"></a></span>
+<span id="cb190-11"><a href="week-3-correlation-and-causation.html#cb190-11"></a><span class="co"># calculate correlation</span></span>
+<span id="cb190-12"><a href="week-3-correlation-and-causation.html#cb190-12"></a><span class="kw">cor</span>(smaller_df<span class="op">$</span><span class="st">`</span><span class="dt">Social support</span><span class="st">`</span>,</span>
+<span id="cb190-13"><a href="week-3-correlation-and-causation.html#cb190-13"></a>    smaller_df<span class="op">$</span><span class="st">`</span><span class="dt">Healthy life expectancy at birth</span><span class="st">`</span>)</span></code></pre></div>
+<pre><code>## [1] 0.7200551</code></pre>
+<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb192-1"><a href="week-3-correlation-and-causation.html#cb192-1"></a><span class="co"># plot the data with best fit line</span></span>
+<span id="cb192-2"><a href="week-3-correlation-and-causation.html#cb192-2"></a><span class="kw">ggplot</span>(smaller_df, <span class="kw">aes</span>(<span class="dt">x=</span><span class="st">`</span><span class="dt">Social support</span><span class="st">`</span>,</span>
+<span id="cb192-3"><a href="week-3-correlation-and-causation.html#cb192-3"></a>                       <span class="dt">y=</span><span class="st">`</span><span class="dt">Healthy life expectancy at birth</span><span class="st">`</span>))<span class="op">+</span></span>
+<span id="cb192-4"><a href="week-3-correlation-and-causation.html#cb192-4"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">alpha=</span>.<span class="dv">5</span>)<span class="op">+</span></span>
+<span id="cb192-5"><a href="week-3-correlation-and-causation.html#cb192-5"></a><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span>lm,<span class="dt">se=</span><span class="ot">FALSE</span>)<span class="op">+</span></span>
+<span id="cb192-6"><a href="week-3-correlation-and-causation.html#cb192-6"></a><span class="st">  </span><span class="kw">theme_classic</span>()</span></code></pre></div>
+<p><img src="quantrma_lab_files/figure-html/unnamed-chunk-80-1.png" width="672" /></p>
+</div>
+<div id="question-2-2" class="section level4">
+<h4><span class="header-section-number">3.3.3.4</span> Question #2</h4>
+<p>After all that work, we can now speedily answer more questions. For example, what is the relationship between positive affect in a country and negative affect in a country? I wouldn’t be surprised if there was a negative correlation here: when positive feelings generally go up, shouldn’t negative feelings generally go down?</p>
+<p>To answer this question, we just copy paste the last code block, and change the DVs to be <code>Positive affect</code>, and <code>Negative affect</code></p>
+<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb193-1"><a href="week-3-correlation-and-causation.html#cb193-1"></a><span class="co"># select DVs and filter for NAs and year == 2017</span></span>
+<span id="cb193-2"><a href="week-3-correlation-and-causation.html#cb193-2"></a>smaller_df &lt;-<span class="st"> </span>whr_data <span class="op">%&gt;%</span></span>
+<span id="cb193-3"><a href="week-3-correlation-and-causation.html#cb193-3"></a><span class="st">               </span><span class="kw">select</span>(country,</span>
+<span id="cb193-4"><a href="week-3-correlation-and-causation.html#cb193-4"></a>                      <span class="st">`</span><span class="dt">Positive affect</span><span class="st">`</span>,</span>
+<span id="cb193-5"><a href="week-3-correlation-and-causation.html#cb193-5"></a>                      <span class="st">`</span><span class="dt">Negative affect</span><span class="st">`</span>,</span>
+<span id="cb193-6"><a href="week-3-correlation-and-causation.html#cb193-6"></a>                      <span class="st">`</span><span class="dt">year</span><span class="st">`</span>) <span class="op">%&gt;%</span></span>
+<span id="cb193-7"><a href="week-3-correlation-and-causation.html#cb193-7"></a><span class="st">               </span><span class="kw">filter</span>(<span class="st">`</span><span class="dt">year</span><span class="st">`</span> <span class="op">==</span><span class="st"> </span><span class="dv">2017</span>) <span class="op">%&gt;%</span></span>
+<span id="cb193-8"><a href="week-3-correlation-and-causation.html#cb193-8"></a><span class="st">               </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(<span class="st">`</span><span class="dt">Positive affect</span><span class="st">`</span>),</span>
+<span id="cb193-9"><a href="week-3-correlation-and-causation.html#cb193-9"></a>                      <span class="op">!</span><span class="kw">is.na</span>(<span class="st">`</span><span class="dt">Negative affect</span><span class="st">`</span>))</span>
+<span id="cb193-10"><a href="week-3-correlation-and-causation.html#cb193-10"></a></span>
+<span id="cb193-11"><a href="week-3-correlation-and-causation.html#cb193-11"></a><span class="co"># calcualte correlation</span></span>
+<span id="cb193-12"><a href="week-3-correlation-and-causation.html#cb193-12"></a><span class="kw">cor</span>(smaller_df<span class="op">$</span><span class="st">`</span><span class="dt">Positive affect</span><span class="st">`</span>,</span>
+<span id="cb193-13"><a href="week-3-correlation-and-causation.html#cb193-13"></a>    smaller_df<span class="op">$</span><span class="st">`</span><span class="dt">Negative affect</span><span class="st">`</span>)</span></code></pre></div>
+<pre><code>## [1] -0.421422</code></pre>
+<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb195-1"><a href="week-3-correlation-and-causation.html#cb195-1"></a><span class="co"># plot the data with best fit line</span></span>
+<span id="cb195-2"><a href="week-3-correlation-and-causation.html#cb195-2"></a><span class="kw">ggplot</span>(smaller_df, <span class="kw">aes</span>(<span class="dt">x=</span><span class="st">`</span><span class="dt">Positive affect</span><span class="st">`</span>,</span>
+<span id="cb195-3"><a href="week-3-correlation-and-causation.html#cb195-3"></a>                     <span class="dt">y=</span><span class="st">`</span><span class="dt">Negative affect</span><span class="st">`</span>))<span class="op">+</span></span>
+<span id="cb195-4"><a href="week-3-correlation-and-causation.html#cb195-4"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">alpha=</span>.<span class="dv">5</span>)<span class="op">+</span></span>
+<span id="cb195-5"><a href="week-3-correlation-and-causation.html#cb195-5"></a><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span>lm, <span class="dt">se=</span><span class="ot">FALSE</span>)<span class="op">+</span></span>
+<span id="cb195-6"><a href="week-3-correlation-and-causation.html#cb195-6"></a><span class="st">  </span><span class="kw">theme_classic</span>()</span></code></pre></div>
+<p><img src="quantrma_lab_files/figure-html/unnamed-chunk-81-1.png" width="672" /></p>
+<p>There we have it. As positive affect goes up, negative affect goes down. A negative correlation.</p>
+</div>
+</div>
+<div id="correlation-exercises-1" class="section level3">
+<h3><span class="header-section-number">3.3.4</span> Correlation exercises</h3>
+<p>Answer the following questions in your own words:</p>
+<ol style="list-style-type: decimal">
+<li>Imagine a researcher found a positive correlation between two variables, and reported that the r value was +.3. One possibility is that there is a true correlation between these two variables. Discuss one alternative possibility that would also explain the observation of +.3 value between the variables.</li>
+<li>Explain the difference between a correlation of r = .3 and r = .7. What does a larger value of r represent?</li>
+<li>Explain the difference between a correlation of r = .5, and r = -.5.</li>
+</ol>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="week-2-describing-data.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

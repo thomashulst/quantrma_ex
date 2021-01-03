@@ -709,7 +709,7 @@ my_df %>%
 
 ```
 
-A couple things now. First, the print out of this was ugly. We can fix that by putting the results of our code into a new variable, then use `knitr::kable` to print it out nicely when we `knit` the document
+A couple things now. First, the print out of this was ugly. We can fix that by putting the results of our code into a new variable, then use `knitr::kable()` to print it out nicely when we `knit` the document
 
 ```{r}
 summary_df <- my_df %>%
