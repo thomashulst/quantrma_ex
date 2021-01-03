@@ -28,11 +28,10 @@ knitr::include_graphics('figures/mozerella.png')
 ```
 
 ### Question 2
-For each of the three scenarios described below, identify a confounder (variable Z) and describe its association with variables X and Y. 
+For both scenarios described below, identify a possible confounder (variable Z) and describe its association with variables X and Y. 
 
 1. The observation that when ice cream sales go up drownings of people in swimming pools increase, led the researcher to believe that ice cream consumption increases drownings.
-2. The observation that in European countries sales of school equipment (i.e. pencils, notebooks, textbooks, etc) rise when weather temperatures are on decline, led the researcher to believe that low weather temperatures make students more willing to study.
-3. The observation that there is a very strong correlation between the use of social media and symptoms of depression, led the researcher to believe that excessive use of social media causes symptoms of depression. 
+2. The observation that there is a very strong correlation between the use of social media and symptoms of depression, led the researcher to believe that excessive use of social media causes symptoms of depression. 
 
 ### Question 3
 The cases below present an empirical observation that lead to a proposition. First, you are asked to identify the problem with this proposition. Then, you must provide a solution to overcome this issue. Your proposed solution should strengthen claims of a causal relationship between variables X and Y. 

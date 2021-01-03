@@ -1,10 +1,10 @@
 fig:2rstudiod
 fig:validreliab
-tab:unnamed-chunk-66
+tab:unnamed-chunk-65
 fig:example1
 fig:example2
 fig:1facet
-tab:unnamed-chunk-73
+tab:unnamed-chunk-72
 why-r
 downloading-and-installing-r
 installing-r-on-a-mac
@@ -92,7 +92,6 @@ variation
 range
 var-variance
 sd-standard-deviation
-all-together
 descriptives-by-conditions
 group_by-and-summarise
 multiple-descriptives

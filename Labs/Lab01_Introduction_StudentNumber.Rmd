@@ -11,7 +11,7 @@ output:
 ---
 
 ```{r setup,include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, eval = TRUE, cache = FALSE, error = TRUE, message = TRUE, warning = TRUE, tidy = TRUE)
+knitr::opts_chunk$set(echo = TRUE, eval = TRUE, cache = FALSE, error = TRUE, message = FALSE, warning = TRUE, tidy = TRUE)
 ```
 
 # Part one: research methods

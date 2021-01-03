@@ -496,7 +496,7 @@ I would say things are looking good for Dutch people, their life expectancy is g
 #### Multiple countries scatterplot
 What if we want to look at a few countries together. We can do this too. We just change how we filter the data so more than one country is allowed, then we plot the data. We will also add some nicer color options and make the plot look pretty. First, the code:
 
-```{r 1scatterC, echo=TRUE,eval=TRUE}
+```{r 1scatterC, echo=TRUE,eval=TRUE,warning=F}
 
 # filter rows to contain countries of choice
 # create a vector using c() with countries of choice
@@ -518,7 +518,7 @@ The code above contains two new concepts:
 
 Looking at the plot, we can now see three sets of dots, but which are countries do they represent? Let's add a legend, and make the graph better looking.
 
-```{r 1scatterD, echo=TRUE,eval=TRUE}
+```{r 1scatterD, echo=TRUE,eval=TRUE,warning=F}
 ggplot(smaller_df,aes(y= lifeExp, x= year, 
                       group= country, color = country)) +
   geom_point()+ 
@@ -532,7 +532,7 @@ ggplot(smaller_df,aes(y= lifeExp, x= year,
 #### geom_line() connecting the dots
 We might also want to connect the dots with a line, to make it easier to see the connection! Remember, ggplot2 draws layers on top of layers. So, we add in a new `geom_line()` layer.
 
-```{r 1scatline, echo=TRUE,eval=TRUE}
+```{r 1scatline, echo=TRUE,eval=TRUE,warning=F}
 ggplot(smaller_df,aes(y= lifeExp, x= year, 
                       group= country, color = country)) +
   geom_point()+ 
@@ -549,9 +549,9 @@ The following exercises can be answered in the R Markdown document for this lab.
 
 Use the code from above to attempt to solve the extra things we ask you do for the following exercises: 
 
-1. Make a graph plotting Life Expectancy by year for the five continents, using the `continent` factor. Make sure you change the title as well.
-2. Make a graph plotting GDP per capita by year for the USA, Canada, and Mexico. Use the `gdpPercap` column for the GDP per capita data.
-3. Make a new graph plotting anything you are interested in using the gapminder dataset. It just needs to be a plot that we have not given an example for.
+1. Make a histogram of GDP per capita. Make the plot as pretty or ugly as you want it to be.
+2. Make a scatterplot of GDP per capita by year for the USA, Canada, and Mexico. Make sure to update the title and labels as well (hint: the USA is not named "USA" in the dataset).
+3. Make a scatterplot of Life Expectancy by year for the five continents (hint: use the `group_by()` and `summarise()` functions).
 
 ## Part two: describing data using numbers 
 In the second part of this lab, we will describe our data and answer questions using numbers. In order to do this, we need some numbers first. 
@@ -643,7 +643,7 @@ The range is the minimum and maximum values in the set, we use the `range` funct
 range(sample_numbers)
 ```
 
-#### var() = variance
+#### `var()` = variance
 We can find the sample variance using `var()`:
 
 ```{r}
@@ -657,7 +657,7 @@ x_bar <- mean(sample_numbers)
 var_n <- sum((sample_numbers - x_bar)^2)/length(sample_numbers)
 ```
 
-#### sd = standard deviation
+#### `sd()` = standard deviation
 
 We find the sample standard deviation using `sd()`:
 ```{r}
@@ -667,22 +667,6 @@ sd(sample_numbers)
 Remember that the standard deviation is just the square root of the variance, see:
 ```{r}
 sqrt(var(sample_numbers))
-```
-
-### All together
-Let's put all of the descriptives and other functions so far in one place:
-```{r}
-sample_numbers <- rnorm(100,10,5)
-
-sum(sample_numbers)
-length(sample_numbers)
-mean(sample_numbers)
-median(sample_numbers)
-my_mode_function(sample_numbers)
-range(sample_numbers)
-var(sample_numbers)
-sd(sample_numbers)
-
 ```
 
 ### Descriptives by conditions
@@ -698,8 +682,9 @@ my_df <- data.frame(conditions,scores)
 
 If you look at the `my_df` data frame, you will see it has 100 rows, there are 10 rows for each condition with a label in the `conditions` column, and 10 scores for each condition in the `scores` column. What if you wanted to know the mean of the scores in each condition? You would want to find 10 means.
 
-#### group_by and summarise
-We can easily do everything all at once using the `group_by` and `summarise` function from the `dplyr` package. Just watch:
+#### `group_by()` and `summarise()`
+We can easily do everything all at once using the `group_by` and `summarise` function from the `dplyr` package, as we've seen before:
+
 ```{r}
 library(dplyr)
 
@@ -709,7 +694,7 @@ my_df %>%
 
 ```
 
-A couple things now. First, the print out of this was ugly. We can fix that by putting the results of our code into a new variable, then use `knitr::kable()` to print it out nicely when we `knit` the document. We can even caption the table by passing the `caption` argument.
+The print out of this looks rather ugly. We can fix that by putting the results of our code into a new variable, then use `knitr::kable()` to print it out nicely when we `knit` the document. We can even caption the table by passing a `caption` argument.
 
 ```{r}
 summary_df <- my_df %>%
@@ -769,16 +754,16 @@ knitr::kable(summary_df)
 ```
 
 ### Descriptive exercises
-1. What is the mean, standard deviation, minimum and maximum life expectancy for all the gapminder data (across all the years and countries) (hint: do not use `group_by`).
-2. What is the mean, standard deviation, minimum and maximum life expectancy for all of the continents in 2007, the most recent year in the dataset (hint: add another pipe using `filter(year==2007) %>%`).
-3. Answer the following questions in full sentences using simple plain language:
+1. What is the mean, standard deviation, minimum and maximum GDP per capita for all the gapminder data (across all the years and countries)? Print the values in a table with your own caption.
+2. What is the mean, median, variance, and length of the life expectancy variable for each continent in 2007? Print the values in a table with your own caption.
+3. Answer the following questions in your own words:
   a. Define the mode.
   b. Explain what would need to happen in order for a set of numbers to have two modes
   c. Define the median 
   d. Define the mean 
   e. Define the range
-  f. When calculating the standard deviation, explain what the difference scores represent
-  g. Explain why the difference scores are squared when calculating the standard deviation
+  f. When calculating the variance, explain what the difference scores represent
+  g. Explain why the difference scores are squared when calculating the variance
   h. If one set of numbers had a standard deviation of 5, and another had a standard deviation of 10, which set of numbers would have greater variance? Explain why.
 
 When you have completed all exercises and are happy with your progress today, please knit your document and submit it to Canvas. If you finish before the time is up, start with the required readings of Week 3, work on your assignment, or help out your fellow students. 

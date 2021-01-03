@@ -11,7 +11,7 @@ output:
 ---
 
 ```{r setup,include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, eval = TRUE, cache = FALSE, error = TRUE, message = TRUE, warning = TRUE, tidy = TRUE)
+knitr::opts_chunk$set(echo = TRUE, eval = TRUE, cache = FALSE, error = TRUE, message = FALSE, warning = TRUE, tidy = TRUE)
 ```
 
 You can keep notes about the lab here and execute code like in the code block below:
@@ -45,11 +45,10 @@ knitr::include_graphics('data/mozerella.png')
 Answer here.
 
 ## Question 2
-For each of the three scenarios described below, identify a confounder (variable Z) and describe its association with variables X and Y. 
+For both scenarios described below, identify a possible confounder (variable Z) and describe its association with variables X and Y. 
 
 1. The observation that when ice cream sales go up drownings of people in swimming pools increase, led the researcher to believe that ice cream consumption increases drownings.
-2. The observation that in European countries sales of school equipment (i.e. pencils, notebooks, textbooks, etc) rise when weather temperatures are on decline, led the researcher to believe that low weather temperatures make students more willing to study.
-3. The observation that there is a very strong correlation between the use of social media and symptoms of depression, led the researcher to believe that excessive use of social media causes symptoms of depression. 
+2. The observation that there is a very strong correlation between the use of social media and symptoms of depression, led the researcher to believe that excessive use of social media causes symptoms of depression. 
 
 Answer here.
 

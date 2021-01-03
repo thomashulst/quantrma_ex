@@ -194,10 +194,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.3.1" data-path="week-2-describing-data.html"><a href="week-2-describing-data.html#playing-with-numbers"><i class="fa fa-check"></i><b>2.3.1</b> Playing with numbers</a></li>
 <li class="chapter" data-level="2.3.2" data-path="week-2-describing-data.html"><a href="week-2-describing-data.html#central-tendency"><i class="fa fa-check"></i><b>2.3.2</b> Central Tendency</a></li>
 <li class="chapter" data-level="2.3.3" data-path="week-2-describing-data.html"><a href="week-2-describing-data.html#variation"><i class="fa fa-check"></i><b>2.3.3</b> Variation</a></li>
-<li class="chapter" data-level="2.3.4" data-path="week-2-describing-data.html"><a href="week-2-describing-data.html#all-together"><i class="fa fa-check"></i><b>2.3.4</b> All together</a></li>
-<li class="chapter" data-level="2.3.5" data-path="week-2-describing-data.html"><a href="week-2-describing-data.html#descriptives-by-conditions"><i class="fa fa-check"></i><b>2.3.5</b> Descriptives by conditions</a></li>
-<li class="chapter" data-level="2.3.6" data-path="week-2-describing-data.html"><a href="week-2-describing-data.html#describing-gapminder"><i class="fa fa-check"></i><b>2.3.6</b> Describing gapminder</a></li>
-<li class="chapter" data-level="2.3.7" data-path="week-2-describing-data.html"><a href="week-2-describing-data.html#descriptive-exercises"><i class="fa fa-check"></i><b>2.3.7</b> Descriptive exercises</a></li>
+<li class="chapter" data-level="2.3.4" data-path="week-2-describing-data.html"><a href="week-2-describing-data.html#descriptives-by-conditions"><i class="fa fa-check"></i><b>2.3.4</b> Descriptives by conditions</a></li>
+<li class="chapter" data-level="2.3.5" data-path="week-2-describing-data.html"><a href="week-2-describing-data.html#describing-gapminder"><i class="fa fa-check"></i><b>2.3.5</b> Describing gapminder</a></li>
+<li class="chapter" data-level="2.3.6" data-path="week-2-describing-data.html"><a href="week-2-describing-data.html#descriptive-exercises"><i class="fa fa-check"></i><b>2.3.6</b> Descriptive exercises</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="week-3-correlation-and-causation.html"><a href="week-3-correlation-and-causation.html"><i class="fa fa-check"></i><b>3</b> Week 3: Correlation and Causation</a><ul>
@@ -708,9 +707,9 @@ or make things small… just to see what happens</p>
 <p>The following exercises can be answered in the R Markdown document for this lab. Complete your work in that document and “knit” the file. Hand in your final product (knitting should generate an .html file) to Canvas.</p>
 <p>Use the code from above to attempt to solve the extra things we ask you do for the following exercises:</p>
 <ol style="list-style-type: decimal">
-<li>Make a graph plotting Life Expectancy by year for the five continents, using the <code>continent</code> factor. Make sure you change the title as well.</li>
-<li>Make a graph plotting GDP per capita by year for the USA, Canada, and Mexico. Use the <code>gdpPercap</code> column for the GDP per capita data.</li>
-<li>Make a new graph plotting anything you are interested in using the gapminder dataset. It just needs to be a plot that we have not given an example for.</li>
+<li>Make a histogram of GDP per capita. Make the plot as pretty or ugly as you want it to be.</li>
+<li>Make a scatterplot of GDP per capita by year for the USA, Canada, and Mexico. Make sure to update the title and labels as well (hint: the USA is not named “USA” in the dataset).</li>
+<li>Make a scatterplot of Life Expectancy by year for the five continents (hint: use the <code>group_by()</code> and <code>summarise()</code> functions).</li>
 </ol>
 </div>
 </div>
@@ -792,7 +791,7 @@ or make things small… just to see what happens</p>
 <pre><code>## [1] -3.851137 21.467772</code></pre>
 </div>
 <div id="var-variance" class="section level4">
-<h4><span class="header-section-number">2.3.3.2</span> var() = variance</h4>
+<h4><span class="header-section-number">2.3.3.2</span> <code>var()</code> = variance</h4>
 <p>We can find the sample variance using <code>var()</code>:</p>
 <div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="week-2-describing-data.html#cb144-1"></a><span class="kw">var</span>(sample_numbers)</span></code></pre></div>
 <pre><code>## [1] 23.03164</code></pre>
@@ -801,7 +800,7 @@ or make things small… just to see what happens</p>
 <span id="cb146-2"><a href="week-2-describing-data.html#cb146-2"></a>var_n &lt;-<span class="st"> </span><span class="kw">sum</span>((sample_numbers <span class="op">-</span><span class="st"> </span>x_bar)<span class="op">^</span><span class="dv">2</span>)<span class="op">/</span><span class="kw">length</span>(sample_numbers)</span></code></pre></div>
 </div>
 <div id="sd-standard-deviation" class="section level4">
-<h4><span class="header-section-number">2.3.3.3</span> sd = standard deviation</h4>
+<h4><span class="header-section-number">2.3.3.3</span> <code>sd()</code> = standard deviation</h4>
 <p>We find the sample standard deviation using <code>sd()</code>:</p>
 <div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="week-2-describing-data.html#cb147-1"></a><span class="kw">sd</span>(sample_numbers)</span></code></pre></div>
 <pre><code>## [1] 4.799129</code></pre>
@@ -810,65 +809,43 @@ or make things small… just to see what happens</p>
 <pre><code>## [1] 4.799129</code></pre>
 </div>
 </div>
-<div id="all-together" class="section level3">
-<h3><span class="header-section-number">2.3.4</span> All together</h3>
-<p>Let’s put all of the descriptives and other functions so far in one place:</p>
-<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="week-2-describing-data.html#cb151-1"></a>sample_numbers &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">100</span>,<span class="dv">10</span>,<span class="dv">5</span>)</span>
-<span id="cb151-2"><a href="week-2-describing-data.html#cb151-2"></a></span>
-<span id="cb151-3"><a href="week-2-describing-data.html#cb151-3"></a><span class="kw">sum</span>(sample_numbers)</span></code></pre></div>
-<pre><code>## [1] 962.8325</code></pre>
-<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="week-2-describing-data.html#cb153-1"></a><span class="kw">length</span>(sample_numbers)</span></code></pre></div>
-<pre><code>## [1] 100</code></pre>
-<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="week-2-describing-data.html#cb155-1"></a><span class="kw">mean</span>(sample_numbers)</span></code></pre></div>
-<pre><code>## [1] 9.628325</code></pre>
-<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="week-2-describing-data.html#cb157-1"></a><span class="kw">median</span>(sample_numbers)</span></code></pre></div>
-<pre><code>## [1] 9.274812</code></pre>
-<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="week-2-describing-data.html#cb159-1"></a><span class="kw">my_mode_function</span>(sample_numbers)</span></code></pre></div>
-<pre><code>## [1] 14.37083</code></pre>
-<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="week-2-describing-data.html#cb161-1"></a><span class="kw">range</span>(sample_numbers)</span></code></pre></div>
-<pre><code>## [1] -2.838166 25.110354</code></pre>
-<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="week-2-describing-data.html#cb163-1"></a><span class="kw">var</span>(sample_numbers)</span></code></pre></div>
-<pre><code>## [1] 25.19467</code></pre>
-<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="week-2-describing-data.html#cb165-1"></a><span class="kw">sd</span>(sample_numbers)</span></code></pre></div>
-<pre><code>## [1] 5.019429</code></pre>
-</div>
 <div id="descriptives-by-conditions" class="section level3">
-<h3><span class="header-section-number">2.3.5</span> Descriptives by conditions</h3>
+<h3><span class="header-section-number">2.3.4</span> Descriptives by conditions</h3>
 <p>Sometimes you will have a single variable with some numbers, and you can use the above functions to find the descriptives for that variable. Other times (most often in this course), you will have a big data frame of numbers, with different numbers in different conditions. You will want to find descriptive statistics for each the sets of numbers inside each of the conditions. Fortunately, this is where R really shines, it does it all for you in one go.</p>
 <p>Let’s illustrate the problem. Here I make a date frame with 10 numbers in each condition. There are 10 conditions, each labelled, A, B, C, D, E, F, G, H, I, J.</p>
-<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="week-2-describing-data.html#cb167-1"></a>scores &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">100</span>,<span class="dv">10</span>,<span class="dv">5</span>)</span>
-<span id="cb167-2"><a href="week-2-describing-data.html#cb167-2"></a>conditions &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;A&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;C&quot;</span>,<span class="st">&quot;D&quot;</span>,<span class="st">&quot;E&quot;</span>,<span class="st">&quot;F&quot;</span>,<span class="st">&quot;G&quot;</span>,<span class="st">&quot;H&quot;</span>,<span class="st">&quot;I&quot;</span>,<span class="st">&quot;J&quot;</span>), <span class="dt">each =</span><span class="dv">10</span>)</span>
-<span id="cb167-3"><a href="week-2-describing-data.html#cb167-3"></a>my_df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(conditions,scores)</span></code></pre></div>
+<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="week-2-describing-data.html#cb151-1"></a>scores &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">100</span>,<span class="dv">10</span>,<span class="dv">5</span>)</span>
+<span id="cb151-2"><a href="week-2-describing-data.html#cb151-2"></a>conditions &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;A&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;C&quot;</span>,<span class="st">&quot;D&quot;</span>,<span class="st">&quot;E&quot;</span>,<span class="st">&quot;F&quot;</span>,<span class="st">&quot;G&quot;</span>,<span class="st">&quot;H&quot;</span>,<span class="st">&quot;I&quot;</span>,<span class="st">&quot;J&quot;</span>), <span class="dt">each =</span><span class="dv">10</span>)</span>
+<span id="cb151-3"><a href="week-2-describing-data.html#cb151-3"></a>my_df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(conditions,scores)</span></code></pre></div>
 <p>If you look at the <code>my_df</code> data frame, you will see it has 100 rows, there are 10 rows for each condition with a label in the <code>conditions</code> column, and 10 scores for each condition in the <code>scores</code> column. What if you wanted to know the mean of the scores in each condition? You would want to find 10 means.</p>
 <div id="group_by-and-summarise" class="section level4">
-<h4><span class="header-section-number">2.3.5.1</span> group_by and summarise</h4>
-<p>We can easily do everything all at once using the <code>group_by</code> and <code>summarise</code> function from the <code>dplyr</code> package. Just watch:</p>
-<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="week-2-describing-data.html#cb168-1"></a><span class="kw">library</span>(dplyr)</span>
-<span id="cb168-2"><a href="week-2-describing-data.html#cb168-2"></a></span>
-<span id="cb168-3"><a href="week-2-describing-data.html#cb168-3"></a>my_df <span class="op">%&gt;%</span></span>
-<span id="cb168-4"><a href="week-2-describing-data.html#cb168-4"></a><span class="st">  </span><span class="kw">group_by</span>(conditions) <span class="op">%&gt;%</span></span>
-<span id="cb168-5"><a href="week-2-describing-data.html#cb168-5"></a><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">means =</span> <span class="kw">mean</span>(scores))</span></code></pre></div>
+<h4><span class="header-section-number">2.3.4.1</span> <code>group_by()</code> and <code>summarise()</code></h4>
+<p>We can easily do everything all at once using the <code>group_by</code> and <code>summarise</code> function from the <code>dplyr</code> package, as we’ve seen before:</p>
+<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="week-2-describing-data.html#cb152-1"></a><span class="kw">library</span>(dplyr)</span>
+<span id="cb152-2"><a href="week-2-describing-data.html#cb152-2"></a></span>
+<span id="cb152-3"><a href="week-2-describing-data.html#cb152-3"></a>my_df <span class="op">%&gt;%</span></span>
+<span id="cb152-4"><a href="week-2-describing-data.html#cb152-4"></a><span class="st">  </span><span class="kw">group_by</span>(conditions) <span class="op">%&gt;%</span></span>
+<span id="cb152-5"><a href="week-2-describing-data.html#cb152-5"></a><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">means =</span> <span class="kw">mean</span>(scores))</span></code></pre></div>
 <pre><code>## # A tibble: 10 x 2
 ##    conditions means
 ##    &lt;chr&gt;      &lt;dbl&gt;
-##  1 A           8.90
-##  2 B           8.24
-##  3 C          10.5 
-##  4 D           9.78
-##  5 E          11.5 
-##  6 F           8.86
-##  7 G          10.7 
-##  8 H           9.24
-##  9 I           9.77
-## 10 J          12.4</code></pre>
-<p>A couple things now. First, the print out of this was ugly. We can fix that by putting the results of our code into a new variable, then use <code>knitr::kable()</code> to print it out nicely when we <code>knit</code> the document. We can even caption the table by passing the <code>caption</code> argument.</p>
-<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="week-2-describing-data.html#cb170-1"></a>summary_df &lt;-<span class="st"> </span>my_df <span class="op">%&gt;%</span></span>
-<span id="cb170-2"><a href="week-2-describing-data.html#cb170-2"></a><span class="st">               </span><span class="kw">group_by</span>(conditions) <span class="op">%&gt;%</span></span>
-<span id="cb170-3"><a href="week-2-describing-data.html#cb170-3"></a><span class="st">               </span><span class="kw">summarise</span>(<span class="dt">means =</span> <span class="kw">mean</span>(scores))</span>
-<span id="cb170-4"><a href="week-2-describing-data.html#cb170-4"></a></span>
-<span id="cb170-5"><a href="week-2-describing-data.html#cb170-5"></a>knitr<span class="op">::</span><span class="kw">kable</span>(summary_df,<span class="dt">caption =</span> <span class="st">&quot;Means by condition.&quot;</span>)</span></code></pre></div>
+##  1 A          10.5 
+##  2 B           9.77
+##  3 C          10.2 
+##  4 D           7.64
+##  5 E          10.1 
+##  6 F          10.4 
+##  7 G           9.73
+##  8 H           8.06
+##  9 I           9.89
+## 10 J           9.99</code></pre>
+<p>The print out of this looks rather ugly. We can fix that by putting the results of our code into a new variable, then use <code>knitr::kable()</code> to print it out nicely when we <code>knit</code> the document. We can even caption the table by passing a <code>caption</code> argument.</p>
+<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="week-2-describing-data.html#cb154-1"></a>summary_df &lt;-<span class="st"> </span>my_df <span class="op">%&gt;%</span></span>
+<span id="cb154-2"><a href="week-2-describing-data.html#cb154-2"></a><span class="st">               </span><span class="kw">group_by</span>(conditions) <span class="op">%&gt;%</span></span>
+<span id="cb154-3"><a href="week-2-describing-data.html#cb154-3"></a><span class="st">               </span><span class="kw">summarise</span>(<span class="dt">means =</span> <span class="kw">mean</span>(scores))</span>
+<span id="cb154-4"><a href="week-2-describing-data.html#cb154-4"></a></span>
+<span id="cb154-5"><a href="week-2-describing-data.html#cb154-5"></a>knitr<span class="op">::</span><span class="kw">kable</span>(summary_df,<span class="dt">caption =</span> <span class="st">&quot;Means by condition.&quot;</span>)</span></code></pre></div>
 <table>
-<caption><span id="tab:unnamed-chunk-66">Table 2.1: </span>Means by condition.</caption>
+<caption><span id="tab:unnamed-chunk-65">Table 2.1: </span>Means by condition.</caption>
 <thead>
 <tr class="header">
 <th align="left">conditions</th>
@@ -878,56 +855,56 @@ or make things small… just to see what happens</p>
 <tbody>
 <tr class="odd">
 <td align="left">A</td>
-<td align="right">8.897005</td>
+<td align="right">10.453304</td>
 </tr>
 <tr class="even">
 <td align="left">B</td>
-<td align="right">8.239481</td>
+<td align="right">9.770283</td>
 </tr>
 <tr class="odd">
 <td align="left">C</td>
-<td align="right">10.508653</td>
+<td align="right">10.159400</td>
 </tr>
 <tr class="even">
 <td align="left">D</td>
-<td align="right">9.782025</td>
+<td align="right">7.643192</td>
 </tr>
 <tr class="odd">
 <td align="left">E</td>
-<td align="right">11.503450</td>
+<td align="right">10.142189</td>
 </tr>
 <tr class="even">
 <td align="left">F</td>
-<td align="right">8.856645</td>
+<td align="right">10.443395</td>
 </tr>
 <tr class="odd">
 <td align="left">G</td>
-<td align="right">10.728730</td>
+<td align="right">9.730646</td>
 </tr>
 <tr class="even">
 <td align="left">H</td>
-<td align="right">9.236852</td>
+<td align="right">8.062347</td>
 </tr>
 <tr class="odd">
 <td align="left">I</td>
-<td align="right">9.771567</td>
+<td align="right">9.888421</td>
 </tr>
 <tr class="even">
 <td align="left">J</td>
-<td align="right">12.367386</td>
+<td align="right">9.990072</td>
 </tr>
 </tbody>
 </table>
 </div>
 <div id="multiple-descriptives" class="section level4">
-<h4><span class="header-section-number">2.3.5.2</span> Multiple descriptives</h4>
+<h4><span class="header-section-number">2.3.4.2</span> Multiple descriptives</h4>
 <p>The best thing about the <code>dplyr</code> method, is that we can add more than one function, and we’ll get more than one summary returned, all in a nice format, let’s add the standard deviation:</p>
-<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="week-2-describing-data.html#cb171-1"></a>summary_df &lt;-<span class="st"> </span>my_df <span class="op">%&gt;%</span></span>
-<span id="cb171-2"><a href="week-2-describing-data.html#cb171-2"></a><span class="st">               </span><span class="kw">group_by</span>(conditions) <span class="op">%&gt;%</span></span>
-<span id="cb171-3"><a href="week-2-describing-data.html#cb171-3"></a><span class="st">               </span><span class="kw">summarise</span>(<span class="dt">means =</span> <span class="kw">mean</span>(scores),</span>
-<span id="cb171-4"><a href="week-2-describing-data.html#cb171-4"></a>                         <span class="dt">sds =</span> <span class="kw">sd</span>(scores))</span>
-<span id="cb171-5"><a href="week-2-describing-data.html#cb171-5"></a></span>
-<span id="cb171-6"><a href="week-2-describing-data.html#cb171-6"></a>knitr<span class="op">::</span><span class="kw">kable</span>(summary_df)</span></code></pre></div>
+<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="week-2-describing-data.html#cb155-1"></a>summary_df &lt;-<span class="st"> </span>my_df <span class="op">%&gt;%</span></span>
+<span id="cb155-2"><a href="week-2-describing-data.html#cb155-2"></a><span class="st">               </span><span class="kw">group_by</span>(conditions) <span class="op">%&gt;%</span></span>
+<span id="cb155-3"><a href="week-2-describing-data.html#cb155-3"></a><span class="st">               </span><span class="kw">summarise</span>(<span class="dt">means =</span> <span class="kw">mean</span>(scores),</span>
+<span id="cb155-4"><a href="week-2-describing-data.html#cb155-4"></a>                         <span class="dt">sds =</span> <span class="kw">sd</span>(scores))</span>
+<span id="cb155-5"><a href="week-2-describing-data.html#cb155-5"></a></span>
+<span id="cb155-6"><a href="week-2-describing-data.html#cb155-6"></a>knitr<span class="op">::</span><span class="kw">kable</span>(summary_df)</span></code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -939,65 +916,65 @@ or make things small… just to see what happens</p>
 <tbody>
 <tr class="odd">
 <td align="left">A</td>
-<td align="right">8.897005</td>
-<td align="right">4.973784</td>
+<td align="right">10.453304</td>
+<td align="right">4.522251</td>
 </tr>
 <tr class="even">
 <td align="left">B</td>
-<td align="right">8.239481</td>
-<td align="right">4.216323</td>
+<td align="right">9.770283</td>
+<td align="right">5.599675</td>
 </tr>
 <tr class="odd">
 <td align="left">C</td>
-<td align="right">10.508653</td>
-<td align="right">4.473647</td>
+<td align="right">10.159400</td>
+<td align="right">6.981384</td>
 </tr>
 <tr class="even">
 <td align="left">D</td>
-<td align="right">9.782025</td>
-<td align="right">3.949572</td>
+<td align="right">7.643192</td>
+<td align="right">4.658616</td>
 </tr>
 <tr class="odd">
 <td align="left">E</td>
-<td align="right">11.503450</td>
-<td align="right">4.256061</td>
+<td align="right">10.142189</td>
+<td align="right">6.176447</td>
 </tr>
 <tr class="even">
 <td align="left">F</td>
-<td align="right">8.856645</td>
-<td align="right">5.492173</td>
+<td align="right">10.443395</td>
+<td align="right">3.809711</td>
 </tr>
 <tr class="odd">
 <td align="left">G</td>
-<td align="right">10.728730</td>
-<td align="right">5.047302</td>
+<td align="right">9.730646</td>
+<td align="right">5.886733</td>
 </tr>
 <tr class="even">
 <td align="left">H</td>
-<td align="right">9.236852</td>
-<td align="right">4.828130</td>
+<td align="right">8.062347</td>
+<td align="right">6.020259</td>
 </tr>
 <tr class="odd">
 <td align="left">I</td>
-<td align="right">9.771567</td>
-<td align="right">4.270779</td>
+<td align="right">9.888421</td>
+<td align="right">3.615488</td>
 </tr>
 <tr class="even">
 <td align="left">J</td>
-<td align="right">12.367386</td>
-<td align="right">4.744130</td>
+<td align="right">9.990072</td>
+<td align="right">2.966712</td>
 </tr>
 </tbody>
 </table>
 <p>We’ll add the min and the max too:</p>
-<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="week-2-describing-data.html#cb172-1"></a>summary_df &lt;-<span class="st"> </span>my_df <span class="op">%&gt;%</span></span>
-<span id="cb172-2"><a href="week-2-describing-data.html#cb172-2"></a><span class="st">               </span><span class="kw">group_by</span>(conditions) <span class="op">%&gt;%</span></span>
-<span id="cb172-3"><a href="week-2-describing-data.html#cb172-3"></a><span class="st">               </span><span class="kw">summarise</span>(<span class="dt">means =</span> <span class="kw">mean</span>(scores),</span>
-<span id="cb172-4"><a href="week-2-describing-data.html#cb172-4"></a>                         <span class="dt">sds =</span> <span class="kw">sd</span>(scores),</span>
-<span id="cb172-5"><a href="week-2-describing-data.html#cb172-5"></a>                         <span class="dt">min =</span> <span class="kw">min</span>(scores),</span>
-<span id="cb172-6"><a href="week-2-describing-data.html#cb172-6"></a>                         <span class="dt">max =</span> <span class="kw">max</span>(scores))</span>
-<span id="cb172-7"><a href="week-2-describing-data.html#cb172-7"></a></span>
-<span id="cb172-8"><a href="week-2-describing-data.html#cb172-8"></a>knitr<span class="op">::</span><span class="kw">kable</span>(summary_df)</span></code></pre></div>
+<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb156-1"><a href="week-2-describing-data.html#cb156-1"></a>summary_df &lt;-<span class="st"> </span>my_df <span class="op">%&gt;%</span></span>
+<span id="cb156-2"><a href="week-2-describing-data.html#cb156-2"></a><span class="st">               </span><span class="kw">group_by</span>(conditions) <span class="op">%&gt;%</span></span>
+<span id="cb156-3"><a href="week-2-describing-data.html#cb156-3"></a><span class="st">               </span><span class="kw">summarise</span>(<span class="dt">means =</span> <span class="kw">mean</span>(scores),</span>
+<span id="cb156-4"><a href="week-2-describing-data.html#cb156-4"></a>                         <span class="dt">sds =</span> <span class="kw">sd</span>(scores),</span>
+<span id="cb156-5"><a href="week-2-describing-data.html#cb156-5"></a>                         <span class="dt">min =</span> <span class="kw">min</span>(scores),</span>
+<span id="cb156-6"><a href="week-2-describing-data.html#cb156-6"></a>                         <span class="dt">max =</span> <span class="kw">max</span>(scores))</span>
+<span id="cb156-7"><a href="week-2-describing-data.html#cb156-7"></a></span>
+<span id="cb156-8"><a href="week-2-describing-data.html#cb156-8"></a>knitr<span class="op">::</span><span class="kw">kable</span>(summary_df)</span></code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -1011,94 +988,94 @@ or make things small… just to see what happens</p>
 <tbody>
 <tr class="odd">
 <td align="left">A</td>
-<td align="right">8.897005</td>
-<td align="right">4.973784</td>
-<td align="right">2.302334</td>
-<td align="right">14.79928</td>
+<td align="right">10.453304</td>
+<td align="right">4.522251</td>
+<td align="right">4.727974</td>
+<td align="right">16.58978</td>
 </tr>
 <tr class="even">
 <td align="left">B</td>
-<td align="right">8.239481</td>
-<td align="right">4.216323</td>
-<td align="right">2.572234</td>
-<td align="right">14.52100</td>
+<td align="right">9.770283</td>
+<td align="right">5.599675</td>
+<td align="right">1.289870</td>
+<td align="right">21.30749</td>
 </tr>
 <tr class="odd">
 <td align="left">C</td>
-<td align="right">10.508653</td>
-<td align="right">4.473647</td>
-<td align="right">4.466692</td>
-<td align="right">17.51362</td>
+<td align="right">10.159400</td>
+<td align="right">6.981384</td>
+<td align="right">-0.503172</td>
+<td align="right">25.11035</td>
 </tr>
 <tr class="even">
 <td align="left">D</td>
-<td align="right">9.782025</td>
-<td align="right">3.949572</td>
-<td align="right">4.533811</td>
-<td align="right">15.32916</td>
+<td align="right">7.643192</td>
+<td align="right">4.658616</td>
+<td align="right">1.121974</td>
+<td align="right">14.26603</td>
 </tr>
 <tr class="odd">
 <td align="left">E</td>
-<td align="right">11.503450</td>
-<td align="right">4.256061</td>
-<td align="right">3.206092</td>
-<td align="right">15.77199</td>
+<td align="right">10.142189</td>
+<td align="right">6.176447</td>
+<td align="right">1.756777</td>
+<td align="right">19.33893</td>
 </tr>
 <tr class="even">
 <td align="left">F</td>
-<td align="right">8.856645</td>
-<td align="right">5.492173</td>
-<td align="right">1.389934</td>
-<td align="right">17.65212</td>
+<td align="right">10.443395</td>
+<td align="right">3.809711</td>
+<td align="right">5.237315</td>
+<td align="right">16.91497</td>
 </tr>
 <tr class="odd">
 <td align="left">G</td>
-<td align="right">10.728730</td>
-<td align="right">5.047302</td>
-<td align="right">-2.152503</td>
-<td align="right">15.81170</td>
+<td align="right">9.730646</td>
+<td align="right">5.886733</td>
+<td align="right">1.043294</td>
+<td align="right">16.35871</td>
 </tr>
 <tr class="even">
 <td align="left">H</td>
-<td align="right">9.236852</td>
-<td align="right">4.828130</td>
-<td align="right">2.754716</td>
-<td align="right">18.30584</td>
+<td align="right">8.062347</td>
+<td align="right">6.020259</td>
+<td align="right">-2.838166</td>
+<td align="right">17.72795</td>
 </tr>
 <tr class="odd">
 <td align="left">I</td>
-<td align="right">9.771567</td>
-<td align="right">4.270779</td>
-<td align="right">4.819905</td>
-<td align="right">19.86728</td>
+<td align="right">9.888421</td>
+<td align="right">3.615488</td>
+<td align="right">2.998285</td>
+<td align="right">14.83729</td>
 </tr>
 <tr class="even">
 <td align="left">J</td>
-<td align="right">12.367386</td>
-<td align="right">4.744130</td>
-<td align="right">6.504176</td>
-<td align="right">18.43381</td>
+<td align="right">9.990072</td>
+<td align="right">2.966712</td>
+<td align="right">4.447971</td>
+<td align="right">13.98967</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 <div id="describing-gapminder" class="section level3">
-<h3><span class="header-section-number">2.3.6</span> Describing gapminder</h3>
+<h3><span class="header-section-number">2.3.5</span> Describing gapminder</h3>
 <p>Now that we know how to get descriptive statistics from R, we can do this with some real data. Let’s quickly ask a few questions about the gapminder data:</p>
-<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb173-1"><a href="week-2-describing-data.html#cb173-1"></a><span class="kw">library</span>(gapminder)</span>
-<span id="cb173-2"><a href="week-2-describing-data.html#cb173-2"></a>gapminder_df &lt;-<span class="st"> </span>gapminder</span></code></pre></div>
+<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="week-2-describing-data.html#cb157-1"></a><span class="kw">library</span>(gapminder)</span>
+<span id="cb157-2"><a href="week-2-describing-data.html#cb157-2"></a>gapminder_df &lt;-<span class="st"> </span>gapminder</span></code></pre></div>
 <div id="what-are-some-descriptives-for-life-expectancy-by-continent" class="section level4">
-<h4><span class="header-section-number">2.3.6.1</span> What are some descriptives for Life expectancy by continent?</h4>
+<h4><span class="header-section-number">2.3.5.1</span> What are some descriptives for Life expectancy by continent?</h4>
 <p>Copy the code from the last part of descriptives using <code>dplyr</code>, then change the names like this:</p>
-<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="week-2-describing-data.html#cb174-1"></a>summary_df &lt;-<span class="st"> </span>gapminder_df <span class="op">%&gt;%</span></span>
-<span id="cb174-2"><a href="week-2-describing-data.html#cb174-2"></a><span class="st">               </span><span class="kw">group_by</span>(continent) <span class="op">%&gt;%</span></span>
-<span id="cb174-3"><a href="week-2-describing-data.html#cb174-3"></a><span class="st">               </span><span class="kw">summarise</span>(<span class="dt">means =</span> <span class="kw">mean</span>(lifeExp),</span>
-<span id="cb174-4"><a href="week-2-describing-data.html#cb174-4"></a>                         <span class="dt">sds =</span> <span class="kw">sd</span>(lifeExp),</span>
-<span id="cb174-5"><a href="week-2-describing-data.html#cb174-5"></a>                         <span class="dt">min =</span> <span class="kw">min</span>(lifeExp),</span>
-<span id="cb174-6"><a href="week-2-describing-data.html#cb174-6"></a>                         <span class="dt">max =</span> <span class="kw">max</span>(lifeExp))</span>
-<span id="cb174-7"><a href="week-2-describing-data.html#cb174-7"></a></span>
-<span id="cb174-8"><a href="week-2-describing-data.html#cb174-8"></a>knitr<span class="op">::</span><span class="kw">kable</span>(summary_df)</span></code></pre></div>
+<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="week-2-describing-data.html#cb158-1"></a>summary_df &lt;-<span class="st"> </span>gapminder_df <span class="op">%&gt;%</span></span>
+<span id="cb158-2"><a href="week-2-describing-data.html#cb158-2"></a><span class="st">               </span><span class="kw">group_by</span>(continent) <span class="op">%&gt;%</span></span>
+<span id="cb158-3"><a href="week-2-describing-data.html#cb158-3"></a><span class="st">               </span><span class="kw">summarise</span>(<span class="dt">means =</span> <span class="kw">mean</span>(lifeExp),</span>
+<span id="cb158-4"><a href="week-2-describing-data.html#cb158-4"></a>                         <span class="dt">sds =</span> <span class="kw">sd</span>(lifeExp),</span>
+<span id="cb158-5"><a href="week-2-describing-data.html#cb158-5"></a>                         <span class="dt">min =</span> <span class="kw">min</span>(lifeExp),</span>
+<span id="cb158-6"><a href="week-2-describing-data.html#cb158-6"></a>                         <span class="dt">max =</span> <span class="kw">max</span>(lifeExp))</span>
+<span id="cb158-7"><a href="week-2-describing-data.html#cb158-7"></a></span>
+<span id="cb158-8"><a href="week-2-describing-data.html#cb158-8"></a>knitr<span class="op">::</span><span class="kw">kable</span>(summary_df)</span></code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -1150,11 +1127,11 @@ or make things small… just to see what happens</p>
 </div>
 </div>
 <div id="descriptive-exercises" class="section level3">
-<h3><span class="header-section-number">2.3.7</span> Descriptive exercises</h3>
+<h3><span class="header-section-number">2.3.6</span> Descriptive exercises</h3>
 <ol style="list-style-type: decimal">
-<li>What is the mean, standard deviation, minimum and maximum life expectancy for all the gapminder data (across all the years and countries) (hint: do not use <code>group_by</code>).</li>
-<li>What is the mean, standard deviation, minimum and maximum life expectancy for all of the continents in 2007, the most recent year in the dataset (hint: add another pipe using <code>filter(year==2007) %&gt;%</code>).</li>
-<li>Answer the following questions in full sentences using simple plain language:</li>
+<li>What is the mean, standard deviation, minimum and maximum GDP per capita for all the gapminder data (across all the years and countries)? Print the values in a table with your own caption.</li>
+<li>What is the mean, median, variance, and length of the life expectancy variable for each continent in 2007? Print the values in a table with your own caption.</li>
+<li>Answer the following questions in your own words:</li>
 </ol>
 <ol style="list-style-type: lower-alpha">
 <li>Define the mode.</li>
@@ -1162,8 +1139,8 @@ or make things small… just to see what happens</p>
 <li>Define the median</li>
 <li>Define the mean</li>
 <li>Define the range</li>
-<li>When calculating the standard deviation, explain what the difference scores represent</li>
-<li>Explain why the difference scores are squared when calculating the standard deviation</li>
+<li>When calculating the variance, explain what the difference scores represent</li>
+<li>Explain why the difference scores are squared when calculating the variance</li>
 <li>If one set of numbers had a standard deviation of 5, and another had a standard deviation of 10, which set of numbers would have greater variance? Explain why.</li>
 </ol>
 <p>When you have completed all exercises and are happy with your progress today, please knit your document and submit it to Canvas. If you finish before the time is up, start with the required readings of Week 3, work on your assignment, or help out your fellow students.</p>

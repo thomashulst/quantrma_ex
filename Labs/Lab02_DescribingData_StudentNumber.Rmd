@@ -11,7 +11,7 @@ output:
 ---
 
 ```{r setup,include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, eval = TRUE, cache = FALSE, error = TRUE, message = TRUE, warning = TRUE, tidy = TRUE)
+knitr::opts_chunk$set(echo = TRUE, eval = TRUE, cache = FALSE, error = TRUE, message = FALSE, warning = TRUE, tidy = TRUE)
 ```
 
 You can keep notes about the lab here and execute code like in the code block below:
@@ -42,18 +42,21 @@ You can keep notes about the lab here and execute code like in the code block be
 
 ## Graphing exercises
 
-#### 1. Make a graph plotting Life Expectancy by year for the five continents, using the `continent` factor. Make sure you change the title as well.
+#### 1. Make a histogram of GDP per capita. Make the plot as pretty or ugly as you want it to be.
 ```{r}
+
 
 ```
 
-#### 2. Make a graph plotting GDP per capita by year for the USA, Canada, and Mexico. Use the `gdpPercap` column for the GDP per capita data.
+#### 2. Make a scatterplot of GDP per capita by year for the USA, Canada, and Mexico. Make sure to update the title and labels as well (hint: the USA is not named "USA" in the dataset).
 ```{r}
+
 
 ```
 
-#### 3. Make a new graph plotting anything you are interested in using the gapminder dataset. It just needs to be a plot that we have not given an example for.
+#### 3. Make a scatterplot of Life Expectancy by year for the five continents (hint: use the `group_by()` and `summarise()` functions).
 ```{r}
+
 
 ```
 
@@ -61,17 +64,17 @@ You can keep notes about the lab here and execute code like in the code block be
 
 ## Descriptive exercises
 
-#### 1. What is the mean, standard deviation, minimum and maximum life expectancy for all the gapminder data (across all the years and countries) (hint: do not use `group_by`)
+#### 1. What is the mean, standard deviation, minimum and maximum GDP per capita for all the gapminder data (across all the years and countries)? Print the values in a table with your own caption.
 ```{r}
 
 ```
 
-#### 2. What is the mean, standard deviation, minimum and maximum life expectancy for all of the continents in 2007, the most recent year in the dataset (hint: add another pipe using `filter(year==2007) %>%`).
+#### 2. What is the mean, median, variance, and length of the life expectancy variable for each continent in 2007? Print the values in a table with your own caption.
 ```{r}
 
 ```
 
-#### 3. Answer the following questions in full sentences using simple plain language:
+#### 3. Answer the following questions in your own words:
 
 ##### a. Define the mode.
 Answer here.
@@ -88,10 +91,10 @@ Answer here.
 ##### e. Define the range
 Answer here.
   
-##### f. When calculating the standard deviation, explain what the difference scores represent
+##### f. When calculating the variance, explain what the difference scores represent
 Answer here.
   
-##### g. Explain why the difference scores are squared when calculating the standard deviation
+##### g. Explain why the difference scores are squared when calculating the variance
 Answer here.
   
 ##### h. If one set of numbers had a standard deviation of 5, and another had a standard deviation of 10, which set of numbers would have greater variance? Explain why.
