@@ -1,10 +1,9 @@
 # Week 3: Correlation and Causation
 In lecture and in the textbook, we have been discussing the idea of correlation. This is the idea that two things that we measure can be somehow related to one another. For example, your personal happiness, which we could try to measure say with a questionnaire, might be related to other things in your life that we could also measure, such as number of close friends, yearly salary, how much chocolate you have in your bedroom, or how many times you have said the word Nintendo in your life. Some of the relationships that we can measure are meaningful, and might reflect a causal relationship where one thing causes a change in another thing. Some of the relationships are spurious, and do not reflect a causal relationship.
 
-In this lab we will discuss several concepts related to establishing causal relationship and  you will learn how to compute correlations between two variables and ask some questions about the correlations that you observe.
+In this lab we will discuss several concepts related to establishing causal relationship and  you will learn how to compute correlations between two variables and ask some questions about the correlations that you observe. To get started, download the [lab template here](https://raw.githubusercontent.com/thomashulst/quantrma_lab/master/Labs/Lab03_CorrelationCausation_StudentNumber.Rmd). Copy the lab template to your lab folder, rename the document to include your student number and open Lab.proj.
 
 ## General Goals
-
 1. Discuss relationships between variables and how to establish causal relationships
 2. Learn how to compute Pearson's $r$ between two variables in R 
 2. Discuss the possible meaning of correlations that you observe
@@ -17,14 +16,14 @@ Take a close look at the following two examples. Each example consists of a grap
 #### Example 1
 There is a positive causal relationship between the number of people who drowned by falling into a pool and the number of films Nicolas Cage appeared in.
 
-```{r example1, fig.cap="Relationship between number of drownings and films Nicolage Cage appeared in. Illustration by [Tyler Vigen](#https://www.tylervigen.com/spurious-correlations/).", echo=FALSE,eval=TRUE,out.width="75%"}
+```{r example1, fig.cap="Relationship between number of drownings and films Nicolage Cage appeared in. Illustration by [Tyler Vigen](https://www.tylervigen.com/spurious-correlations/).", echo=FALSE,eval=TRUE,out.width="75%"}
 knitr::include_graphics('figures/cage.png')
 ```
 
 #### Example 2
 There is a positive causal relationship between per capita consumption of mozzarella cheese and civil engineering doctorates awarded.
 
-```{r example2, fig.cap="Relationship between mozerella consumption and civil engineering doctorates. Illustration by [Tyler Vigen](#https://www.tylervigen.com/spurious-correlations/).", echo=FALSE,eval=TRUE,out.width="75%"}
+```{r example2, fig.cap="Relationship between mozerella consumption and civil engineering doctorates. Illustration by [Tyler Vigen](https://www.tylervigen.com/spurious-correlations/).", echo=FALSE,eval=TRUE,out.width="75%"}
 knitr::include_graphics('figures/mozerella.png')
 ```
 
@@ -156,7 +155,7 @@ OK, we are basically ready to turn to some real data and ask if there are correl
 Let's take a look at some correlations in real data. We are going to look at responses to a questionnaire about happiness that was sent around the world, from the [World Happiness Report](http://worldhappiness.report)
 
 #### Load the data
-We load the data into a data frame. Reminder, the following assumes that you have downloaded the zip file with the [lab templates] (https://github.com/thomashulst/quantrma_lab/raw/master/RMarkdownLabs.zip) which contains the data file in the data folder.
+We load the data into a data frame. Reminder, the following assumes that you have downloaded the zip file with the [labs template] (https://github.com/thomashulst/quantrma_lab/raw/master/Labs_Template.zip) which contains the data file in the data folder.
 
 ```{r}
 library(data.table)

@@ -3,7 +3,7 @@
 >The commonality between science and art is in trying to see profoundly - to develop strategies of seeing and showing.
 >---Edward Tufte
 
-The purpose of this lab is to show you how to generate graphs and compute basic descriptive statistics, including measures of central tendency (mean, mode, median) and variation (range, variance, standard deviation). We learned in the lecture and from the textbook that data we want to answer questions of, often comes with loads of numbers. Too many numbers to look at all at once. That's one reason we use descriptive statistics. To reduce the big set of numbers to one or two summary numbers or a pretty graph that tells us something about all of the numbers. R can produce descriptive statistics for you in many ways. We'll go over some R basics for descriptive statistics, and then use our new found skills to ask some questions about real data.
+The purpose of this lab is to show you how to generate graphs and compute basic descriptive statistics, including measures of central tendency (mean, mode, median) and variation (range, variance, standard deviation). We learned in the lecture and from the textbook that data we want to answer questions of, often comes with loads of numbers. Too many numbers to look at all at once. That's one reason we use descriptive statistics. To reduce the big set of numbers to one or two summary numbers or a pretty graph that tells us something about all of the numbers. R can produce descriptive statistics for you in many ways. We'll go over some R basics for descriptive statistics, and then use our new found skills to ask some questions about real data. To get started, download the [lab template here](https://raw.githubusercontent.com/thomashulst/quantrma_lab/master/Labs/Lab02_DescribingData_StudentNumber.Rmd). Copy the lab template to your lab folder, rename the document to include your student number and open Lab.proj.
 
 Note: we are going to introduce a lot of new programming concepts very quickly and you might feel overwhelmed or unsure you fully grasp the new concepts. This is completely normal when learning a new programming language. We start with simply copy/pasting and dissecting R commands as a way to familiarize you with the language. You will see that by doing this you can very quickly learn to answer interesting questions about a data set, just from changing a couple of minor things in the code examples. In our experience, this works better than expecting you to code something from scratch at the start of learning a new language. As always, there are several ways to get help when coding in R:
 
@@ -21,7 +21,7 @@ Note: we are going to introduce a lot of new programming concepts very quickly a
 ## Part one: describing data using graphs 
 In order to graph data, we need to have some data first... let's figure out what movies are going to be filmed in New York City. It turns out that NYC makes a lot of data about a lot things open and free for anyone to download and look at. This is the NYC Open Data website: [https://opendata.cityofnewyork.us](https://opendata.cityofnewyork.us). I searched through the data, and found a data file that lists the locations of film permits for shooting movies all throughout the Burroughs. There are multiple ways to load this data into R.
 
-1. If you have downloaded the [RMarkdownLabs.zip](https://github.com/thomashulst/quantrma_lab/blob/master/RMarkdownsLabs.zip?raw=true) file, then you already have the data file in the data folder. Assuming you are working in your main directory (your .Rmd file is saved in the main folder that contains both the data and template folders), use the following commands to load the data:
+1. If you have downloaded the [Labs_Template.zip](https://github.com/thomashulst/quantrma_lab/raw/master/Labs_Template.zip) file, then you already have the data file in the data folder. Assuming you are working in your main directory (your .Rmd file is saved in the main folder that contains both the data and template files), use the following commands to load the data:
 
 ```{r}
 library(data.table)
@@ -781,5 +781,5 @@ knitr::kable(summary_df)
   g. Explain why the difference scores are squared when calculating the standard deviation
   h. If one set of numbers had a standard deviation of 5, and another had a standard deviation of 10, which set of numbers would have greater variance? Explain why.
 
-When you have completed all exercises and are happy with your progress today, please knit your document and submit it to Canvas. If you finish before the time is up, start with the required readings of Week 3 or help out your fellow students. 
+When you have completed all exercises and are happy with your progress today, please knit your document and submit it to Canvas. If you finish before the time is up, start with the required readings of Week 3, work on your assignment, or help out your fellow students. 
 

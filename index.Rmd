@@ -180,15 +180,15 @@ Note you can select all of the lines at once, then copy them, then paste all of 
 ## How to complete the labs
 Each of the labs focuses on particular data-analysis problems, from graphing data, computing descriptive statistics, to running inferential tests in R. Additionally, during the labs, we will discuss and answer questions about research design concepts. To answer the questions during the labs, we will work in RStudio. As you work inside RStudio you will be creating text documents and doing things like loading data and saving the results of your analyses. As your work grows and becomes more complex, you can often find yourself creating many different files. An R project is a very useful way of organizing your files all in one place so you can find them later. When you double-click an R project file, R-studio will automatically load and restore your last session. 
 
-We have created an R project file for the labs that can be downloaded here: [download lab templates](https://github.com/thomashulst/quantrma_lab/raw/master/RMarkdownLabs.zip).
+We have created an R project file for the labs that can be [downloaded here](https://github.com/thomashulst/quantrma_lab/raw/master/Labs_Template.zip).
 
 When you unzip the file you should find the following:
 
-1. A folder titled "RMarkdownLabs"
-2. Inside the folder you will see the "RMarkdownLabs.proj" project file
+1. A folder titled "Labs_Template"
+2. Inside the folder you will see the "Labs.proj" project file
 3. A data folder containing data files for the labs
 
-After downloading, you can double-click the R project file to make sure you are in the correct working directory to complete the labs. During the labs, you will write your notes and answers in a .Rmd (RMarkdown) file that can be downloaded at the beginning of the lab. At the end of each lab you will "knit" the file (knitting is a term for making your documents look prettier) and upload the result to Canvas.
+After downloading, you can double-click the R project file to make sure you are in the correct working directory to work on the labs. During the labs, you will write your notes and answers in a .Rmd (RMarkdown) file that you download at the beginning of the lab. At the end of each lab you will "knit" the file (knitting is a term for making your documents look prettier) and upload the result to Canvas.
 
 We admit that at the beginning, RMarkdown documents might seem a little bit confusing, but you will find they are extremely useful and flexible. Basically, what RMarkdown allows you to do is combine two kinds of writing, 1) writing R code to conduct analyses, and 2) writing normal text, with headers, sub-headers, and paragraphs. You can think of this like a lab journal, that contains both your writing about what you are doing (e.g., notes to self), and the code that you use for analysis. Additionally, when your code does something like make a graph, or run a statistical test, you can ask RMarkdown to print the results.[^Rmd]
 
