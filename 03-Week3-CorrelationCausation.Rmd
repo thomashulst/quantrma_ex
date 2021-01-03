@@ -1,12 +1,12 @@
 # Week 3: Correlation and Causation
 In lecture and in the textbook, we have been discussing the idea of correlation. This is the idea that two things that we measure can be somehow related to one another. For example, your personal happiness, which we could try to measure say with a questionnaire, might be related to other things in your life that we could also measure, such as number of close friends, yearly salary, how much chocolate you have in your bedroom, or how many times you have said the word Nintendo in your life. Some of the relationships that we can measure are meaningful, and might reflect a causal relationship where one thing causes a change in another thing. Some of the relationships are spurious, and do not reflect a causal relationship.
 
-In this lab we will discuss several concepts related to establishing causal relationship and  you will learn how to compute correlations between two variables and ask some questions about the correlations that you observe. To get started, download the [lab template here](https://raw.githubusercontent.com/thomashulst/quantrma_lab/master/Labs/Lab03_CorrelationCausation_StudentNumber.Rmd). Copy the lab template to your lab folder, rename the document to include your student number and open Lab.proj.
+In this lab we will discuss several concepts related to establishing causal relationship. You will also learn how to compute correlations between two variables and answer some questions about relationships between variables. To get started, download the [lab template here](https://raw.githubusercontent.com/thomashulst/quantrma_lab/master/Labs/Lab03_CorrelationCausation_StudentNumber.Rmd) (right click: save as). Copy the lab template to your lab folder, rename the document to include your student number and open Lab.proj.
 
 ## General Goals
 1. Discuss relationships between variables and how to establish causal relationships
-2. Learn how to compute Pearson's $r$ between two variables in R 
 2. Discuss the possible meaning of correlations that you observe
+3. Learn how to compute and visualize Pearson's $r$ between two variables in R 
 
 ## Part one: establishing causal relationships
 
@@ -16,14 +16,14 @@ Take a close look at the following two examples. Each example consists of a grap
 #### Example 1
 There is a positive causal relationship between the number of people who drowned by falling into a pool and the number of films Nicolas Cage appeared in.
 
-```{r example1, fig.cap="Relationship between number of drownings and films Nicolage Cage appeared in. Illustration by [Tyler Vigen](https://www.tylervigen.com/spurious-correlations/).", echo=FALSE,eval=TRUE,out.width="75%"}
+```{r example1, fig.cap="Relationship between number of drownings and films Nicolage Cage appeared in. Illustration by [Tyler Vigen](https://www.tylervigen.com/spurious-correlations).", echo=FALSE,eval=TRUE,out.width="75%"}
 knitr::include_graphics('figures/cage.png')
 ```
 
 #### Example 2
 There is a positive causal relationship between per capita consumption of mozzarella cheese and civil engineering doctorates awarded.
 
-```{r example2, fig.cap="Relationship between mozerella consumption and civil engineering doctorates. Illustration by [Tyler Vigen](https://www.tylervigen.com/spurious-correlations/).", echo=FALSE,eval=TRUE,out.width="75%"}
+```{r example2, fig.cap="Relationship between mozerella consumption and civil engineering doctorates. Illustration by [Tyler Vigen](https://www.tylervigen.com/spurious-correlations).", echo=FALSE,eval=TRUE,out.width="75%"}
 knitr::include_graphics('figures/mozerella.png')
 ```
 
@@ -35,7 +35,7 @@ For each of the three scenarios described below, identify a confounder (variable
 3. The observation that there is a very strong correlation between the use of social media and symptoms of depression, led the researcher to believe that excessive use of social media causes symptoms of depression. 
 
 ### Question 3
-The cases below present an empirical observation that leads to a proposition. First, you are asked to identify the problem with this proposition. Then, you must provide a solution to overcome this issue. Your proposed solution should strengthen claims of a causal relationship between variables X and Y. 
+The cases below present an empirical observation that lead to a proposition. First, you are asked to identify the problem with this proposition. Then, you must provide a solution to overcome this issue. Your proposed solution should strengthen claims of a causal relationship between variables X and Y. 
 
 Hint: Your proposed solution should satisfy the following: 
 
@@ -57,7 +57,9 @@ Hint: Your proposed solution should satisfy the following:
 - Solution: 
 
 ### Question 4
-In the previous question, you provided solutions to ambiguously formulated claims of causal relationships, in order to strengthen their empirical validity and to be able to draw meaningful conclusions. However, meaningful conclusions should be obtained from meaningful comparisons. According to the textbook, what does a meaningful comparison entail? 
+In the previous question, you provided solutions to ambiguously formulated claims of causal relationships, in order to strengthen their empirical validity and to be able to draw meaningful conclusions. However, meaningful conclusions should be obtained from meaningful comparisons. 
+
+According to the textbook, what does a meaningful comparison entail? 
 
 ### Question 5
 According to the textbook, how can we obtain meaningful comparisons?
@@ -98,7 +100,7 @@ x  <- c(1,3,2,5,4,6,5,8,9)
 y  <- c(6,5,8,7,9,7,8,10,13)
 cor(x,y)
 ```
- Well, that was easy. 
+Well, that was easy. 
  
 #### Scatterplots
 Let's take our toy example, and plot the data in a scatterplot using ggplot2. Let's also return the correlation and print it on the scatter plot. Remember, ggplot2 wants the data in a `data.frame`, so we first put our x and y variables in a data frame.
@@ -110,7 +112,7 @@ df <- data.frame(x,y)
 
 ggplot(df, aes(x=x,y=y))+
   geom_point()+
-  geom_text(aes(label = round(cor(x,y), digits=2), y=12, x=2 ))
+  geom_text(aes(label = round(cor(x,y), digits=2), x=2, y=12))
 ```
 
 Wow, we're moving fast here. Dissect the code above and see if you understand each step.
@@ -118,7 +120,7 @@ Wow, we're moving fast here. Dissect the code above and see if you understand ea
 #### Lots of scatterplots
 Before we move on to real data, let's generate some fake data first. Often we will have many measures of X and Y, split between a few different conditions, for example, A, B, C, and D. Let's make some fake data for X and Y, for each condition A, B, C, and D, and then use `facet_wrap()` to look at four scatter plots all at once:
 
-```{r}
+```{r 1facet, fig.cap="Facet wrapped scatterplots",warning=F}
 x<-rnorm(40,0,1) # rnorm() generates a normally distributed random variable
 y<-rnorm(40,0,1) # You can always use ? to see what a function does. 
 conditions<-rep(c("A","B","C","D"), each=10)
@@ -128,7 +130,6 @@ df_all <- data.frame(conditions, x, y)
 ggplot(df_all, aes(x=x,y=y))+
   geom_point()+
   facet_wrap(~conditions)
-
 ```
 
 #### Computing the correlations all at once
@@ -137,25 +138,65 @@ We've seen how we can make four graphs at once. `facet_wrap()` will always try t
 What we will do now is make a table of the correlations in addition to the scatter plot. We use functions from the `dplyr` library to calculate the correlations and the function `kable()` from the `knitr` library to output the table:
 
 ```{r}
+library(dplyr)
+df_cor <- df_all %>% group_by(conditions) %>%
+  summarise(correlation = cor(x, y))
+
+knitr::kable(df_cor,caption = "Correlation by condition.")
+
+```
+
+OK, we are basically ready to turn to some real data and ask if there are correlations between interesting variables... but first some exercises. 
+
+### Correlation exercises 
+1. Calculate the correlation between the following two variables:
+
+```{r}
+x <- c(1,2,4,8,16,32,64,NA,256,512)
+y <- c(1,2,2,2,5,6,5,8,7,4)
+
+```
+
+2. What happens in exercise 1? What is `NA`? What can you do to still calculate the correlation between `x` and `y`?
+
+3. The following plot has (at least) two visual problems: the value of the correlation is printed at every point and the correlation has an unnecessary amount of digits. Try to fix the problems in the code below. 
+
+```{r}
+x <- c(1,2,4,8,16,32,64,128,256,512)
+y <- c(1,2,2,2,5,6,5,8,7,4)
+corxy <- cor(x,y)
+
+df <- data.frame(x,y)
+
+ggplot(df, aes(x=x,y=y))+
+  geom_point()+
+  geom_text(aes(label = corxy))
+```
+
+4. Looking at the plot above, why is it probably not valid to summarise this data using Pearson's $r$?
+
+5. Notice, the facet_wrapped scatterplots (Figure \@ref(fig:1facet)) didn't show the correlation ($r$) values. Printing these numbers on the plot is possible, but you have to use the `df_cor` data frame in `geom_text()`. Try to fix this in the code below. If you are unsure how to do this, you can always use `?geom_text()` or try to Google the solution (keywords: geom_text(), label, data.frame). 
+
+```{r,warning=F,message=F}
+x<-rnorm(40,0,1) 
+y<-rnorm(40,0,1)
+conditions<-rep(c("A","B","C","D"), each=10)
+
+df_all <- data.frame(conditions, x, y)
 
 df_cor <- df_all %>% group_by(conditions) %>%
   summarise(correlation = cor(x, y))
 
-knitr::kable(df_cor)
-
+ggplot(df_all, aes(x=x,y=y))+
+  geom_point()+
+  facet_wrap(~conditions)
 ```
 
-OK, we are basically ready to turn to some real data and ask if there are correlations between interesting variables...
-
-### Correlation exercises 
-1. Notice, the facet_wrapped scatterplots above didn't show the correlation (r) values. Getting these numbers on there is possible, but you have to use the `df_cor` data frame in `geom_text()`. Try to 
-
-
 ### Real data
-Let's take a look at some correlations in real data. We are going to look at responses to a questionnaire about happiness that was sent around the world, from the [World Happiness Report](http://worldhappiness.report)
+Let's take a look at some correlations in real data. We are going to look at responses to a questionnaire about happiness that was sent around the world, from the [World Happiness Report](http://worldhappiness.report).
 
 #### Load the data
-We load the data into a data frame. Reminder, the following assumes that you have downloaded the zip file with the [labs template] (https://github.com/thomashulst/quantrma_lab/raw/master/Labs_Template.zip) which contains the data file in the data folder.
+We first load the data into a data.frame. The following assumes that you have downloaded the zip file with the [labs template](https://github.com/thomashulst/quantrma_lab/raw/master/Labs_Template.zip) which contains the data file in the data folder.
 
 ```{r}
 library(data.table)
@@ -163,7 +204,6 @@ whr_data <- fread('data/WHR2018.csv')
 ```
 
 #### Look at the data
-
 ```{r,eval=F}
 
 head(whr_data, n=20)
@@ -174,9 +214,9 @@ ncol(whr_data)
 
 ```
 
-You should be able to see that there is data for many different countries, across a few different years. There are lots of different kinds of measures, and each are given a name. You can find in the WHR what each of the measures represent. For now, I'll show you some examples of asking questions about correlations with this data, then you get to ask and answer your own questions.
+You should be able to see that there is data for many different countries, across a few different years. There are lots of different kinds of measures, and each are given a name. You can find in the report what each of the measures represent. For now, I'll show you some examples of asking questions about relationships between variables within this data, then you get to ask and answer your own questions.
 
-#### Question #1
+#### Example question #1
 For the year 2017, does a countries measure for "Social support" correlate with that countries measure for "Healthy life expectancy at birth"?
 
 Let's find out. We calculate the correlation, and then we make the scatter plot. We did something similar in the textbook, so the following should look familiar to you: 
@@ -193,9 +233,9 @@ ggplot(whr_data, aes(x=`Social support`,
 
 ```
 
-We see a lot of dots on the scatterplot, but the correlation has a value of NA (meaning undefined). This occurred because there are some missing data points in the data and R can't calculate a correlation over missing data. We should remove all the rows with missing data first, then do the correlation. 
+We see a lot of dots on the scatterplot, but the correlation has a value of NA (meaning undefined or not available). This occurred because there are some missing data points in the data and we can't calculate a correlation over missing data. We should remove all the rows with missing data first, then calculate the correlation. 
 
-We need to do this a couple steps, first creating our own data.frame with only the numbers we want to analyse. We can select the columns we want to keep using `select`. Then we use `filter` to remove the rows with NAs.
+We do this in a couple of steps. First, we create our own data.frame with only the numbers we want to analyse. Then we can select the columns we want to keep using `select` and use `filter` to remove the rows with NAs.
 
 ```{r, warning=F, message=F}
 library(dplyr)
@@ -235,7 +275,7 @@ ggplot(smaller_df, aes(x=`Social support`,
 
 ```
 
-Although the scatter plot shows the dots are everywhere, it generally shows as social support increases, life expectancy increases. Let's add a best fit line, so the trend is more clear. We use `geom_smooth(method=lm, se=FALSE)`. I also change the `alpha` value of the dots so they blend it bit, and you can see more of them.
+Although the scatter plot shows the dots are everywhere, it generally shows as social support increases, life expectancy increases. Let's add a best fit line, so the trend is more clear. We use the `geom_smooth()` function to do this. We can also change the `alpha` value of the dots so they blend it bit, and you can see more of them.
 
 ```{r}
 
@@ -262,7 +302,7 @@ ggplot(smaller_df, aes(x=`Social support`,
 
 ```
 
-#### Question #2
+#### Example question #2
 After all that work, we can now speedily answer more questions. For example, what is the relationship between positive affect in a country and negative affect in a country? I wouldn't be surprised if there was a negative correlation here: when positive feelings generally go up, shouldn't negative feelings generally go down?
 
 To answer this question, we just copy paste the last code block, and change the DVs to be `Positive affect`, and `Negative affect`
@@ -293,11 +333,13 @@ ggplot(smaller_df, aes(x=`Positive affect`,
 
 There we have it. As positive affect goes up, negative affect goes down. A negative correlation.
 
-### Correlation exercises 
+### Theory exercises 
 Answer the following questions in your own words:
 
-1. Imagine a researcher found a positive correlation between two variables, and reported that the r value was +.3. One possibility is that there is a true correlation between these two variables. Discuss one alternative possibility that would also explain the observation of +.3 value between the variables.
-2. Explain the difference between a correlation of r = .3 and r = .7. What does a larger value of r represent?
-3. Explain the difference between a correlation of r = .5, and r = -.5.
+1. Explain the difference between a correlation of r = .3 and r = .7. What does a larger value of r represent?
+2. Explain the difference between a correlation of r = .5, and r = -.5.
+
+### Data exercises
+Now answer your own question about a relationship in the WHR dataset. This should be a different relationship (and about a different year) than the examples above. You should calculate Pearson's $r$ of this relationship, generate a scatterplot with a best fit line, print the correlation on the scatterplot, and print the mean and standard deviation of both variables in a table. Your code should include all steps, from loading the relevant libraries and data file, to generating all the required output. Use comments throughout your code to explain what your are doing.  
 
 When you have completed all exercises and are happy with your progress today, please knit your document and submit it to Canvas. If you finish before the time is up, start with the required readings of Week 4, work on your assignment, or help out your fellow students. 

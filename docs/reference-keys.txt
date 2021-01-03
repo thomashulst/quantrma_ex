@@ -1,7 +1,10 @@
 fig:2rstudiod
 fig:validreliab
+tab:unnamed-chunk-66
 fig:example1
 fig:example2
+fig:1facet
+tab:unnamed-chunk-73
 why-r
 downloading-and-installing-r
 installing-r-on-a-mac
@@ -121,7 +124,8 @@ correlation-exercises
 real-data
 load-the-data
 look-at-the-data-1
-question-1-2
-question-2-2
-correlation-exercises-1
+example-question-1
+example-question-2
+theory-exercises
+data-exercises-1
 references

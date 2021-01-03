@@ -8,7 +8,7 @@ If you finish before the time is up, you can start with the required readings of
 ## Let's get started! {-}
 Follow the steps below the get started:
 
-1. Download the template file for lab 1, [Lab01_Introduction_StudentNumber.Rmd](https://raw.githubusercontent.com/thomashulst/quantrma_lab/master/Labs/Lab01_Introduction_StudentNumber.Rmd), and place it into the "Labs_Template" folder.
+1. Download the template file for lab 1, [Lab01_Introduction_StudentNumber.Rmd](https://raw.githubusercontent.com/thomashulst/quantrma_lab/master/Labs/Lab01_Introduction_StudentNumber.Rmd) (right click: save as), and place it into the "Labs_Template" folder.
 2. Rename the file to add your own student number, eg., "Lab01_Introduction_123456"
 3. Double-click the "Labs.Rproj" file
 4. RStudio will now load up

@@ -29,7 +29,7 @@ Take a close look at the following two examples. Each example consists of a grap
 #### Example 1
 There is a positive causal relationship between the number of people who drowned by falling into a pool and the number of films Nicolas Cage appeared in.
 
-```{r example1, fig.cap="Relationship between number of drownings and films Nicolage Cage appeared in. Illustration by [Tyler Vigen](#https://www.tylervigen.com/spurious-correlations/).", echo=FALSE,eval=TRUE,out.width="75%"}
+```{r example1, fig.cap="Relationship between number of drownings and films Nicolage Cage appeared in. Illustration by [Tyler Vigen](https://www.tylervigen.com/spurious-correlations).", echo=FALSE,eval=TRUE,out.width="75%"}
 knitr::include_graphics('data/cage.png')
 ```
 
@@ -38,7 +38,7 @@ Answer here.
 #### Example 2
 There is a positive causal relationship between per capita consumption of mozzarella cheese and civil engineering doctorates awarded.
 
-```{r example2, fig.cap="Relationship between mozerella consumption and civil engineering doctorates. Illustration by [Tyler Vigen](#https://www.tylervigen.com/spurious-correlations/).", echo=FALSE,eval=TRUE,out.width="75%"}
+```{r example2, fig.cap="Relationship between mozerella consumption and civil engineering doctorates. Illustration by [Tyler Vigen](https://www.tylervigen.com/spurious-correlations).", echo=FALSE,eval=TRUE,out.width="75%"}
 knitr::include_graphics('data/mozerella.png')
 ```
 
@@ -54,7 +54,7 @@ For each of the three scenarios described below, identify a confounder (variable
 Answer here.
 
 ## Question 3
-The cases below present an empirical observation that leads to a proposition. First, you are asked to identify the problem with this proposition. Then, you must provide a solution to overcome this issue. Your proposed solution should strengthen claims of a causal relationship between variables X and Y. 
+The cases below present an empirical observation that lead to a proposition. First, you are asked to identify the problem with this proposition. Then, you must provide a solution to overcome this issue. Your proposed solution should strengthen claims of a causal relationship between variables X and Y. 
 
 Hint: Your proposed solution should satisfy the following: 
 
@@ -77,7 +77,9 @@ Hint: Your proposed solution should satisfy the following:
 - Solution: 
 
 ## Question 4
-In the previous question, you provided solutions to ambiguously formulated claims of causal relationships, in order to strengthen their empirical validity and to be able to draw meaningful conclusions. However, meaningful conclusions should be obtained from meaningful comparisons. According to the textbook, what does a meaningful comparison entail? 
+In the previous question, you provided solutions to ambiguously formulated claims of causal relationships, in order to strengthen their empirical validity and to be able to draw meaningful conclusions. However, meaningful conclusions should be obtained from meaningful comparisons. 
+
+According to the textbook, what does a meaningful comparison entail? 
 
 Answer here.
 
@@ -119,5 +121,78 @@ Answer here.
 
 
 # Part two: correlations in R
+
+## Correlation exercises 
+
+#### 1. Calculate the correlation between the following two variables:
+
+```{r}
+x <- c(1,2,4,8,16,32,64,NA,256,512)
+y <- c(1,2,2,2,5,6,5,8,7,4)
+
+```
+
+#### 2. What happens in exercise 1? What is `NA`? What can you do to still calculate the correlation between `x` and `y`?
+
+Answer here.
+
+```{r}
+
+```
+
+#### 3. The following plot has (at least) two visual problems: the value of the correlation is printed at every point and the correlation has an unnecessary amount of digits. Try to fix the problems in the code below. 
+
+```{r}
+library(ggplot2)
+x <- c(1,2,4,8,16,32,64,128,256,512)
+y <- c(1,2,2,2,5,6,5,8,7,4)
+corxy <- cor(x,y)
+
+df <- data.frame(x,y)
+
+ggplot(df, aes(x=x,y=y))+
+  geom_point()+
+  geom_text(aes(label = corxy))
+```
+
+#### 4. Looking at the plot above, why is it probably not valid to summarise this data using Pearson's $r$?
+Answer here.
+
+#### 5. Notice, the facet_wrapped scatterplots didn't show the correlation ($r$) values. Printing these numbers on the plot is possible, but you have to use the `df_cor` data frame in `geom_text()`. Try to fix this in the code below. If you are unsure how to do this, you can always use `?geom_text()` or try to Google the solution (keywords: geom_text(), label, data.frame). 
+
+```{r,warning=F,message=F}
+library(dplyr)
+x<-rnorm(40,0,1) 
+y<-rnorm(40,0,1)
+conditions<-rep(c("A","B","C","D"), each=10)
+
+df_all <- data.frame(conditions, x, y)
+
+df_cor <- df_all %>% group_by(conditions) %>%
+  summarise(correlation = cor(x, y))
+
+ggplot(df_all, aes(x=x,y=y))+
+  geom_point()+
+  facet_wrap(~conditions)
+```
+
+## Theory exercises 
+Answer the following questions in your own words:
+
+#### 1. Explain the difference between a correlation of r = .3 and r = .7. What does a larger value of r represent?
+
+Answer here.
+
+#### 2. Explain the difference between a correlation of r = .5, and r = -.5.
+
+Answer here.
+
+## Data exercises
+
+#### Now answer your own question about a relationship in the WHR dataset. This should be a different relationship (and about a different year) than the examples above. You should calculate Pearson's $r$ of this relationship, generate a scatterplot with a best fit line, print the correlation on the scatterplot and print the mean and standard deviation of both variable in a table. Your code should include all steps, from loading the relevant libraries and data file, to generating all the required output. Use comments throughout your code to explain what your are doing.
+
+```{r}
+
+```
 
 When you have completed all exercises and are happy with your progress today, please knit your document and submit it to Canvas. If you finish before the time is up, start with the required readings of Week 4, work on your assignment, or help out your fellow students. 

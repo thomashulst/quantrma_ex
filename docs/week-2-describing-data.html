@@ -215,7 +215,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.3.1" data-path="week-3-correlation-and-causation.html"><a href="week-3-correlation-and-causation.html#cor-for-correlation"><i class="fa fa-check"></i><b>3.3.1</b> <code>cor()</code> for correlation</a></li>
 <li class="chapter" data-level="3.3.2" data-path="week-3-correlation-and-causation.html"><a href="week-3-correlation-and-causation.html#correlation-exercises"><i class="fa fa-check"></i><b>3.3.2</b> Correlation exercises</a></li>
 <li class="chapter" data-level="3.3.3" data-path="week-3-correlation-and-causation.html"><a href="week-3-correlation-and-causation.html#real-data"><i class="fa fa-check"></i><b>3.3.3</b> Real data</a></li>
-<li class="chapter" data-level="3.3.4" data-path="week-3-correlation-and-causation.html"><a href="week-3-correlation-and-causation.html#correlation-exercises-1"><i class="fa fa-check"></i><b>3.3.4</b> Correlation exercises</a></li>
+<li class="chapter" data-level="3.3.4" data-path="week-3-correlation-and-causation.html"><a href="week-3-correlation-and-causation.html#theory-exercises"><i class="fa fa-check"></i><b>3.3.4</b> Theory exercises</a></li>
+<li class="chapter" data-level="3.3.5" data-path="week-3-correlation-and-causation.html"><a href="week-3-correlation-and-causation.html#data-exercises-1"><i class="fa fa-check"></i><b>3.3.5</b> Data exercises</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>4</b> References</a></li>
@@ -245,7 +246,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>The commonality between science and art is in trying to see profoundly - to develop strategies of seeing and showing.
 —Edward Tufte</p>
 </blockquote>
-<p>The purpose of this lab is to show you how to generate graphs and compute basic descriptive statistics, including measures of central tendency (mean, mode, median) and variation (range, variance, standard deviation). We learned in the lecture and from the textbook that data we want to answer questions of, often comes with loads of numbers. Too many numbers to look at all at once. That’s one reason we use descriptive statistics. To reduce the big set of numbers to one or two summary numbers or a pretty graph that tells us something about all of the numbers. R can produce descriptive statistics for you in many ways. We’ll go over some R basics for descriptive statistics, and then use our new found skills to ask some questions about real data. To get started, download the <a href="https://raw.githubusercontent.com/thomashulst/quantrma_lab/master/Labs/Lab02_DescribingData_StudentNumber.Rmd">lab template here</a>. Copy the lab template to your lab folder, rename the document to include your student number and open Lab.proj.</p>
+<p>The purpose of this lab is to show you how to generate graphs and compute basic descriptive statistics, including measures of central tendency (mean, mode, median) and variation (range, variance, standard deviation). We learned in the lecture and from the textbook that data we want to answer questions of, often comes with loads of numbers. Too many numbers to look at all at once. That’s one reason we use descriptive statistics. To reduce the big set of numbers to one or two summary numbers or a pretty graph that tells us something about all of the numbers. R can produce descriptive statistics for you in many ways. We’ll go over some R basics for descriptive statistics, and then use our new found skills to ask some questions about real data. To get started, download the <a href="https://raw.githubusercontent.com/thomashulst/quantrma_lab/master/Labs/Lab02_DescribingData_StudentNumber.Rmd">lab template here</a> (right click: save as). Copy the lab template to your lab folder, rename the document to include your student number and open Lab.proj.</p>
 <p>Note: we are going to introduce a lot of new programming concepts very quickly and you might feel overwhelmed or unsure you fully grasp the new concepts. This is completely normal when learning a new programming language. We start with simply copy/pasting and dissecting R commands as a way to familiarize you with the language. You will see that by doing this you can very quickly learn to answer interesting questions about a data set, just from changing a couple of minor things in the code examples. In our experience, this works better than expecting you to code something from scratch at the start of learning a new language. As always, there are several ways to get help when coding in R:</p>
 <ol style="list-style-type: decimal">
 <li>Use the ?help or ??help functions</li>
@@ -860,13 +861,14 @@ or make things small… just to see what happens</p>
 ##  8 H           9.24
 ##  9 I           9.77
 ## 10 J          12.4</code></pre>
-<p>A couple things now. First, the print out of this was ugly. We can fix that by putting the results of our code into a new variable, then use <code>knitr::kable()</code> to print it out nicely when we <code>knit</code> the document</p>
+<p>A couple things now. First, the print out of this was ugly. We can fix that by putting the results of our code into a new variable, then use <code>knitr::kable()</code> to print it out nicely when we <code>knit</code> the document. We can even caption the table by passing the <code>caption</code> argument.</p>
 <div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="week-2-describing-data.html#cb170-1"></a>summary_df &lt;-<span class="st"> </span>my_df <span class="op">%&gt;%</span></span>
 <span id="cb170-2"><a href="week-2-describing-data.html#cb170-2"></a><span class="st">               </span><span class="kw">group_by</span>(conditions) <span class="op">%&gt;%</span></span>
 <span id="cb170-3"><a href="week-2-describing-data.html#cb170-3"></a><span class="st">               </span><span class="kw">summarise</span>(<span class="dt">means =</span> <span class="kw">mean</span>(scores))</span>
 <span id="cb170-4"><a href="week-2-describing-data.html#cb170-4"></a></span>
-<span id="cb170-5"><a href="week-2-describing-data.html#cb170-5"></a>knitr<span class="op">::</span><span class="kw">kable</span>(summary_df)</span></code></pre></div>
+<span id="cb170-5"><a href="week-2-describing-data.html#cb170-5"></a>knitr<span class="op">::</span><span class="kw">kable</span>(summary_df,<span class="dt">caption =</span> <span class="st">&quot;Means by condition.&quot;</span>)</span></code></pre></div>
 <table>
+<caption><span id="tab:unnamed-chunk-66">Table 2.1: </span>Means by condition.</caption>
 <thead>
 <tr class="header">
 <th align="left">conditions</th>
