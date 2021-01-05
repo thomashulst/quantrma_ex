@@ -188,7 +188,7 @@ Answer here.
 
 Answer here.
 
-## Data exercises
+## Data exercise
 
 #### Now answer your own question about a relationship in the WHR dataset. This should be a different relationship (and about a different year) than the examples above. You should calculate Pearson's $r$ of this relationship, generate a scatterplot with a best fit line, print the correlation on the scatterplot and print the mean and standard deviation of both variable in a table. Your code should include all steps, from loading the relevant libraries and data file, to generating all the required output. Use comments throughout your code to explain what your are doing.
 

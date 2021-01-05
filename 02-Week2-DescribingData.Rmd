@@ -44,7 +44,7 @@ You will be downloading and analyzing all kinds of data files this quad. We will
 
 In RStudio, you will now see a variable called `nyc_films` in the top right-hand corner of the screen, in the environment tab. If you click this thing, it will show you the contents of the data in a new window. The data is stored in something we call a `data frame`. It's R lingo, for the thing that contains the data. Notice it is shaped like a rectangle, with rows going across, and columns going up and down. It looks kind of like an excel spreadsheet if you are familiar with Excel.
 
-You can also use the R functions `head()` and `tail()` to print out the first 6 or last 6 rows of our data frame in the R console:
+You can also use the R functions `head()` and `tail()` to print out the first 6 or last 6 rows of our data frame in the R console, or `summary()` for a quick overview of our data frame:
 
 ```{r, echo=TRUE,eval=FALSE}
 # head() prints the first 6 rows of a data frame
@@ -52,9 +52,12 @@ head(nyc_films)
 
 # tail() prints the last 6 rows of a data frame
 tail(nyc_films)
+
+# summary() shows a brief summary of a data frame
+summary(nyc_films)
 ```
 
-Using the `head()` and `tail()` functions on this data frame, you'll see that the output in the R console doesn't look pretty. It's useful to know you can look at the data frame this way if you need to. But, this data frame is really big, it has 50,728 rows (or observations) and 14 columns (or variables). You can get the size of the data frame by looking in the environment tab or using the functions `nrow()` and `ncol()`: 
+Using the `head()`, `tail()` and `summary()` functions on this data frame, you'll see that the output in the R console doesn't look pretty. It's useful to know you can look at the data frame this way if you need to. But, this data frame is really big, it has 50,728 rows (or observations) and 14 columns (or variables). You can get the size of the data frame by looking in the environment tab or using the functions `nrow()` and `ncol()`: 
 
 ```{r}
 nrow(nyc_films)
@@ -416,11 +419,12 @@ gapminder_df<-gapminder
 ```
 
 #### Look at the data frame
-You can look at the data frame in the environment tab to see what is in it, and/or you can use the `head()`/`tail()` and `nrow`/`ncol` functions again:
+You can look at the data frame in the environment tab to see what is in it, and/or you can use the `head()`/`tail()/summary()` and `nrow`/`ncol` functions again:
 
 ```{r}
 head(gapminder)
 tail(gapminder)
+summary(gapminder)
 
 nrow(gapminder)
 ncol(gapminder)

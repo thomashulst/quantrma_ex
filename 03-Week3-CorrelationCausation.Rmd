@@ -204,15 +204,16 @@ whr_data <- fread('data/WHR2018.csv')
 #### Look at the data
 ```{r,eval=F}
 
-head(whr_data, n=20)
-tail(whr_data, n=20)
+head(whr_data)
+tail(whr_data)
+summary(whr_data)
 
 nrow(whr_data)
 ncol(whr_data)
 
 ```
 
-You should be able to see that there is data for many different countries, across a few different years. There are lots of different kinds of measures, and each are given a name. You can find in the report what each of the measures represent. For now, I'll show you some examples of asking questions about relationships between variables within this data, then you get to ask and answer your own questions.
+You should be able to see that there is data for many different countries, across a few different years. There are lots of different kinds of measures, and each are given a name. You can find in the report what each of the measures represent. For now, I'll show you some examples of asking questions about relationships between variables within this data, then you get to ask and answer your own question.
 
 #### Example question #1
 For the year 2017, does a countries measure for "Social support" correlate with that countries measure for "Healthy life expectancy at birth"?
@@ -337,7 +338,7 @@ Answer the following questions in your own words:
 1. Explain the difference between a correlation of r = .3 and r = .7. What does a larger value of r represent?
 2. Explain the difference between a correlation of r = .5, and r = -.5.
 
-### Data exercises
+### Data exercise
 Now answer your own question about a relationship in the WHR dataset. This should be a different relationship (and about a different year) than the examples above. You should calculate Pearson's $r$ of this relationship, generate a scatterplot with a best fit line, print the correlation on the scatterplot, and print the mean and standard deviation of both variables in a table. Your code should include all steps, from loading the relevant libraries and data file, to generating all the required output. Use comments throughout your code to explain what your are doing.  
 
 When you have completed all exercises and are happy with your progress today, please knit your document and submit it to Canvas. If you finish before the time is up, start with the required readings of Week 4, work on your assignment, or help out your fellow students. 

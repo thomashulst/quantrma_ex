@@ -125,5 +125,5 @@ look-at-the-data-1
 example-question-1
 example-question-2
 theory-exercises
-data-exercises-1
+data-exercise
 references
