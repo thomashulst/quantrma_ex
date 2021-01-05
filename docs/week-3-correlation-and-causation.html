@@ -5,24 +5,24 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title> 3 Week 3: Correlation and Causation | Lab manual QuantRMA</title>
-  <meta name="description" content="The exercises related to the introductory textbook for quantitative research methods and data analysis at EUC. This text was adapted from “Answering questions with data: Lab Manual” by Matthew J.C. Crump and colleagues (https://crumplab.github.io/statistics/)" />
+  <meta name="description" content="The lab manual for quantitative research methods and data analysis at EUC. This text was adapted from “Answering questions with data: Lab Manual” by Matthew J.C. Crump and colleagues (https://crumplab.github.io/statistics/)" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
   <meta property="og:title" content=" 3 Week 3: Correlation and Causation | Lab manual QuantRMA" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="The exercises related to the introductory textbook for quantitative research methods and data analysis at EUC. This text was adapted from “Answering questions with data: Lab Manual” by Matthew J.C. Crump and colleagues (https://crumplab.github.io/statistics/)" />
+  <meta property="og:description" content="The lab manual for quantitative research methods and data analysis at EUC. This text was adapted from “Answering questions with data: Lab Manual” by Matthew J.C. Crump and colleagues (https://crumplab.github.io/statistics/)" />
   
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content=" 3 Week 3: Correlation and Causation | Lab manual QuantRMA" />
   
-  <meta name="twitter:description" content="The exercises related to the introductory textbook for quantitative research methods and data analysis at EUC. This text was adapted from “Answering questions with data: Lab Manual” by Matthew J.C. Crump and colleagues (https://crumplab.github.io/statistics/)" />
+  <meta name="twitter:description" content="The lab manual for quantitative research methods and data analysis at EUC. This text was adapted from “Answering questions with data: Lab Manual” by Matthew J.C. Crump and colleagues (https://crumplab.github.io/statistics/)" />
   
 
-<meta name="author" content="Matthew J. C. Crump, Anjali Krishnan, Stephen Volz, and Alla Chavarga" />
-<meta name="author" content="Adapted for use at EUC by Thomas Hulst and Thanos Kostopoulos" />
+<meta name="author" content="Original authors: Matthew J. C. Crump, Anjali Krishnan, Stephen Volz, and Alla Chavarga" />
+<meta name="author" content="Adapted for EUC by Thomas Hulst and Thanos Kostopoulos" />
 
 
 
@@ -209,6 +209,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.2.5" data-path="week-3-correlation-and-causation.html"><a href="week-3-correlation-and-causation.html#question-5-1"><i class="fa fa-check"></i><b>3.2.5</b> Question 5</a></li>
 <li class="chapter" data-level="3.2.6" data-path="week-3-correlation-and-causation.html"><a href="week-3-correlation-and-causation.html#question-6-1"><i class="fa fa-check"></i><b>3.2.6</b> Question 6</a></li>
 <li class="chapter" data-level="3.2.7" data-path="week-3-correlation-and-causation.html"><a href="week-3-correlation-and-causation.html#question-7-1"><i class="fa fa-check"></i><b>3.2.7</b> Question 7</a></li>
+<li class="chapter" data-level="3.2.8" data-path="week-3-correlation-and-causation.html"><a href="week-3-correlation-and-causation.html#question-8-1"><i class="fa fa-check"></i><b>3.2.8</b> Question 8</a></li>
 </ul></li>
 <li class="chapter" data-level="3.3" data-path="week-3-correlation-and-causation.html"><a href="week-3-correlation-and-causation.html#part-two-correlations-in-r"><i class="fa fa-check"></i><b>3.3</b> Part two: correlations in R</a><ul>
 <li class="chapter" data-level="3.3.1" data-path="week-3-correlation-and-causation.html"><a href="week-3-correlation-and-causation.html#cor-for-correlation"><i class="fa fa-check"></i><b>3.3.1</b> <code>cor()</code> for correlation</a></li>
@@ -287,24 +288,14 @@ Figure 3.2: Relationship between mozerella consumption and civil engineering doc
 </div>
 <div id="question-3-1" class="section level3">
 <h3><span class="header-section-number">3.2.3</span> Question 3</h3>
-<p>The cases below present an empirical observation that lead to a proposition. First, you are asked to identify the problem with this proposition. Then, you must provide a solution to overcome this issue. Your proposed solution should strengthen claims of a causal relationship between variables X and Y.</p>
-<p>Hint: Your proposed solution should satisfy the following:</p>
+<p>The case below presents an empirical observation that leads to a proposition. First, you are asked to identify the problem with this proposition. Then, you must provide a solution to overcome this issue. Your proposed solution should strengthen claims of a causal relationship between variables X and Y.</p>
+<p>Your proposed solution should satisfy the following:</p>
 <ul>
 <li>Clearly identify the source of variation in the independent variable (i.e. define groups)</li>
 <li>Indicate how you would use the variation in the independent variable to test against the proposed causal relationship</li>
 <li>There is enough variation in the independent variable (i.e. number of groups) such that the effect of interest can be identified in sufficient detail.</li>
 </ul>
-<div id="case-1" class="section level4">
-<h4><span class="header-section-number">3.2.3.1</span> Case 1</h4>
-<ul>
-<li>Observation: We find that many individuals with a college degree earn very generous salaries</li>
-<li>Proposition: Higher education leads to higher income</li>
-<li>Problem:</li>
-<li>Solution:</li>
-</ul>
-</div>
-<div id="case-2" class="section level4">
-<h4><span class="header-section-number">3.2.3.2</span> Case 2</h4>
+<p><strong>Case</strong></p>
 <ul>
 <li>Observation: We observe that people who exercise their hobbies regularly tend to be happier.</li>
 <li>Proposition: The more one exercises his or her hobbies, the happier he or she will be.</li>
@@ -312,22 +303,26 @@ Figure 3.2: Relationship between mozerella consumption and civil engineering doc
 <li>Solution:</li>
 </ul>
 </div>
-</div>
 <div id="question-4-1" class="section level3">
 <h3><span class="header-section-number">3.2.4</span> Question 4</h3>
-<p>In the previous question, you provided solutions to ambiguously formulated claims of causal relationships, in order to strengthen their empirical validity and to be able to draw meaningful conclusions. However, meaningful conclusions should be obtained from meaningful comparisons.</p>
-<p>According to the textbook, what does a meaningful comparison entail?</p>
+<p>In the case from the previous question: how would you test the empirical validity of competing explanations? For example, how could you make test that exercising a hobby has a stronger effect for non-retires than it has for retires?</p>
+<p>Hint: In a table list the groups of one variable in rows and the groups of the other variable in columns. Then, each cell is a subgroup: a combination of two groups. The outcome variable is measured for each one of these subgroups. What should be the relationship between pairs of subgroups for the above statement to be true?</p>
 </div>
 <div id="question-5-1" class="section level3">
 <h3><span class="header-section-number">3.2.5</span> Question 5</h3>
-<p>According to the textbook, how can we obtain meaningful comparisons?</p>
+<p>In the previous question, you provided solutions to ambiguously formulated claims of causal relationships, in order to strengthen their empirical validity and to be able to draw meaningful conclusions. However, meaningful conclusions should be obtained from meaningful comparisons.</p>
+<p>According to the textbook, what does a meaningful comparison entail?</p>
 </div>
 <div id="question-6-1" class="section level3">
 <h3><span class="header-section-number">3.2.6</span> Question 6</h3>
-<p>The textbook discusses three different types of interventions (independent variables). Briefly describe what they are and provide an example of your own.</p>
+<p>According to the textbook, how can we obtain meaningful comparisons?</p>
 </div>
 <div id="question-7-1" class="section level3">
 <h3><span class="header-section-number">3.2.7</span> Question 7</h3>
+<p>The textbook discusses three different types of interventions (independent variables). Briefly describe what they are and provide an example of your own.</p>
+</div>
+<div id="question-8-1" class="section level3">
+<h3><span class="header-section-number">3.2.8</span> Question 8</h3>
 <p>Read the following two cases and decide whether or not the described experiment is internally valid. <em>If not</em>, identify the threat to internal validity by choosing from the options below.</p>
 <ol style="list-style-type: lower-alpha">
 <li>Selection bias</li>
@@ -341,13 +336,13 @@ Figure 3.2: Relationship between mozerella consumption and civil engineering doc
 <li>Experimenter bias</li>
 <li>Placebo effect</li>
 </ol>
-<div id="case-1-1" class="section level4">
-<h4><span class="header-section-number">3.2.7.1</span> Case 1</h4>
+<div id="case-1" class="section level4">
+<h4><span class="header-section-number">3.2.8.1</span> Case 1</h4>
 <p>It was the start of a new swim season, and the coach was already concerned about her swimmers’ lack of effort during the 20-minute dry-land portion of practice. She felt they didn’t take it seriously enough, and too often they would be talking or slacking off rather than doing the required stretches and exercises. She consulted with a sports psychologist. He suggested that she write the names of all 20 swimmers on individual slips of paper, scramble them, and then pick ten without looking. This would be used to assign swimmers to a Non-contingent Group (the first ten), who would have trainings on Monday, Wednesday and Friday, and a Contingent Group (the remainder), who would have training on Tuesday, Thursday, and Saturday. The coach thought it would be easier simply to assign the swimmers to groups on the basis of friendship, but she changed her mind after the psychologist explained the rationale for this slightly more cumbersome procedure.</p>
 <p>The intervention was that swimmers in the Contingent Group were told that if their dry-land productivity as a group for the day was 15% better than their average in the previous week then music would be played at the following practice. The productivity of the Non-contingent Group had no bearing on the playing of music. Then, each practice day for one week, observers unobtrusively recorded the swimmers’ productive behaviors during the dry-land training portion and calculated the percentage of one-minute intervals in which all swimmers in a group were being productive. Following this intervention, the dry-land productivity of the Contingent group was found to be higher than that of the Non-Contingent group so we can conclude that making the playing of music contingent on the swimmers’ dry-land productivity resulted in an increase in that productivity.</p>
 </div>
-<div id="case-2-1" class="section level4">
-<h4><span class="header-section-number">3.2.7.2</span> Case 2</h4>
+<div id="case-2" class="section level4">
+<h4><span class="header-section-number">3.2.8.2</span> Case 2</h4>
 <p>Psychoanalysts at two different hospitals were asked to judge the well-being of a young man being interviewed on videotape. By the flip of a coin, psychoanalysts at a publicly-funded hospital were assigned to the Normal Group and psychoanalysts at a privately-funded hospital were assigned to the Abnormal Group. In the Normal Group, the doctors were told that the young man was a job applicant; in the Abnormal Group, the doctors were told that he was a patient. The mean adjustment rating by psychoanalysts in the Normal Group was 7 out of 8 compared to a 3.5 out of 8 rating by doctors in the Abnormal Group. We can conclude that the psychoanalysts’ ratings were affected by the label used to describe the young man.</p>
 </div>
 </div>
@@ -471,7 +466,6 @@ Figure 3.3: Facet wrapped scatterplots
 <span id="cb166-10"><a href="week-3-correlation-and-causation.html#cb166-10"></a><span class="kw">ggplot</span>(df_all, <span class="kw">aes</span>(<span class="dt">x=</span>x,<span class="dt">y=</span>y))<span class="op">+</span></span>
 <span id="cb166-11"><a href="week-3-correlation-and-causation.html#cb166-11"></a><span class="st">  </span><span class="kw">geom_point</span>()<span class="op">+</span></span>
 <span id="cb166-12"><a href="week-3-correlation-and-causation.html#cb166-12"></a><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>conditions)</span></code></pre></div>
-<p><img src="quantrma_lab_files/figure-html/unnamed-chunk-75-1.png" width="672" /></p>
 </div>
 <div id="real-data" class="section level3">
 <h3><span class="header-section-number">3.3.3</span> Real data</h3>
@@ -574,7 +568,7 @@ Figure 3.3: Facet wrapped scatterplots
 <span id="cb180-8"><a href="week-3-correlation-and-causation.html#cb180-8"></a><span class="st">               </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(<span class="st">`</span><span class="dt">Positive affect</span><span class="st">`</span>),</span>
 <span id="cb180-9"><a href="week-3-correlation-and-causation.html#cb180-9"></a>                      <span class="op">!</span><span class="kw">is.na</span>(<span class="st">`</span><span class="dt">Negative affect</span><span class="st">`</span>))</span>
 <span id="cb180-10"><a href="week-3-correlation-and-causation.html#cb180-10"></a></span>
-<span id="cb180-11"><a href="week-3-correlation-and-causation.html#cb180-11"></a><span class="co"># calcualte correlation</span></span>
+<span id="cb180-11"><a href="week-3-correlation-and-causation.html#cb180-11"></a><span class="co"># calculate correlation</span></span>
 <span id="cb180-12"><a href="week-3-correlation-and-causation.html#cb180-12"></a><span class="kw">cor</span>(smaller_df<span class="op">$</span><span class="st">`</span><span class="dt">Positive affect</span><span class="st">`</span>,</span>
 <span id="cb180-13"><a href="week-3-correlation-and-causation.html#cb180-13"></a>    smaller_df<span class="op">$</span><span class="st">`</span><span class="dt">Negative affect</span><span class="st">`</span>)</span></code></pre></div>
 <pre><code>## [1] -0.421422</code></pre>

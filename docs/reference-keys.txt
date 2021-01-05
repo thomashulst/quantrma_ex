@@ -106,14 +106,13 @@ example-1
 example-2
 question-2-1
 question-3-1
-case-1
-case-2
 question-4-1
 question-5-1
 question-6-1
 question-7-1
-case-1-1
-case-2-1
+question-8-1
+case-1
+case-2
 part-two-correlations-in-r
 cor-for-correlation
 scatterplots

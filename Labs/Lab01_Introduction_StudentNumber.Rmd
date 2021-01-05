@@ -141,7 +141,7 @@ The function rep() replicates the values of x, n times.
 
 ## Common mistakes exercises
 
-#### Figure out what is wrong with the following R commands and try to think if you can fix them:
+#### Figure out what is wrong with the following R commands and try to fix them:
 
 #### 1.
 ```{r}

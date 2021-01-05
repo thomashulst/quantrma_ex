@@ -34,39 +34,38 @@ For both scenarios described below, identify a possible confounder (variable Z) 
 2. The observation that there is a very strong correlation between the use of social media and symptoms of depression, led the researcher to believe that excessive use of social media causes symptoms of depression. 
 
 ### Question 3
-The cases below present an empirical observation that lead to a proposition. First, you are asked to identify the problem with this proposition. Then, you must provide a solution to overcome this issue. Your proposed solution should strengthen claims of a causal relationship between variables X and Y. 
+The case below presents an empirical observation that leads to a proposition. First, you are asked to identify the problem with this proposition. Then, you must provide a solution to overcome this issue. Your proposed solution should strengthen claims of a causal relationship between variables X and Y. 
 
-Hint: Your proposed solution should satisfy the following: 
+Your proposed solution should satisfy the following: 
 
 - Clearly identify the source of variation in the independent variable (i.e. define groups)
 -	Indicate how you would use the variation in the independent variable to test against the proposed causal relationship
 -	There is enough variation in the independent variable (i.e. number of groups) such that the effect of interest can be identified in sufficient detail. 
 
-#### Case 1
+**Case** 
 
-- Observation: We find that many individuals with a college degree earn very generous salaries
-- Proposition: Higher education leads to higher income
+- Observation: We observe that people who exercise their hobbies regularly tend to be happier.
+- Proposition: The more one exercises his or her hobbies, the happier he or she will be.
 - Problem:
 - Solution: 
 
-#### Case 2
-- Observation: We observe that people who exercise their hobbies regularly tend to be happier.
-- Proposition: The more one exercises his or her hobbies, the happier he or she will be.
-- Problem: 
-- Solution: 
-
 ### Question 4
+In the case from the previous question: how would you test the empirical validity of competing explanations? For example, how could you make test that exercising a hobby has a stronger effect for non-retires than it has for retires? 
+
+Hint: In a table list the groups of one variable in rows and the groups of the other variable in columns. Then, each cell is a subgroup: a combination of two groups. The outcome variable is measured for each one of these subgroups. What should be the relationship between pairs of subgroups for the above statement to be true?
+
+### Question 5
 In the previous question, you provided solutions to ambiguously formulated claims of causal relationships, in order to strengthen their empirical validity and to be able to draw meaningful conclusions. However, meaningful conclusions should be obtained from meaningful comparisons. 
 
 According to the textbook, what does a meaningful comparison entail? 
 
-### Question 5
+### Question 6
 According to the textbook, how can we obtain meaningful comparisons?
 
-### Question 6
-The textbook discusses three different types of interventions (independent variables). Briefly describe what they are and provide an example of your own. 
-  
 ### Question 7
+The textbook discusses three different types of interventions (independent variables). Briefly describe what they are and provide an example of your own. 
+
+### Question 8
 Read the following two cases and decide whether or not the described experiment is internally valid. *If not*, identify the threat to internal validity by choosing from the options below. 
 
 a.	Selection bias
@@ -176,7 +175,7 @@ ggplot(df, aes(x=x,y=y))+
 
 5. Notice, the facet_wrapped scatterplots (Figure \@ref(fig:1facet)) didn't show the correlation ($r$) values. Printing these numbers on the plot is possible, but you have to use the `df_cor` data frame in `geom_text()`. Try to fix this in the code below. If you are unsure how to do this, you can always use `?geom_text()` or try to Google the solution (keywords: geom_text(), label, data.frame). 
 
-```{r,warning=F,message=F}
+```{r,warning=F,message=F,eval=F}
 x<-rnorm(40,0,1) 
 y<-rnorm(40,0,1)
 conditions<-rep(c("A","B","C","D"), each=10)
@@ -317,7 +316,7 @@ smaller_df <- whr_data %>%
                filter(!is.na(`Positive affect`),
                       !is.na(`Negative affect`))
 
-# calcualte correlation
+# calculate correlation
 cor(smaller_df$`Positive affect`,
     smaller_df$`Negative affect`)
 

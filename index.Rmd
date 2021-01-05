@@ -1,15 +1,15 @@
 ---
 title: "Lab manual QuantRMA"
 author: 
-- "Matthew J. C. Crump, Anjali Krishnan, Stephen Volz, and Alla Chavarga"
-- "Adapted for use at EUC by Thomas Hulst and Thanos Kostopoulos"
+- "Original authors: Matthew J. C. Crump, Anjali Krishnan, Stephen Volz, and Alla Chavarga"
+- "Adapted for EUC by Thomas Hulst and Thanos Kostopoulos"
 date: "Last Compiled `r Sys.Date()`"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [QuantRMA_lab.bib]
 biblio-style: apalike
 link-citations: yes
-description: "The exercises related to the introductory textbook for quantitative research methods and data analysis at EUC. This text was adapted from \"Answering questions with data: Lab Manual\" by Matthew J.C. Crump and colleagues (https://crumplab.github.io/statistics/)"
+description: "The lab manual for quantitative research methods and data analysis at EUC. This text was adapted from \"Answering questions with data: Lab Manual\" by Matthew J.C. Crump and colleagues (https://crumplab.github.io/statistics/)"
 ---
 
 ```{r setup}
