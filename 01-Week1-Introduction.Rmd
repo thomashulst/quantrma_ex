@@ -1,20 +1,18 @@
 # Week 1: Introduction[^Adapted2]
-This first lab consists of two parts. In the first part we will work on several exercises related to the readings about research methods. In the second part you be introduced to basic concepts in R. This lab assumes you have read the required readings of [Week 1](https://thomashulst.github.io/quantrma/Introduction.html) and completed the [Getting started](https://thomashulst.github.io/quantrma_lab/getting-started.html) guide. You will be completing each lab by writing your notes and code in an R Markdown document. You should have setup your files as described [in this part](https://thomashulst.github.io/quantrma_lab/getting-started.html#how-to-complete-the-labs) of the Getting started section. At the end of this lab you will **individually** upload the document with your answers to Canvas. 
+This first lab consists of two parts. In the first part we will work on several exercises related to the readings about research methods. In the second part you be introduced to basic concepts in R. This lab assumes you have read the required readings of [Week 1](https://thomashulst.github.io/quantrma/Introduction.html) and completed the [Getting started](https://thomashulst.github.io/quantrma_lab/getting-started.html) guide. You will be completing each lab by writing your notes and code in an R Markdown document. You should have setup your files as described [in this part](https://thomashulst.github.io/quantrma_lab/getting-started.html#how-to-complete-the-labs) of the Getting started section. At the end of this lab you are asked to **individually** upload your document to Canvas. 
 
 If you finish before the time is up, you can start with the required readings of Week 2 or help out your fellow students. If you are unable to finish the exercises during the lab, continue working on them at home and discuss the exercises with your peers. You should upload your document to Canvas by Monday 23:59. The exercises will not be graded, and you will not receive personal feedback on your answers, but they should show a good effort trying to complete the exercises. The answers to the exercises will be uploaded to Canvas every Monday night. If you still have questions after finishing the exercises and reviewing the answer key, please visit the office hours on Wednesday's.
 
 [^Adapted2]: The R part of this lab was adapted from the book by Danielle Navarro
 
-## Let's get started! {-}
 Follow the steps below the get started:
 
-1. Download the template file for lab 1, [Lab01_Introduction_StudentNumber.Rmd](https://raw.githubusercontent.com/thomashulst/quantrma_lab/master/Labs/Lab01_Introduction_StudentNumber.Rmd) (right click: save as), and place it into the "Labs_Template" folder.
-2. Rename the file to add your own student number, eg., "Lab01_Introduction_123456"
-3. Double-click the "Labs.Rproj" file
-4. RStudio will now load up
-5. If you click the files tab, you will see all of the files and folders inside the "Labs" folder
-6. Click the lab template file and it will now load into the editor window
-7. You should keep your notes, copy/paste R code, and answer the questions of this lab in the lab RMarkdown document
+1. Download the template file for lab 1, [Lab01_Introduction.Rmd](https://raw.githubusercontent.com/thomashulst/quantrma_lab/master/Labs/Lab01_Introduction.Rmd) (right click: save as), and place it into the "Labs_Template" folder.
+2. Double-click the "Labs.Rproj" file
+3. RStudio should now start
+4. If you click the files tab, you should some files and a data folder inside the "Labs_Template" folder
+5. Click the lab template file (Lab01_Introduction.Rmd) and it will load into the editor window
+6. You should keep your notes, copy/paste R code, and answer the questions of this lab in the lab RMarkdown document
 
 When we made this course, we assumed that most students would be unfamiliar with R and RStudio, and might even be frightened of it. Don't worry. It's going to be way easier than you think. We know that it will seem challenging at first. But, we think that with lots of working examples, you will get the hang of it, and by the end of the course you will be able to do things you might never have dreamed you can do. It's really a fantastic skill to learn, even if you aren't planning on going on to do research. If anything during this lab is unclear, please do not hesitate to ask your tutor.
 
@@ -38,7 +36,7 @@ To make sure you are able to submit your answers at the end of this lab, try to 
 knitr::include_graphics('figures/knit.png')
 ```
 
-Knitting creates a formatted document which can be displayed by other programs. By default, the document is knitted as a .html file  (which can be read by any web browser), but you can also knit your RMarkdown documents as a Word document (.docx)! To do so, press the downward arrow next to the knitting symbol and select "Knit to Word". For your submission, the default (.html) format suffices. 
+Knitting creates a formatted document which can be displayed by other programs. By default, the document is knitted as a .html file  (which can be read by any web browser), but you can also knit your RMarkdown documents as a Word document (.docx). To do so, press the downward arrow next to the knitting symbol and select "Knit to Word". For your lab submission, you should submit a .docx file. 
 
 ### Question 3
 Two different definitions of **emotional well-being** are provided by the Mental Health Foundation. For each of the following definitions, decide whether it constitutes a nominal or an operational definition:
@@ -91,7 +89,7 @@ This part of the lab manual will introduce you to the very basics of R. You are 
 ```
 
 ### Doing simple calculations with R{#arithmetic}
-First, let's learn how to use one of the most powerful piece of statistical software in the world as a \$2 calculator. So far, all we know how to do is addition. Clearly, a calculator that only did addition would be a bit stupid, so I should tell you about how to perform other simple calculations using R. But first, some more terminology. Addition is an example of an "operation" that you can perform (specifically, an arithmetic operation), and the ***operator*** that performs it is `+`. To people with a programming or mathematics background, this terminology probably feels pretty natural, but to other people it might feel like I'm trying to make something very simple (addition) sound more complicated than it is (by calling it an arithmetic operation). To some extent, that's true: if addition was the only operation that we were interested in, it'd be a bit silly to introduce all this extra terminology. However, as we go along, we'll start using more and more different kinds of operations, so it's probably a good idea to get the language straight now, while we're still talking about very familiar concepts like addition! 
+First, let's learn how to use one of the most powerful piece of statistical software in the world as a €2 calculator. So far, all we know how to do is addition. Clearly, a calculator that only did addition would be a bit stupid, so I should tell you about how to perform other simple calculations using R. But first, some more terminology. Addition is an example of an "operation" that you can perform (specifically, an arithmetic operation), and the ***operator*** that performs it is `+`. To people with a programming or mathematics background, this terminology probably feels pretty natural, but to other people it might feel like I'm trying to make something very simple (addition) sound more complicated than it is (by calling it an arithmetic operation). To some extent, that's true: if addition was the only operation that we were interested in, it'd be a bit silly to introduce all this extra terminology. However, as we go along, we'll start using more and more different kinds of operations, so it's probably a good idea to get the language straight now, while we're still talking about very familiar concepts like addition! 
 
 #### Adding, subtracting, multiplying and dividing
 So, now that we have the terminology, let's learn how to perform some arithmetic operations in R. To that end, the table below lists the operators that correspond to the basic arithmetic we learned in primary school: addition, subtraction, multiplication and division. 
@@ -116,7 +114,7 @@ As you can see, R uses fairly standard symbols to denote each of the different o
 So that's handy. 
 
 #### Doing calculations in the right order{#bedmas}
-Okay. At this point, you know how to take one of the most powerful pieces of statistical software in the world, and use it as a \$2 calculator. And as a bonus, you've learned a few very basic programming concepts. That's not nothing (you could argue that you've just saved yourself \$2) but on the other hand, it's not very much either. In order to use R more effectively, we need to introduce more programming concepts.
+Okay. At this point, you know how to take one of the most powerful pieces of statistical software in the world, and use it as a €2 calculator. And as a bonus, you've learned a few very basic programming concepts. That's not nothing (you could argue that you've just saved yourself €2) but on the other hand, it's not very much either. In order to use R more effectively, we need to introduce more programming concepts.
 
 In most situations where you would want to use a calculator, you might want to do multiple calculations. R lets you do this, just by typing in longer commands.
 
@@ -255,7 +253,7 @@ sales
 ```
 
 #### Doing calculations using variables
-Okay, let's get back to my original story. In my quest to become rich, I've written this statistics textbook. To figure out how good a strategy this is, I've started creating some variables in R. In addition to defining a `sales` variable that counts the number of copies I'm going to sell, I can also create a variable called `royalty`, indicating how much money I get per copy. Let's say that my royalties are about $7 per book:
+Okay, let's get back to my original story. In my quest to become rich, I've written this statistics textbook. To figure out how good a strategy this is, I've started creating some variables in R. In addition to defining a `sales` variable that counts the number of copies I'm going to sell, I can also create a variable called `royalty`, indicating how much money I get per copy. Let's say that my royalties are about €7 per book:
 
 ```{r}
 sales <- 200
@@ -281,14 +279,14 @@ revenue <- sales * royalty
 revenue
 ```
 
-That's fairly straightforward. A slightly more subtle thing we can do is reassign the value of my variable, based on its current value. For instance, suppose that one of my students loves the book so much that he or she donates me an extra \$550. The simplest way to capture this is by a command like this:
+That's fairly straightforward. A slightly more subtle thing we can do is reassign the value of my variable, based on its current value. For instance, suppose that one of my students loves the book so much that he or she donates me an extra €550. The simplest way to capture this is by a command like this:
 
 ```{r}
 revenue <- revenue + 550
 revenue
 ```
 
-In this calculation, R has taken the old value of `revenue` (i.e., 1400) and added 550 to that value, producing a value of 1950. This new value is assigned to the `revenue` variable, overwriting its previous value. In any case, we now know that I'm expecting to make $1950 off this. Hurray! 
+In this calculation, R has taken the old value of `revenue` (i.e., 1400) and added 550 to that value, producing a value of 1950. This new value is assigned to the `revenue` variable, overwriting its previous value. In any case, we now know that I'm expecting to make €1950 off this. Hurray! 
 
 #### Exercises variables
 1. Assign your favorite number to the variable `fav_num`.
@@ -296,7 +294,7 @@ In this calculation, R has taken the old value of `revenue` (i.e., 1400) and add
 3. Multiply `fav_num` with `seq_10` and save the result in a variable called fav_num_seq10. ^[The output of this operation should result in a so-called *vector* of 10 numbers. We will encounter vectors later in the course, but basically a vector is a variable that can store multiple values.] 
 
 ### Using comments
-Another very useful feature of R is the comment character, #. It has a simple meaning in R: it tells R to ignore everything else you’ve written on the line after the # character. You won’t have much need of the # character immediately, but it’s very when writing longer scripts. For instance, if you read this
+Another very useful feature of R is the comment character, #. It has a simple meaning in R: it tells R to ignore everything else you’ve written on the line after the # character. You won’t have much need of the # character immediately, but it’s very when writing longer scripts. For instance, if you read this:
 
 ```{r
 seeker <- 3.1415           # create the first variable
@@ -314,7 +312,7 @@ lover <- 2.7183
 keeper <- seeker * lover
 print(keeper)    
 ```
-You might have already noticed that some code extracts included the # character, as commenting makes any code a little easier to understand.
+Commenting makes any code a little easier to understand.
 
 ### R is pretty stupid?
 There are a couple of things you should keep in mind when working with R. The first thing is that, while R is good software, it's still software. To some extent, I'm stating the obvious here, but it's important. The people who wrote R are smart. You, the user, are smart. But R itself is dumb. And because it's dumb, it has to be mindlessly obedient. It does *exactly* what you ask it to do. There is  no equivalent to "autocorrect" in R, and for good reason. When doing advanced stuff -- and even the simplest of statistics is pretty advanced in a lot of ways -- it's dangerous to let a mindless automaton like R try to overrule the human user. But because of this, it's your responsibility to be careful. Always make sure you type *exactly what you mean*. When dealing with computers, it's not enough to type "approximately" the right thing. In general, you absolutely *must* be precise in what you say to R ... like all machines it is too stupid to be anything other than absurdly literal in its interpretation.
@@ -454,6 +452,6 @@ This is actually my favorite number:
 fav_num <- 2.718
 ```
 
-When you have completed all exercises and are happy with your progress today, please knit your document and submit it to Canvas. If you finish before the time is up, you can start with the required readings of Week 2 or help out your fellow students. 
+When you have completed all exercises and are happy with your progress today, please knit your document (as a .docx) and submit it to Canvas. If you finish before the time is up, you can start with the required readings of Week 2 or help out your fellow students. 
 
 If you are unable to finish the exercises during the lab, continue working on them at home and discuss the exercises with your peers. You should upload your document to Canvas by Monday 23:59. The exercises will not be graded, and you will not receive personal feedback on your answers, but they should show a good effort trying to complete the exercises. The answers to all exercises will be uploaded to Canvas every Monday night. If you still have questions after finishing the exercises and reviewing the answer key, please visit the office hours on Wednesday.

@@ -14,6 +14,13 @@ output:
 knitr::opts_chunk$set(echo = TRUE, eval = TRUE, cache = FALSE, error = TRUE, message = FALSE, warning = TRUE, tidy = TRUE)
 ```
 
+You can keep notes about the lab here and execute code like in the code block below:
+
+```{r}
+# Type or copy/paste R code in an R code block to have the code executed and the output printed in your final (knitted) document.
+10+20
+```
+
 # Part one: research methods
 
 ## Question 1
@@ -28,7 +35,7 @@ To make sure you are able to submit your answers at the end of this lab, try to 
 knitr::include_graphics('data/knit.png')
 ```
 
-Knitting creates a formatted document which can be displayed by other programs. By default, the document is knitted as a .html file  (which can be read by any web browser) but you can also knit your RMarkdown documents as a Word document (.docx)! To do so, press the downward arrow next to the knitting symbol and select "Knit to Word". For your submission, the default (.html) format suffices. 
+Knitting creates a formatted document which can be displayed by other programs. By default, the document is knitted as a .html file  (which can be read by any web browser), but you can also knit your RMarkdown documents as a Word document (.docx). To do so, press the downward arrow next to the knitting symbol and select "Knit to Word". For your lab submission, you should submit a .docx file. 
 
 ## Question 3
 Two different definitions of **emotional well-being** are provided by the Mental Health Foundation. For each of the following definitions, decide whether it constitutes a nominal or an operational definition:

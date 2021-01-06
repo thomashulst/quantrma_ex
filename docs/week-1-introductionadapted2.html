@@ -51,8 +51,6 @@
 
 
 <script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
-<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -160,7 +158,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="0.5" data-path="getting-started-adapted1.html"><a href="getting-started-adapted1.html#how-to-complete-the-labs"><i class="fa fa-check"></i><b>0.5</b> How to complete the labs</a></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="week-1-introductionadapted2.html"><a href="week-1-introductionadapted2.html"><i class="fa fa-check"></i><b>1</b> Week 1: Introduction</a><ul>
-<li class="chapter" data-level="" data-path="week-1-introductionadapted2.html"><a href="week-1-introductionadapted2.html#lets-get-started"><i class="fa fa-check"></i>Let’s get started!</a></li>
 <li class="chapter" data-level="1.1" data-path="week-1-introductionadapted2.html"><a href="week-1-introductionadapted2.html#general-goals"><i class="fa fa-check"></i><b>1.1</b> General Goals</a></li>
 <li class="chapter" data-level="1.2" data-path="week-1-introductionadapted2.html"><a href="week-1-introductionadapted2.html#part-one-research-methods"><i class="fa fa-check"></i><b>1.2</b> Part one: research methods</a><ul>
 <li class="chapter" data-level="1.2.1" data-path="week-1-introductionadapted2.html"><a href="week-1-introductionadapted2.html#question-1"><i class="fa fa-check"></i><b>1.2.1</b> Question 1</a></li>
@@ -242,22 +239,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="week-1-introductionadapted2" class="section level1">
 <h1><span class="header-section-number"> 1</span> Week 1: Introduction<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a></h1>
-<p>This first lab consists of two parts. In the first part we will work on several exercises related to the readings about research methods. In the second part you be introduced to basic concepts in R. This lab assumes you have read the required readings of <a href="https://thomashulst.github.io/quantrma/Introduction.html">Week 1</a> and completed the <a href="https://thomashulst.github.io/quantrma_lab/getting-started.html">Getting started</a> guide. You will be completing each lab by writing your notes and code in an R Markdown document. You should have setup your files as described <a href="https://thomashulst.github.io/quantrma_lab/getting-started.html#how-to-complete-the-labs">in this part</a> of the Getting started section. At the end of this lab you will <strong>individually</strong> upload the document with your answers to Canvas.</p>
+<p>This first lab consists of two parts. In the first part we will work on several exercises related to the readings about research methods. In the second part you be introduced to basic concepts in R. This lab assumes you have read the required readings of <a href="https://thomashulst.github.io/quantrma/Introduction.html">Week 1</a> and completed the <a href="https://thomashulst.github.io/quantrma_lab/getting-started.html">Getting started</a> guide. You will be completing each lab by writing your notes and code in an R Markdown document. You should have setup your files as described <a href="https://thomashulst.github.io/quantrma_lab/getting-started.html#how-to-complete-the-labs">in this part</a> of the Getting started section. At the end of this lab you are asked to <strong>individually</strong> upload your document to Canvas.</p>
 <p>If you finish before the time is up, you can start with the required readings of Week 2 or help out your fellow students. If you are unable to finish the exercises during the lab, continue working on them at home and discuss the exercises with your peers. You should upload your document to Canvas by Monday 23:59. The exercises will not be graded, and you will not receive personal feedback on your answers, but they should show a good effort trying to complete the exercises. The answers to the exercises will be uploaded to Canvas every Monday night. If you still have questions after finishing the exercises and reviewing the answer key, please visit the office hours on Wednesday’s.</p>
-<div id="lets-get-started" class="section level2 unnumbered">
-<h2>Let’s get started!</h2>
 <p>Follow the steps below the get started:</p>
 <ol style="list-style-type: decimal">
-<li>Download the template file for lab 1, <a href="https://raw.githubusercontent.com/thomashulst/quantrma_lab/master/Labs/Lab01_Introduction_StudentNumber.Rmd">Lab01_Introduction_StudentNumber.Rmd</a> (right click: save as), and place it into the “Labs_Template” folder.</li>
-<li>Rename the file to add your own student number, eg., “Lab01_Introduction_123456”</li>
+<li>Download the template file for lab 1, <a href="https://raw.githubusercontent.com/thomashulst/quantrma_lab/master/Labs/Lab01_Introduction.Rmd">Lab01_Introduction.Rmd</a> (right click: save as), and place it into the “Labs_Template” folder.</li>
 <li>Double-click the “Labs.Rproj” file</li>
-<li>RStudio will now load up</li>
-<li>If you click the files tab, you will see all of the files and folders inside the “Labs” folder</li>
-<li>Click the lab template file and it will now load into the editor window</li>
+<li>RStudio should now start</li>
+<li>If you click the files tab, you should some files and a data folder inside the “Labs_Template” folder</li>
+<li>Click the lab template file (Lab01_Introduction.Rmd) and it will load into the editor window</li>
 <li>You should keep your notes, copy/paste R code, and answer the questions of this lab in the lab RMarkdown document</li>
 </ol>
 <p>When we made this course, we assumed that most students would be unfamiliar with R and RStudio, and might even be frightened of it. Don’t worry. It’s going to be way easier than you think. We know that it will seem challenging at first. But, we think that with lots of working examples, you will get the hang of it, and by the end of the course you will be able to do things you might never have dreamed you can do. It’s really a fantastic skill to learn, even if you aren’t planning on going on to do research. If anything during this lab is unclear, please do not hesitate to ask your tutor.</p>
-</div>
 <div id="general-goals" class="section level2">
 <h2><span class="header-section-number">1.1</span> General Goals</h2>
 <ol style="list-style-type: decimal">
@@ -279,7 +272,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">1.2.2</span> Question 2</h3>
 <p>To make sure you are able to submit your answers at the end of this lab, try to “knit” your R Markdown file by pressing the “Knit” button:</p>
 <p><img src="figures/knit.png" width="50%" /></p>
-<p>Knitting creates a formatted document which can be displayed by other programs. By default, the document is knitted as a .html file (which can be read by any web browser), but you can also knit your RMarkdown documents as a Word document (.docx)! To do so, press the downward arrow next to the knitting symbol and select “Knit to Word”. For your submission, the default (.html) format suffices.</p>
+<p>Knitting creates a formatted document which can be displayed by other programs. By default, the document is knitted as a .html file (which can be read by any web browser), but you can also knit your RMarkdown documents as a Word document (.docx). To do so, press the downward arrow next to the knitting symbol and select “Knit to Word”. For your lab submission, you should submit a .docx file.</p>
 </div>
 <div id="question-3" class="section level3">
 <h3><span class="header-section-number">1.2.3</span> Question 3</h3>
@@ -344,7 +337,7 @@ Figure 1.1: A visual representation of the concepts measure validity and reliabi
 <pre><code>## [1] 30</code></pre>
 <div id="arithmetic" class="section level3">
 <h3><span class="header-section-number">1.3.1</span> Doing simple calculations with R</h3>
-<p>First, let’s learn how to use one of the most powerful piece of statistical software in the world as a $2 calculator. So far, all we know how to do is addition. Clearly, a calculator that only did addition would be a bit stupid, so I should tell you about how to perform other simple calculations using R. But first, some more terminology. Addition is an example of an “operation” that you can perform (specifically, an arithmetic operation), and the <strong><em>operator</em></strong> that performs it is <code>+</code>. To people with a programming or mathematics background, this terminology probably feels pretty natural, but to other people it might feel like I’m trying to make something very simple (addition) sound more complicated than it is (by calling it an arithmetic operation). To some extent, that’s true: if addition was the only operation that we were interested in, it’d be a bit silly to introduce all this extra terminology. However, as we go along, we’ll start using more and more different kinds of operations, so it’s probably a good idea to get the language straight now, while we’re still talking about very familiar concepts like addition!</p>
+<p>First, let’s learn how to use one of the most powerful piece of statistical software in the world as a €2 calculator. So far, all we know how to do is addition. Clearly, a calculator that only did addition would be a bit stupid, so I should tell you about how to perform other simple calculations using R. But first, some more terminology. Addition is an example of an “operation” that you can perform (specifically, an arithmetic operation), and the <strong><em>operator</em></strong> that performs it is <code>+</code>. To people with a programming or mathematics background, this terminology probably feels pretty natural, but to other people it might feel like I’m trying to make something very simple (addition) sound more complicated than it is (by calling it an arithmetic operation). To some extent, that’s true: if addition was the only operation that we were interested in, it’d be a bit silly to introduce all this extra terminology. However, as we go along, we’ll start using more and more different kinds of operations, so it’s probably a good idea to get the language straight now, while we’re still talking about very familiar concepts like addition!</p>
 <div id="adding-subtracting-multiplying-and-dividing" class="section level4">
 <h4><span class="header-section-number">1.3.1.1</span> Adding, subtracting, multiplying and dividing</h4>
 <p>So, now that we have the terminology, let’s learn how to perform some arithmetic operations in R. To that end, the table below lists the operators that correspond to the basic arithmetic we learned in primary school: addition, subtraction, multiplication and division.</p>
@@ -397,7 +390,7 @@ Figure 1.1: A visual representation of the concepts measure validity and reliabi
 </div>
 <div id="bedmas" class="section level4">
 <h4><span class="header-section-number">1.3.1.2</span> Doing calculations in the right order</h4>
-<p>Okay. At this point, you know how to take one of the most powerful pieces of statistical software in the world, and use it as a $2 calculator. And as a bonus, you’ve learned a few very basic programming concepts. That’s not nothing (you could argue that you’ve just saved yourself $2) but on the other hand, it’s not very much either. In order to use R more effectively, we need to introduce more programming concepts.</p>
+<p>Okay. At this point, you know how to take one of the most powerful pieces of statistical software in the world, and use it as a €2 calculator. And as a bonus, you’ve learned a few very basic programming concepts. That’s not nothing (you could argue that you’ve just saved yourself €2) but on the other hand, it’s not very much either. In order to use R more effectively, we need to introduce more programming concepts.</p>
 <p>In most situations where you would want to use a calculator, you might want to do multiple calculations. R lets you do this, just by typing in longer commands.</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="week-1-introductionadapted2.html#cb11-1"></a><span class="dv">1</span> <span class="op">+</span><span class="st"> </span><span class="dv">2</span> <span class="op">*</span><span class="st"> </span><span class="dv">4</span></span></code></pre></div>
 <pre><code>## [1] 9</code></pre>
@@ -498,7 +491,7 @@ Figure 1.1: A visual representation of the concepts measure validity and reliabi
 </div>
 <div id="doing-calculations-using-variables" class="section level4">
 <h4><span class="header-section-number">1.3.3.2</span> Doing calculations using variables</h4>
-<p>Okay, let’s get back to my original story. In my quest to become rich, I’ve written this statistics textbook. To figure out how good a strategy this is, I’ve started creating some variables in R. In addition to defining a <code>sales</code> variable that counts the number of copies I’m going to sell, I can also create a variable called <code>royalty</code>, indicating how much money I get per copy. Let’s say that my royalties are about $7 per book:</p>
+<p>Okay, let’s get back to my original story. In my quest to become rich, I’ve written this statistics textbook. To figure out how good a strategy this is, I’ve started creating some variables in R. In addition to defining a <code>sales</code> variable that counts the number of copies I’m going to sell, I can also create a variable called <code>royalty</code>, indicating how much money I get per copy. Let’s say that my royalties are about €7 per book:</p>
 <div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="week-1-introductionadapted2.html#cb43-1"></a>sales &lt;-<span class="st"> </span><span class="dv">200</span></span>
 <span id="cb43-2"><a href="week-1-introductionadapted2.html#cb43-2"></a>royalty &lt;-<span class="st"> </span><span class="dv">7</span></span></code></pre></div>
 <p>The nice thing about variables (in fact, the whole point of having variables) is that we can do anything with a variable that we ought to be able to do with the information that it stores. That is, since R allows me to multiply <code>200</code> by <code>7</code></p>
@@ -511,11 +504,11 @@ Figure 1.1: A visual representation of the concepts measure validity and reliabi
 <div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="week-1-introductionadapted2.html#cb48-1"></a>revenue &lt;-<span class="st"> </span>sales <span class="op">*</span><span class="st"> </span>royalty</span>
 <span id="cb48-2"><a href="week-1-introductionadapted2.html#cb48-2"></a>revenue</span></code></pre></div>
 <pre><code>## [1] 1400</code></pre>
-<p>That’s fairly straightforward. A slightly more subtle thing we can do is reassign the value of my variable, based on its current value. For instance, suppose that one of my students loves the book so much that he or she donates me an extra $550. The simplest way to capture this is by a command like this:</p>
+<p>That’s fairly straightforward. A slightly more subtle thing we can do is reassign the value of my variable, based on its current value. For instance, suppose that one of my students loves the book so much that he or she donates me an extra €550. The simplest way to capture this is by a command like this:</p>
 <div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="week-1-introductionadapted2.html#cb50-1"></a>revenue &lt;-<span class="st"> </span>revenue <span class="op">+</span><span class="st"> </span><span class="dv">550</span></span>
 <span id="cb50-2"><a href="week-1-introductionadapted2.html#cb50-2"></a>revenue</span></code></pre></div>
 <pre><code>## [1] 1950</code></pre>
-<p>In this calculation, R has taken the old value of <code>revenue</code> (i.e., 1400) and added 550 to that value, producing a value of 1950. This new value is assigned to the <code>revenue</code> variable, overwriting its previous value. In any case, we now know that I’m expecting to make $1950 off this. Hurray!</p>
+<p>In this calculation, R has taken the old value of <code>revenue</code> (i.e., 1400) and added 550 to that value, producing a value of 1950. This new value is assigned to the <code>revenue</code> variable, overwriting its previous value. In any case, we now know that I’m expecting to make €1950 off this. Hurray!</p>
 </div>
 <div id="exercises-variables" class="section level4">
 <h4><span class="header-section-number">1.3.3.3</span> Exercises variables</h4>
@@ -528,7 +521,7 @@ Figure 1.1: A visual representation of the concepts measure validity and reliabi
 </div>
 <div id="using-comments" class="section level3">
 <h3><span class="header-section-number">1.3.4</span> Using comments</h3>
-<p>Another very useful feature of R is the comment character, #. It has a simple meaning in R: it tells R to ignore everything else you’ve written on the line after the # character. You won’t have much need of the # character immediately, but it’s very when writing longer scripts. For instance, if you read this</p>
+<p>Another very useful feature of R is the comment character, #. It has a simple meaning in R: it tells R to ignore everything else you’ve written on the line after the # character. You won’t have much need of the # character immediately, but it’s very when writing longer scripts. For instance, if you read this:</p>
 <pre class="{r"><code>seeker &lt;- 3.1415           # create the first variable
 lover &lt;- 2.7183            # create the second variable
 keeper &lt;- seeker * lover   # now multiply them to create a third one
@@ -539,7 +532,7 @@ print(keeper)              # print out the value of &#39;keeper&#39;
 lover &lt;- 2.7183
 keeper &lt;- seeker * lover
 print(keeper)    </code></pre>
-<p>You might have already noticed that some code extracts included the # character, as commenting makes any code a little easier to understand.</p>
+<p>Commenting makes any code a little easier to understand.</p>
 </div>
 <div id="r-is-pretty-stupid" class="section level3">
 <h3><span class="header-section-number">1.3.5</span> R is pretty stupid?</h3>
@@ -648,7 +641,7 @@ BLAH BLAH BLAH</code></pre>
 </ol>
 <div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="week-1-introductionadapted2.html#cb75-1"></a>This is actually my favorite number<span class="op">:</span></span>
 <span id="cb75-2"><a href="week-1-introductionadapted2.html#cb75-2"></a>fav_num &lt;-<span class="st"> </span><span class="fl">2.718</span></span></code></pre></div>
-<p>When you have completed all exercises and are happy with your progress today, please knit your document and submit it to Canvas. If you finish before the time is up, you can start with the required readings of Week 2 or help out your fellow students.</p>
+<p>When you have completed all exercises and are happy with your progress today, please knit your document (as a .docx) and submit it to Canvas. If you finish before the time is up, you can start with the required readings of Week 2 or help out your fellow students.</p>
 <p>If you are unable to finish the exercises during the lab, continue working on them at home and discuss the exercises with your peers. You should upload your document to Canvas by Monday 23:59. The exercises will not be graded, and you will not receive personal feedback on your answers, but they should show a good effort trying to complete the exercises. The answers to all exercises will be uploaded to Canvas every Monday night. If you still have questions after finishing the exercises and reviewing the answer key, please visit the office hours on Wednesday.</p>
 
 </div>

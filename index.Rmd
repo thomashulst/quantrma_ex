@@ -166,8 +166,7 @@ library(ggplot2)
 This line of code is saying that the `ggplot2` library needs to be loaded (ggplot2 is a library which allows you to generate beautiful graphs and figures). However, before a library can be loaded, it needs to be installed. Fortunately, we can tell R to install all of the packages we need for this course in one go. Copy the following lines of code into the console, and press enter. 
 
 ```{r, echo=TRUE,eval=FALSE}
-install.packages("ggplot2")
-install.packages("dplyr")
+install.packages("tidyverse")
 install.packages("data.table")
 install.packages("gapminder")
 install.packages("ggpubr")

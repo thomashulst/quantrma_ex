@@ -51,8 +51,6 @@
 
 
 <script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
-<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -160,7 +158,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="0.5" data-path="getting-started-adapted1.html"><a href="getting-started-adapted1.html#how-to-complete-the-labs"><i class="fa fa-check"></i><b>0.5</b> How to complete the labs</a></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="week-1-introductionadapted2.html"><a href="week-1-introductionadapted2.html"><i class="fa fa-check"></i><b>1</b> Week 1: Introduction</a><ul>
-<li class="chapter" data-level="" data-path="week-1-introductionadapted2.html"><a href="week-1-introductionadapted2.html#lets-get-started"><i class="fa fa-check"></i>Let’s get started!</a></li>
 <li class="chapter" data-level="1.1" data-path="week-1-introductionadapted2.html"><a href="week-1-introductionadapted2.html#general-goals"><i class="fa fa-check"></i><b>1.1</b> General Goals</a></li>
 <li class="chapter" data-level="1.2" data-path="week-1-introductionadapted2.html"><a href="week-1-introductionadapted2.html#part-one-research-methods"><i class="fa fa-check"></i><b>1.2</b> Part one: research methods</a><ul>
 <li class="chapter" data-level="1.2.1" data-path="week-1-introductionadapted2.html"><a href="week-1-introductionadapted2.html#question-1"><i class="fa fa-check"></i><b>1.2.1</b> Question 1</a></li>
@@ -246,7 +243,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>The commonality between science and art is in trying to see profoundly - to develop strategies of seeing and showing.
 —Edward Tufte</p>
 </blockquote>
-<p>The purpose of this lab is to show you how to generate graphs and compute basic descriptive statistics, including measures of central tendency (mean, mode, median) and variation (range, variance, standard deviation). We learned in the lecture and from the textbook that data we want to answer questions of, often comes with loads of numbers. Too many numbers to look at all at once. That’s one reason we use descriptive statistics. To reduce the big set of numbers to one or two summary numbers or a pretty graph that tells us something about all of the numbers. R can produce descriptive statistics for you in many ways. We’ll go over some R basics for descriptive statistics, and then use our new found skills to ask some questions about real data. To get started, download the <a href="https://raw.githubusercontent.com/thomashulst/quantrma_lab/master/Labs/Lab02_DescribingData_StudentNumber.Rmd">lab template here</a> (right click: save as). Copy the lab template to your lab folder, rename the document to include your student number and open Lab.proj.</p>
+<p>The purpose of this lab is to show you how to generate graphs and compute basic descriptive statistics, including measures of central tendency (mean, mode, median) and variation (range, variance, standard deviation). We learned in the lecture and from the textbook that data we want to answer questions of, often comes with loads of numbers. Too many numbers to look at all at once. That’s one reason we use descriptive statistics. To reduce the big set of numbers to one or two summary numbers or a pretty graph that tells us something about all of the numbers. R can produce descriptive statistics for you in many ways. We’ll go over some R basics for descriptive statistics, and then use our new found skills to ask some questions about real data. To get started, download the <a href="https://raw.githubusercontent.com/thomashulst/quantrma_lab/master/Labs/Lab02_DescribingData.Rmd">lab template here</a> (right click: save as). Copy the lab template to your lab folder, rename the document to include your student number and open Lab.proj.</p>
 <p>Note: we are going to introduce a lot of new programming concepts very quickly and you might feel overwhelmed or unsure you fully grasp the new concepts. This is completely normal when learning a new programming language. We start with simply copy/pasting and dissecting R commands as a way to familiarize you with the language. You will see that by doing this you can very quickly learn to answer interesting questions about a data set, just from changing a couple of minor things in the code examples. In our experience, this works better than expecting you to code something from scratch at the start of learning a new language. As always, there are several ways to get help when coding in R:</p>
 <ol style="list-style-type: decimal">
 <li>Use the ?help or ??help functions</li>
@@ -378,7 +375,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb90-3"><a href="week-2-describing-data.html#cb90-3"></a><span class="st">    </span><span class="kw">geom_layer</span>()<span class="op">+</span></span>
 <span id="cb90-4"><a href="week-2-describing-data.html#cb90-4"></a><span class="st">    </span><span class="kw">geom_layer</span>()</span></code></pre></div>
 <p>What I want you to focus on in the above description is the <span class="math inline">\(+\)</span> signs. What we are doing with the plus signs is adding layers to plot. The layers get added in the order that they are written (a bit like the <code>%&gt;%</code> operator for dataframes). If you look back to our previous code, you will see we add a <code>geom_bar</code> layer, then we added another layer to change the rotation of the words on the x-axis. This is how it works.</p>
-<p>BUT WAIT? How am I supposed to know and remember what to add? This is nuts! We know. You’re not supposed to know just yet, how could you? We’ll give you lots of examples where you can copy and paste, and they will work. That’s how you’ll learn for now. If you really want to read the <a href="https://ggplot2.tidyverse.org/reference/index.html">help manual</a> you can do that too. There’s also <a href="https://rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf">this useful cheatsheet</a>. This will become useful after you already know what you are doing, but before that, it will probably just seem very confusing. However, it is pretty neat to look and <a href="https://exts.ggplot2.tidyverse.org/gallery/">see all of the different things you can do</a>, it’s very powerful.</p>
+<p>BUT WAIT? How am I supposed to know and remember what to add? This is nuts! We know. You’re not supposed to know just yet, how could you? We’ll give you lots of examples where you can copy and paste, and they will work. That’s how you’ll learn for now. If you really want to read the <a href="https://ggplot2.tidyverse.org/reference/index.html">help manual</a> you can do that too. There’s also <a href="https://rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf">this useful cheatsheet</a>. This will become useful after you already know what you are doing, but before that, it will probably just seem very confusing. However, it is pretty neat to look and <a href="https://www.r-graph-gallery.com/index.html">see all of the different things you can do</a>, it’s very powerful.</p>
 <p>For now, let’s the get the hang of adding things to the graph that let us change some stuff we might want to change. For example, how do you add a title? Or change the labels on the axes? Or add different colors, or change the font-size, or change the background? You can change all of these things by adding different lines to the existing code.</p>
 </div>
 <div id="ylab-changes-y-label" class="section level4">
@@ -656,13 +653,13 @@ or make things small… just to see what happens</p>
 <p><img src="quantrma_lab_files/figure-html/1gapminderC-1.png" width="672" /></p>
 <p>Same basic pattern, but now breaking up the range into 50 little equal sized bins, rather than 30, which is the default. You get to choose what you want to do.</p>
 </div>
-<div id="life-expectancy-scatterplot" class="section level4">
-<h4><span class="header-section-number">2.2.5.3</span> Life expectancy scatterplot</h4>
+<div id="life-expectancy-time-series-plot" class="section level4">
+<h4><span class="header-section-number">2.2.5.3</span> Life expectancy time series plot</h4>
 <p>We can see we have data for life expectancy and different years. So, does worldwide life expectancy change across the years in the data set? As we go into the future, are people living longer?</p>
-<p>Let’s look at this using a scatter plot. We can set the x-axis to be year, and the y-axis to be life expectancy. Then we can use <code>geom_point()</code> to display a whole bunch of dots, and then look at them. Here’s the simple code:</p>
+<p>Let’s look at this using something called a time series plot. We can set the x-axis to be year, and the y-axis to be life expectancy. Then we can use <code>geom_point()</code> to display a whole bunch of dots, and then look at them. Here’s the simple code:</p>
 <div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="week-2-describing-data.html#cb119-1"></a><span class="kw">ggplot</span>(gapminder_df, <span class="kw">aes</span>(<span class="dt">y=</span> lifeExp, <span class="dt">x=</span> year))<span class="op">+</span></span>
 <span id="cb119-2"><a href="week-2-describing-data.html#cb119-2"></a><span class="st">  </span><span class="kw">geom_point</span>()</span></code></pre></div>
-<p><img src="quantrma_lab_files/figure-html/1scatterplot-1.png" width="672" /></p>
+<p><img src="quantrma_lab_files/figure-html/1timeplot-1.png" width="672" /></p>
 <p>Whoa, that’s a lot of dots! Remember that each country is measured each year. So, the bands of dots you see, show the life expectancies for the whole range of countries within each year of the database. There is a big spread inside each year. But, on the whole it looks like groups of dots slowly go up over years.</p>
 </div>
 <div id="one-country-life-expectancy-by-year" class="section level4">
@@ -676,12 +673,12 @@ or make things small… just to see what happens</p>
 <span id="cb120-6"><a href="week-2-describing-data.html#cb120-6"></a><span class="co"># plot the new data contained in smaller_df</span></span>
 <span id="cb120-7"><a href="week-2-describing-data.html#cb120-7"></a><span class="kw">ggplot</span>(smaller_df, <span class="kw">aes</span>(<span class="dt">y=</span> lifeExp, <span class="dt">x=</span> year))<span class="op">+</span></span>
 <span id="cb120-8"><a href="week-2-describing-data.html#cb120-8"></a><span class="st">  </span><span class="kw">geom_point</span>()</span></code></pre></div>
-<p><img src="quantrma_lab_files/figure-html/1scatterB-1.png" width="672" /></p>
+<p><img src="quantrma_lab_files/figure-html/1timeB-1.png" width="672" /></p>
 <p>Note that to filter, we are using the <code>==</code> (is equal to) operator.</p>
 <p>I would say things are looking good for Dutch people, their life expectancy is going up over the years!</p>
 </div>
-<div id="multiple-countries-scatterplot" class="section level4">
-<h4><span class="header-section-number">2.2.5.5</span> Multiple countries scatterplot</h4>
+<div id="multiple-countries-one-plot" class="section level4">
+<h4><span class="header-section-number">2.2.5.5</span> Multiple countries, one plot</h4>
 <p>What if we want to look at a few countries together. We can do this too. We just change how we filter the data so more than one country is allowed, then we plot the data. We will also add some nicer color options and make the plot look pretty. First, the code:</p>
 <div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="week-2-describing-data.html#cb121-1"></a><span class="co"># filter rows to contain countries of choice</span></span>
 <span id="cb121-2"><a href="week-2-describing-data.html#cb121-2"></a><span class="co"># create a vector using c() with countries of choice</span></span>
@@ -693,7 +690,7 @@ or make things small… just to see what happens</p>
 <span id="cb121-8"><a href="week-2-describing-data.html#cb121-8"></a><span class="co"># plot the new data contained in smaller_df</span></span>
 <span id="cb121-9"><a href="week-2-describing-data.html#cb121-9"></a><span class="kw">ggplot</span>(smaller_df, <span class="kw">aes</span>(<span class="dt">y=</span> lifeExp, <span class="dt">x=</span> year, <span class="dt">group=</span> country))<span class="op">+</span></span>
 <span id="cb121-10"><a href="week-2-describing-data.html#cb121-10"></a><span class="st">  </span><span class="kw">geom_point</span>()</span></code></pre></div>
-<p><img src="quantrma_lab_files/figure-html/1scatterC-1.png" width="672" /></p>
+<p><img src="quantrma_lab_files/figure-html/1timeC-1.png" width="672" /></p>
 <p>The code above contains two new concepts:</p>
 <ol style="list-style-type: decimal">
 <li>We create a vector of <code>countries_of_choice</code> using <code>c()</code> (combine). A vector is simply a variable that holds multiple values.</li>
@@ -707,7 +704,7 @@ or make things small… just to see what happens</p>
 <span id="cb122-5"><a href="week-2-describing-data.html#cb122-5"></a><span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Life Expectancy&quot;</span>) <span class="op">+</span><span class="st"> </span></span>
 <span id="cb122-6"><a href="week-2-describing-data.html#cb122-6"></a><span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Year&quot;</span>) <span class="op">+</span></span>
 <span id="cb122-7"><a href="week-2-describing-data.html#cb122-7"></a><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Life expectancy by year for three countries&quot;</span>)</span></code></pre></div>
-<p><img src="quantrma_lab_files/figure-html/1scatterD-1.png" width="672" /></p>
+<p><img src="quantrma_lab_files/figure-html/1timeD-1.png" width="672" /></p>
 </div>
 <div id="geom_line-connecting-the-dots" class="section level4">
 <h4><span class="header-section-number">2.2.5.6</span> geom_line() connecting the dots</h4>
@@ -729,8 +726,8 @@ or make things small… just to see what happens</p>
 <p>Use the code from above to attempt to solve the extra things we ask you do for the following exercises:</p>
 <ol style="list-style-type: decimal">
 <li>Make a histogram of GDP per capita. Make the plot as pretty or ugly as you want it to be.</li>
-<li>Make a scatterplot of GDP per capita by year for the USA, Canada, and Mexico. Make sure to update the title and labels as well (hint: the USA is not named “USA” in the dataset).</li>
-<li>Make a scatterplot of Life Expectancy by year for the five continents (hint: use the <code>group_by()</code> and <code>summarise()</code> functions).</li>
+<li>Make a time series plot of GDP per capita by year for the USA, Canada, and Mexico. Make sure to update the title and labels as well (hint: the USA is not named “USA” in the dataset).</li>
+<li>Make a time series plot of Life Expectancy by year for the five continents (hint: use the <code>group_by()</code> and <code>summarise()</code> functions).</li>
 </ol>
 </div>
 </div>

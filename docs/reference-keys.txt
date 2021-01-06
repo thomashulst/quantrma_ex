@@ -75,9 +75,9 @@ categories-by-different-boroughs
 questions-about-the-gapminder-dataset
 look-at-the-data-frame
 life-expectancy-histogram
-life-expectancy-scatterplot
+life-expectancy-time-series-plot
 one-country-life-expectancy-by-year
-multiple-countries-scatterplot
+multiple-countries-one-plot
 geom_line-connecting-the-dots
 graphing-exercises
 part-two-describing-data-using-numbers

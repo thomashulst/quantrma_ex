@@ -3,7 +3,7 @@
 >The commonality between science and art is in trying to see profoundly - to develop strategies of seeing and showing.
 >---Edward Tufte
 
-The purpose of this lab is to show you how to generate graphs and compute basic descriptive statistics, including measures of central tendency (mean, mode, median) and variation (range, variance, standard deviation). We learned in the lecture and from the textbook that data we want to answer questions of, often comes with loads of numbers. Too many numbers to look at all at once. That's one reason we use descriptive statistics. To reduce the big set of numbers to one or two summary numbers or a pretty graph that tells us something about all of the numbers. R can produce descriptive statistics for you in many ways. We'll go over some R basics for descriptive statistics, and then use our new found skills to ask some questions about real data. To get started, download the [lab template here](https://raw.githubusercontent.com/thomashulst/quantrma_lab/master/Labs/Lab02_DescribingData_StudentNumber.Rmd) (right click: save as). Copy the lab template to your lab folder, rename the document to include your student number and open Lab.proj.
+The purpose of this lab is to show you how to generate graphs and compute basic descriptive statistics, including measures of central tendency (mean, mode, median) and variation (range, variance, standard deviation). We learned in the lecture and from the textbook that data we want to answer questions of, often comes with loads of numbers. Too many numbers to look at all at once. That's one reason we use descriptive statistics. To reduce the big set of numbers to one or two summary numbers or a pretty graph that tells us something about all of the numbers. R can produce descriptive statistics for you in many ways. We'll go over some R basics for descriptive statistics, and then use our new found skills to ask some questions about real data. To get started, download the [lab template here](https://raw.githubusercontent.com/thomashulst/quantrma_lab/master/Labs/Lab02_DescribingData.Rmd) (right click: save as). Copy the lab template to your lab folder, rename the document to include your student number and open Lab.proj.
 
 Note: we are going to introduce a lot of new programming concepts very quickly and you might feel overwhelmed or unsure you fully grasp the new concepts. This is completely normal when learning a new programming language. We start with simply copy/pasting and dissecting R commands as a way to familiarize you with the language. You will see that by doing this you can very quickly learn to answer interesting questions about a data set, just from changing a couple of minor things in the code examples. In our experience, this works better than expecting you to code something from scratch at the start of learning a new language. As always, there are several ways to get help when coding in R:
 
@@ -172,7 +172,7 @@ ggplot(name_of_data, aes(x = name_of_x_variable, y = name_of_y_variable)) +
 
 What I want you to focus on in the above description is the $+$ signs. What we are doing with the plus signs is adding layers to plot. The layers get added in the order that they are written (a bit like the `%>%` operator for dataframes). If you look back to our previous code, you will see we add a `geom_bar` layer, then we added another layer to change the rotation of the words on the x-axis. This is how it works.
 
-BUT WAIT? How am I supposed to know and remember what to add? This is nuts! We know. You're not supposed to know just yet, how could you? We'll give you lots of examples where you can copy and paste, and they will work. That's how you'll learn for now. If you really want to read the [help manual](https://ggplot2.tidyverse.org/reference/index.html) you can do that too. There's also [this useful cheatsheet](https://rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf). This will become useful after you already know what you are doing, but before that, it will probably just seem very confusing. However, it is pretty neat to look and [see all of the different things you can do](https://exts.ggplot2.tidyverse.org/gallery/), it's very powerful.
+BUT WAIT? How am I supposed to know and remember what to add? This is nuts! We know. You're not supposed to know just yet, how could you? We'll give you lots of examples where you can copy and paste, and they will work. That's how you'll learn for now. If you really want to read the [help manual](https://ggplot2.tidyverse.org/reference/index.html) you can do that too. There's also [this useful cheatsheet](https://rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf). This will become useful after you already know what you are doing, but before that, it will probably just seem very confusing. However, it is pretty neat to look and [see all of the different things you can do](https://www.r-graph-gallery.com/index.html), it's very powerful.
 
 For now, let's the get the hang of adding things to the graph that let us change some stuff we might want to change. For example, how do you add a title? Or change the labels on the axes? Or add different colors, or change the font-size, or change the background? You can change all of these things by adding different lines to the existing code.
 
@@ -466,12 +466,12 @@ ggplot(gapminder_df, aes(x = lifeExp)) +
 
 Same basic pattern, but now breaking up the range into 50 little equal sized bins, rather than 30, which is the default. You get to choose what you want to do.
 
-#### Life expectancy scatterplot
+#### Life expectancy time series plot
 We can see we have data for life expectancy and different years. So, does worldwide life expectancy change across the years in the data set? As we go into the future, are people living longer?
 
-Let's look at this using a scatter plot. We can set the x-axis to be year, and the y-axis to be life expectancy. Then we can use `geom_point()` to display a whole bunch of dots, and then look at them. Here's the simple code:
+Let's look at this using something called a time series plot. We can set the x-axis to be year, and the y-axis to be life expectancy. Then we can use `geom_point()` to display a whole bunch of dots, and then look at them. Here's the simple code:
 
-```{r 1scatterplot, echo=TRUE,eval=TRUE}
+```{r 1timeplot, echo=TRUE,eval=TRUE}
 ggplot(gapminder_df, aes(y= lifeExp, x= year))+
   geom_point()
 ```
@@ -481,7 +481,7 @@ Whoa, that's a lot of dots! Remember that each country is measured each year. So
 #### One country, life expectancy by year
 I'm from The Netherlands, so maybe I want to know if life expectancy for Dutch people is going up over the years. To find out the answer for one country, we first need to split the full data set, into another smaller data set that only contains data for The Netherlands. In other words, we want only the rows where the word "Netherlands" is found in the `country` column. We will use the `filter` function from `dplyr` for this:
 
-```{r 1scatterB, echo=TRUE,eval=TRUE}
+```{r 1timeB, echo=TRUE,eval=TRUE}
 # filter rows to contain Netherlands
 smaller_df <- gapminder_df %>% 
                  # use the "is equal to" operator to filter
@@ -497,10 +497,10 @@ Note that to filter, we are using the `==` (is equal to) operator.
 
 I would say things are looking good for Dutch people, their life expectancy is going up over the years!
 
-#### Multiple countries scatterplot
+#### Multiple countries, one plot
 What if we want to look at a few countries together. We can do this too. We just change how we filter the data so more than one country is allowed, then we plot the data. We will also add some nicer color options and make the plot look pretty. First, the code:
 
-```{r 1scatterC, echo=TRUE,eval=TRUE,warning=F}
+```{r 1timeC, echo=TRUE,eval=TRUE,warning=F}
 
 # filter rows to contain countries of choice
 # create a vector using c() with countries of choice
@@ -522,7 +522,7 @@ The code above contains two new concepts:
 
 Looking at the plot, we can now see three sets of dots, but which are countries do they represent? Let's add a legend, and make the graph better looking.
 
-```{r 1scatterD, echo=TRUE,eval=TRUE,warning=F}
+```{r 1timeD, echo=TRUE,eval=TRUE,warning=F}
 ggplot(smaller_df,aes(y= lifeExp, x= year, 
                       group= country, color = country)) +
   geom_point()+ 
@@ -554,8 +554,8 @@ The following exercises can be answered in the R Markdown document for this lab.
 Use the code from above to attempt to solve the extra things we ask you do for the following exercises: 
 
 1. Make a histogram of GDP per capita. Make the plot as pretty or ugly as you want it to be.
-2. Make a scatterplot of GDP per capita by year for the USA, Canada, and Mexico. Make sure to update the title and labels as well (hint: the USA is not named "USA" in the dataset).
-3. Make a scatterplot of Life Expectancy by year for the five continents (hint: use the `group_by()` and `summarise()` functions).
+2. Make a time series plot of GDP per capita by year for the USA, Canada, and Mexico. Make sure to update the title and labels as well (hint: the USA is not named "USA" in the dataset).
+3. Make a time series plot of Life Expectancy by year for the five continents (hint: use the `group_by()` and `summarise()` functions).
 
 ## Part two: describing data using numbers 
 In the second part of this lab, we will describe our data and answer questions using numbers. In order to do this, we need some numbers first. 

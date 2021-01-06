@@ -48,13 +48,13 @@ You can keep notes about the lab here and execute code like in the code block be
 
 ```
 
-#### 2. Make a scatterplot of GDP per capita by year for the USA, Canada, and Mexico. Make sure to update the title and labels as well (hint: the USA is not named "USA" in the dataset).
+#### 2. Make a time series plot of GDP per capita by year for the USA, Canada, and Mexico. Make sure to update the title and labels as well (hint: the USA is not named "USA" in the dataset).
 ```{r}
 
 
 ```
 
-#### 3. Make a scatterplot of Life Expectancy by year for the five continents (hint: use the `group_by()` and `summarise()` functions).
+#### 3. Make a time series plot of Life Expectancy by year for the five continents (hint: use the `group_by()` and `summarise()` functions).
 ```{r}
 
 
