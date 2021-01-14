@@ -172,6 +172,7 @@ install.packages("gapminder")
 install.packages("ggpubr")
 install.packages("knitr")
 install.packages("rmarkdown")
+install.packages("bookdown")
 ```
 
 Note you can select all of the lines at once, then copy them, then paste all of them into the console, and press enter to run them all. After each of the packages are installed, you will then be able to load them using `library()`. You can see the installed packages by pressing the packages tab in the [bottom right window](#fileplot). From this tab you can also update and install packages by clicking the update or install button respectively.  

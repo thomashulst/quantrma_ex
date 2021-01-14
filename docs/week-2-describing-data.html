@@ -273,22 +273,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ol>
 <div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="week-2-describing-data.html#cb77-1"></a><span class="kw">library</span>(data.table)</span>
 <span id="cb77-2"><a href="week-2-describing-data.html#cb77-2"></a>nyc_films &lt;-<span class="st"> </span><span class="kw">fread</span>(<span class="st">&quot;https://raw.githubusercontent.com/thomashulst/quantrma_lab/master/data/Film_Permits.csv&quot;</span>)</span></code></pre></div>
-<p>Try to understand what is happening in the code above. In both cases, we first load the library <code>data.table</code>. Then, we use the function <code>fread()</code> (from the library <code>data.table</code>) to load the data and assign it to the variable <code>nyc_films</code>.</p>
+<p>Try to understand what is happening in the code above. In both cases, we first load the library <code>data.table</code>. Then, we use the function <code>fread()</code> (from the library <code>data.table</code>) to load the data and assign it to the variable <code>nyc_films</code>.<a href="#fn12" class="footnote-ref" id="fnref12"><sup>12</sup></a></p>
 <p>If you are having issues getting the data loaded, talk to your tutor.</p>
 <div id="look-at-the-data" class="section level3">
 <h3><span class="header-section-number">2.2.1</span> Look at the data</h3>
 <p>You will be downloading and analyzing all kinds of data files this quad. We will follow the very same steps every time. The steps are to load the data, then look at it. You want to see what you’ve got.</p>
 <p>In RStudio, you will now see a variable called <code>nyc_films</code> in the top right-hand corner of the screen, in the environment tab. If you click this thing, it will show you the contents of the data in a new window. The data is stored in something we call a <code>data frame</code>. It’s R lingo, for the thing that contains the data. Notice it is shaped like a rectangle, with rows going across, and columns going up and down. It looks kind of like an excel spreadsheet if you are familiar with Excel.</p>
-<p>You can also use the R functions <code>head()</code> and <code>tail()</code> to print out the first 6 or last 6 rows of our data frame in the R console, or <code>summary()</code> for a quick overview of our data frame:</p>
+<p>You can also use the R functions <code>head()</code> and <code>tail()</code> to print out the first 6 or last 6 rows of our data frame in the R console, or <code>summary()</code> and <code>str()</code> for a quick overview of our data frame:</p>
 <div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="week-2-describing-data.html#cb78-1"></a><span class="co"># head() prints the first 6 rows of a data frame</span></span>
 <span id="cb78-2"><a href="week-2-describing-data.html#cb78-2"></a><span class="kw">head</span>(nyc_films)</span>
 <span id="cb78-3"><a href="week-2-describing-data.html#cb78-3"></a></span>
 <span id="cb78-4"><a href="week-2-describing-data.html#cb78-4"></a><span class="co"># tail() prints the last 6 rows of a data frame</span></span>
 <span id="cb78-5"><a href="week-2-describing-data.html#cb78-5"></a><span class="kw">tail</span>(nyc_films)</span>
 <span id="cb78-6"><a href="week-2-describing-data.html#cb78-6"></a></span>
-<span id="cb78-7"><a href="week-2-describing-data.html#cb78-7"></a><span class="co"># summary() shows a brief summary of a data frame</span></span>
-<span id="cb78-8"><a href="week-2-describing-data.html#cb78-8"></a><span class="kw">summary</span>(nyc_films)</span></code></pre></div>
-<p>Using the <code>head()</code>, <code>tail()</code> and <code>summary()</code> functions on this data frame, you’ll see that the output in the R console doesn’t look pretty. It’s useful to know you can look at the data frame this way if you need to. But, this data frame is really big, it has 50,728 rows (or observations) and 14 columns (or variables). You can get the size of the data frame by looking in the environment tab or using the functions <code>nrow()</code> and <code>ncol()</code>:</p>
+<span id="cb78-7"><a href="week-2-describing-data.html#cb78-7"></a><span class="co"># summary() and str() show a brief summary of a data frame</span></span>
+<span id="cb78-8"><a href="week-2-describing-data.html#cb78-8"></a><span class="kw">summary</span>(nyc_films)</span>
+<span id="cb78-9"><a href="week-2-describing-data.html#cb78-9"></a><span class="kw">str</span>(nyc_films)</span></code></pre></div>
+<p>Using the <code>head()</code>, <code>tail()</code> and <code>summary()</code> or <code>str()</code> functions on this data frame, you’ll see that the output in the R console doesn’t look pretty. It’s useful to know you can look at the data frame this way if you need to. But, this data frame is really big, it has 50,728 rows (or observations) and 14 columns (or variables). You can get the size of the data frame by looking in the environment tab or using the functions <code>nrow()</code> and <code>ncol()</code>:</p>
 <div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="week-2-describing-data.html#cb79-1"></a><span class="kw">nrow</span>(nyc_films)</span></code></pre></div>
 <pre><code>## [1] 50728</code></pre>
 <div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="week-2-describing-data.html#cb81-1"></a><span class="kw">ncol</span>(nyc_films)</span></code></pre></div>
@@ -581,11 +582,11 @@ or make things small… just to see what happens</p>
 <div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="week-2-describing-data.html#cb104-1"></a><span class="kw">install.packages</span>(<span class="st">&quot;gapminder&quot;</span>)</span></code></pre></div>
 <p>Once the package is installed, you need to load the new library and put the <code>gapminder</code> data into a data frame, like we do here:</p>
 <div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="week-2-describing-data.html#cb105-1"></a><span class="kw">library</span>(gapminder)</span>
-<span id="cb105-2"><a href="week-2-describing-data.html#cb105-2"></a>gapminder_df&lt;-gapminder</span></code></pre></div>
+<span id="cb105-2"><a href="week-2-describing-data.html#cb105-2"></a>gapminder_df &lt;-<span class="st"> </span>gapminder</span></code></pre></div>
 <div id="look-at-the-data-frame" class="section level4">
 <h4><span class="header-section-number">2.2.5.1</span> Look at the data frame</h4>
-<p>You can look at the data frame in the environment tab to see what is in it, and/or you can use the <code>head()</code>/<code>tail()/summary()</code> and <code>nrow</code>/<code>ncol</code> functions again:</p>
-<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="week-2-describing-data.html#cb106-1"></a><span class="kw">head</span>(gapminder)</span></code></pre></div>
+<p>You can look at the data frame in the environment tab to see what is in it, and/or you can use the <code>head()</code>/<code>tail()/summary()/str()</code> and <code>nrow</code>/<code>ncol</code> functions again:</p>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="week-2-describing-data.html#cb106-1"></a><span class="kw">head</span>(gapminder_df)</span></code></pre></div>
 <pre><code>## # A tibble: 6 x 6
 ##   country     continent  year lifeExp      pop gdpPercap
 ##   &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;
@@ -595,7 +596,7 @@ or make things small… just to see what happens</p>
 ## 4 Afghanistan Asia       1967    34.0 11537966      836.
 ## 5 Afghanistan Asia       1972    36.1 13079460      740.
 ## 6 Afghanistan Asia       1977    38.4 14880372      786.</code></pre>
-<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="week-2-describing-data.html#cb108-1"></a><span class="kw">tail</span>(gapminder)</span></code></pre></div>
+<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="week-2-describing-data.html#cb108-1"></a><span class="kw">tail</span>(gapminder_df)</span></code></pre></div>
 <pre><code>## # A tibble: 6 x 6
 ##   country  continent  year lifeExp      pop gdpPercap
 ##   &lt;fct&gt;    &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;
@@ -605,7 +606,7 @@ or make things small… just to see what happens</p>
 ## 4 Zimbabwe Africa     1997    46.8 11404948      792.
 ## 5 Zimbabwe Africa     2002    40.0 11926563      672.
 ## 6 Zimbabwe Africa     2007    43.5 12311143      470.</code></pre>
-<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="week-2-describing-data.html#cb110-1"></a><span class="kw">summary</span>(gapminder)</span></code></pre></div>
+<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="week-2-describing-data.html#cb110-1"></a><span class="kw">summary</span>(gapminder_df)</span></code></pre></div>
 <pre><code>##         country        continent        year         lifeExp     
 ##  Afghanistan:  12   Africa  :624   Min.   :1952   Min.   :23.60  
 ##  Albania    :  12   Americas:300   1st Qu.:1966   1st Qu.:48.20  
@@ -622,34 +623,42 @@ or make things small… just to see what happens</p>
 ##  3rd Qu.:1.959e+07   3rd Qu.:  9325.5  
 ##  Max.   :1.319e+09   Max.   :113523.1  
 ## </code></pre>
-<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="week-2-describing-data.html#cb112-1"></a><span class="kw">nrow</span>(gapminder)</span></code></pre></div>
+<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="week-2-describing-data.html#cb112-1"></a><span class="kw">str</span>(gapminder_df)</span></code></pre></div>
+<pre><code>## tibble [1,704 × 6] (S3: tbl_df/tbl/data.frame)
+##  $ country  : Factor w/ 142 levels &quot;Afghanistan&quot;,..: 1 1 1 1 1 1 1 1 1 1 ...
+##  $ continent: Factor w/ 5 levels &quot;Africa&quot;,&quot;Americas&quot;,..: 3 3 3 3 3 3 3 3 3 3 ...
+##  $ year     : int [1:1704] 1952 1957 1962 1967 1972 1977 1982 1987 1992 1997 ...
+##  $ lifeExp  : num [1:1704] 28.8 30.3 32 34 36.1 ...
+##  $ pop      : int [1:1704] 8425333 9240934 10267083 11537966 13079460 14880372 12881816 13867957 16317921 22227415 ...
+##  $ gdpPercap: num [1:1704] 779 821 853 836 740 ...</code></pre>
+<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="week-2-describing-data.html#cb114-1"></a><span class="kw">nrow</span>(gapminder_df)</span></code></pre></div>
 <pre><code>## [1] 1704</code></pre>
-<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="week-2-describing-data.html#cb114-1"></a><span class="kw">ncol</span>(gapminder)</span></code></pre></div>
+<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="week-2-describing-data.html#cb116-1"></a><span class="kw">ncol</span>(gapminder_df)</span></code></pre></div>
 <pre><code>## [1] 6</code></pre>
 <p>There are 1704 rows of data, and we see 6 columns: country, continent, year, life expectancy, population, and GDP per capita. We will show you how to graph some the data to answer a few different kinds of questions. Then you will form your own questions, and see if you can answer them with ggplot2 yourself. All you will need to do is copy and paste the following examples, and change them up a little bit.</p>
 </div>
 <div id="life-expectancy-histogram" class="section level4">
 <h4><span class="header-section-number">2.2.5.2</span> Life expectancy histogram</h4>
 <p>How long are people living all around the world according to this data set? There are many ways we could plot the data to find out. The first way is a histogram. We have many numbers for life expectancy in the column <code>lifeExp</code>. This is a big sample, full of numbers for 142 countries across many years. It’s easy to make a histogram in ggplot to view the distribution:</p>
-<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="week-2-describing-data.html#cb116-1"></a><span class="kw">ggplot</span>(gapminder_df, <span class="kw">aes</span>(<span class="dt">x=</span>lifeExp))<span class="op">+</span></span>
-<span id="cb116-2"><a href="week-2-describing-data.html#cb116-2"></a><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">color=</span><span class="st">&quot;white&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="week-2-describing-data.html#cb118-1"></a><span class="kw">ggplot</span>(gapminder_df, <span class="kw">aes</span>(<span class="dt">x=</span>lifeExp))<span class="op">+</span></span>
+<span id="cb118-2"><a href="week-2-describing-data.html#cb118-2"></a><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">color=</span><span class="st">&quot;white&quot;</span>)</span></code></pre></div>
 <p><img src="quantrma_lab_files/figure-html/1gapminder-1.png" width="672" /></p>
 <p>See, that was easy. Next, is a code block that adds more layers and settings if you wanted to modify parts of the graph:</p>
-<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="week-2-describing-data.html#cb117-1"></a><span class="kw">ggplot</span>(gapminder_df, <span class="kw">aes</span>(<span class="dt">x =</span> lifeExp)) <span class="op">+</span></span>
-<span id="cb117-2"><a href="week-2-describing-data.html#cb117-2"></a><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">color=</span><span class="st">&quot;white&quot;</span>)<span class="op">+</span><span class="st"> </span></span>
-<span id="cb117-3"><a href="week-2-describing-data.html#cb117-3"></a><span class="st">  </span><span class="kw">theme_classic</span>(<span class="dt">base_size =</span> <span class="dv">15</span>) <span class="op">+</span></span>
-<span id="cb117-4"><a href="week-2-describing-data.html#cb117-4"></a><span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Frequency count&quot;</span>) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb117-5"><a href="week-2-describing-data.html#cb117-5"></a><span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Life Expectancy&quot;</span>) <span class="op">+</span></span>
-<span id="cb117-6"><a href="week-2-describing-data.html#cb117-6"></a><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Histogram of Life Expectancy from Gapminder&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="week-2-describing-data.html#cb119-1"></a><span class="kw">ggplot</span>(gapminder_df, <span class="kw">aes</span>(<span class="dt">x =</span> lifeExp)) <span class="op">+</span></span>
+<span id="cb119-2"><a href="week-2-describing-data.html#cb119-2"></a><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">color=</span><span class="st">&quot;white&quot;</span>)<span class="op">+</span><span class="st"> </span></span>
+<span id="cb119-3"><a href="week-2-describing-data.html#cb119-3"></a><span class="st">  </span><span class="kw">theme_classic</span>(<span class="dt">base_size =</span> <span class="dv">15</span>) <span class="op">+</span></span>
+<span id="cb119-4"><a href="week-2-describing-data.html#cb119-4"></a><span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Frequency count&quot;</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb119-5"><a href="week-2-describing-data.html#cb119-5"></a><span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Life Expectancy&quot;</span>) <span class="op">+</span></span>
+<span id="cb119-6"><a href="week-2-describing-data.html#cb119-6"></a><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Histogram of Life Expectancy from Gapminder&quot;</span>)</span></code></pre></div>
 <p><img src="quantrma_lab_files/figure-html/1gapminderB-1.png" width="672" /></p>
 <p>The histogram shows a wide range of life expectancies, from below 40 to just over 80. Histograms are useful, they can show you what kinds of values happen more often than others.</p>
 <p>One final thing about histograms in ggplot. You may want to change the bin size. That controls how wide or narrow, or the number of bars (how they split across the range), in the histogram. You need to set the <code>bins=</code> option in <code>geom_histogram()</code>.</p>
-<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="week-2-describing-data.html#cb118-1"></a><span class="kw">ggplot</span>(gapminder_df, <span class="kw">aes</span>(<span class="dt">x =</span> lifeExp)) <span class="op">+</span></span>
-<span id="cb118-2"><a href="week-2-describing-data.html#cb118-2"></a><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">color=</span><span class="st">&quot;white&quot;</span>, <span class="dt">bins=</span><span class="dv">50</span>)<span class="op">+</span><span class="st"> </span></span>
-<span id="cb118-3"><a href="week-2-describing-data.html#cb118-3"></a><span class="st">  </span><span class="kw">theme_classic</span>(<span class="dt">base_size =</span> <span class="dv">15</span>) <span class="op">+</span></span>
-<span id="cb118-4"><a href="week-2-describing-data.html#cb118-4"></a><span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Frequency count&quot;</span>) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb118-5"><a href="week-2-describing-data.html#cb118-5"></a><span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Life Expectancy&quot;</span>) <span class="op">+</span></span>
-<span id="cb118-6"><a href="week-2-describing-data.html#cb118-6"></a><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Histogram of Life Expectancy from Gapminder&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="week-2-describing-data.html#cb120-1"></a><span class="kw">ggplot</span>(gapminder_df, <span class="kw">aes</span>(<span class="dt">x =</span> lifeExp)) <span class="op">+</span></span>
+<span id="cb120-2"><a href="week-2-describing-data.html#cb120-2"></a><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">color=</span><span class="st">&quot;white&quot;</span>, <span class="dt">bins=</span><span class="dv">50</span>)<span class="op">+</span><span class="st"> </span></span>
+<span id="cb120-3"><a href="week-2-describing-data.html#cb120-3"></a><span class="st">  </span><span class="kw">theme_classic</span>(<span class="dt">base_size =</span> <span class="dv">15</span>) <span class="op">+</span></span>
+<span id="cb120-4"><a href="week-2-describing-data.html#cb120-4"></a><span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Frequency count&quot;</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb120-5"><a href="week-2-describing-data.html#cb120-5"></a><span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Life Expectancy&quot;</span>) <span class="op">+</span></span>
+<span id="cb120-6"><a href="week-2-describing-data.html#cb120-6"></a><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Histogram of Life Expectancy from Gapminder&quot;</span>)</span></code></pre></div>
 <p><img src="quantrma_lab_files/figure-html/1gapminderC-1.png" width="672" /></p>
 <p>Same basic pattern, but now breaking up the range into 50 little equal sized bins, rather than 30, which is the default. You get to choose what you want to do.</p>
 </div>
@@ -657,22 +666,22 @@ or make things small… just to see what happens</p>
 <h4><span class="header-section-number">2.2.5.3</span> Life expectancy time series plot</h4>
 <p>We can see we have data for life expectancy and different years. So, does worldwide life expectancy change across the years in the data set? As we go into the future, are people living longer?</p>
 <p>Let’s look at this using something called a time series plot. We can set the x-axis to be year, and the y-axis to be life expectancy. Then we can use <code>geom_point()</code> to display a whole bunch of dots, and then look at them. Here’s the simple code:</p>
-<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="week-2-describing-data.html#cb119-1"></a><span class="kw">ggplot</span>(gapminder_df, <span class="kw">aes</span>(<span class="dt">y=</span> lifeExp, <span class="dt">x=</span> year))<span class="op">+</span></span>
-<span id="cb119-2"><a href="week-2-describing-data.html#cb119-2"></a><span class="st">  </span><span class="kw">geom_point</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="week-2-describing-data.html#cb121-1"></a><span class="kw">ggplot</span>(gapminder_df, <span class="kw">aes</span>(<span class="dt">y=</span> lifeExp, <span class="dt">x=</span> year))<span class="op">+</span></span>
+<span id="cb121-2"><a href="week-2-describing-data.html#cb121-2"></a><span class="st">  </span><span class="kw">geom_point</span>()</span></code></pre></div>
 <p><img src="quantrma_lab_files/figure-html/1timeplot-1.png" width="672" /></p>
 <p>Whoa, that’s a lot of dots! Remember that each country is measured each year. So, the bands of dots you see, show the life expectancies for the whole range of countries within each year of the database. There is a big spread inside each year. But, on the whole it looks like groups of dots slowly go up over years.</p>
 </div>
 <div id="one-country-life-expectancy-by-year" class="section level4">
 <h4><span class="header-section-number">2.2.5.4</span> One country, life expectancy by year</h4>
 <p>I’m from The Netherlands, so maybe I want to know if life expectancy for Dutch people is going up over the years. To find out the answer for one country, we first need to split the full data set, into another smaller data set that only contains data for The Netherlands. In other words, we want only the rows where the word “Netherlands” is found in the <code>country</code> column. We will use the <code>filter</code> function from <code>dplyr</code> for this:</p>
-<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="week-2-describing-data.html#cb120-1"></a><span class="co"># filter rows to contain Netherlands</span></span>
-<span id="cb120-2"><a href="week-2-describing-data.html#cb120-2"></a>smaller_df &lt;-<span class="st"> </span>gapminder_df <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb120-3"><a href="week-2-describing-data.html#cb120-3"></a><span class="st">                 </span><span class="co"># use the &quot;is equal to&quot; operator to filter</span></span>
-<span id="cb120-4"><a href="week-2-describing-data.html#cb120-4"></a><span class="st">                 </span><span class="kw">filter</span>(country <span class="op">==</span><span class="st"> &quot;Netherlands&quot;</span>) </span>
-<span id="cb120-5"><a href="week-2-describing-data.html#cb120-5"></a></span>
-<span id="cb120-6"><a href="week-2-describing-data.html#cb120-6"></a><span class="co"># plot the new data contained in smaller_df</span></span>
-<span id="cb120-7"><a href="week-2-describing-data.html#cb120-7"></a><span class="kw">ggplot</span>(smaller_df, <span class="kw">aes</span>(<span class="dt">y=</span> lifeExp, <span class="dt">x=</span> year))<span class="op">+</span></span>
-<span id="cb120-8"><a href="week-2-describing-data.html#cb120-8"></a><span class="st">  </span><span class="kw">geom_point</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="week-2-describing-data.html#cb122-1"></a><span class="co"># filter rows to contain Netherlands</span></span>
+<span id="cb122-2"><a href="week-2-describing-data.html#cb122-2"></a>smaller_df &lt;-<span class="st"> </span>gapminder_df <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb122-3"><a href="week-2-describing-data.html#cb122-3"></a><span class="st">                 </span><span class="co"># use the &quot;is equal to&quot; operator to filter</span></span>
+<span id="cb122-4"><a href="week-2-describing-data.html#cb122-4"></a><span class="st">                 </span><span class="kw">filter</span>(country <span class="op">==</span><span class="st"> &quot;Netherlands&quot;</span>) </span>
+<span id="cb122-5"><a href="week-2-describing-data.html#cb122-5"></a></span>
+<span id="cb122-6"><a href="week-2-describing-data.html#cb122-6"></a><span class="co"># plot the new data contained in smaller_df</span></span>
+<span id="cb122-7"><a href="week-2-describing-data.html#cb122-7"></a><span class="kw">ggplot</span>(smaller_df, <span class="kw">aes</span>(<span class="dt">y=</span> lifeExp, <span class="dt">x=</span> year))<span class="op">+</span></span>
+<span id="cb122-8"><a href="week-2-describing-data.html#cb122-8"></a><span class="st">  </span><span class="kw">geom_point</span>()</span></code></pre></div>
 <p><img src="quantrma_lab_files/figure-html/1timeB-1.png" width="672" /></p>
 <p>Note that to filter, we are using the <code>==</code> (is equal to) operator.</p>
 <p>I would say things are looking good for Dutch people, their life expectancy is going up over the years!</p>
@@ -680,16 +689,16 @@ or make things small… just to see what happens</p>
 <div id="multiple-countries-one-plot" class="section level4">
 <h4><span class="header-section-number">2.2.5.5</span> Multiple countries, one plot</h4>
 <p>What if we want to look at a few countries together. We can do this too. We just change how we filter the data so more than one country is allowed, then we plot the data. We will also add some nicer color options and make the plot look pretty. First, the code:</p>
-<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="week-2-describing-data.html#cb121-1"></a><span class="co"># filter rows to contain countries of choice</span></span>
-<span id="cb121-2"><a href="week-2-describing-data.html#cb121-2"></a><span class="co"># create a vector using c() with countries of choice</span></span>
-<span id="cb121-3"><a href="week-2-describing-data.html#cb121-3"></a>countries_of_choice &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Netherlands&quot;</span>,<span class="st">&quot;France&quot;</span>,<span class="st">&quot;Brazil&quot;</span>) </span>
-<span id="cb121-4"><a href="week-2-describing-data.html#cb121-4"></a>smaller_df &lt;-<span class="st"> </span>gapminder_df <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb121-5"><a href="week-2-describing-data.html#cb121-5"></a><span class="st">                 </span><span class="co"># use the %in% operator for filtering with vector</span></span>
-<span id="cb121-6"><a href="week-2-describing-data.html#cb121-6"></a><span class="st">                 </span><span class="kw">filter</span>(country <span class="op">%in%</span><span class="st"> </span>countries_of_choice) </span>
-<span id="cb121-7"><a href="week-2-describing-data.html#cb121-7"></a></span>
-<span id="cb121-8"><a href="week-2-describing-data.html#cb121-8"></a><span class="co"># plot the new data contained in smaller_df</span></span>
-<span id="cb121-9"><a href="week-2-describing-data.html#cb121-9"></a><span class="kw">ggplot</span>(smaller_df, <span class="kw">aes</span>(<span class="dt">y=</span> lifeExp, <span class="dt">x=</span> year, <span class="dt">group=</span> country))<span class="op">+</span></span>
-<span id="cb121-10"><a href="week-2-describing-data.html#cb121-10"></a><span class="st">  </span><span class="kw">geom_point</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="week-2-describing-data.html#cb123-1"></a><span class="co"># filter rows to contain countries of choice</span></span>
+<span id="cb123-2"><a href="week-2-describing-data.html#cb123-2"></a><span class="co"># create a vector using c() with countries of choice</span></span>
+<span id="cb123-3"><a href="week-2-describing-data.html#cb123-3"></a>countries_of_choice &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Netherlands&quot;</span>,<span class="st">&quot;France&quot;</span>,<span class="st">&quot;Brazil&quot;</span>) </span>
+<span id="cb123-4"><a href="week-2-describing-data.html#cb123-4"></a>smaller_df &lt;-<span class="st"> </span>gapminder_df <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb123-5"><a href="week-2-describing-data.html#cb123-5"></a><span class="st">                 </span><span class="co"># use the %in% operator for filtering with vector</span></span>
+<span id="cb123-6"><a href="week-2-describing-data.html#cb123-6"></a><span class="st">                 </span><span class="kw">filter</span>(country <span class="op">%in%</span><span class="st"> </span>countries_of_choice) </span>
+<span id="cb123-7"><a href="week-2-describing-data.html#cb123-7"></a></span>
+<span id="cb123-8"><a href="week-2-describing-data.html#cb123-8"></a><span class="co"># plot the new data contained in smaller_df</span></span>
+<span id="cb123-9"><a href="week-2-describing-data.html#cb123-9"></a><span class="kw">ggplot</span>(smaller_df, <span class="kw">aes</span>(<span class="dt">y=</span> lifeExp, <span class="dt">x=</span> year, <span class="dt">group=</span> country))<span class="op">+</span></span>
+<span id="cb123-10"><a href="week-2-describing-data.html#cb123-10"></a><span class="st">  </span><span class="kw">geom_point</span>()</span></code></pre></div>
 <p><img src="quantrma_lab_files/figure-html/1timeC-1.png" width="672" /></p>
 <p>The code above contains two new concepts:</p>
 <ol style="list-style-type: decimal">
@@ -697,26 +706,26 @@ or make things small… just to see what happens</p>
 <li>We use the <code>%in%</code> operator to filter the column <code>country</code> by our vector <code>countries_of_choice</code>. We need to use the <code>%in%</code> operator when we filter with a vector (i.e filtering for multiple values) as opposed to the <code>==</code> (is equal to) operator we use when filtering for a single value.</li>
 </ol>
 <p>Looking at the plot, we can now see three sets of dots, but which are countries do they represent? Let’s add a legend, and make the graph better looking.</p>
-<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="week-2-describing-data.html#cb122-1"></a><span class="kw">ggplot</span>(smaller_df,<span class="kw">aes</span>(<span class="dt">y=</span> lifeExp, <span class="dt">x=</span> year, </span>
-<span id="cb122-2"><a href="week-2-describing-data.html#cb122-2"></a>                      <span class="dt">group=</span> country, <span class="dt">color =</span> country)) <span class="op">+</span></span>
-<span id="cb122-3"><a href="week-2-describing-data.html#cb122-3"></a><span class="st">  </span><span class="kw">geom_point</span>()<span class="op">+</span><span class="st"> </span></span>
-<span id="cb122-4"><a href="week-2-describing-data.html#cb122-4"></a><span class="st">  </span><span class="kw">theme_classic</span>(<span class="dt">base_size =</span> <span class="dv">15</span>) <span class="op">+</span></span>
-<span id="cb122-5"><a href="week-2-describing-data.html#cb122-5"></a><span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Life Expectancy&quot;</span>) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb122-6"><a href="week-2-describing-data.html#cb122-6"></a><span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Year&quot;</span>) <span class="op">+</span></span>
-<span id="cb122-7"><a href="week-2-describing-data.html#cb122-7"></a><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Life expectancy by year for three countries&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="week-2-describing-data.html#cb124-1"></a><span class="kw">ggplot</span>(smaller_df,<span class="kw">aes</span>(<span class="dt">y=</span> lifeExp, <span class="dt">x=</span> year, </span>
+<span id="cb124-2"><a href="week-2-describing-data.html#cb124-2"></a>                      <span class="dt">group=</span> country, <span class="dt">color =</span> country)) <span class="op">+</span></span>
+<span id="cb124-3"><a href="week-2-describing-data.html#cb124-3"></a><span class="st">  </span><span class="kw">geom_point</span>()<span class="op">+</span><span class="st"> </span></span>
+<span id="cb124-4"><a href="week-2-describing-data.html#cb124-4"></a><span class="st">  </span><span class="kw">theme_classic</span>(<span class="dt">base_size =</span> <span class="dv">15</span>) <span class="op">+</span></span>
+<span id="cb124-5"><a href="week-2-describing-data.html#cb124-5"></a><span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Life Expectancy&quot;</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb124-6"><a href="week-2-describing-data.html#cb124-6"></a><span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Year&quot;</span>) <span class="op">+</span></span>
+<span id="cb124-7"><a href="week-2-describing-data.html#cb124-7"></a><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Life expectancy by year for three countries&quot;</span>)</span></code></pre></div>
 <p><img src="quantrma_lab_files/figure-html/1timeD-1.png" width="672" /></p>
 </div>
 <div id="geom_line-connecting-the-dots" class="section level4">
 <h4><span class="header-section-number">2.2.5.6</span> geom_line() connecting the dots</h4>
 <p>We might also want to connect the dots with a line, to make it easier to see the connection! Remember, ggplot2 draws layers on top of layers. So, we add in a new <code>geom_line()</code> layer.</p>
-<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="week-2-describing-data.html#cb123-1"></a><span class="kw">ggplot</span>(smaller_df,<span class="kw">aes</span>(<span class="dt">y=</span> lifeExp, <span class="dt">x=</span> year, </span>
-<span id="cb123-2"><a href="week-2-describing-data.html#cb123-2"></a>                      <span class="dt">group=</span> country, <span class="dt">color =</span> country)) <span class="op">+</span></span>
-<span id="cb123-3"><a href="week-2-describing-data.html#cb123-3"></a><span class="st">  </span><span class="kw">geom_point</span>()<span class="op">+</span><span class="st"> </span></span>
-<span id="cb123-4"><a href="week-2-describing-data.html#cb123-4"></a><span class="st">  </span><span class="kw">geom_line</span>()<span class="op">+</span></span>
-<span id="cb123-5"><a href="week-2-describing-data.html#cb123-5"></a><span class="st">  </span><span class="kw">theme_classic</span>(<span class="dt">base_size =</span> <span class="dv">15</span>) <span class="op">+</span></span>
-<span id="cb123-6"><a href="week-2-describing-data.html#cb123-6"></a><span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Life Expectancy&quot;</span>) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb123-7"><a href="week-2-describing-data.html#cb123-7"></a><span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Year&quot;</span>) <span class="op">+</span></span>
-<span id="cb123-8"><a href="week-2-describing-data.html#cb123-8"></a><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Life expectancy by year for three countries&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="week-2-describing-data.html#cb125-1"></a><span class="kw">ggplot</span>(smaller_df,<span class="kw">aes</span>(<span class="dt">y=</span> lifeExp, <span class="dt">x=</span> year, </span>
+<span id="cb125-2"><a href="week-2-describing-data.html#cb125-2"></a>                      <span class="dt">group=</span> country, <span class="dt">color =</span> country)) <span class="op">+</span></span>
+<span id="cb125-3"><a href="week-2-describing-data.html#cb125-3"></a><span class="st">  </span><span class="kw">geom_point</span>()<span class="op">+</span><span class="st"> </span></span>
+<span id="cb125-4"><a href="week-2-describing-data.html#cb125-4"></a><span class="st">  </span><span class="kw">geom_line</span>()<span class="op">+</span></span>
+<span id="cb125-5"><a href="week-2-describing-data.html#cb125-5"></a><span class="st">  </span><span class="kw">theme_classic</span>(<span class="dt">base_size =</span> <span class="dv">15</span>) <span class="op">+</span></span>
+<span id="cb125-6"><a href="week-2-describing-data.html#cb125-6"></a><span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Life Expectancy&quot;</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb125-7"><a href="week-2-describing-data.html#cb125-7"></a><span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Year&quot;</span>) <span class="op">+</span></span>
+<span id="cb125-8"><a href="week-2-describing-data.html#cb125-8"></a><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Life expectancy by year for three countries&quot;</span>)</span></code></pre></div>
 <p><img src="quantrma_lab_files/figure-html/1scatline-1.png" width="672" /></p>
 </div>
 </div>
@@ -737,26 +746,26 @@ or make things small… just to see what happens</p>
 <div id="playing-with-numbers" class="section level3">
 <h3><span class="header-section-number">2.3.1</span> Playing with numbers</h3>
 <p>As we’ve seen previously, we can put multiple numbers in a variable using the <code>c()</code> function:</p>
-<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="week-2-describing-data.html#cb124-1"></a>my_numbers &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="week-2-describing-data.html#cb126-1"></a>my_numbers &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>)</span></code></pre></div>
 <p>There a few handy ways to generate numbers. We can use <code>seq()</code> to make a sequence. Here it is making the numbers from 1 to 100</p>
-<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="week-2-describing-data.html#cb125-1"></a>one_to_one_hundred &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dv">1</span>,<span class="dv">100</span>,<span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="week-2-describing-data.html#cb127-1"></a>one_to_one_hundred &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dv">1</span>,<span class="dv">100</span>,<span class="dv">1</span>)</span></code></pre></div>
 <p>We can repeat things, using rep. Here’s making 10 5s, and 25 1s:</p>
-<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="week-2-describing-data.html#cb126-1"></a><span class="kw">rep</span>(<span class="dv">10</span>,<span class="dv">5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="week-2-describing-data.html#cb128-1"></a><span class="kw">rep</span>(<span class="dv">10</span>,<span class="dv">5</span>)</span></code></pre></div>
 <pre><code>## [1] 10 10 10 10 10</code></pre>
-<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="week-2-describing-data.html#cb128-1"></a><span class="kw">rep</span>(<span class="dv">1</span>,<span class="dv">25</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="week-2-describing-data.html#cb130-1"></a><span class="kw">rep</span>(<span class="dv">1</span>,<span class="dv">25</span>)</span></code></pre></div>
 <pre><code>##  [1] 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1</code></pre>
-<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="week-2-describing-data.html#cb130-1"></a>all_together_now &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="kw">rep</span>(<span class="dv">10</span>,<span class="dv">5</span>),<span class="kw">rep</span>(<span class="dv">1</span>,<span class="dv">25</span>)) </span></code></pre></div>
+<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="week-2-describing-data.html#cb132-1"></a>all_together_now &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="kw">rep</span>(<span class="dv">10</span>,<span class="dv">5</span>),<span class="kw">rep</span>(<span class="dv">1</span>,<span class="dv">25</span>)) </span></code></pre></div>
 <div id="sum" class="section level4">
 <h4><span class="header-section-number">2.3.1.1</span> Sum</h4>
 <p>Let’s play with the numbers 1 to 100. First, let’s use the <code>sum()</code> function to add them up</p>
-<div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb131-1"><a href="week-2-describing-data.html#cb131-1"></a>one_to_one_hundred &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dv">1</span>,<span class="dv">100</span>,<span class="dv">1</span>)</span>
-<span id="cb131-2"><a href="week-2-describing-data.html#cb131-2"></a><span class="kw">sum</span>(one_to_one_hundred)</span></code></pre></div>
+<div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb133-1"><a href="week-2-describing-data.html#cb133-1"></a>one_to_one_hundred &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dv">1</span>,<span class="dv">100</span>,<span class="dv">1</span>)</span>
+<span id="cb133-2"><a href="week-2-describing-data.html#cb133-2"></a><span class="kw">sum</span>(one_to_one_hundred)</span></code></pre></div>
 <pre><code>## [1] 5050</code></pre>
 </div>
 <div id="length" class="section level4">
 <h4><span class="header-section-number">2.3.1.2</span> Length</h4>
 <p>We put 100 numbers into the variable <code>one_to_one_hundred</code>. We know how many numbers there are in there. How can we get R to tell us? We use <code>length()</code> for that.</p>
-<div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb133-1"><a href="week-2-describing-data.html#cb133-1"></a><span class="kw">length</span>(one_to_one_hundred)</span></code></pre></div>
+<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb135-1"><a href="week-2-describing-data.html#cb135-1"></a><span class="kw">length</span>(one_to_one_hundred)</span></code></pre></div>
 <pre><code>## [1] 100</code></pre>
 </div>
 </div>
@@ -765,30 +774,30 @@ or make things small… just to see what happens</p>
 <div id="mean" class="section level4">
 <h4><span class="header-section-number">2.3.2.1</span> Mean</h4>
 <p>Remember the mean of some numbers is their sum, divided by the number of numbers. We can compute the mean like this:</p>
-<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb135-1"><a href="week-2-describing-data.html#cb135-1"></a><span class="kw">sum</span>(one_to_one_hundred)<span class="op">/</span><span class="kw">length</span>(one_to_one_hundred)</span></code></pre></div>
+<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="week-2-describing-data.html#cb137-1"></a><span class="kw">sum</span>(one_to_one_hundred)<span class="op">/</span><span class="kw">length</span>(one_to_one_hundred)</span></code></pre></div>
 <pre><code>## [1] 50.5</code></pre>
 <p>Or, we could just use the <code>mean()</code> function like this:</p>
-<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="week-2-describing-data.html#cb137-1"></a><span class="kw">mean</span>(one_to_one_hundred)</span></code></pre></div>
+<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="week-2-describing-data.html#cb139-1"></a><span class="kw">mean</span>(one_to_one_hundred)</span></code></pre></div>
 <pre><code>## [1] 50.5</code></pre>
 </div>
 <div id="median" class="section level4">
 <h4><span class="header-section-number">2.3.2.2</span> Median</h4>
 <p>The median is the number in the exact middle of the numbers ordered from smallest to largest. If there are an even number of numbers (no number in the middle), then we take the number in between the two (decimal .5). Use the <code>median</code> function. There’s only 3 numbers here. The middle one is 2, that should be the median</p>
-<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="week-2-describing-data.html#cb139-1"></a><span class="kw">median</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="week-2-describing-data.html#cb141-1"></a><span class="kw">median</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>))</span></code></pre></div>
 <pre><code>## [1] 2</code></pre>
 </div>
 <div id="mode" class="section level4">
 <h4><span class="header-section-number">2.3.2.3</span> Mode</h4>
 <p>R does not a base function for the mode, which might surprise you. There’s a couple of reasons why, but we can workaround this omission. Firstly, you could install a library (like <code>modeest</code>) to import a function that can calculate the mode for you. Or you could write your own function. Below is an example of writing your own function, and then using it. Note I searched how to do this on Google, and am using the mode defined by <a href="https://stackoverflow.com/questions/2547402/is-there-a-built-in-function-for-finding-the-mode">this answer on stack overflow</a></p>
 <p>Remember, the mode is the most frequently occurring number in the set.</p>
-<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="week-2-describing-data.html#cb141-1"></a><span class="co"># write a function to calculate the mode</span></span>
-<span id="cb141-2"><a href="week-2-describing-data.html#cb141-2"></a>my_mode_function &lt;-<span class="st"> </span><span class="cf">function</span>(x) {</span>
-<span id="cb141-3"><a href="week-2-describing-data.html#cb141-3"></a>  ux &lt;-<span class="st"> </span><span class="kw">unique</span>(x)</span>
-<span id="cb141-4"><a href="week-2-describing-data.html#cb141-4"></a>  ux[<span class="kw">which.max</span>(<span class="kw">tabulate</span>(<span class="kw">match</span>(x, ux)))]</span>
-<span id="cb141-5"><a href="week-2-describing-data.html#cb141-5"></a>}</span>
-<span id="cb141-6"><a href="week-2-describing-data.html#cb141-6"></a></span>
-<span id="cb141-7"><a href="week-2-describing-data.html#cb141-7"></a><span class="co"># apply to function to a vector of numbers </span></span>
-<span id="cb141-8"><a href="week-2-describing-data.html#cb141-8"></a><span class="kw">my_mode_function</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="week-2-describing-data.html#cb143-1"></a><span class="co"># write a function to calculate the mode</span></span>
+<span id="cb143-2"><a href="week-2-describing-data.html#cb143-2"></a>my_mode_function &lt;-<span class="st"> </span><span class="cf">function</span>(x) {</span>
+<span id="cb143-3"><a href="week-2-describing-data.html#cb143-3"></a>  ux &lt;-<span class="st"> </span><span class="kw">unique</span>(x)</span>
+<span id="cb143-4"><a href="week-2-describing-data.html#cb143-4"></a>  ux[<span class="kw">which.max</span>(<span class="kw">tabulate</span>(<span class="kw">match</span>(x, ux)))]</span>
+<span id="cb143-5"><a href="week-2-describing-data.html#cb143-5"></a>}</span>
+<span id="cb143-6"><a href="week-2-describing-data.html#cb143-6"></a></span>
+<span id="cb143-7"><a href="week-2-describing-data.html#cb143-7"></a><span class="co"># apply to function to a vector of numbers </span></span>
+<span id="cb143-8"><a href="week-2-describing-data.html#cb143-8"></a><span class="kw">my_mode_function</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>))</span></code></pre></div>
 <pre><code>## [1] 1</code></pre>
 <p>Above 1 occurs the most, so the mode will be one.</p>
 </div>
@@ -797,33 +806,33 @@ or make things small… just to see what happens</p>
 <h3><span class="header-section-number">2.3.3</span> Variation</h3>
 <p>We often want to know how variable (i.e. different) the numbers in our data are. We are going to look at descriptive statistics to describe this such as the <strong>range</strong>, <strong>variance</strong>, the <strong>standard deviation</strong>, and a few others.</p>
 <p>First, let’s remind ourselves what variation looks like (it’s when the numbers are different). We will sample 100 numbers from a normal distribution (don’t worry about this yet), with a mean of 10, and a standard deviation of 5, and then make a histogram so we can see the variation around 10..</p>
-<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="week-2-describing-data.html#cb143-1"></a>sample_numbers &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">100</span>,<span class="dv">10</span>,<span class="dv">5</span>)</span>
-<span id="cb143-2"><a href="week-2-describing-data.html#cb143-2"></a><span class="co"># instead of using ggplot, we can also use a simpler function go generate a histogram</span></span>
-<span id="cb143-3"><a href="week-2-describing-data.html#cb143-3"></a><span class="co"># this is easier than ggplot, but more limited in what we can do</span></span>
-<span id="cb143-4"><a href="week-2-describing-data.html#cb143-4"></a><span class="kw">hist</span>(sample_numbers) </span></code></pre></div>
+<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="week-2-describing-data.html#cb145-1"></a>sample_numbers &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">100</span>,<span class="dv">10</span>,<span class="dv">5</span>)</span>
+<span id="cb145-2"><a href="week-2-describing-data.html#cb145-2"></a><span class="co"># instead of using ggplot, we can also use a simpler function go generate a histogram</span></span>
+<span id="cb145-3"><a href="week-2-describing-data.html#cb145-3"></a><span class="co"># this is easier than ggplot, but more limited in what we can do</span></span>
+<span id="cb145-4"><a href="week-2-describing-data.html#cb145-4"></a><span class="kw">hist</span>(sample_numbers) </span></code></pre></div>
 <p><img src="quantrma_lab_files/figure-html/unnamed-chunk-57-1.png" width="672" /></p>
 <div id="range" class="section level4">
 <h4><span class="header-section-number">2.3.3.1</span> Range</h4>
 <p>The range is the minimum and maximum values in the set, we use the <code>range</code> function.</p>
-<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="week-2-describing-data.html#cb144-1"></a><span class="kw">range</span>(sample_numbers)</span></code></pre></div>
+<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="week-2-describing-data.html#cb146-1"></a><span class="kw">range</span>(sample_numbers)</span></code></pre></div>
 <pre><code>## [1] -3.851137 21.467772</code></pre>
 </div>
 <div id="var-variance" class="section level4">
 <h4><span class="header-section-number">2.3.3.2</span> <code>var()</code> = variance</h4>
 <p>We can find the sample variance using <code>var()</code>:</p>
-<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="week-2-describing-data.html#cb146-1"></a><span class="kw">var</span>(sample_numbers)</span></code></pre></div>
+<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="week-2-describing-data.html#cb148-1"></a><span class="kw">var</span>(sample_numbers)</span></code></pre></div>
 <pre><code>## [1] 23.03164</code></pre>
 <p>Note: the above variance calculation divides by <span class="math inline">\(n-1\)</span> instead of <span class="math inline">\(n\)</span>. We will learn in later weeks why this is often preferred. If you would like to divide by <span class="math inline">\(n\)</span>, you could write your own function based on the following code:</p>
-<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="week-2-describing-data.html#cb148-1"></a>x_bar &lt;-<span class="st"> </span><span class="kw">mean</span>(sample_numbers)</span>
-<span id="cb148-2"><a href="week-2-describing-data.html#cb148-2"></a>var_n &lt;-<span class="st"> </span><span class="kw">sum</span>((sample_numbers <span class="op">-</span><span class="st"> </span>x_bar)<span class="op">^</span><span class="dv">2</span>)<span class="op">/</span><span class="kw">length</span>(sample_numbers)</span></code></pre></div>
+<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="week-2-describing-data.html#cb150-1"></a>x_bar &lt;-<span class="st"> </span><span class="kw">mean</span>(sample_numbers)</span>
+<span id="cb150-2"><a href="week-2-describing-data.html#cb150-2"></a>var_n &lt;-<span class="st"> </span><span class="kw">sum</span>((sample_numbers <span class="op">-</span><span class="st"> </span>x_bar)<span class="op">^</span><span class="dv">2</span>)<span class="op">/</span><span class="kw">length</span>(sample_numbers)</span></code></pre></div>
 </div>
 <div id="sd-standard-deviation" class="section level4">
 <h4><span class="header-section-number">2.3.3.3</span> <code>sd()</code> = standard deviation</h4>
 <p>We find the sample standard deviation using <code>sd()</code>:</p>
-<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb149-1"><a href="week-2-describing-data.html#cb149-1"></a><span class="kw">sd</span>(sample_numbers)</span></code></pre></div>
+<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="week-2-describing-data.html#cb151-1"></a><span class="kw">sd</span>(sample_numbers)</span></code></pre></div>
 <pre><code>## [1] 4.799129</code></pre>
 <p>Remember that the standard deviation is just the square root of the variance, see:</p>
-<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="week-2-describing-data.html#cb151-1"></a><span class="kw">sqrt</span>(<span class="kw">var</span>(sample_numbers))</span></code></pre></div>
+<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="week-2-describing-data.html#cb153-1"></a><span class="kw">sqrt</span>(<span class="kw">var</span>(sample_numbers))</span></code></pre></div>
 <pre><code>## [1] 4.799129</code></pre>
 </div>
 </div>
@@ -831,18 +840,18 @@ or make things small… just to see what happens</p>
 <h3><span class="header-section-number">2.3.4</span> Descriptives by conditions</h3>
 <p>Sometimes you will have a single variable with some numbers, and you can use the above functions to find the descriptives for that variable. Other times (most often in this course), you will have a big data frame of numbers, with different numbers in different conditions. You will want to find descriptive statistics for each the sets of numbers inside each of the conditions. Fortunately, this is where R really shines, it does it all for you in one go.</p>
 <p>Let’s illustrate the problem. Here I make a date frame with 10 numbers in each condition. There are 10 conditions, each labelled, A, B, C, D, E, F, G, H, I, J.</p>
-<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="week-2-describing-data.html#cb153-1"></a>scores &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">100</span>,<span class="dv">10</span>,<span class="dv">5</span>)</span>
-<span id="cb153-2"><a href="week-2-describing-data.html#cb153-2"></a>conditions &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;A&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;C&quot;</span>,<span class="st">&quot;D&quot;</span>,<span class="st">&quot;E&quot;</span>,<span class="st">&quot;F&quot;</span>,<span class="st">&quot;G&quot;</span>,<span class="st">&quot;H&quot;</span>,<span class="st">&quot;I&quot;</span>,<span class="st">&quot;J&quot;</span>), <span class="dt">each =</span><span class="dv">10</span>)</span>
-<span id="cb153-3"><a href="week-2-describing-data.html#cb153-3"></a>my_df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(conditions,scores)</span></code></pre></div>
+<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="week-2-describing-data.html#cb155-1"></a>scores &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">100</span>,<span class="dv">10</span>,<span class="dv">5</span>)</span>
+<span id="cb155-2"><a href="week-2-describing-data.html#cb155-2"></a>conditions &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;A&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;C&quot;</span>,<span class="st">&quot;D&quot;</span>,<span class="st">&quot;E&quot;</span>,<span class="st">&quot;F&quot;</span>,<span class="st">&quot;G&quot;</span>,<span class="st">&quot;H&quot;</span>,<span class="st">&quot;I&quot;</span>,<span class="st">&quot;J&quot;</span>), <span class="dt">each =</span><span class="dv">10</span>)</span>
+<span id="cb155-3"><a href="week-2-describing-data.html#cb155-3"></a>my_df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(conditions,scores)</span></code></pre></div>
 <p>If you look at the <code>my_df</code> data frame, you will see it has 100 rows, there are 10 rows for each condition with a label in the <code>conditions</code> column, and 10 scores for each condition in the <code>scores</code> column. What if you wanted to know the mean of the scores in each condition? You would want to find 10 means.</p>
 <div id="group_by-and-summarise" class="section level4">
 <h4><span class="header-section-number">2.3.4.1</span> <code>group_by()</code> and <code>summarise()</code></h4>
 <p>We can easily do everything all at once using the <code>group_by</code> and <code>summarise</code> function from the <code>dplyr</code> package, as we’ve seen before:</p>
-<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="week-2-describing-data.html#cb154-1"></a><span class="kw">library</span>(dplyr)</span>
-<span id="cb154-2"><a href="week-2-describing-data.html#cb154-2"></a></span>
-<span id="cb154-3"><a href="week-2-describing-data.html#cb154-3"></a>my_df <span class="op">%&gt;%</span></span>
-<span id="cb154-4"><a href="week-2-describing-data.html#cb154-4"></a><span class="st">  </span><span class="kw">group_by</span>(conditions) <span class="op">%&gt;%</span></span>
-<span id="cb154-5"><a href="week-2-describing-data.html#cb154-5"></a><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">means =</span> <span class="kw">mean</span>(scores))</span></code></pre></div>
+<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb156-1"><a href="week-2-describing-data.html#cb156-1"></a><span class="kw">library</span>(dplyr)</span>
+<span id="cb156-2"><a href="week-2-describing-data.html#cb156-2"></a></span>
+<span id="cb156-3"><a href="week-2-describing-data.html#cb156-3"></a>my_df <span class="op">%&gt;%</span></span>
+<span id="cb156-4"><a href="week-2-describing-data.html#cb156-4"></a><span class="st">  </span><span class="kw">group_by</span>(conditions) <span class="op">%&gt;%</span></span>
+<span id="cb156-5"><a href="week-2-describing-data.html#cb156-5"></a><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">means =</span> <span class="kw">mean</span>(scores))</span></code></pre></div>
 <pre><code>## # A tibble: 10 x 2
 ##    conditions means
 ##    &lt;chr&gt;      &lt;dbl&gt;
@@ -857,11 +866,11 @@ or make things small… just to see what happens</p>
 ##  9 I           9.89
 ## 10 J           9.99</code></pre>
 <p>The print out of this looks rather ugly. We can fix that by putting the results of our code into a new variable, then use <code>knitr::kable()</code> to print it out nicely when we <code>knit</code> the document. We can even caption the table by passing a <code>caption</code> argument.</p>
-<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb156-1"><a href="week-2-describing-data.html#cb156-1"></a>summary_df &lt;-<span class="st"> </span>my_df <span class="op">%&gt;%</span></span>
-<span id="cb156-2"><a href="week-2-describing-data.html#cb156-2"></a><span class="st">               </span><span class="kw">group_by</span>(conditions) <span class="op">%&gt;%</span></span>
-<span id="cb156-3"><a href="week-2-describing-data.html#cb156-3"></a><span class="st">               </span><span class="kw">summarise</span>(<span class="dt">means =</span> <span class="kw">mean</span>(scores))</span>
-<span id="cb156-4"><a href="week-2-describing-data.html#cb156-4"></a></span>
-<span id="cb156-5"><a href="week-2-describing-data.html#cb156-5"></a>knitr<span class="op">::</span><span class="kw">kable</span>(summary_df,<span class="dt">caption =</span> <span class="st">&quot;Means by condition.&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="week-2-describing-data.html#cb158-1"></a>summary_df &lt;-<span class="st"> </span>my_df <span class="op">%&gt;%</span></span>
+<span id="cb158-2"><a href="week-2-describing-data.html#cb158-2"></a><span class="st">               </span><span class="kw">group_by</span>(conditions) <span class="op">%&gt;%</span></span>
+<span id="cb158-3"><a href="week-2-describing-data.html#cb158-3"></a><span class="st">               </span><span class="kw">summarise</span>(<span class="dt">means =</span> <span class="kw">mean</span>(scores))</span>
+<span id="cb158-4"><a href="week-2-describing-data.html#cb158-4"></a></span>
+<span id="cb158-5"><a href="week-2-describing-data.html#cb158-5"></a>knitr<span class="op">::</span><span class="kw">kable</span>(summary_df,<span class="dt">caption =</span> <span class="st">&quot;Means by condition.&quot;</span>)</span></code></pre></div>
 <table>
 <caption><span id="tab:unnamed-chunk-65">Table 2.1: </span>Means by condition.</caption>
 <thead>
@@ -917,12 +926,12 @@ or make things small… just to see what happens</p>
 <div id="multiple-descriptives" class="section level4">
 <h4><span class="header-section-number">2.3.4.2</span> Multiple descriptives</h4>
 <p>The best thing about the <code>dplyr</code> method, is that we can add more than one function, and we’ll get more than one summary returned, all in a nice format, let’s add the standard deviation:</p>
-<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="week-2-describing-data.html#cb157-1"></a>summary_df &lt;-<span class="st"> </span>my_df <span class="op">%&gt;%</span></span>
-<span id="cb157-2"><a href="week-2-describing-data.html#cb157-2"></a><span class="st">               </span><span class="kw">group_by</span>(conditions) <span class="op">%&gt;%</span></span>
-<span id="cb157-3"><a href="week-2-describing-data.html#cb157-3"></a><span class="st">               </span><span class="kw">summarise</span>(<span class="dt">means =</span> <span class="kw">mean</span>(scores),</span>
-<span id="cb157-4"><a href="week-2-describing-data.html#cb157-4"></a>                         <span class="dt">sds =</span> <span class="kw">sd</span>(scores))</span>
-<span id="cb157-5"><a href="week-2-describing-data.html#cb157-5"></a></span>
-<span id="cb157-6"><a href="week-2-describing-data.html#cb157-6"></a>knitr<span class="op">::</span><span class="kw">kable</span>(summary_df)</span></code></pre></div>
+<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="week-2-describing-data.html#cb159-1"></a>summary_df &lt;-<span class="st"> </span>my_df <span class="op">%&gt;%</span></span>
+<span id="cb159-2"><a href="week-2-describing-data.html#cb159-2"></a><span class="st">               </span><span class="kw">group_by</span>(conditions) <span class="op">%&gt;%</span></span>
+<span id="cb159-3"><a href="week-2-describing-data.html#cb159-3"></a><span class="st">               </span><span class="kw">summarise</span>(<span class="dt">means =</span> <span class="kw">mean</span>(scores),</span>
+<span id="cb159-4"><a href="week-2-describing-data.html#cb159-4"></a>                         <span class="dt">sds =</span> <span class="kw">sd</span>(scores))</span>
+<span id="cb159-5"><a href="week-2-describing-data.html#cb159-5"></a></span>
+<span id="cb159-6"><a href="week-2-describing-data.html#cb159-6"></a>knitr<span class="op">::</span><span class="kw">kable</span>(summary_df)</span></code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -985,14 +994,14 @@ or make things small… just to see what happens</p>
 </tbody>
 </table>
 <p>We’ll add the min and the max too:</p>
-<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="week-2-describing-data.html#cb158-1"></a>summary_df &lt;-<span class="st"> </span>my_df <span class="op">%&gt;%</span></span>
-<span id="cb158-2"><a href="week-2-describing-data.html#cb158-2"></a><span class="st">               </span><span class="kw">group_by</span>(conditions) <span class="op">%&gt;%</span></span>
-<span id="cb158-3"><a href="week-2-describing-data.html#cb158-3"></a><span class="st">               </span><span class="kw">summarise</span>(<span class="dt">means =</span> <span class="kw">mean</span>(scores),</span>
-<span id="cb158-4"><a href="week-2-describing-data.html#cb158-4"></a>                         <span class="dt">sds =</span> <span class="kw">sd</span>(scores),</span>
-<span id="cb158-5"><a href="week-2-describing-data.html#cb158-5"></a>                         <span class="dt">min =</span> <span class="kw">min</span>(scores),</span>
-<span id="cb158-6"><a href="week-2-describing-data.html#cb158-6"></a>                         <span class="dt">max =</span> <span class="kw">max</span>(scores))</span>
-<span id="cb158-7"><a href="week-2-describing-data.html#cb158-7"></a></span>
-<span id="cb158-8"><a href="week-2-describing-data.html#cb158-8"></a>knitr<span class="op">::</span><span class="kw">kable</span>(summary_df)</span></code></pre></div>
+<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="week-2-describing-data.html#cb160-1"></a>summary_df &lt;-<span class="st"> </span>my_df <span class="op">%&gt;%</span></span>
+<span id="cb160-2"><a href="week-2-describing-data.html#cb160-2"></a><span class="st">               </span><span class="kw">group_by</span>(conditions) <span class="op">%&gt;%</span></span>
+<span id="cb160-3"><a href="week-2-describing-data.html#cb160-3"></a><span class="st">               </span><span class="kw">summarise</span>(<span class="dt">means =</span> <span class="kw">mean</span>(scores),</span>
+<span id="cb160-4"><a href="week-2-describing-data.html#cb160-4"></a>                         <span class="dt">sds =</span> <span class="kw">sd</span>(scores),</span>
+<span id="cb160-5"><a href="week-2-describing-data.html#cb160-5"></a>                         <span class="dt">min =</span> <span class="kw">min</span>(scores),</span>
+<span id="cb160-6"><a href="week-2-describing-data.html#cb160-6"></a>                         <span class="dt">max =</span> <span class="kw">max</span>(scores))</span>
+<span id="cb160-7"><a href="week-2-describing-data.html#cb160-7"></a></span>
+<span id="cb160-8"><a href="week-2-describing-data.html#cb160-8"></a>knitr<span class="op">::</span><span class="kw">kable</span>(summary_df)</span></code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -1081,19 +1090,19 @@ or make things small… just to see what happens</p>
 <div id="describing-gapminder" class="section level3">
 <h3><span class="header-section-number">2.3.5</span> Describing gapminder</h3>
 <p>Now that we know how to get descriptive statistics from R, we can do this with some real data. Let’s quickly ask a few questions about the gapminder data:</p>
-<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="week-2-describing-data.html#cb159-1"></a><span class="kw">library</span>(gapminder)</span>
-<span id="cb159-2"><a href="week-2-describing-data.html#cb159-2"></a>gapminder_df &lt;-<span class="st"> </span>gapminder</span></code></pre></div>
+<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="week-2-describing-data.html#cb161-1"></a><span class="kw">library</span>(gapminder)</span>
+<span id="cb161-2"><a href="week-2-describing-data.html#cb161-2"></a>gapminder_df &lt;-<span class="st"> </span>gapminder</span></code></pre></div>
 <div id="what-are-some-descriptives-for-life-expectancy-by-continent" class="section level4">
 <h4><span class="header-section-number">2.3.5.1</span> What are some descriptives for Life expectancy by continent?</h4>
 <p>Copy the code from the last part of descriptives using <code>dplyr</code>, then change the names like this:</p>
-<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="week-2-describing-data.html#cb160-1"></a>summary_df &lt;-<span class="st"> </span>gapminder_df <span class="op">%&gt;%</span></span>
-<span id="cb160-2"><a href="week-2-describing-data.html#cb160-2"></a><span class="st">               </span><span class="kw">group_by</span>(continent) <span class="op">%&gt;%</span></span>
-<span id="cb160-3"><a href="week-2-describing-data.html#cb160-3"></a><span class="st">               </span><span class="kw">summarise</span>(<span class="dt">means =</span> <span class="kw">mean</span>(lifeExp),</span>
-<span id="cb160-4"><a href="week-2-describing-data.html#cb160-4"></a>                         <span class="dt">sds =</span> <span class="kw">sd</span>(lifeExp),</span>
-<span id="cb160-5"><a href="week-2-describing-data.html#cb160-5"></a>                         <span class="dt">min =</span> <span class="kw">min</span>(lifeExp),</span>
-<span id="cb160-6"><a href="week-2-describing-data.html#cb160-6"></a>                         <span class="dt">max =</span> <span class="kw">max</span>(lifeExp))</span>
-<span id="cb160-7"><a href="week-2-describing-data.html#cb160-7"></a></span>
-<span id="cb160-8"><a href="week-2-describing-data.html#cb160-8"></a>knitr<span class="op">::</span><span class="kw">kable</span>(summary_df)</span></code></pre></div>
+<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="week-2-describing-data.html#cb162-1"></a>summary_df &lt;-<span class="st"> </span>gapminder_df <span class="op">%&gt;%</span></span>
+<span id="cb162-2"><a href="week-2-describing-data.html#cb162-2"></a><span class="st">               </span><span class="kw">group_by</span>(continent) <span class="op">%&gt;%</span></span>
+<span id="cb162-3"><a href="week-2-describing-data.html#cb162-3"></a><span class="st">               </span><span class="kw">summarise</span>(<span class="dt">means =</span> <span class="kw">mean</span>(lifeExp),</span>
+<span id="cb162-4"><a href="week-2-describing-data.html#cb162-4"></a>                         <span class="dt">sds =</span> <span class="kw">sd</span>(lifeExp),</span>
+<span id="cb162-5"><a href="week-2-describing-data.html#cb162-5"></a>                         <span class="dt">min =</span> <span class="kw">min</span>(lifeExp),</span>
+<span id="cb162-6"><a href="week-2-describing-data.html#cb162-6"></a>                         <span class="dt">max =</span> <span class="kw">max</span>(lifeExp))</span>
+<span id="cb162-7"><a href="week-2-describing-data.html#cb162-7"></a></span>
+<span id="cb162-8"><a href="week-2-describing-data.html#cb162-8"></a>knitr<span class="op">::</span><span class="kw">kable</span>(summary_df)</span></code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -1161,10 +1170,16 @@ or make things small… just to see what happens</p>
 <li>Explain why the difference scores are squared when calculating the variance</li>
 <li>If one set of numbers had a standard deviation of 5, and another had a standard deviation of 10, which set of numbers would have greater variance? Explain why.</li>
 </ol>
-<p>When you have completed all exercises and are happy with your progress today, please knit your document and submit it to Canvas. If you finish before the time is up, start with the required readings of Week 3, work on your assignment, or help out your fellow students.</p>
+<p>When you have completed all exercises and are happy with your progress today, please knit your document and submit it to Canvas. If you finish before the time is up, you can help out your fellow students, start with the required readings of Week 3, or work on your assignment. If you haven’t done so already, make sure you’ve <a href="https://canvas.eur.nl/courses/31825/assignments/118509">signed up for an assignment group</a>.</p>
 
 </div>
 </div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="12">
+<li id="fn12"><p><code>fread()</code> is not the only function in R that can read .csv files. There are other functions available, like <code>read.csv()</code>, and some of them are better suited for some situations than others. <code>fread()</code> has the advantage of being really quick and flexible.<a href="week-2-describing-data.html#fnref12" class="footnote-back">↩︎</a></p></li>
+</ol>
 </div>
             </section>
 

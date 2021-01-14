@@ -207,6 +207,7 @@ whr_data <- fread('data/WHR2018.csv')
 head(whr_data)
 tail(whr_data)
 summary(whr_data)
+str(whr_data)
 
 nrow(whr_data)
 ncol(whr_data)

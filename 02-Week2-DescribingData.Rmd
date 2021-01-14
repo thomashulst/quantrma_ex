@@ -35,7 +35,7 @@ library(data.table)
 nyc_films <- fread("https://raw.githubusercontent.com/thomashulst/quantrma_lab/master/data/Film_Permits.csv")
 ```
 
-Try to understand what is happening in the code above. In both cases, we first load the library `data.table`. Then, we use the function `fread()` (from the library `data.table`) to load the data and assign it to the variable `nyc_films`.
+Try to understand what is happening in the code above. In both cases, we first load the library `data.table`. Then, we use the function `fread()` (from the library `data.table`) to load the data and assign it to the variable `nyc_films`.^[`fread()` is not the only function in R that can read .csv files. There are other functions available, like `read.csv()`, and some of them are better suited for some situations than others. `fread()` has the advantage of being really quick and flexible.]
 
 If you are having issues getting the data loaded, talk to your tutor.
 
@@ -44,7 +44,7 @@ You will be downloading and analyzing all kinds of data files this quad. We will
 
 In RStudio, you will now see a variable called `nyc_films` in the top right-hand corner of the screen, in the environment tab. If you click this thing, it will show you the contents of the data in a new window. The data is stored in something we call a `data frame`. It's R lingo, for the thing that contains the data. Notice it is shaped like a rectangle, with rows going across, and columns going up and down. It looks kind of like an excel spreadsheet if you are familiar with Excel.
 
-You can also use the R functions `head()` and `tail()` to print out the first 6 or last 6 rows of our data frame in the R console, or `summary()` for a quick overview of our data frame:
+You can also use the R functions `head()` and `tail()` to print out the first 6 or last 6 rows of our data frame in the R console, or `summary()` and `str()` for a quick overview of our data frame:
 
 ```{r, echo=TRUE,eval=FALSE}
 # head() prints the first 6 rows of a data frame
@@ -53,11 +53,12 @@ head(nyc_films)
 # tail() prints the last 6 rows of a data frame
 tail(nyc_films)
 
-# summary() shows a brief summary of a data frame
+# summary() and str() show a brief summary of a data frame
 summary(nyc_films)
+str(nyc_films)
 ```
 
-Using the `head()`, `tail()` and `summary()` functions on this data frame, you'll see that the output in the R console doesn't look pretty. It's useful to know you can look at the data frame this way if you need to. But, this data frame is really big, it has 50,728 rows (or observations) and 14 columns (or variables). You can get the size of the data frame by looking in the environment tab or using the functions `nrow()` and `ncol()`: 
+Using the `head()`, `tail()` and `summary()` or `str()` functions on this data frame, you'll see that the output in the R console doesn't look pretty. It's useful to know you can look at the data frame this way if you need to. But, this data frame is really big, it has 50,728 rows (or observations) and 14 columns (or variables). You can get the size of the data frame by looking in the environment tab or using the functions `nrow()` and `ncol()`: 
 
 ```{r}
 nrow(nyc_films)
@@ -69,6 +70,7 @@ We can also use the `$` operator to request the data of a single column (i.e. va
 ```{r}
 head(nyc_films$Category)
 ```
+
 ### Data exercises
 1. What are the last 6 entries of the `Category` column in `nyc_films`? 
 2. What are the last 10 entries of the `EventType` column in `nyc_films`? 
@@ -415,19 +417,20 @@ Once the package is installed, you need to load the new library and put the `gap
 
 ```{r, echo=TRUE,eval=TRUE}
 library(gapminder)
-gapminder_df<-gapminder
+gapminder_df <- gapminder
 ```
 
 #### Look at the data frame
-You can look at the data frame in the environment tab to see what is in it, and/or you can use the `head()`/`tail()/summary()` and `nrow`/`ncol` functions again:
+You can look at the data frame in the environment tab to see what is in it, and/or you can use the `head()`/`tail()/summary()/str()` and `nrow`/`ncol` functions again:
 
 ```{r}
-head(gapminder)
-tail(gapminder)
-summary(gapminder)
+head(gapminder_df)
+tail(gapminder_df)
+summary(gapminder_df)
+str(gapminder_df)
 
-nrow(gapminder)
-ncol(gapminder)
+nrow(gapminder_df)
+ncol(gapminder_df)
 ```
 
 There are 1704 rows of data, and we see 6 columns: country, continent, year, life expectancy, population, and GDP per capita. We will show you how to graph some the data to answer a few different kinds of questions. Then you will form your own questions, and see if you can answer them with ggplot2 yourself. All you will need to do is copy and paste the following examples, and change them up a little bit.
@@ -770,5 +773,5 @@ knitr::kable(summary_df)
   g. Explain why the difference scores are squared when calculating the variance
   h. If one set of numbers had a standard deviation of 5, and another had a standard deviation of 10, which set of numbers would have greater variance? Explain why.
 
-When you have completed all exercises and are happy with your progress today, please knit your document and submit it to Canvas. If you finish before the time is up, start with the required readings of Week 3, work on your assignment, or help out your fellow students. 
+When you have completed all exercises and are happy with your progress today, please knit your document and submit it to Canvas. If you finish before the time is up, you can help out your fellow students, start with the required readings of Week 3, or work on your assignment. If you haven't done so already, make sure you've [signed up for an assignment group](https://canvas.eur.nl/courses/31825/assignments/118509).
 
