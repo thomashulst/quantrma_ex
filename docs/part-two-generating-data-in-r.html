@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title> 5 Part two: generating data in R | Lab manual QuantRMA</title>
+  <meta name="description" content="The lab manual for quantitative research methods and data analysis at EUC. This text was adapted from “Answering questions with data: Lab Manual” by Matthew J.C. Crump and colleagues (https://crumplab.github.io/statistics/)" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content=" 5 Part two: generating data in R | Lab manual QuantRMA" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="The lab manual for quantitative research methods and data analysis at EUC. This text was adapted from “Answering questions with data: Lab Manual” by Matthew J.C. Crump and colleagues (https://crumplab.github.io/statistics/)" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content=" 5 Part two: generating data in R | Lab manual QuantRMA" />
+  
+  <meta name="twitter:description" content="The lab manual for quantitative research methods and data analysis at EUC. This text was adapted from “Answering questions with data: Lab Manual” by Matthew J.C. Crump and colleagues (https://crumplab.github.io/statistics/)" />
+  
+
+<meta name="author" content="Original authors: Matthew J. C. Crump, Anjali Krishnan, Stephen Volz, and Alla Chavarga" />
+<meta name="author" content="Adapted for EUC by Thomas Hulst and Thanos Kostopoulos" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="week-4-chance-and-probability-theory.html"/>
+<link rel="next" href="references.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Lab manual QuantRMA</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#important-notes"><i class="fa fa-check"></i>Important notes</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#attributions"><i class="fa fa-check"></i>Attributions</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#cc-by-sa-4.0-license"><i class="fa fa-check"></i>CC BY-SA 4.0 license</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="getting-started-adapted1.html"><a href="getting-started-adapted1.html"><i class="fa fa-check"></i>Getting started</a><ul>
+<li class="chapter" data-level="0.1" data-path="getting-started-adapted1.html"><a href="getting-started-adapted1.html#why-r"><i class="fa fa-check"></i><b>0.1</b> Why R?</a></li>
+<li class="chapter" data-level="0.2" data-path="getting-started-adapted1.html"><a href="getting-started-adapted1.html#downloading-and-installing-r"><i class="fa fa-check"></i><b>0.2</b> Downloading and installing R</a><ul>
+<li class="chapter" data-level="0.2.1" data-path="getting-started-adapted1.html"><a href="getting-started-adapted1.html#installing-r-on-a-mac"><i class="fa fa-check"></i><b>0.2.1</b> Installing R on a Mac</a></li>
+<li class="chapter" data-level="0.2.2" data-path="getting-started-adapted1.html"><a href="getting-started-adapted1.html#installing-r-on-a-windows-pc"><i class="fa fa-check"></i><b>0.2.2</b> Installing R on a Windows PC</a></li>
+<li class="chapter" data-level="0.2.3" data-path="getting-started-adapted1.html"><a href="getting-started-adapted1.html#installing-r-on-a-linux-pc"><i class="fa fa-check"></i><b>0.2.3</b> Installing R on a Linux PC</a></li>
+</ul></li>
+<li class="chapter" data-level="0.3" data-path="getting-started-adapted1.html"><a href="getting-started-adapted1.html#RStudio"><i class="fa fa-check"></i><b>0.3</b> Downloading and installing RStudio</a></li>
+<li class="chapter" data-level="0.4" data-path="getting-started-adapted1.html"><a href="getting-started-adapted1.html#understanding-rstudio"><i class="fa fa-check"></i><b>0.4</b> Understanding RStudio</a><ul>
+<li class="chapter" data-level="0.4.1" data-path="getting-started-adapted1.html"><a href="getting-started-adapted1.html#consoleR"><i class="fa fa-check"></i><b>0.4.1</b> Console</a></li>
+<li class="chapter" data-level="0.4.2" data-path="getting-started-adapted1.html"><a href="getting-started-adapted1.html#script-editor"><i class="fa fa-check"></i><b>0.4.2</b> Script Editor</a></li>
+<li class="chapter" data-level="0.4.3" data-path="getting-started-adapted1.html"><a href="getting-started-adapted1.html#workspace-and-history"><i class="fa fa-check"></i><b>0.4.3</b> Workspace and History</a></li>
+<li class="chapter" data-level="0.4.4" data-path="getting-started-adapted1.html"><a href="getting-started-adapted1.html#fileplot"><i class="fa fa-check"></i><b>0.4.4</b> File, Plot, Packages, Help</a></li>
+<li class="chapter" data-level="0.4.5" data-path="getting-started-adapted1.html"><a href="getting-started-adapted1.html#installing-libraries"><i class="fa fa-check"></i><b>0.4.5</b> Installing libraries</a></li>
+</ul></li>
+<li class="chapter" data-level="0.5" data-path="getting-started-adapted1.html"><a href="getting-started-adapted1.html#how-to-complete-the-labs"><i class="fa fa-check"></i><b>0.5</b> How to complete the labs</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="week-1-introductionadapted2.html"><a href="week-1-introductionadapted2.html"><i class="fa fa-check"></i><b>1</b> Week 1: Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="week-1-introductionadapted2.html"><a href="week-1-introductionadapted2.html#general-goals"><i class="fa fa-check"></i><b>1.1</b> General Goals</a></li>
+<li class="chapter" data-level="1.2" data-path="week-1-introductionadapted2.html"><a href="week-1-introductionadapted2.html#part-one-research-methods"><i class="fa fa-check"></i><b>1.2</b> Part one: research methods</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="week-1-introductionadapted2.html"><a href="week-1-introductionadapted2.html#question-1"><i class="fa fa-check"></i><b>1.2.1</b> Question 1</a></li>
+<li class="chapter" data-level="1.2.2" data-path="week-1-introductionadapted2.html"><a href="week-1-introductionadapted2.html#question-2"><i class="fa fa-check"></i><b>1.2.2</b> Question 2</a></li>
+<li class="chapter" data-level="1.2.3" data-path="week-1-introductionadapted2.html"><a href="week-1-introductionadapted2.html#question-3"><i class="fa fa-check"></i><b>1.2.3</b> Question 3</a></li>
+<li class="chapter" data-level="1.2.4" data-path="week-1-introductionadapted2.html"><a href="week-1-introductionadapted2.html#question-4"><i class="fa fa-check"></i><b>1.2.4</b> Question 4</a></li>
+<li class="chapter" data-level="1.2.5" data-path="week-1-introductionadapted2.html"><a href="week-1-introductionadapted2.html#question-5"><i class="fa fa-check"></i><b>1.2.5</b> Question 5</a></li>
+<li class="chapter" data-level="1.2.6" data-path="week-1-introductionadapted2.html"><a href="week-1-introductionadapted2.html#question-6"><i class="fa fa-check"></i><b>1.2.6</b> Question 6</a></li>
+<li class="chapter" data-level="1.2.7" data-path="week-1-introductionadapted2.html"><a href="week-1-introductionadapted2.html#question-7"><i class="fa fa-check"></i><b>1.2.7</b> Question 7</a></li>
+<li class="chapter" data-level="1.2.8" data-path="week-1-introductionadapted2.html"><a href="week-1-introductionadapted2.html#question-8"><i class="fa fa-check"></i><b>1.2.8</b> Question 8</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="week-1-introductionadapted2.html"><a href="week-1-introductionadapted2.html#part-two-introduction-to-r"><i class="fa fa-check"></i><b>1.3</b> Part two: introduction to R</a><ul>
+<li class="chapter" data-level="1.3.1" data-path="week-1-introductionadapted2.html"><a href="week-1-introductionadapted2.html#arithmetic"><i class="fa fa-check"></i><b>1.3.1</b> Doing simple calculations with R</a></li>
+<li class="chapter" data-level="1.3.2" data-path="week-1-introductionadapted2.html"><a href="week-1-introductionadapted2.html#usingfunctions"><i class="fa fa-check"></i><b>1.3.2</b> Using functions to do calculations</a></li>
+<li class="chapter" data-level="1.3.3" data-path="week-1-introductionadapted2.html"><a href="week-1-introductionadapted2.html#assign"><i class="fa fa-check"></i><b>1.3.3</b> Storing a number as a variable</a></li>
+<li class="chapter" data-level="1.3.4" data-path="week-1-introductionadapted2.html"><a href="week-1-introductionadapted2.html#using-comments"><i class="fa fa-check"></i><b>1.3.4</b> Using comments</a></li>
+<li class="chapter" data-level="1.3.5" data-path="week-1-introductionadapted2.html"><a href="week-1-introductionadapted2.html#r-is-pretty-stupid"><i class="fa fa-check"></i><b>1.3.5</b> R is pretty stupid?</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="week-2-describing-data.html"><a href="week-2-describing-data.html"><i class="fa fa-check"></i><b>2</b> Week 2: Describing Data</a><ul>
+<li class="chapter" data-level="2.1" data-path="week-2-describing-data.html"><a href="week-2-describing-data.html#general-goals-1"><i class="fa fa-check"></i><b>2.1</b> General Goals</a></li>
+<li class="chapter" data-level="2.2" data-path="week-2-describing-data.html"><a href="week-2-describing-data.html#part-one-describing-data-using-graphs"><i class="fa fa-check"></i><b>2.2</b> Part one: describing data using graphs</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="week-2-describing-data.html"><a href="week-2-describing-data.html#look-at-the-data"><i class="fa fa-check"></i><b>2.2.1</b> Look at the data</a></li>
+<li class="chapter" data-level="2.2.2" data-path="week-2-describing-data.html"><a href="week-2-describing-data.html#data-exercises"><i class="fa fa-check"></i><b>2.2.2</b> Data exercises</a></li>
+<li class="chapter" data-level="2.2.3" data-path="week-2-describing-data.html"><a href="week-2-describing-data.html#make-plots-to-answer-questions"><i class="fa fa-check"></i><b>2.2.3</b> Make plots to answer questions</a></li>
+<li class="chapter" data-level="2.2.4" data-path="week-2-describing-data.html"><a href="week-2-describing-data.html#more-questions-about-nyc-films"><i class="fa fa-check"></i><b>2.2.4</b> More questions about NYC films</a></li>
+<li class="chapter" data-level="2.2.5" data-path="week-2-describing-data.html"><a href="week-2-describing-data.html#questions-about-the-gapminder-dataset"><i class="fa fa-check"></i><b>2.2.5</b> Questions about the Gapminder dataset</a></li>
+<li class="chapter" data-level="2.2.6" data-path="week-2-describing-data.html"><a href="week-2-describing-data.html#graphing-exercises"><i class="fa fa-check"></i><b>2.2.6</b> Graphing exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="week-2-describing-data.html"><a href="week-2-describing-data.html#part-two-describing-data-using-numbers"><i class="fa fa-check"></i><b>2.3</b> Part two: describing data using numbers</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="week-2-describing-data.html"><a href="week-2-describing-data.html#playing-with-numbers"><i class="fa fa-check"></i><b>2.3.1</b> Playing with numbers</a></li>
+<li class="chapter" data-level="2.3.2" data-path="week-2-describing-data.html"><a href="week-2-describing-data.html#central-tendency"><i class="fa fa-check"></i><b>2.3.2</b> Central Tendency</a></li>
+<li class="chapter" data-level="2.3.3" data-path="week-2-describing-data.html"><a href="week-2-describing-data.html#variation"><i class="fa fa-check"></i><b>2.3.3</b> Variation</a></li>
+<li class="chapter" data-level="2.3.4" data-path="week-2-describing-data.html"><a href="week-2-describing-data.html#descriptives-by-conditions"><i class="fa fa-check"></i><b>2.3.4</b> Descriptives by conditions</a></li>
+<li class="chapter" data-level="2.3.5" data-path="week-2-describing-data.html"><a href="week-2-describing-data.html#describing-gapminder"><i class="fa fa-check"></i><b>2.3.5</b> Describing gapminder</a></li>
+<li class="chapter" data-level="2.3.6" data-path="week-2-describing-data.html"><a href="week-2-describing-data.html#descriptive-exercises"><i class="fa fa-check"></i><b>2.3.6</b> Descriptive exercises</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="week-3-correlation-and-causation.html"><a href="week-3-correlation-and-causation.html"><i class="fa fa-check"></i><b>3</b> Week 3: Correlation and Causation</a><ul>
+<li class="chapter" data-level="3.1" data-path="week-3-correlation-and-causation.html"><a href="week-3-correlation-and-causation.html#general-goals-2"><i class="fa fa-check"></i><b>3.1</b> General Goals</a></li>
+<li class="chapter" data-level="3.2" data-path="week-3-correlation-and-causation.html"><a href="week-3-correlation-and-causation.html#part-one-establishing-causal-relationships"><i class="fa fa-check"></i><b>3.2</b> Part one: establishing causal relationships</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="week-3-correlation-and-causation.html"><a href="week-3-correlation-and-causation.html#question-1-1"><i class="fa fa-check"></i><b>3.2.1</b> Question 1</a></li>
+<li class="chapter" data-level="3.2.2" data-path="week-3-correlation-and-causation.html"><a href="week-3-correlation-and-causation.html#question-2-1"><i class="fa fa-check"></i><b>3.2.2</b> Question 2</a></li>
+<li class="chapter" data-level="3.2.3" data-path="week-3-correlation-and-causation.html"><a href="week-3-correlation-and-causation.html#question-3-1"><i class="fa fa-check"></i><b>3.2.3</b> Question 3</a></li>
+<li class="chapter" data-level="3.2.4" data-path="week-3-correlation-and-causation.html"><a href="week-3-correlation-and-causation.html#question-4-1"><i class="fa fa-check"></i><b>3.2.4</b> Question 4</a></li>
+<li class="chapter" data-level="3.2.5" data-path="week-3-correlation-and-causation.html"><a href="week-3-correlation-and-causation.html#question-5-1"><i class="fa fa-check"></i><b>3.2.5</b> Question 5</a></li>
+<li class="chapter" data-level="3.2.6" data-path="week-3-correlation-and-causation.html"><a href="week-3-correlation-and-causation.html#question-6-1"><i class="fa fa-check"></i><b>3.2.6</b> Question 6</a></li>
+<li class="chapter" data-level="3.2.7" data-path="week-3-correlation-and-causation.html"><a href="week-3-correlation-and-causation.html#question-7-1"><i class="fa fa-check"></i><b>3.2.7</b> Question 7</a></li>
+<li class="chapter" data-level="3.2.8" data-path="week-3-correlation-and-causation.html"><a href="week-3-correlation-and-causation.html#question-8-1"><i class="fa fa-check"></i><b>3.2.8</b> Question 8</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="week-3-correlation-and-causation.html"><a href="week-3-correlation-and-causation.html#part-two-correlations-in-r"><i class="fa fa-check"></i><b>3.3</b> Part two: correlations in R</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="week-3-correlation-and-causation.html"><a href="week-3-correlation-and-causation.html#cor-for-correlation"><i class="fa fa-check"></i><b>3.3.1</b> <code>cor()</code> for correlation</a></li>
+<li class="chapter" data-level="3.3.2" data-path="week-3-correlation-and-causation.html"><a href="week-3-correlation-and-causation.html#correlation-exercises"><i class="fa fa-check"></i><b>3.3.2</b> Correlation exercises</a></li>
+<li class="chapter" data-level="3.3.3" data-path="week-3-correlation-and-causation.html"><a href="week-3-correlation-and-causation.html#real-data"><i class="fa fa-check"></i><b>3.3.3</b> Real data</a></li>
+<li class="chapter" data-level="3.3.4" data-path="week-3-correlation-and-causation.html"><a href="week-3-correlation-and-causation.html#theory-exercises"><i class="fa fa-check"></i><b>3.3.4</b> Theory exercises</a></li>
+<li class="chapter" data-level="3.3.5" data-path="week-3-correlation-and-causation.html"><a href="week-3-correlation-and-causation.html#data-exercise"><i class="fa fa-check"></i><b>3.3.5</b> Data exercise</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="week-4-chance-and-probability-theory.html"><a href="week-4-chance-and-probability-theory.html"><i class="fa fa-check"></i><b>4</b> Week 4: Chance and Probability Theory</a><ul>
+<li class="chapter" data-level="4.1" data-path="week-4-chance-and-probability-theory.html"><a href="week-4-chance-and-probability-theory.html#general-goals-3"><i class="fa fa-check"></i><b>4.1</b> General Goals</a></li>
+<li class="chapter" data-level="4.2" data-path="week-4-chance-and-probability-theory.html"><a href="week-4-chance-and-probability-theory.html#part-one-correlation-and-random-chance"><i class="fa fa-check"></i><b>4.2</b> Part one: correlation and random chance</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="week-4-chance-and-probability-theory.html"><a href="week-4-chance-and-probability-theory.html#chance-exercises"><i class="fa fa-check"></i><b>4.2.1</b> Chance exercises</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="part-two-generating-data-in-r.html"><a href="part-two-generating-data-in-r.html"><i class="fa fa-check"></i><b>5</b> Part two: generating data in R</a><ul>
+<li class="chapter" data-level="5.0.1" data-path="part-two-generating-data-in-r.html"><a href="part-two-generating-data-in-r.html#sample"><i class="fa fa-check"></i><b>5.0.1</b> <code>sample()</code></a></li>
+<li class="chapter" data-level="5.0.2" data-path="part-two-generating-data-in-r.html"><a href="part-two-generating-data-in-r.html#rbinom"><i class="fa fa-check"></i><b>5.0.2</b> <code>rbinom()</code></a></li>
+<li class="chapter" data-level="5.0.3" data-path="part-two-generating-data-in-r.html"><a href="part-two-generating-data-in-r.html#rnorm"><i class="fa fa-check"></i><b>5.0.3</b> rnorm()</a></li>
+<li class="chapter" data-level="5.0.4" data-path="part-two-generating-data-in-r.html"><a href="part-two-generating-data-in-r.html#mixing-it-up"><i class="fa fa-check"></i><b>5.0.4</b> Mixing it up</a></li>
+<li class="chapter" data-level="5.0.5" data-path="part-two-generating-data-in-r.html"><a href="part-two-generating-data-in-r.html#graphing-the-normal-distribution"><i class="fa fa-check"></i><b>5.0.5</b> Graphing the normal distribution</a></li>
+<li class="chapter" data-level="5.0.6" data-path="part-two-generating-data-in-r.html"><a href="part-two-generating-data-in-r.html#calculating-the-probability-of-specific-ranges."><i class="fa fa-check"></i><b>5.0.6</b> Calculating the probability of specific ranges.</a></li>
+<li class="chapter" data-level="5.0.7" data-path="part-two-generating-data-in-r.html"><a href="part-two-generating-data-in-r.html#z-scores"><i class="fa fa-check"></i><b>5.0.7</b> z-scores</a></li>
+<li class="chapter" data-level="5.0.8" data-path="part-two-generating-data-in-r.html"><a href="part-two-generating-data-in-r.html#calculating-z-scores"><i class="fa fa-check"></i><b>5.0.8</b> Calculating z-scores</a></li>
+<li class="chapter" data-level="5.0.9" data-path="part-two-generating-data-in-r.html"><a href="part-two-generating-data-in-r.html#distribution-exercises"><i class="fa fa-check"></i><b>5.0.9</b> Distribution exercises</a></li>
+<li class="chapter" data-level="5.0.10" data-path="part-two-generating-data-in-r.html"><a href="part-two-generating-data-in-r.html#z-score-exercises"><i class="fa fa-check"></i><b>5.0.10</b> z-score exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>6</b> References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Lab manual QuantRMA</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="part-two-generating-data-in-r" class="section level1">
+<h1><span class="header-section-number"> 5</span> Part two: generating data in R</h1>
+<p>There are many ways to make R generate numbers for you. We already looked at using a uniform distribution to generate numbers for our random correlations. In this next part, we will explore additional functions and distributions to generate random numbers.</p>
+<div id="sample" class="section level3">
+<h3><span class="header-section-number">5.0.1</span> <code>sample()</code></h3>
+<p>The sample function is like an endless gumball machine. You put the gumballs inside with different properties, say As and Bs, and then you let sample endlessly take gumballs out. Check it out:</p>
+<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb192-1"><a href="part-two-generating-data-in-r.html#cb192-1"></a>gumballs &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;A&quot;</span>,<span class="st">&quot;B&quot;</span>)</span>
+<span id="cb192-2"><a href="part-two-generating-data-in-r.html#cb192-2"></a>sample_of_gumballs &lt;-<span class="kw">sample</span>(gumballs, <span class="dv">10</span>, <span class="dt">replace=</span><span class="ot">TRUE</span>)</span>
+<span id="cb192-3"><a href="part-two-generating-data-in-r.html#cb192-3"></a>sample_of_gumballs</span></code></pre></div>
+<pre><code>##  [1] &quot;A&quot; &quot;B&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;B&quot; &quot;B&quot; &quot;B&quot; &quot;B&quot; &quot;B&quot;</code></pre>
+<p>Here the sample function randomly picks A or B each time. We set it do this 10 times, so our sample has 10 things in it. We set <code>replace=TRUE</code> so that after each sample, we put the item back into the gumball machine and start again. Here’s another example with numbers:</p>
+<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="part-two-generating-data-in-r.html#cb194-1"></a>some_numbers &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">5</span>)</span>
+<span id="cb194-2"><a href="part-two-generating-data-in-r.html#cb194-2"></a>sample_of_numbers &lt;-<span class="kw">sample</span>(some_numbers, <span class="dv">20</span>, <span class="dt">replace=</span><span class="ot">TRUE</span>)</span>
+<span id="cb194-3"><a href="part-two-generating-data-in-r.html#cb194-3"></a>sample_of_numbers</span></code></pre></div>
+<pre><code>##  [1] 2 4 3 5 3 4 4 2 5 5 5 5 5 5 4 5 5 1 2 3</code></pre>
+<p>Let’s do one more thing with sample. Let’s sample 1000 times from our <code>some_numbers</code> variable, and then look at the histogram</p>
+<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb196-1"><a href="part-two-generating-data-in-r.html#cb196-1"></a>some_numbers &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">5</span>)</span>
+<span id="cb196-2"><a href="part-two-generating-data-in-r.html#cb196-2"></a>sample_of_numbers &lt;-<span class="kw">sample</span>(some_numbers, <span class="dv">1000</span>, <span class="dt">replace=</span><span class="ot">TRUE</span>)</span>
+<span id="cb196-3"><a href="part-two-generating-data-in-r.html#cb196-3"></a><span class="kw">hist</span>(sample_of_numbers)</span></code></pre></div>
+<p><img src="quantrma_lab_files/figure-html/unnamed-chunk-87-1.png" width="672" /></p>
+<div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb197-1"><a href="part-two-generating-data-in-r.html#cb197-1"></a><span class="co"># we are using the built in hist() function. we could also use ggplot to generate this histogram:</span></span>
+<span id="cb197-2"><a href="part-two-generating-data-in-r.html#cb197-2"></a><span class="kw">ggplot</span>(<span class="kw">data.frame</span>(sample_of_numbers),<span class="kw">aes</span>(<span class="dt">x=</span>sample_of_numbers)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_histogram</span>()</span></code></pre></div>
+<p><img src="quantrma_lab_files/figure-html/unnamed-chunk-87-2.png" width="672" /></p>
+<p>We are looking at lots of samples from our little gumball machine of numbers. Notice that as we put more 5s in, more 5s come out of in our big sample of 1000.</p>
+</div>
+<div id="rbinom" class="section level3">
+<h3><span class="header-section-number">5.0.2</span> <code>rbinom()</code></h3>
+<p>You can think of the binomial distribution as a coin flipping distribution. Or dice roll distribution. Or anything you can define a number of “successes” for. For example, when flipping a coin, we could consider flipping heads a “success”.</p>
+<p>You use <code>rbinom</code> as follows: <code>rbinom(n, size, prob)</code>. <code>n</code> gives the number of flips you want to make. <code>size</code> is the number of coins you want to flip at once. <code>prob</code> is the probability that defines how often a “success” happens. Here’s how we flip one coin 10 times using <code>rbinom</code> (assuming the coin is fair):</p>
+<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb198-1"><a href="part-two-generating-data-in-r.html#cb198-1"></a>coin_flips &lt;-<span class="st"> </span><span class="kw">rbinom</span>(<span class="dv">10</span>,<span class="dv">1</span>,.<span class="dv">5</span>)</span>
+<span id="cb198-2"><a href="part-two-generating-data-in-r.html#cb198-2"></a>coin_flips</span></code></pre></div>
+<pre><code>##  [1] 1 0 0 1 0 0 0 0 0 1</code></pre>
+<p>We get a bunch of 0s, and 1s. We can pretend 0 = tails, and 1 = heads. If you flip 10 coins, how many heads do you get? We can can do the above again, and then <code>sum(coin_flips)</code>.</p>
+<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="part-two-generating-data-in-r.html#cb200-1"></a>coin_flips &lt;-<span class="st"> </span><span class="kw">rbinom</span>(<span class="dv">10</span>,<span class="dv">1</span>,.<span class="dv">5</span>)</span>
+<span id="cb200-2"><a href="part-two-generating-data-in-r.html#cb200-2"></a><span class="kw">sum</span>(coin_flips)</span></code></pre></div>
+<pre><code>## [1] 6</code></pre>
+<p>Alright, so we get the sum of the 1s (i.e. the successes), which tells us the number of heads. But, if you keep redoing the above, you’ll get different answers each time. 5 heads will be the most frequent answer, but you will get lots of other answers too.</p>
+<p>We could do this 1000 times over, saving the number of heads for each set of 10 flips. Then we could look at the distribution of those sums. That would tell us about the range of things that can happen when we flip a coin 10 times. We can do that in a <code>for</code> loop like this:</p>
+<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb202-1"><a href="part-two-generating-data-in-r.html#cb202-1"></a>save_number_of_heads&lt;-<span class="kw">length</span>(<span class="dv">1000</span>) <span class="co"># make an empty variable to save things in</span></span>
+<span id="cb202-2"><a href="part-two-generating-data-in-r.html#cb202-2"></a></span>
+<span id="cb202-3"><a href="part-two-generating-data-in-r.html#cb202-3"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">1000</span>){</span>
+<span id="cb202-4"><a href="part-two-generating-data-in-r.html#cb202-4"></a>  save_number_of_heads[i] &lt;-<span class="st"> </span><span class="kw">sum</span>(<span class="kw">rbinom</span>(<span class="dv">10</span>,<span class="dv">1</span>,.<span class="dv">5</span>))</span>
+<span id="cb202-5"><a href="part-two-generating-data-in-r.html#cb202-5"></a>}</span>
+<span id="cb202-6"><a href="part-two-generating-data-in-r.html#cb202-6"></a></span>
+<span id="cb202-7"><a href="part-two-generating-data-in-r.html#cb202-7"></a><span class="kw">hist</span>(save_number_of_heads)</span></code></pre></div>
+<p><img src="quantrma_lab_files/figure-html/unnamed-chunk-90-1.png" width="672" /></p>
+<p>The histogram shows us the frequency observing different numbers of heads (for 10 flips) across the 1000 simulations. 5 happens the most, but 2 happens sometimes, and so does 8. All of the possibilities seem to happen sometimes, some more than others.</p>
+</div>
+<div id="rnorm" class="section level3">
+<h3><span class="header-section-number">5.0.3</span> rnorm()</h3>
+<p>We’ll quickly show how to use <code>rnorm(n, mean=0, sd=1)</code> to sample numbers from a normal distribution.</p>
+<div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb203-1"><a href="part-two-generating-data-in-r.html#cb203-1"></a><span class="kw">hist</span>(<span class="kw">rnorm</span>(<span class="dv">10000</span>,<span class="dv">0</span>,<span class="dv">1</span>))</span></code></pre></div>
+<p><img src="quantrma_lab_files/figure-html/unnamed-chunk-91-1.png" width="672" /></p>
+<p>There it is, a bell-shaped normal distribution with a mean of 0, and a standard deviation of 1. You’ve probably seen things like this before. Now you can sample numbers from normal distributions with any mean or standard deviation, just by changing those parts of the <code>rnorm</code> function.</p>
+</div>
+<div id="mixing-it-up" class="section level3">
+<h3><span class="header-section-number">5.0.4</span> Mixing it up</h3>
+<p>The r functions are like Legos, you can put them together and come up with different things. What if wanted to sample from a distribution that looked like a two-humped camel’s back? Just sample from <code>rnorm</code> twice like this… mix away.</p>
+<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb204-1"><a href="part-two-generating-data-in-r.html#cb204-1"></a><span class="kw">hist</span>( <span class="kw">c</span>( <span class="kw">rnorm</span>(<span class="dv">100</span>,<span class="dv">25</span>,<span class="dv">5</span>), <span class="kw">rnorm</span>(<span class="dv">100</span>,<span class="dv">50</span>,<span class="dv">5</span>)) )</span></code></pre></div>
+<p><img src="quantrma_lab_files/figure-html/unnamed-chunk-92-1.png" width="672" />
+You can generate as many numbers under a certain distribution as your computer can handle.</p>
+</div>
+<div id="graphing-the-normal-distribution" class="section level3">
+<h3><span class="header-section-number">5.0.5</span> Graphing the normal distribution</h3>
+<p>“Wait, I thought we already did that”. We sort of did. We sampled numbers and made histograms that looked like a normal distribution. But, a normal distribution is more of an abstract idea. It looks like this in the abstract:</p>
+<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb205-1"><a href="part-two-generating-data-in-r.html#cb205-1"></a>normal_dist &lt;-<span class="st"> </span><span class="kw">dnorm</span>(<span class="kw">seq</span>(<span class="op">-</span><span class="dv">4</span>,<span class="dv">4</span>,.<span class="dv">1</span>), <span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb205-2"><a href="part-two-generating-data-in-r.html#cb205-2"></a>values &lt;-<span class="kw">seq</span>(<span class="op">-</span><span class="dv">4</span>,<span class="dv">4</span>,.<span class="dv">1</span>)</span>
+<span id="cb205-3"><a href="part-two-generating-data-in-r.html#cb205-3"></a>normal_df &lt;-<span class="kw">data.frame</span>(values,normal_dist)</span>
+<span id="cb205-4"><a href="part-two-generating-data-in-r.html#cb205-4"></a></span>
+<span id="cb205-5"><a href="part-two-generating-data-in-r.html#cb205-5"></a><span class="kw">ggplot</span>(normal_df, <span class="kw">aes</span>(<span class="dt">x=</span>values,<span class="dt">y=</span>normal_dist))<span class="op">+</span></span>
+<span id="cb205-6"><a href="part-two-generating-data-in-r.html#cb205-6"></a><span class="st">  </span><span class="kw">geom_line</span>()<span class="op">+</span></span>
+<span id="cb205-7"><a href="part-two-generating-data-in-r.html#cb205-7"></a><span class="st">  </span><span class="kw">theme_classic</span>()</span></code></pre></div>
+<p><img src="quantrma_lab_files/figure-html/unnamed-chunk-93-1.png" width="672" /></p>
+<p>A really nice shaped bell-like thing. This normal distribution has a mean of 0, and standard deviation of 1. The heights of the lines tell you roughly how likely each value is. Notice, it is centered on 0 (most likely that numbers from this distribution will be near 0), and it goes down as numbers get bigger or smaller (so bigger or smaller numbers get less likely). Notice the values don’t go much beyond -4 and +4. This is because those values don’t happen very often. Theoretically any value could happen, but really big or small values have really low probabilities.</p>
+</div>
+<div id="calculating-the-probability-of-specific-ranges." class="section level3">
+<h3><span class="header-section-number">5.0.6</span> Calculating the probability of specific ranges.</h3>
+<p>We can use R to tell us about the probability of getting numbers in a certain range. For example, when you think about. It should be obvious that you have a 50% probability of getting the number 0 or lower. Half of the distribution is 0 or lower, so you have a 50% probability.</p>
+<p>We can use the <code>pnorm()</code> function to confirm this:</p>
+<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb206-1"><a href="part-two-generating-data-in-r.html#cb206-1"></a><span class="kw">pnorm</span>(<span class="dv">0</span>, <span class="dt">mean =</span> <span class="dv">0</span>, <span class="dt">sd=</span> <span class="dv">1</span>)</span></code></pre></div>
+<pre><code>## [1] 0.5</code></pre>
+<p>Agreed, <code>pnorm()</code> tells us the probability of getting 0 or lower is 0.5.
+Well, what is the probability of getting a 2 or greater? That’s a bit harder to judge, but obviously less than 50%. Use R like this to find out:</p>
+<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb208-1"><a href="part-two-generating-data-in-r.html#cb208-1"></a><span class="kw">pnorm</span>(<span class="dv">2</span>, <span class="dt">mean =</span> <span class="dv">0</span>, <span class="dt">sd=</span> <span class="dv">1</span>)</span></code></pre></div>
+<pre><code>## [1] 0.9772499</code></pre>
+<p>That doesn’t seem quite right. R is telling us the probability is 0.977, while we know it should be smaller than 0.5. That’s because by default, <code>pnorm()</code> gives the probability “up to and including” (denoted: P[X ≤ x]). The figure below visualizes what that means:</p>
+<p><img src="quantrma_lab_files/figure-html/unnamed-chunk-96-1.png" width="672" />
+So, to get the probability of getting a 2 or greater, we simply take <span class="math inline">\(1 - 0.9772499 = 0.0227501\)</span>:</p>
+<p><img src="quantrma_lab_files/figure-html/unnamed-chunk-97-1.png" width="672" />
+Or we could use the <code>lower.tail</code> argument:</p>
+<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb210-1"><a href="part-two-generating-data-in-r.html#cb210-1"></a><span class="kw">pnorm</span>(<span class="dv">2</span>, <span class="dt">mean =</span> <span class="dv">0</span>, <span class="dt">sd=</span> <span class="dv">1</span>,<span class="dt">lower.tail =</span> <span class="ot">FALSE</span>)</span></code></pre></div>
+<pre><code>## [1] 0.02275013</code></pre>
+<p>The probability of getting a 2 or greater is .0227 (not very probable)</p>
+</div>
+<div id="z-scores" class="section level3">
+<h3><span class="header-section-number">5.0.7</span> z-scores</h3>
+<p>We just spent a bunch of time looking at a very special normal distribution, the one where the mean = 0, and the standard deviation = 1. This is also called the <strong>standard normal distribution</strong>. Then we got a little bit comfortable with what those numbers mean. 0 happens a lot, but numbers bigger than 2 don’t happen a lot.</p>
+<p>Often, we are not dealing with numbers exactly like these. For example, someone might say, I got a number, it’s 550. It came from a normal distribution with mean = 600, and standard deviation = 25. So, does 545 happen a lot or not? The numbers don’t tell you right away. But if we were talking about the standard normal distribution with mean = 0 and standard deviation = 1, and I told I got a number 4.5 from that distribution, you would automatically know that 4.5 doesn’t happen a lot.</p>
+<p>z-scores are a way of transforming one set of numbers into the standard normal distribution, with mean = 0 and standard deviation = 1.</p>
+<p>If you have a normal distribution with mean = 550, and standard deviation 25, then how far from the mean is the number 575? It’s a whole 25 away (550+25 = 575). How many standard deviations is that? It’s 1 whole standard deviation. So does a number like 575 happen a lot? Well, based on what you know about normal distributions, 1 standard deviation of the mean isn’t that far, and it does happen fairly often. This is what we are doing here.</p>
+</div>
+<div id="calculating-z-scores" class="section level3">
+<h3><span class="header-section-number">5.0.8</span> Calculating z-scores</h3>
+<ol style="list-style-type: decimal">
+<li>get some numbers</li>
+</ol>
+<div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb212-1"><a href="part-two-generating-data-in-r.html#cb212-1"></a>some_numbers &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">20</span>,<span class="dv">50</span>,<span class="dv">25</span>)</span></code></pre></div>
+<ol start="2" style="list-style-type: decimal">
+<li>Calculate the mean and standard deviation</li>
+</ol>
+<div class="sourceCode" id="cb213"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb213-1"><a href="part-two-generating-data-in-r.html#cb213-1"></a>my_mean &lt;-<span class="st"> </span><span class="kw">mean</span>(some_numbers)</span>
+<span id="cb213-2"><a href="part-two-generating-data-in-r.html#cb213-2"></a>my_sd &lt;-<span class="kw">sd</span>(some_numbers)</span>
+<span id="cb213-3"><a href="part-two-generating-data-in-r.html#cb213-3"></a></span>
+<span id="cb213-4"><a href="part-two-generating-data-in-r.html#cb213-4"></a><span class="kw">print</span>(my_mean)</span></code></pre></div>
+<pre><code>## [1] 39.06857</code></pre>
+<div class="sourceCode" id="cb215"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb215-1"><a href="part-two-generating-data-in-r.html#cb215-1"></a><span class="kw">print</span>(my_sd)</span></code></pre></div>
+<pre><code>## [1] 26.36504</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li>subtract the mean from your numbers</li>
+</ol>
+<div class="sourceCode" id="cb217"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb217-1"><a href="part-two-generating-data-in-r.html#cb217-1"></a>differences&lt;-some_numbers<span class="op">-</span>my_mean</span>
+<span id="cb217-2"><a href="part-two-generating-data-in-r.html#cb217-2"></a><span class="kw">print</span>(differences)</span></code></pre></div>
+<pre><code>##  [1]  -0.2923236  -1.6193368 -14.6666792   5.4431838  -0.2317631  30.5393514
+##  [7]  -7.9835620  77.4467785   1.5075487 -45.0975705  -8.1532058 -16.5413958
+## [13]  -4.2853087  14.7056474 -19.3065968  -5.9684006 -41.1969307  -6.5114877
+## [19]  33.6686815   8.5433700</code></pre>
+<ol start="4" style="list-style-type: decimal">
+<li>divide by the standard deviation</li>
+</ol>
+<div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb219-1"><a href="part-two-generating-data-in-r.html#cb219-1"></a>z_scores&lt;-differences<span class="op">/</span>my_sd</span>
+<span id="cb219-2"><a href="part-two-generating-data-in-r.html#cb219-2"></a><span class="kw">print</span>(z_scores)</span></code></pre></div>
+<pre><code>##  [1] -0.011087544 -0.061419850 -0.556292679  0.206454592 -0.008790544
+##  [6]  1.158327479 -0.302808635  2.937479927  0.057179836 -1.710506372
+## [11] -0.309243056 -0.627398827 -0.162537531  0.557770701 -0.732280174
+## [16] -0.226375550 -1.562558951 -0.246974307  1.277019885  0.324041599</code></pre>
+<p>Done. Now you have converted your original numbers into what we call standardized scores. They are standardized to have the same properties (assumed properties) as a normal distribution with mean = 0, and SD = 1. You could look at each of your original scores, and try to figure out if they are likely or unlikely numbers. But, if you make them into z-scores, then you can tell right away. Numbers close to 0 happen a lot, bigger numbers closer to 1 happen less often, but still fairly often, and numbers bigger than 2 or 3 hardly happen at all.</p>
+</div>
+<div id="distribution-exercises" class="section level3">
+<h3><span class="header-section-number">5.0.9</span> Distribution exercises</h3>
+<p>Suppose we want to know the probability of getting a score between -1 and 1?</p>
+<div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb221-1"><a href="part-two-generating-data-in-r.html#cb221-1"></a>ps&lt;-<span class="kw">pnorm</span>(<span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>), <span class="dt">mean =</span> <span class="dv">0</span>, <span class="dt">sd=</span> <span class="dv">1</span>)</span>
+<span id="cb221-2"><a href="part-two-generating-data-in-r.html#cb221-2"></a>ps[<span class="dv">2</span>] <span class="op">-</span><span class="st"> </span>ps[<span class="dv">1</span>]</span></code></pre></div>
+<pre><code>## [1] 0.6826895</code></pre>
+<p>About 68%. About 68% of all the numbers would be between -1 and 1. So naturally, about 34% of the numbers would be between 0 and 1. Notice, we are just getting a feeling for this, you’ll see why in a bit when we do z-scores (some of you may realize we are already doing that…)</p>
+<p>What about the numbers between 1 and 2?</p>
+<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb223-1"><a href="part-two-generating-data-in-r.html#cb223-1"></a>ps&lt;-<span class="kw">pnorm</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>), <span class="dt">mean =</span> <span class="dv">0</span>, <span class="dt">sd=</span> <span class="dv">1</span>, <span class="dt">lower.tail=</span><span class="ot">FALSE</span>)</span>
+<span id="cb223-2"><a href="part-two-generating-data-in-r.html#cb223-2"></a>ps[<span class="dv">1</span>]<span class="op">-</span>ps[<span class="dv">2</span>]</span></code></pre></div>
+<pre><code>## [1] 0.1359051</code></pre>
+<p>About 13.5% of numbers fall in that range, not much.</p>
+<p>How about between 2 and 3?</p>
+<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb225-1"><a href="part-two-generating-data-in-r.html#cb225-1"></a>ps&lt;-<span class="kw">pnorm</span>(<span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">3</span>), <span class="dt">mean =</span> <span class="dv">0</span>, <span class="dt">sd=</span> <span class="dv">1</span>, <span class="dt">lower.tail=</span><span class="ot">FALSE</span>)</span>
+<span id="cb225-2"><a href="part-two-generating-data-in-r.html#cb225-2"></a>ps[<span class="dv">1</span>]<span class="op">-</span>ps[<span class="dv">2</span>]</span></code></pre></div>
+<pre><code>## [1] 0.02140023</code></pre>
+<p>Again a very small amount, only 2.1 % of the numbers, not a a lot.</p>
+</div>
+<div id="z-score-exercises" class="section level3">
+<h3><span class="header-section-number">5.0.10</span> z-score exercises</h3>
+<p><a href="https://github.com/CrumpLab/statisticsLab/blob/master/data/spssdata/StatsGrades.sav">Here</a> is a link to an SPSS file containing 50 students’ exam grades (let’s say it’s the final exam for a Statistics class).</p>
+<ol style="list-style-type: decimal">
+<li><p>Create a table containing the mean and standard deviation for this sample of scores. Now, produce a frequency histogram of the score data. Describe the distribution.</p></li>
+<li><p>Transform each student’s score into a Z-score. Now, plot the frequency histogram of this Z-score distribution. Compare it to the raw score distribution. How are they the same? How are they different?</p></li>
+<li><p>Imagine you are a student in this class who received a 90 on this exam. However, the Professor has decided to grade on a curve, such that only the top 10% of the class receives an A (this professor only gives whole grades, no minuses or pluses). Calculate the z-score that corresponds to a raw score of 90 on this exam. Will you get an A with this grade? Why or why not?</p></li>
+</ol>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="week-4-chance-and-probability-theory.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

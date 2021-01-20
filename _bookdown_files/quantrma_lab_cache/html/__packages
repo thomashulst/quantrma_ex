@@ -3,3 +3,4 @@ data.table
 dplyr
 ggplot2
 gapminder
+ggpubr

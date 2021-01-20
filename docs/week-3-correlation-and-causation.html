@@ -32,7 +32,7 @@
   
   
 <link rel="prev" href="week-2-describing-data.html"/>
-<link rel="next" href="references.html"/>
+<link rel="next" href="week-4-chance-and-probability-theory.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -216,7 +216,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.3.5" data-path="week-3-correlation-and-causation.html"><a href="week-3-correlation-and-causation.html#data-exercise"><i class="fa fa-check"></i><b>3.3.5</b> Data exercise</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>4</b> References</a></li>
+<li class="chapter" data-level="4" data-path="week-4-chance-and-probability-theory.html"><a href="week-4-chance-and-probability-theory.html"><i class="fa fa-check"></i><b>4</b> Week 4: Chance and Probability Theory</a><ul>
+<li class="chapter" data-level="4.1" data-path="week-4-chance-and-probability-theory.html"><a href="week-4-chance-and-probability-theory.html#general-goals-3"><i class="fa fa-check"></i><b>4.1</b> General Goals</a></li>
+<li class="chapter" data-level="4.2" data-path="week-4-chance-and-probability-theory.html"><a href="week-4-chance-and-probability-theory.html#part-one-correlation-and-random-chance"><i class="fa fa-check"></i><b>4.2</b> Part one: correlation and random chance</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="week-4-chance-and-probability-theory.html"><a href="week-4-chance-and-probability-theory.html#chance-exercises"><i class="fa fa-check"></i><b>4.2.1</b> Chance exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="week-4-chance-and-probability-theory.html"><a href="week-4-chance-and-probability-theory.html#part-two-generating-data-in-r"><i class="fa fa-check"></i><b>4.3</b> Part two: generating data in R</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="week-4-chance-and-probability-theory.html"><a href="week-4-chance-and-probability-theory.html#sample"><i class="fa fa-check"></i><b>4.3.1</b> <code>sample()</code></a></li>
+<li class="chapter" data-level="4.3.2" data-path="week-4-chance-and-probability-theory.html"><a href="week-4-chance-and-probability-theory.html#rbinom"><i class="fa fa-check"></i><b>4.3.2</b> <code>rbinom()</code></a></li>
+<li class="chapter" data-level="4.3.3" data-path="week-4-chance-and-probability-theory.html"><a href="week-4-chance-and-probability-theory.html#sample-and-binom-exercises"><i class="fa fa-check"></i><b>4.3.3</b> <code>sample</code> and <code>binom()</code> exercises</a></li>
+<li class="chapter" data-level="4.3.4" data-path="week-4-chance-and-probability-theory.html"><a href="week-4-chance-and-probability-theory.html#rnorm"><i class="fa fa-check"></i><b>4.3.4</b> <code>rnorm()</code></a></li>
+<li class="chapter" data-level="4.3.5" data-path="week-4-chance-and-probability-theory.html"><a href="week-4-chance-and-probability-theory.html#graphing-the-normal-distribution"><i class="fa fa-check"></i><b>4.3.5</b> Graphing the normal distribution</a></li>
+<li class="chapter" data-level="4.3.6" data-path="week-4-chance-and-probability-theory.html"><a href="week-4-chance-and-probability-theory.html#calculating-the-probability-of-specific-ranges."><i class="fa fa-check"></i><b>4.3.6</b> Calculating the probability of specific ranges.</a></li>
+<li class="chapter" data-level="4.3.7" data-path="week-4-chance-and-probability-theory.html"><a href="week-4-chance-and-probability-theory.html#norm-exercises"><i class="fa fa-check"></i><b>4.3.7</b> <code>norm()</code> exercises</a></li>
+<li class="chapter" data-level="4.3.8" data-path="week-4-chance-and-probability-theory.html"><a href="week-4-chance-and-probability-theory.html#z-scores"><i class="fa fa-check"></i><b>4.3.8</b> z-scores</a></li>
+<li class="chapter" data-level="4.3.9" data-path="week-4-chance-and-probability-theory.html"><a href="week-4-chance-and-probability-theory.html#z-score-exercises"><i class="fa fa-check"></i><b>4.3.9</b> z-score exercises</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>5</b> References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -240,7 +257,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="week-3-correlation-and-causation" class="section level1">
 <h1><span class="header-section-number"> 3</span> Week 3: Correlation and Causation</h1>
 <p>In lecture and in the textbook, we have been discussing the idea of correlation. This is the idea that two things that we measure can be somehow related to one another. For example, your personal happiness, which we could try to measure say with a questionnaire, might be related to other things in your life that we could also measure, such as number of close friends, yearly salary, how much chocolate you have in your bedroom, or how many times you have said the word Nintendo in your life. Some of the relationships that we can measure are meaningful, and might reflect a causal relationship where one thing causes a change in another thing. Some of the relationships are spurious, and do not reflect a causal relationship.</p>
-<p>In this lab we will discuss several concepts related to establishing causal relationship. You will also learn how to compute correlations between two variables and answer some questions about relationships between variables. To get started, download the <a href="https://raw.githubusercontent.com/thomashulst/quantrma_lab/master/Labs/Lab03_CorrelationCausation.Rmd">lab template here</a> (right click: save as). Copy the lab template to your lab folder, rename the document to include your student number and open Lab.proj.</p>
+<p>In this lab we will discuss several concepts related to establishing causal relationship. You will also learn how to compute correlations between two variables and answer some questions about relationships between variables. To get started, download the <a href="https://raw.githubusercontent.com/thomashulst/quantrma_lab/master/Labs/Lab03_CorrelationCausation.Rmd">lab template here</a> (right click: save as). Copy the lab template to your lab folder and open Lab.proj.</p>
 <div id="general-goals-2" class="section level2">
 <h2><span class="header-section-number">3.1</span> General Goals</h2>
 <ol style="list-style-type: decimal">
@@ -603,7 +620,7 @@ Figure 3.3: Facet wrapped scatterplots
         </div>
       </div>
 <a href="week-2-describing-data.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="week-4-chance-and-probability-theory.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
