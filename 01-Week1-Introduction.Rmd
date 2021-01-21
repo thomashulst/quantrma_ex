@@ -1,5 +1,5 @@
 # Week 1: Introduction[^Adapted2]
-This first lab consists of two parts. In the first part we will work on several exercises related to the readings about research methods. In the second part you be introduced to basic concepts in R. This lab assumes you have read the required readings of [Week 1](https://thomashulst.github.io/quantrma/Introduction.html) and completed the [Getting started](https://thomashulst.github.io/quantrma_lab/getting-started.html) guide. You will be completing each lab by writing your notes and code in an R Markdown document. You should have setup your files as described [in this part](https://thomashulst.github.io/quantrma_lab/getting-started.html#how-to-complete-the-labs) of the Getting started section. At the end of this lab you are asked to **individually** upload your document to Canvas. 
+This first lab consists of two parts. In the first part we will work on several exercises related to the readings about research methods. In the second part you be introduced to basic concepts in R. This lab assumes you have read the required readings of [Week 1](https://thomashulst.github.io/quantrma/Introduction.html) and completed the [Getting started](https://thomashulst.github.io/quantrma_lab/getting-started-adapted1.html) guide. You will be completing each lab by writing your notes and code in an R Markdown document. You should have setup your files as described [in this part](https://thomashulst.github.io/quantrma_lab/getting-started-adapted1.html#how-to-complete-the-labs) of the Getting started section. At the end of this lab you are asked to **individually** upload your document to Canvas. 
 
 If you finish before the time is up, you can start with the required readings of Week 2 or help out your fellow students. If you are unable to finish the exercises during the lab, continue working on them at home and discuss the exercises with your peers. You should upload your document to Canvas by Monday 23:59. The exercises will not be graded, and you will not receive personal feedback on your answers, but they should show a good effort trying to complete the exercises. The answers to the exercises will be uploaded to Canvas every Monday night. If you still have questions after finishing the exercises and reviewing the answer key, please visit the office hours on Wednesday's.
 
@@ -7,28 +7,26 @@ If you finish before the time is up, you can start with the required readings of
 
 Follow the steps below the get started:
 
-1. Download the template file for lab 1, [Lab01_Introduction.Rmd](https://raw.githubusercontent.com/thomashulst/quantrma_lab/master/Labs/Lab01_Introduction.Rmd) (right click: save as), and place it into the "Labs_Template" folder.
-2. Double-click the "Labs.Rproj" file
-3. RStudio should now start
-4. If you click the files tab, you should some files and a data folder inside the "Labs_Template" folder
-5. Click the lab template file (Lab01_Introduction.Rmd) and it will load into the editor window
-6. You should keep your notes, copy/paste R code, and answer the questions of this lab in the lab RMarkdown document
+1. Double-click the "Labs.Rproj" file in your Labs_Template directory
+2. RStudio should now start
+3. If you click the files tab, you should some files and a data folder inside the "Labs_Template" folder
+4. Click the lab template file (Lab01_Introduction.Rmd) and it will load into the editor window
+5. You should keep your notes, copy/paste R code, and answer the questions of this lab in the lab RMarkdown document
 
 When we made this course, we assumed that most students would be unfamiliar with R and RStudio, and might even be frightened of it. Don't worry. It's going to be way easier than you think. We know that it will seem challenging at first. But, we think that with lots of working examples, you will get the hang of it, and by the end of the course you will be able to do things you might never have dreamed you can do. It's really a fantastic skill to learn, even if you aren't planning on going on to do research. If anything during this lab is unclear, please do not hesitate to ask your tutor.
 
 ## General Goals
 1. Discuss fundamental concepts of research methods and design
-2. Learn how to knit an RMarkdown document 
-3. First steps in R and RStudio
+2. First steps in R and RStudio
+3  Learn how to knit an RMarkdown document 
 4. Learn about operators, functions, variables and comments in R
 5. Learn about getting help in R and debugging common errors 
 
 ## Part one: research methods 
-Discuss the questions about research methods below in groups of 3 and register the answers in the .Rmd file for this lab.
+Discuss the questions about research methods below in groups of 3 and register the answers the R Markdown template in RStudio (Lab01_Introduction.Rmd).
 
 ### Question 1 
 In the required readings of this week we called to process of clarifying abstract concepts and translating them into specific, observable measures **operationalization**. Operationalization involves both a **nominal** and an **operational** definition. Describe in your own words what these terms mean. 
-
 ### Question 2
 To make sure you are able to submit your answers at the end of this lab, try to "knit" your R Markdown file by pressing the "Knit" button:
 
@@ -82,7 +80,7 @@ The Dutch Environmental Assessment Agency aims to identify sections of Dutch riv
 * How might the program address this measurement problem?
 
 ## Part two: introduction to R
-This part of the lab manual will introduce you to the very basics of R. You are urged to follow along with the examples in your own RStudio window. The answers to the exercises can be registered in the R Markdown document of this lab. During this part of the lab, we’ll spend a bit of time using R as a simple calculator, since that’s the easiest thing to do with R, just to give you a feel for what it’s like to work in R. In [the Getting started](https://thomashulst.github.io/quantrma_lab/getting-started.html) guide we learned to execute our first command in R, by typing 10 + 20 in the console and pressing enter. Try it out in RStudio: 
+This part of the lab manual will introduce you to the very basics of R. You are urged to follow along with the examples in your own RStudio window. The answers to the exercises can be registered in the R Markdown document of this lab. During this part of the lab, we’ll spend a bit of time using R as a simple calculator, since that’s the easiest thing to do with R, just to give you a feel for what it’s like to work in R. In [the Getting started](https://thomashulst.github.io/quantrma_lab/getting-started-adapted1.html) guide we learned to execute our first command in R, by typing 10 + 20 in the console and pressing enter. Try it out in RStudio: 
 
 ```{r}
 10+20
@@ -139,6 +137,8 @@ This is a fairly useful thing to be able to do. The only other thing I should po
 All of the above being said, it's helpful to remember that *brackets always come first*. So, if you're ever unsure about what order R will do things in, an easy solution is to enclose the thing *you* want it to do first in brackets.  There's nothing stopping you from typing `(4 / 2) * 3`. By enclosing the division in brackets we make it clear which thing is supposed to happen first. In this instance you wouldn't have needed to, since R would have done the division first anyway, but when you're first starting out it's better to make sure R does what you want!
 
 #### Arithmetics exercises
+Answer these and the following exercises in the codeblocks of the R Markdown template in RStudio (Lab01_Introduction.Rmd).
+
 1. Take your favorite number to the third power.
 2. Calculate the number of seconds in a year, on the simplifying assumption that a year contains exactly 365 days.
 3. Use R to calculate solution to `6/2*(1+2)`. Why is the solution not `1`?
