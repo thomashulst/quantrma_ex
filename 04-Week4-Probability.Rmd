@@ -1,7 +1,7 @@
 # Week 4: Chance and Probability Theory
 This week we learned that we can find correlations by **chance alone**, even when there is no true correlation between the variables. During the first part of this lab we are going to explore this phenomenon further. We will generate some random data and then look at the correlations we calculate. This will serve to develop our intuitions about inferential statistics; the focus of the remainder of this course. In the second part of the lab we are going to dive deeper in generating simulated data, which is very useful in helping us understand real data, and calculate all sorts of things about probability distributions.  
 
-To get started, download the [lab template here](https://raw.githubusercontent.com/thomashulst/quantrma_lab/master/Labs/Lab04_Probability.Rmd) (right click: save as). Copy the lab template to your lab folder and open Lab.proj.
+To get started, download the [lab template here](https://raw.githubusercontent.com/thomashulst/quantrma_lab/master/Labs/Lab04_Probability.Rmd) (right click: save as) or from Canvas. Copy the lab template to your lab folder and open Lab.proj.
 
 ## General Goals
 1. Explore correlations and random chance

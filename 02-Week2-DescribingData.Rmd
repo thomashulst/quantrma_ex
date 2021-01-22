@@ -3,7 +3,7 @@
 >The commonality between science and art is in trying to see profoundly - to develop strategies of seeing and showing.
 >---Edward Tufte
 
-The purpose of this lab is to show you how to generate graphs and compute basic descriptive statistics, including measures of central tendency (mean, mode, median) and variation (range, variance, standard deviation). We learned in the lecture and from the textbook that data we want to answer questions of, often comes with loads of numbers. Too many numbers to look at all at once. That's one reason we use descriptive statistics. To reduce the big set of numbers to one or two summary numbers or a pretty graph that tells us something about all of the numbers. R can produce descriptive statistics for you in many ways. We'll go over some R basics for descriptive statistics, and then use our new found skills to ask some questions about real data. To get started, download the [lab template here](https://raw.githubusercontent.com/thomashulst/quantrma_lab/master/Labs/Lab02_DescribingData.Rmd) (right click: save as). Copy the lab template to your lab folder and open Lab.proj.
+The purpose of this lab is to show you how to generate graphs and compute basic descriptive statistics, including measures of central tendency (mean, mode, median) and variation (range, variance, standard deviation). We learned in the lecture and from the textbook that data we want to answer questions of, often comes with loads of numbers. Too many numbers to look at all at once. That's one reason we use descriptive statistics. To reduce the big set of numbers to one or two summary numbers or a pretty graph that tells us something about all of the numbers. R can produce descriptive statistics for you in many ways. We'll go over some R basics for descriptive statistics, and then use our new found skills to ask some questions about real data. To get started, download the [lab template here](https://raw.githubusercontent.com/thomashulst/quantrma_lab/master/Labs/Lab02_DescribingData.Rmd) (right click: save as) or from Canvas. Copy the lab template to your lab folder and open Lab.proj.
 
 Note: we are going to introduce a lot of new programming concepts very quickly and you might feel overwhelmed or unsure you fully grasp the new concepts. This is completely normal when learning a new programming language. We start with simply copy/pasting and dissecting R commands as a way to familiarize you with the language. You will see that by doing this you can very quickly learn to answer interesting questions about a data set, just from changing a couple of minor things in the code examples. In our experience, this works better than expecting you to code something from scratch at the start of learning a new language. As always, there are several ways to get help when coding in R:
 
@@ -552,9 +552,7 @@ ggplot(smaller_df,aes(y= lifeExp, x= year,
 ```
 
 ### Graphing exercises
-The following exercises can be answered in the R Markdown document for this lab. Complete your work in that document and "knit" the file. Hand in your final product (knitting should generate an .html file) to Canvas. 
-
-Use the code from above to attempt to solve the extra things we ask you do for the following exercises: 
+Use the code from above to solve the extra things we ask you to do for the following exercises:
 
 1. Make a histogram of GDP per capita. Make the plot as pretty or ugly as you want it to be.
 2. Make a time series plot of GDP per capita by year for the USA, Canada, and Mexico. Make sure to update the title and labels as well (hint: the USA is not named "USA" in the dataset).
