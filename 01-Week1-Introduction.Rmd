@@ -1,13 +1,25 @@
 # Week 1: Introduction[^Adapted2]
 This first lab consists of two parts. In the first part we will work on several exercises related to the readings about research methods. In the second part you be introduced to basic concepts in R. This lab assumes you have read the required readings of [Week 1](https://thomashulst.github.io/quantrma/Introduction.html) and completed the [Getting started](https://thomashulst.github.io/quantrma_lab/getting-started-adapted1.html) guide. You will be completing each lab by writing your notes and code in an R Markdown document. You should have setup your files as described [in this part](https://thomashulst.github.io/quantrma_lab/getting-started-adapted1.html#how-to-complete-the-labs) of the Getting started section. At the end of this lab you are asked to **individually** upload your document to Canvas. 
 
-If you finish before the time is up, you can start with the required readings of Week 2 or help out your fellow students. If you are unable to finish the exercises during the lab, continue working on them at home and discuss the exercises with your peers. You should upload your document to Canvas by Monday 23:59. The exercises will not be graded, and you will not receive personal feedback on your answers, but they should show a good effort trying to complete the exercises. The answers to the exercises will be uploaded to Canvas every Monday night. If you still have questions after finishing the exercises and reviewing the answer key, please visit the office hours on Wednesday's.
+If you finish before the time is up, you can start with the required readings of Week 2 or help out your fellow students. You can also have a look at the [instructions for the first assignment](https://canvas.eur.nl/courses/31825/assignments/117720) and [sign up for an assignment group](https://canvas.eur.nl/courses/31825/assignments/118509).
+
+If you are unable to finish the exercises during the lab, continue working on them at home and discuss the exercises with your peers. You should upload your document to Canvas by Monday 23:59. The exercises will not be graded, and you will not receive personal feedback on your answers, but they should show a good effort trying to complete the exercises. The answers to the exercises will be uploaded to Canvas every Monday night. If you still have questions after finishing the exercises and reviewing the answer key, please visit the office hours on Wednesday's.
 
 [^Adapted2]: The R part of this lab was adapted from the book by Danielle Navarro
 
-Follow the steps below the get started:
+## Learning goals
+During this lab you will do the following:
 
-1. Double-click the "Labs.Rproj" file in your Labs_Template directory
+1. Discuss fundamental concepts of research methods and design
+2. Take your first steps in R and RStudio
+3  Learn how to knit an RMarkdown document 
+4. Learn about operators, functions, variables and comments in R
+5. Learn about getting help in R and debugging common errors 
+
+## Getting started
+Follow the steps below to get started.
+
+1. Double-click the "Labs.Rproj" file in the Labs_Template directory (i.e., the place where you downloaded and )
 2. RStudio should now start
 3. If you click the files tab, you should some files and a data folder inside the "Labs_Template" folder
 4. Click the lab template file (Lab01_Introduction.Rmd) and it will load into the editor window
@@ -15,18 +27,13 @@ Follow the steps below the get started:
 
 When we made this course, we assumed that most students would be unfamiliar with R and RStudio, and might even be frightened of it. Don't worry. It's going to be way easier than you think. We know that it will seem challenging at first. But, we think that with lots of working examples, you will get the hang of it, and by the end of the course you will be able to do things you might never have dreamed you can do. It's really a fantastic skill to learn, even if you aren't planning on going on to do research. If anything during this lab is unclear, please do not hesitate to ask your tutor.
 
-## General Goals
-1. Discuss fundamental concepts of research methods and design
-2. First steps in R and RStudio
-3  Learn how to knit an RMarkdown document 
-4. Learn about operators, functions, variables and comments in R
-5. Learn about getting help in R and debugging common errors 
 
 ## Part one: research methods 
 Discuss the questions about research methods below in groups of 3 and register the answers the R Markdown template in RStudio (Lab01_Introduction.Rmd).
 
 ### Question 1 
 In the required readings of this week we called to process of clarifying abstract concepts and translating them into specific, observable measures **operationalization**. Operationalization involves both a **nominal** and an **operational** definition. Describe in your own words what these terms mean. 
+
 ### Question 2
 To make sure you are able to submit your answers at the end of this lab, try to "knit" your R Markdown file by pressing the "Knit" button:
 

@@ -11,7 +11,9 @@ Note: we are going to introduce a lot of new programming concepts very quickly a
 2. Google your question
 3. Ask a fellow student or your tutor for additional explanations
 
-## General Goals
+## Learning goals
+During this lab you will do the following:
+
 1. Learn how to load data into R
 2. Learn how data is structured
 3. Generate graphs using ggplot2
@@ -23,19 +25,12 @@ In order to graph data, we need to have some data first... let's figure out what
 
 1. If you have downloaded the [Labs_Template.zip](https://github.com/thomashulst/quantrma_lab/raw/master/Labs_Template.zip) file, then you already have the data file in the data folder. Assuming you are working in your main directory (your .Rmd file is saved in the main folder that contains both the data and template files), use the following commands to load the data:
 
-```{r}
-library(data.table)
-nyc_films <-fread("data/Film_Permits.csv")
+```{r,warning=F,error=F}
+library(tidyverse)
+nyc_films <-read_csv("data/Film_Permits.csv")
 ```
 
-2. If the above method doesn't work, you can try loading the data from the course website using:
-
-```{r, eval=FALSE, tidy=TRUE}
-library(data.table)
-nyc_films <- fread("https://raw.githubusercontent.com/thomashulst/quantrma_lab/master/data/Film_Permits.csv")
-```
-
-Try to understand what is happening in the code above. In both cases, we first load the library `data.table`. Then, we use the function `fread()` (from the library `data.table`) to load the data and assign it to the variable `nyc_films`.^[`fread()` is not the only function in R that can read .csv files. There are other functions available, like `read.csv()`, and some of them are better suited for some situations than others. `fread()` has the advantage of being really quick and flexible.]
+Try to understand what is happening in the code above. In both cases, we first load the library `tidyverse`. Then, we use the function `read_csv()` (from the `tidyverse`) to load the data and assign it to the variable `nyc_films`.
 
 If you are having issues getting the data loaded, talk to your tutor.
 

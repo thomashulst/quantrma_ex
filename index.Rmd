@@ -167,7 +167,6 @@ This line of code is saying that the `ggplot2` library needs to be loaded (ggplo
 
 ```{r, echo=TRUE,eval=FALSE}
 install.packages("tidyverse")
-install.packages("data.table")
 install.packages("gapminder")
 install.packages("ggpubr")
 install.packages("knitr")
@@ -178,9 +177,10 @@ install.packages("bookdown")
 Note you can select all of the lines at once, then copy them, then paste all of them into the console, and press enter to run them all. After each of the packages are installed, you will then be able to load them using `library()`. You can see the installed packages by pressing the packages tab in the [bottom right window](#fileplot). From this tab you can also update and install packages by clicking the update or install button respectively.  
 
 ## How to complete the labs
-Each of the labs focuses on particular data-analysis problems, from graphing data, computing descriptive statistics, to running inferential tests in R. Additionally, during the labs, we will discuss and answer questions about research design concepts. To answer the questions during the labs, we will work in RStudio. As you work inside RStudio you will be creating text documents and doing things like loading data and saving the results of your analyses. As your work grows and becomes more complex, you can often find yourself creating many different files. An R project is a very useful way of organizing your files all in one place so you can find them later. When you double-click an R project file, R-studio will automatically load and restore your last session. 
+Each of the labs focuses on particular data-analysis problems, from graphing data, computing descriptive statistics, to running inferential tests. Additionally, we will discuss important research design concepts. 
 
-We have created an R project file for the labs that can be [downloaded here](https://github.com/thomashulst/quantrma_lab/raw/master/Labs_Template.zip) or on Canvas.
+### R project
+To answer the questions during the labs, we will work in RStudio using an R project. An R project is a very useful way of organizing your files all in one place so you can find them later. When you double-click an R project file to open it, RStudio automatically loads and restores your last session. We have made an R project specifically for the labs that can be [downloaded here](https://github.com/thomashulst/quantrma_lab/raw/master/Labs_Template.zip) or on Canvas.
 
 Download the .zip file and unzip (unarchive) it in a folder you can easily access. In the folder you unzip the file you should find the following:
 
@@ -188,10 +188,13 @@ Download the .zip file and unzip (unarchive) it in a folder you can easily acces
 2. Inside the folder you will see the "Labs.proj" project file and the template for the first lab
 3. A data folder containing data files for the labs
 
-You can double-click the R project file to make sure you are in the correct working directory to work on the labs. During the labs, you will write your notes and answers in a .Rmd (RMarkdown) file. At the end of each lab you will "knit" the file (knitting is a term for making your documents look prettier) and upload the result to Canvas.
+By double clicking and opening the R project file, you make sure you have everything set up and are working in the correct working directory for the labs. 
+
+### RMarkdown
+During the labs, you will write your notes and answers in a .Rmd (RMarkdown) file. The RMarkdown template file for the first lab is already included and can be found in your Labs_Template folder. 
 
 We admit that at the beginning, RMarkdown documents might seem a little bit confusing, but you will find they are extremely useful and flexible. Basically, what RMarkdown allows you to do is combine two kinds of writing, 1) writing R code to conduct analyses, and 2) writing normal text, with headers, sub-headers, and paragraphs. You can think of this like a lab journal, that contains both your writing about what you are doing (e.g., notes to self), and the code that you use for analysis. Additionally, when your code does something like make a graph, or run a statistical test, you can ask RMarkdown to print the results.[^Rmd]
 
 [^Rmd]:The RMarkdown website has an excellent tutorial that is well worth checking out in your own time: [https://rmarkdown.rstudio.com/lesson-1.html](https://rmarkdown.rstudio.com/lesson-1.html)
 
-The way to complete each lab is to document your progression through each of the parts in your RMarkdown document and uploading the knitted result to Canvas. By doing this, you will become familiar with how R and RStudio works, and how to create documents that preserve both the code and your notes all in one place. 
+You complete each lab by documenting your progression through each of the parts of the lab in the RMarkdown template. At the end of each lab you will "knit" the RMarkdown file to a Word document (knitting is a term for making your documents look prettier) and upload the result to Canvas. By doing this, you will become familiar with how R and RStudio works, and how to create documents that preserve both the code and your notes all in one place. 

@@ -35,11 +35,6 @@ You can keep notes about the lab here and execute code like in the code block be
 
 ```
 
-#### 3. Use `fread()` to only load the `EventID` column and assign it to a variable named `nyc_films_eventid` (hint: ?fread()).
-```{r}
-
-```
-
 ## Graphing exercises
 
 #### 1. Make a histogram of GDP per capita. Make the plot as pretty or ugly as you want it to be.

@@ -3,7 +3,9 @@ In lecture and in the textbook, we have been discussing the idea of correlation.
 
 In this lab we will discuss several concepts related to establishing causal relationship. You will also learn how to compute correlations between two variables and answer some questions about relationships between variables. To get started, download the [lab template here](https://raw.githubusercontent.com/thomashulst/quantrma_lab/master/Labs/Lab03_CorrelationCausation.Rmd) (right click: save as) or from Canvas. Copy the lab template to your lab folder and open Lab.proj.
 
-## General Goals
+## Learning goals
+During this lab you will do the following:
+
 1. Discuss relationships between variables and how to establish causal relationships
 2. Discuss the possible meaning of correlations that you observe
 3. Learn how to compute and visualize Pearson's $r$ between two variables in R 

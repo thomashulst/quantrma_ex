@@ -3,7 +3,9 @@ This week we learned that we can find correlations by **chance alone**, even whe
 
 To get started, download the [lab template here](https://raw.githubusercontent.com/thomashulst/quantrma_lab/master/Labs/Lab04_Probability.Rmd) (right click: save as) or from Canvas. Copy the lab template to your lab folder and open Lab.proj.
 
-## General Goals
+## Learning goals
+During this lab you will do the following:
+
 1. Explore correlations and random chance
 2. Learn how to generate simulated data in R
 3. Calculate and work with z-scores in R 
