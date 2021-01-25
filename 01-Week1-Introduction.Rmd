@@ -7,8 +7,8 @@ Before getting started we want to set a couple of expectations:
 
 1. Expect things to break. This is the nature of using computers to do stuff. When things break, it is easy to get frustrated. It is not always immediately obvious why something is not working (even for tutors), but in the end, having things break will help you better understand the materials.
 2. Self direct your learning. Do you understand all materials of a week? Set yourself a programming challenge that goes further than the intended learning goals. Do you find a particular concept difficult? Ask someone else to help you. Use one of the additional learning resources on Canvas, or Google for a website/video explaining the concept. 
-3. The only way to learn is by doing, for this course even more so than other courses. Please follow the materials of the labs and try not to skip any exercises or code examples. If you do skip parts of a lab, you might quickly find yourself unable to understand more advanced concepts later on. 
-4. You will soon learn that the depth of this course is essentially limitless and there is almost always more than one way to answer something, or even a "correct answer" at all. This is part of the fun!
+3. The only way to learn is by doing, for this course even more so than other courses. Please follow the materials of the labs and try not to skip any exercises or code examples. If you do skip parts of a lab, you might quickly find yourself unable to understand more advanced concepts later on.
+4. You will soon learn that the depth of this course is essentially limitless and there is almost always more than one way to answer something, or even a "correct answer" at all. This is part of the fun! It is impossible to remember everything R can do, so one of the most important skills you can develop is knowing how and where to search for things you do not know. 
 
 Having set your expectations, let's get started with the first lab!
 
@@ -95,6 +95,11 @@ knitr::include_graphics('figures/knit.png')
 Knitting creates a formatted document which can be displayed by other programs. By default, the document is knitted as a .html file  (which can be read by any web browser), but you can also knit your RMarkdown documents as a Word document (.docx). To do so, press the downward arrow next to the knitting symbol and select "Knit to Word". For your lab submission, you should submit a .docx file to Canvas. 
 
 You should now be ready to complete the RMarkdown exercises in your template file, so switch over to RStudio! 
+
+#### RMarkdown exercises
+1. What does the # symbol do in RMarkdown? What about two ##? 
+2. Insert an R code chunk to calculate the result of 10 + 20.
+3. Knit your document to a Word file and have a look at the result. 
 
 ## Research methods 
 Discuss the questions about research methods below in your breakout room and register the answers in the R Markdown template. 

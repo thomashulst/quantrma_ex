@@ -15,12 +15,12 @@ Welcome to the template file of the first lab! This template is what we call an 
 
 We are assuming you have read the general introduction, the learning goals and "How to use this lab manual" on the lab manual website. If so, start with reading the section on "R Markdown basics" (Section 1.3) and afterwards complete the exercises below. 
 
-# RMarkdown basics
+## RMarkdown exercises
 Did you finish reading the RMarkdown basics section in the lab manual? If so, answer the exercises below:
 
-1. What is does the # symbol do in RMarkdown? What about two ##? 
+1. What does the # symbol do in RMarkdown? What about two ##? 
 
-2. Insert a code chunk to calculate the result of 10 + 20.
+2. Insert an R code chunk to calculate the result of 10 + 20.
 
 3. Knit your document to a Word file and have a look at the result. 
 

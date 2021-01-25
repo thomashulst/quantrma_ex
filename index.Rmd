@@ -154,16 +154,16 @@ The top right panel contains (at least) two tabs, one for the workspace and anot
 ### File, Plot, Packages, Help {#fileplot}
 The bottom-right window has four tabs for files, plots, packages, and help. The files tab allows browsing of the computers file directory. An important concept in R is the **current working directory**. This is file folder that R points to by default. Many functions in R will save things directly to this directory, or attempt to read files from this directory. The current working directory can be changed by navigating to the desired folder in the file menu, and then clicking on the more option to set that folder to the current working directory. This is especially important when loading data into R. The current working directory should be set to the folder containing the data to be inputted into R. The plots tab will show recent plots and figures made in R. The packages tab lists the current R libraries loaded into memory, and provides the ability to download and enable new R packages (more about that later). The help menu is an invaluable tool. Here, you can search for individual R commands to see examples of how they are used. Sometimes the help files for individual commands are opaque and difficult to understand, so it is necessary to do a Google search to find better examples of using these commands.
 
-### Installing libraries
+### Installing libraries {#install-lib}
 When you install R and RStudio, you get what is called Base R. Base R contains many libraries that allow you to conduct statistical analyses. Because R is free and open-source, many other developers have created add-on libraries that extend the functionality of R. **We use some of these libraries, and you need to install them before you can do the labs**.
 
-For example, in any of the labs, whenever you see a line code that uses the word library like this `library("libraryname")`, this line of code telling R to load up that library so it can be used. The `libraryname` would be replaced with the actual name of the library. For example, you will see code like this in the labs:
+For example, in any of the labs, whenever you see a line code that uses the word library like this `library(libraryname)`, this line of code telling R to load up that library so it can be used. The `libraryname` would be replaced with the actual name of the library. For example, you will see code like this in the labs:
 
 ```{r, echo=TRUE,eval=FALSE}
-library(ggplot2)
+library(tidyverse)
 ```
 
-This line of code is saying that the `ggplot2` library needs to be loaded (ggplot2 is a library which allows you to generate beautiful graphs and figures). However, before a library can be loaded, it needs to be installed. Fortunately, we can tell R to install all of the packages we need for this course in one go. Copy the following lines of code into the console, and press enter. 
+This line of code is saying that the `tidyverse` library needs to be loaded (`tidyverse` is an all purpose library which allows you to import data, clean up data and generate beautiful graphs and figures). However, before a library can be loaded, it needs to be downloaded and installed first. Fortunately, we can tell R to install all of the packages we need for this course in one go. Copy the following lines of code into the console, and press enter. 
 
 ```{r, echo=TRUE,eval=FALSE}
 install.packages("tidyverse")
