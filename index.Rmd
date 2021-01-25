@@ -185,15 +185,15 @@ To answer the questions during the labs, we will work in RStudio using an R proj
 Download the .zip file and unzip (unarchive) it in a folder you can easily access. In the folder you unzip the file you should find the following:
 
 1. A folder titled "Labs_Template"
-2. Inside the folder you will see the "Labs.proj" project file and the template for the first lab
+2. Inside the folder you will see the "Labs.proj" project file and the template for the first lab (Lab01_Introduction.Rmd)
 3. A data folder containing data files for the labs
 
-By double clicking and opening the R project file, you make sure you have everything set up and are working in the correct working directory for the labs. 
+By double clicking and opening the R project file, you make sure you have everything set up and are working in the correct directory for the labs. 
 
 ### RMarkdown
-During the labs, you will write your notes and answers in a .Rmd (RMarkdown) file. The RMarkdown template file for the first lab is already included and can be found in your Labs_Template folder. 
+During the labs, you will write your notes and answers in a .Rmd (RMarkdown) file. The RMarkdown template file for the first lab is already included and can be found in your Labs_Template folder (Lab01_Introduction.Rmd). 
 
-We admit that at the beginning, RMarkdown documents might seem a little bit confusing, but you will find they are extremely useful and flexible. Basically, what RMarkdown allows you to do is combine two kinds of writing, 1) writing R code to conduct analyses, and 2) writing normal text, with headers, sub-headers, and paragraphs. You can think of this like a lab journal, that contains both your writing about what you are doing (e.g., notes to self), and the code that you use for analysis. Additionally, when your code does something like make a graph, or run a statistical test, you can ask RMarkdown to print the results.[^Rmd]
+We admit that at the beginning, RMarkdown documents might seem a little bit confusing, but you will find they are extremely useful and flexible. Basically, what RMarkdown allows you to do is combine two kinds of writing, 1) writing normal text, with headers, sub-headers, and paragraphs and 2) R code to conduct analyses. You can think of this like a lab journal, that contains both your writing about what you are doing, and the code that you used for the analyses. Additionally, when your code does something like make a graph, or run a statistical test, you can ask RMarkdown to print the results in your document.[^Rmd]
 
 [^Rmd]:The RMarkdown website has an excellent tutorial that is well worth checking out in your own time: [https://rmarkdown.rstudio.com/lesson-1.html](https://rmarkdown.rstudio.com/lesson-1.html)
 

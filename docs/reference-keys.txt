@@ -1,10 +1,10 @@
 fig:2rstudiod
 fig:validreliab
-tab:unnamed-chunk-64
+tab:unnamed-chunk-65
 fig:example1
 fig:example2
 fig:1facet
-tab:unnamed-chunk-71
+tab:unnamed-chunk-72
 why-r
 downloading-and-installing-r
 installing-r-on-a-mac
@@ -22,8 +22,9 @@ r-project
 rmarkdown
 week-1-introductionadapted2
 learning-goals
-getting-started
-part-one-research-methods
+how-to-use-this-lab-manual
+rmarkdown-basics
+research-methods
 question-1
 question-2
 question-3
@@ -31,8 +32,7 @@ question-4
 question-5
 question-6
 question-7
-question-8
-part-two-introduction-to-r
+basic-r
 arithmetic
 adding-subtracting-multiplying-and-dividing
 bedmas
@@ -113,7 +113,7 @@ question-4-1
 question-5-1
 question-6-1
 question-7-1
-question-8-1
+question-8
 case-1
 case-2
 part-two-correlations-in-r

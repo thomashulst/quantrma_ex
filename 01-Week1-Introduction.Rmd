@@ -1,64 +1,123 @@
 # Week 1: Introduction[^Adapted2]
-This first lab consists of two parts. In the first part we will work on several exercises related to the readings about research methods. In the second part you be introduced to basic concepts in R. This lab assumes you have read the required readings of [Week 1](https://thomashulst.github.io/quantrma/Introduction.html) and completed the [Getting started](https://thomashulst.github.io/quantrma_lab/getting-started-adapted1.html) guide. You will be completing each lab by writing your notes and code in an R Markdown document. You should have setup your files as described [in this part](https://thomashulst.github.io/quantrma_lab/getting-started-adapted1.html#how-to-complete-the-labs) of the Getting started section. At the end of this lab you are asked to **individually** upload your document to Canvas. 
+This first lab consists of several distinct parts. In the first part we will take some time to get acquainted with RMarkdown files. In the next part will work on several exercises related to the readings about research methods. In the final part you be introduced to programming concepts in R. This lab assumes you have read the required readings of [Week 1](https://thomashulst.github.io/quantrma/Introduction.html) and completed the [Getting started](https://thomashulst.github.io/quantrma_lab/getting-started-adapted1.html) guide. You will complete each lab by writing your notes and R code in an RMarkdown document and uploading the results to Canvas. You should have setup your files as described [in this part](https://thomashulst.github.io/quantrma_lab/getting-started-adapted1.html#how-to-complete-the-labs) of the Getting started section. 
 
-If you finish before the time is up, you can start with the required readings of Week 2 or help out your fellow students. You can also have a look at the [instructions for the first assignment](https://canvas.eur.nl/courses/31825/assignments/117720) and [sign up for an assignment group](https://canvas.eur.nl/courses/31825/assignments/118509).
+When we made this course, we assumed that most students would be unfamiliar with R, and might even be frightened of it. Don't worry. It's going to be easier than you think. We know that it will seem challenging at first. But, we think that with lots of working examples, you will get the hang of it, and by the end of the course you will be able to do things you might never have dreamed you can do. It's really a fantastic skill to learn, even if you aren't planning on going on to do research.
 
-If you are unable to finish the exercises during the lab, continue working on them at home and discuss the exercises with your peers. You should upload your document to Canvas by Monday 23:59. The exercises will not be graded, and you will not receive personal feedback on your answers, but they should show a good effort trying to complete the exercises. The answers to the exercises will be uploaded to Canvas every Monday night. If you still have questions after finishing the exercises and reviewing the answer key, please visit the office hours on Wednesday's.
+Before getting started we want to set a couple of expectations:
+
+1. Expect things to break. This is the nature of using computers to do stuff. When things break, it is easy to get frustrated. It is not always immediately obvious why something is not working (even for tutors), but in the end, having things break will help you better understand the materials.
+2. Self direct your learning. Do you understand all materials of a week? Set yourself a programming challenge that goes further than the intended learning goals. Do you find a particular concept difficult? Ask someone else to help you. Use one of the additional learning resources on Canvas, or Google for a website/video explaining the concept. 
+3. The only way to learn is by doing, for this course even more so than other courses. Please follow the materials of the labs and try not to skip any exercises or code examples. If you do skip parts of a lab, you might quickly find yourself unable to understand more advanced concepts later on. 
+4. You will soon learn that the depth of this course is essentially limitless and there is almost always more than one way to answer something, or even a "correct answer" at all. This is part of the fun!
+
+Having set your expectations, let's get started with the first lab!
 
 [^Adapted2]: The R part of this lab was adapted from the book by Danielle Navarro
 
 ## Learning goals
 During this lab you will do the following:
 
-1. Discuss fundamental concepts of research methods and design
-2. Take your first steps in R and RStudio
-3  Learn how to knit an RMarkdown document 
-4. Learn about operators, functions, variables and comments in R
-5. Learn about getting help in R and debugging common errors 
+1. Learn how to use this lab manual and the lab template
+2. Learn RMarkdown basics and how to knit an RMarkdown document 
+3. Discuss fundamental concepts of research methods and design
+4. Take your first steps in R and RStudio
+5. Learn about operators, functions, variables and comments in R
+6. Learn about getting help in R and debugging common errors 
 
-## Getting started
-Follow the steps below to get started.
+## How to use this lab manual
+The lab manual is your reference guide for completing the lab exercises. The template you download for a lab contains the exercises and will guide you through the materials of each lab. In the template we will reference to particular parts of the lab manual you **should read** and parts of the lab manual with  **additional materials**. These additional materials help you extend your understanding of the materials and can be very useful working on your assignments during this course, or while conducting quantitative analyses in different courses. 
 
-1. Double-click the "Labs.Rproj" file in the Labs_Template directory (i.e., the place where you downloaded and )
+Follow the steps below to open R Studio and your template for this lab: 
+
+1. Double-click the "Labs.Rproj" file in the Labs_Template directory (i.e., the place where you downloaded and unzipped the [Labs_Template.zip](https://github.com/thomashulst/quantrma_lab/raw/master/Labs_Template.zip) file)
 2. RStudio should now start
-3. If you click the files tab, you should some files and a data folder inside the "Labs_Template" folder
+3. You should see some files and a data folder inside the "Labs_Template" folder (bottom right pane)
 4. Click the lab template file (Lab01_Introduction.Rmd) and it will load into the editor window
-5. You should keep your notes, copy/paste R code, and answer the questions of this lab in the lab RMarkdown document
+5. You should keep your notes, copy/paste R code, and answer the questions of this lab in the lab template.
 
-When we made this course, we assumed that most students would be unfamiliar with R and RStudio, and might even be frightened of it. Don't worry. It's going to be way easier than you think. We know that it will seem challenging at first. But, we think that with lots of working examples, you will get the hang of it, and by the end of the course you will be able to do things you might never have dreamed you can do. It's really a fantastic skill to learn, even if you aren't planning on going on to do research. If anything during this lab is unclear, please do not hesitate to ask your tutor.
+Once you have opened the template your RStudio should look something like this:
 
+```{r template, fig.cap="", echo=FALSE,eval=TRUE,out.width="100%"}
+knitr::include_graphics('figures/template.png')
+```
 
-## Part one: research methods 
-Discuss the questions about research methods below in groups of 3 and register the answers the R Markdown template in RStudio (Lab01_Introduction.Rmd).
+The upper left window pane is the place where the template has opened. Switch over to that window now and start reading the template.
 
-### Question 1 
-In the required readings of this week we called to process of clarifying abstract concepts and translating them into specific, observable measures **operationalization**. Operationalization involves both a **nominal** and an **operational** definition. Describe in your own words what these terms mean. 
+## RMarkdown basics
+As we mentioned in the [Getting started](https://thomashulst.github.io/quantrma_lab/getting-started-adapted1.html) guide, RMarkdown  allows you to combine two kinds of writing:
 
-### Question 2
-To make sure you are able to submit your answers at the end of this lab, try to "knit" your R Markdown file by pressing the "Knit" button:
+1. writing normal text, with headers, sub-headers, and paragraphs
+2. R code to conduct analyses
+
+This makes RMarkdown documents really useful for conducting quantitative research. You get the keep your analyses and written text in one place, and you can easily share your work with collaborators that can reproduce the analyses you have conducted. RMarkdown documents are also really versatile. In fact, both the textbook, as well as this lab manual, were written in RMarkdown. 
+
+If you are used to working with a word processor like Microsoft Word, you might need a few minutes to get used to writing documents in RMarkdown, but you will quickly pick this up. The key difference is that RMarkdown keeps two things separate: your text and the formatting of your text, so you do not directly see how your text will look like in the final document. Let's see what I mean by looking at an example. If I want to **embolden** a word, I write the following in my RMarkdown document:
+
+- This is a \*\*bold\*\* word.
+
+Which will be displayed in my final document as:
+
+- This is a **bold** word. 
+
+A similar thing goes for *italicizing* a word:
+
+- \*This is displayed in italics\*
+
+Which will display as:
+
+- *This is displayed in italics*
+
+The list of things you can do to format your text in RMarkdown is extensive. You can find a cheatsheet with all the things you can do [here](https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf) or download the cheatsheet from Canvas. 
+
+To include R code in your RMarkdown document, which we are going to do all the time during the labs, as well as your assignments, you should use an R code chunk. You can do that by inserting three backticks (```` ``` ````) followed by \{r} (to indicate you are going to run R code). You finish a code chunk with another three backticks (```` ``` ````). In your RMarkdown document this will look as follows:
+
+```{r chunk, fig.cap="", echo=FALSE,eval=TRUE,out.width="100%"}
+knitr::include_graphics('figures/chunk.png')
+```
+
+Which will display as:
+
+``` {r}
+# My first code chunk!
+50 + 25
+```
+
+Make sure you start and close each code chunk with the three backticks (```` ``` ````). If you don't do that, RStudio doesn't know where your code starts and ends and will get utterly confused and start shouting errors and warnings at you. This is one of those mistakes that is really easy to make, but can take you forever to figure out, especially when you are just beginning with RMarkdown.  
+
+By the way, do you see the green play button in the code chunk? If you press that, RStudio will execute the R code in your code chunk and display the result. You will likely use this button all the time during the labs, to check if your solutions to the exercises are correct. 
+
+There's one final concept about RMarkdown we need to introduce before you can get started with the remainder of this lab. This has to do with "knitting documents". Knitting is the process of taking your text and RMarkdown markup and merge everything together to output it to a file. Knitting is done by pressing the knit button:
 
 ```{r knit, fig.cap="", echo=FALSE,eval=TRUE,dev='png',out.width="50%"}
 knitr::include_graphics('figures/knit.png')
 ```
 
-Knitting creates a formatted document which can be displayed by other programs. By default, the document is knitted as a .html file  (which can be read by any web browser), but you can also knit your RMarkdown documents as a Word document (.docx). To do so, press the downward arrow next to the knitting symbol and select "Knit to Word". For your lab submission, you should submit a .docx file. 
+Knitting creates a formatted document which can be displayed by other programs. By default, the document is knitted as a .html file  (which can be read by any web browser), but you can also knit your RMarkdown documents as a Word document (.docx). To do so, press the downward arrow next to the knitting symbol and select "Knit to Word". For your lab submission, you should submit a .docx file to Canvas. 
 
-### Question 3
+You should now be ready to complete the RMarkdown exercises in your template file, so switch over to RStudio! 
+
+## Research methods 
+Discuss the questions about research methods below in your breakout room and register the answers in the R Markdown template. 
+
+### Question 1 
+In the required readings of this week we called to process of clarifying abstract concepts and translating them into specific, observable measures **operationalization**. Operationalization involves both a **nominal** and an **operational** definition. Describe in your own words what these terms mean. 
+
+### Question 2
 Two different definitions of **emotional well-being** are provided by the Mental Health Foundation. For each of the following definitions, decide whether it constitutes a nominal or an operational definition:
 
 a. "A positive sense of well-being which enables an individual to be able to function in society and meet the demands of everyday life."
 b. "People in good mental health have the ability to recover effectively from illness, change or misfortune."
 
-### Question 4
+### Question 3
 Two different definitions of **financial literacy** can be found in literature. For each of the following definitions, decide whether it constitutes a nominal or an operational definition:
 
 a. "The ability to read, analyze, manage and communicate about the personal financial conditions that affect material well-being."
 b. "The ability to manage effectively personal savings, credits and borrowed money as well as personal investments."
 
-### Question 5
+### Question 4
 Suppose you want to study financial literacy, given the numerous benefits it brings to society, and given the documented lack of financial education. Would you use the following operational definition of financial literacy: “The ability to correctly predict short term fluctuations in the stock market?"
 
-### Question 6
+### Question 5
 The graph below is a visual representation of the concepts of measure validity and reliability.
 
 ```{r validreliab, fig.cap="A visual representation of the concepts measure validity and reliability. Imagine the theoretical construct you want to measure is the bullseye of the dartboard and the dots represent an attempt at measurement. Illustration adapted from an illustration by Nevit Dilmen, Wikimedia Commons.", echo=FALSE,eval=TRUE,dev='png'}
@@ -72,26 +131,30 @@ For each one of the three statements below, indicate whether it corresponds to d
 * The measure of our concept is neither valid, not reliable.
 * The measure of our concept is both valid and reliable.
 
-### Question 7
+### Question 6
 The National Health Care Institute of the Netherlands partners with local schools to provide a weekly physical exercise program for children ages 6-14. The sessions are designed to last throughout the whole academic year, and they will take place in afternoon hours. They also consist of both a theoretical and a practical part. In the theoretical part, volunteers strive to increase children’s exercise habits by teaching them about the benefits of regular exercise, whereas in the practical part, they organize various age-appropriate sports activities for children to participate in. Changes in exercise habits are measured via a questionnaire at the end of the program. However, the program manager is concerned that the questionnaire is not producing high-quality observations, particularly for questions that ask children about their exercise habits before participating in the program. Assuming the problem is with measurement and not with the program design:
 
 * What is the most likely measurement problem? Reliability or validity?
 * What type of error is most likely producing this problem? Constant error, random error and/or correlated error? 
 * How might the program address this measurement problem?
   
-### Question 8
+### Question 7
 The Dutch Environmental Assessment Agency aims to identify sections of Dutch rivers for stream bank restoration. The goal of this work is to create stream bank conditions that can lead to eventual water quality improvements. Crews of national service volunteers implement remediation in accordance with the waterway management plan, including removal of trash and debris from stream banks, removal of invasive plants, reintroduction of native plants, and erosion abatement. Land managers from the Ministry of Infrastructure and Water Management inspect project sites within two weeks of project completion. The assessment instrument used by land managers contains checkbox items to indicate whether various remediation actions were taken but does not provide a way to assess the quality of these remediation actions with respect to environmental standards. This problem should be of high concern to the land managers, given the fact that high quality environmental standards are hard to meet, even when all the appropriate actions have been taken. Assuming the problem is with measurement and not with the program design:
 
 * What is the most likely measurement problem? Reliability or validity?
 * What type of error is most likely producing this problem? Constant error, random error and/or correlated error? 
 * How might the program address this measurement problem?
 
-## Part two: introduction to R
-This part of the lab manual will introduce you to the very basics of R. You are urged to follow along with the examples in your own RStudio window. The answers to the exercises can be registered in the R Markdown document of this lab. During this part of the lab, we’ll spend a bit of time using R as a simple calculator, since that’s the easiest thing to do with R, just to give you a feel for what it’s like to work in R. In [the Getting started](https://thomashulst.github.io/quantrma_lab/getting-started-adapted1.html) guide we learned to execute our first command in R, by typing 10 + 20 in the console and pressing enter. Try it out in RStudio: 
+## Basic R
+This part of the lab manual will introduce you to the very basics of R. You are urged to follow along with the examples in your own RStudio window. The answers to the exercises should be registered in the RMarkdown template. 
+
+During this part of the lab, we’ll spend a bit of time using R as a simple calculator, since that’s the easiest thing to do with R, just to give you a feel for what it’s like to work in R. In [the Getting started](https://thomashulst.github.io/quantrma_lab/getting-started-adapted1.html) guide we learned to execute our first command in R, by typing 10 + 20 in the console and pressing enter. Try it out in the console of RStudio: 
 
 ```{r}
 10+20
 ```
+
+You can also type the command above in a code block in your template file and execute it there. That way, when you knit the template, the code examples are also included in your notes, which can be very helpful for working on your assignments or preparing for your exam. 
 
 ### Doing simple calculations with R{#arithmetic}
 First, let's learn how to use one of the most powerful piece of statistical software in the world as a €2 calculator. So far, all we know how to do is addition. Clearly, a calculator that only did addition would be a bit stupid, so I should tell you about how to perform other simple calculations using R. But first, some more terminology. Addition is an example of an "operation" that you can perform (specifically, an arithmetic operation), and the ***operator*** that performs it is `+`. To people with a programming or mathematics background, this terminology probably feels pretty natural, but to other people it might feel like I'm trying to make something very simple (addition) sound more complicated than it is (by calling it an arithmetic operation). To some extent, that's true: if addition was the only operation that we were interested in, it'd be a bit silly to introduce all this extra terminology. However, as we go along, we'll start using more and more different kinds of operations, so it's probably a good idea to get the language straight now, while we're still talking about very familiar concepts like addition! 
@@ -144,7 +207,7 @@ This is a fairly useful thing to be able to do. The only other thing I should po
 All of the above being said, it's helpful to remember that *brackets always come first*. So, if you're ever unsure about what order R will do things in, an easy solution is to enclose the thing *you* want it to do first in brackets.  There's nothing stopping you from typing `(4 / 2) * 3`. By enclosing the division in brackets we make it clear which thing is supposed to happen first. In this instance you wouldn't have needed to, since R would have done the division first anyway, but when you're first starting out it's better to make sure R does what you want!
 
 #### Arithmetics exercises
-Answer these and the following exercises in the codeblocks of the R Markdown template in RStudio (Lab01_Introduction.Rmd).
+Complete the following exercises in your lab template. 
 
 1. Take your favorite number to the third power.
 2. Calculate the number of seconds in a year, on the simplifying assumption that a year contains exactly 365 days.
@@ -189,7 +252,6 @@ sqrt( 1 + abs(-8) )
 When R executes this command, starts out by calculating the value of `abs(-8)`, which produces an intermediate value of `8`. Having done so, the command simplifies to `sqrt( 1 + 8 )`. 
 
 #### Multiple arguments
-
 There's two more fairly important things that you need to understand about how functions work in R, and that's the use of "named" arguments, and default values" for arguments. Not surprisingly, that's not to say that this is the last we'll hear about how functions work, but they are the last things we desperately need to discuss in order to get you started. To understand what these two concepts are all about, I'll introduce another function. The `round()` function can be used to round some value to the nearest whole number. For example, I could type this:
 
 ```{r}
@@ -237,6 +299,8 @@ I have somewhat mixed feelings about the help documentation in R. On the plus si
 Now, it's probably beginning to dawn on you that there are going to be a *lot* of R functions, all of which have their own arguments. You're probably also worried that you're going to have to remember all of them! Thankfully, it's not that bad. In fact, very few data analysts bother to try to remember all the commands. What they really do is use tricks to make their lives easier. The first trick is using the `?` command shown above to display the documentation on a particular function. Another trick is to use two question marks (`??`) to launch a search to all mentions of the word after `??` in the R documentation. The final, and arguably most important trick, is to use the internet. If you don't know how a particular R function works, or you want to do something in R but are unsure how, [Google it](https://www.google.com/search?q=round+numbers+in+r). 
 
 #### Function exercises
+Complete the following exercises in your lab template. 
+
 1. Use a function to calculate the square root of your favorite number.
 2. How many arguments does the function `log()` take?
 3. Use R to execute the following command: `rep("hello!",100)`. What does the `rep()` function do? Could you rewrite the command to use argument names?
@@ -296,6 +360,8 @@ revenue
 In this calculation, R has taken the old value of `revenue` (i.e., 1400) and added 550 to that value, producing a value of 1950. This new value is assigned to the `revenue` variable, overwriting its previous value. In any case, we now know that I'm expecting to make €1950 off this. Hurray! 
 
 #### Exercises variables
+Complete the following exercises in your lab template. 
+
 1. Assign your favorite number to the variable `fav_num`.
 2. Assign a sequence of numbers from 1 to 10 the variable `seq_10` (hint: `seq()`).
 3. Multiply `fav_num` with `seq_10` and save the result in a variable called fav_num_seq10. ^[The output of this operation should result in a so-called *vector* of 10 numbers. We will encounter vectors later in the course, but basically a vector is a variable that can store multiple values.] 
@@ -432,28 +498,30 @@ BLAH BLAH BLAH
 where the `BLAH BLAH BLAH` goes on for rather a long time, and you don't know enough R yet to understand what all this gibberish actually means (of course, it doesn't actually say BLAH BLAH BLAH - it says some other things we don't understand or need to know that I've edited for length) This incomprehensible output can be quite intimidating to novice users, and unfortunately it's very easy to forget to type the parentheses; so almost certainly you'll do this by accident. Do not panic when this happens. Simply ignore the gibberish.  As you become more experienced this gibberish will start to make sense, and you'll find it quite handy to print this stuff out.^[For advanced users: yes, as you've probably guessed, R is printing out the source code for the function.]  But for now just try to remember to add the parentheses when typing your commands.
 
 #### Common mistakes exercises
+Complete the following exercises in your lab template. 
+
 Figure out what is wrong with the following R commands and try to fix them:
 
-1.
+1. Mistake 1
 ```{r,eval=FALSE}
 x <- 1
 y <- 5
 x*z
 ```
 
-2.
+2. Mistake 2
 ```{r,eval=FALSE}
 
 x <- Seq(1,10)
 
 ```
 
-3.
+3. Mistake 3
 ```{r,eval=FALSE}
 x <- sqrt(seq(1,10)
 ```
 
-4.
+4. Mistake 4
 ```{r,eval=FALSE}
 This is actually my favorite number:
 fav_num <- 2.718
