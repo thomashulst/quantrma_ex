@@ -11,7 +11,7 @@ output:
 knitr::opts_chunk$set(echo = TRUE, eval = TRUE, cache = FALSE, error = TRUE, message = FALSE, warning = TRUE, tidy = TRUE)
 ```
 
-Welcome to the template file of the first lab! This template is what we call an RMarkdown file (.Rmd). The text above this paragraph in is an instruction to your computer on how to setup your document. Do you see the text with "author:" and "date:"? You can fill in your name to tell your computer you are the author of this document. The computer will figure out what date it is with the small bit of R code after "date: ".  The rest of the text above this paragraph you can ignore for now. 
+Welcome to the template file of the first lab! This template is what we call an RMarkdown file (.Rmd). The text above this paragraph is an instruction to your computer on how to setup your document. Do you see the text with "author:" and "date:"? You can fill in your name to tell your computer you are the author of this document. The computer will figure out what date it is with the small bit of R code after "date:".  The rest of the text above this paragraph you can ignore for now. 
 
 We are assuming you have read the general introduction, the learning goals and "How to use this lab manual" on the lab manual website. If so, start with reading the section on "R Markdown basics" (Section 1.3) and afterwards complete the exercises below. 
 
@@ -77,6 +77,10 @@ Answer here.
 
 ## Question 7
 The Dutch Environmental Assessment Agency aims to identify sections of Dutch rivers for stream bank restoration. The goal of this work is to create stream bank conditions that can lead to eventual water quality improvements. Crews of national service volunteers implement remediation in accordance with the waterway management plan, including removal of trash and debris from stream banks, removal of invasive plants, reintroduction of native plants, and erosion abatement. Land managers from the Ministry of Infrastructure and Water Management inspect project sites within two weeks of project completion. The assessment instrument used by land managers contains checkbox items to indicate whether various remediation actions were taken but does not provide a way to assess the quality of these remediation actions with respect to environmental standards. This problem should be of high concern to the land managers, given the fact that high quality environmental standards are hard to meet, even when all the appropriate actions have been taken. Assuming the problem is with measurement and not with the program design:
+
+* What is the most likely measurement problem? Reliability or validity?
+* What type of error is most likely producing this problem? Constant error, random error and/or correlated error? 
+* How might the program address this measurement problem?
 
 Answer here.
 

@@ -69,7 +69,7 @@ Which will display as:
 
 The list of things you can do to format your text in RMarkdown is extensive. You can find a cheatsheet with all the things you can do [here](https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf) or download the cheatsheet from Canvas. 
 
-To include R code in your RMarkdown document, which we are going to do all the time during the labs, as well as your assignments, you should use an R code chunk. You can do that by inserting three backticks (```` ``` ````) followed by \{r} (to indicate you are going to run R code). You finish a code chunk with another three backticks (```` ``` ````). In your RMarkdown document this will look as follows:
+To include R code in your RMarkdown document, which we are going to do all the time during the labs and assignments, you should use an R code chunk. You can do that by inserting three backticks (```` ``` ````) followed by \{r} (to indicate you are going to run R code). You finish a code chunk with another three backticks (```` ``` ````). In your RMarkdown document this will look as follows:
 
 ```{r chunk, fig.cap="", echo=FALSE,eval=TRUE,out.width="100%"}
 knitr::include_graphics('figures/chunk.png')
