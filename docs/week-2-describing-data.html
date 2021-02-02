@@ -198,8 +198,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="2.3" data-path="week-2-describing-data.html"><a href="week-2-describing-data.html#making-graphs"><i class="fa fa-check"></i><b>2.3</b> Making graphs</a>
 <ul>
-<li class="chapter" data-level="2.3.1" data-path="week-2-describing-data.html"><a href="week-2-describing-data.html#plotting-counts"><i class="fa fa-check"></i><b>2.3.1</b> Plotting <code>counts</code></a></li>
-<li class="chapter" data-level="2.3.2" data-path="week-2-describing-data.html"><a href="week-2-describing-data.html#addggplot"><i class="fa fa-check"></i><b>2.3.2</b> Additional materials: <code>ggplot()</code> layers and functions</a></li>
+<li class="chapter" data-level="2.3.1" data-path="week-2-describing-data.html"><a href="week-2-describing-data.html#wrangle-first"><i class="fa fa-check"></i><b>2.3.1</b> Wrangle first</a></li>
+<li class="chapter" data-level="2.3.2" data-path="week-2-describing-data.html"><a href="week-2-describing-data.html#plotting-counts"><i class="fa fa-check"></i><b>2.3.2</b> Plotting <code>counts</code></a></li>
+<li class="chapter" data-level="2.3.3" data-path="week-2-describing-data.html"><a href="week-2-describing-data.html#addggplot"><i class="fa fa-check"></i><b>2.3.3</b> Additional materials: <code>ggplot()</code> layers and functions</a></li>
 </ul></li>
 <li class="chapter" data-level="2.4" data-path="week-2-describing-data.html"><a href="week-2-describing-data.html#gaplab"><i class="fa fa-check"></i><b>2.4</b> Gapminder dataset</a>
 <ul>
@@ -337,21 +338,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="making-graphs" class="section level2" number="2.3">
 <h2><span class="header-section-number">2.3</span> Making graphs</h2>
+<div id="wrangle-first" class="section level3" number="2.3.1">
+<h3><span class="header-section-number">2.3.1</span> Wrangle first</h3>
 <p>Let’s walk through a couple questions we might have about the NYC films data and make several graphs to visualize the answers to these questions. We saw there were 50,728 film permits made. We also saw that there were different columns telling us information about each of the film permits. For example, the <code>Borough</code> column lists the borough for each request, i.e. whether the permit was for: Manhattan, Brooklyn, Bronx, Queen’s, or Staten Island.</p>
-<p>We could ask: where are the most film permits being requested (i.e. what borough)? We can find out by using R to plot the data in a bar plot. A bar plot looks a bit like a histogram, but the bars on a bar plot represent the counts of <em>categorical</em> data instead of <em>continuous</em> data. Before we can make this plot, we need to have R count how many film permits are made in each borough (we surely don’t want to do that by hand!).</p>
-<p>Run the following code:</p>
+<p>We could ask: where are the most film permits being requested (i.e. what borough)? We can find out by using R to plot the data in a bar plot. A bar plot looks a bit like a histogram, but the bars on a bar plot represent the counts of <em>categorical</em> data instead of <em>continuous</em> data. Before we can make this plot, we need to have R count how many film permits are made in each borough (we surely don’t want to do that by hand!). This step is called wrangling (i.e. preparing your data for visualization and/or further analysis), which you might remember from the lecture.</p>
+<p>To prepare the <code>nyc_films</code> data for plotting, run the following code:</p>
 <div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="week-2-describing-data.html#cb82-1" aria-hidden="true" tabindex="-1"></a>counts <span class="ot">&lt;-</span> nyc_films <span class="sc">%&gt;%</span> </span>
 <span id="cb82-2"><a href="week-2-describing-data.html#cb82-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Borough) <span class="sc">%&gt;%</span> </span>
 <span id="cb82-3"><a href="week-2-describing-data.html#cb82-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">count_of_permits =</span> <span class="fu">length</span>(Borough))</span></code></pre></div>
 <p>What is happening in the code above? Step through the code line by line to see if you understand it. On the first line, we are using a new operator you haven’t encountered before: <code>%&gt;%</code>. This operator is called the ‘pipe’ operator. The pipe operator is part of the <code>tidyverse</code> library we loaded before. The pipe operator allows us to clearly express a sequence of multiple operations on a data frame.</p>
-<p>On the first line of the code above, we tell R: use the data frame nyc_films for the next operations and assign the result to the variable counts. In the second line of the code we group the data by each of the five boroughs. On the final line, we summarize the number of times each borough occurs using the <code>length()</code> function. We end up with a variable <code>counts</code> with two columns: the name of the boroughs (<code>counts$Borough$</code>) and the number of permits counted (<code>counts$count_of_permits</code>).</p>
+<p>On the first line of the code above, we tell R: use the data frame nyc_films for the next operations and assign the result to the variable counts. In the second line of the code we group the data by each of the five boroughs. On the final line, we summarize the number of times each borough occurs using the <code>length()</code> function.<a href="#fn13" class="footnote-ref" id="fnref13"><sup>13</sup></a> We end up with a variable <code>counts</code> with two columns: the name of the boroughs (<code>counts$Borough</code>) and the number of permits counted (<code>counts$count_of_permits</code>).</p>
 <p>The code above is equivalent to the code below which doesn’t use the pipe operator, but assigns the outcome of an operation to an intermediate variable.</p>
 <div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="week-2-describing-data.html#cb83-1" aria-hidden="true" tabindex="-1"></a>nyc_films_grouped <span class="ot">&lt;-</span> <span class="fu">group_by</span>(nyc_films, Borough)</span>
 <span id="cb83-2"><a href="week-2-describing-data.html#cb83-2" aria-hidden="true" tabindex="-1"></a>counts <span class="ot">&lt;-</span> <span class="fu">summarize</span>(nyc_films_grouped, <span class="at">count_of_permits =</span> <span class="fu">length</span>(Borough))</span></code></pre></div>
 <p>The difference between the first or second code block might seem a bit confusing or arbitrary, as both methods generate the same result, but when performing many operations on a data frame, the pipe operator results in much more efficient and readable code. Either way, if you click on the <code>counts</code> variable in your environment, you will see the five boroughs listed, along with the counts for how many film permits were requested in each Borough. Those are the numbers we want to plot in a graph.</p>
-<div id="plotting-counts" class="section level3" number="2.3.1">
-<h3><span class="header-section-number">2.3.1</span> Plotting <code>counts</code></h3>
-<p>We actually make the plot using <code>ggplot()</code>. <code>ggplot</code> is also part of the <code>tidyverse</code> and is very powerful once you get the hand of it, but it can be a bit intimidating in the beginning<a href="#fn13" class="footnote-ref" id="fnref13"><sup>13</sup></a>. Like previous code examples, it helps if we demonstrate the code first and you follow along by copy/pasting and executing the code. You can then go very quickly to answering your own questions about data, by making minor adjustments to the code examples.</p>
+</div>
+<div id="plotting-counts" class="section level3" number="2.3.2">
+<h3><span class="header-section-number">2.3.2</span> Plotting <code>counts</code></h3>
+<p>We actually make the plot using <code>ggplot()</code>. <code>ggplot</code> is also part of the <code>tidyverse</code> and is very powerful once you get the hand of it, but it can be a bit intimidating in the beginning<a href="#fn14" class="footnote-ref" id="fnref14"><sup>14</sup></a>. Like previous code examples, it helps if we demonstrate the code first and you follow along by copy/pasting and executing the code. You can then go very quickly to answering your own questions about data, by making minor adjustments to the code examples.</p>
 <p>Here’s the code to make the plot:</p>
 <div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="week-2-describing-data.html#cb84-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(counts, <span class="fu">aes</span>(<span class="at">x =</span> Borough, <span class="at">y =</span> count_of_permits )) <span class="sc">+</span></span>
 <span id="cb84-2"><a href="week-2-describing-data.html#cb84-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>()</span></code></pre></div>
@@ -387,28 +391,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb87-3"><a href="week-2-describing-data.html#cb87-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_layer</span>()<span class="sc">+</span></span>
 <span id="cb87-4"><a href="week-2-describing-data.html#cb87-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_layer</span>()</span></code></pre></div>
 <p>What I want you to focus on in the above description is the <span class="math inline">\(+\)</span> signs. What we are doing with the plus signs is adding layers to plot. The layers get added in the order that they are written (a bit like the <code>%&gt;%</code> operator for data frames). If you look back to our previous code, you will see we add a <code>geom_col</code> layer, then we added another layer to change the rotation of the words on the x-axis. This is how it works.</p>
-<p>Section <a href="week-2-describing-data.html#addggplot">2.3.2</a> below contains <strong>additional</strong> materials which are very helpful when working on your assignments, but are not mandatory for completing this lab. Section <a href="week-2-describing-data.html#addggplot">2.3.2</a> will explain how to add a title to your graph. Or change the labels on the axes. Or add different colors, or change the font-size, or change the background. You can change all of these things by adding different lines to the existing code demonstrated below. We will skip those materials for now.</p>
-<p>For this lab, after completing the Plot exercises below in your lab template, skip the additional materials in Section <a href="week-2-describing-data.html#addggplot">2.3.2</a> and go directly to Section <a href="week-2-describing-data.html#gaplab">2.4</a>.</p>
-<div id="plot-exercises" class="section level4" number="2.3.1.1">
-<h4><span class="header-section-number">2.3.1.1</span> Plot exercises</h4>
+<p>Section <a href="week-2-describing-data.html#addggplot">2.3.3</a> below contains <strong>additional</strong> materials which are very helpful when working on your assignments, but are not mandatory for completing this lab. Section <a href="week-2-describing-data.html#addggplot">2.3.3</a> will explain how to add a title to your graph. Or change the labels on the axes. Or add different colors, or change the font-size, or change the background. You can change all of these things by adding different lines to the existing code demonstrated below. We will skip those materials for now.</p>
+<p>For this lab, after completing the Plot exercises below in your lab template, skip the additional materials in Section <a href="week-2-describing-data.html#addggplot">2.3.3</a> and go directly to Section <a href="week-2-describing-data.html#gaplab">2.4</a>.</p>
+<div id="plot-exercises" class="section level4" number="2.3.2.1">
+<h4><span class="header-section-number">2.3.2.1</span> Plot exercises</h4>
 <p>Complete the following exercises in your lab template:</p>
 <ol style="list-style-type: decimal">
-<li>Explain in your own words what is happening in the code block below. What does the <code>%&gt;%</code> operator indicate?</li>
+<li>Explain in your own words what is happening in the code block below. What does the <code>%&gt;%</code> operator indicate? What about<code>n()</code>?</li>
 </ol>
 <div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="week-2-describing-data.html#cb88-1" aria-hidden="true" tabindex="-1"></a>counts <span class="ot">&lt;-</span> nyc_films <span class="sc">%&gt;%</span> </span>
 <span id="cb88-2"><a href="week-2-describing-data.html#cb88-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Category) <span class="sc">%&gt;%</span> </span>
-<span id="cb88-3"><a href="week-2-describing-data.html#cb88-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">count_of_permits =</span> <span class="fu">length</span>(Category))</span></code></pre></div>
+<span id="cb88-3"><a href="week-2-describing-data.html#cb88-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">count_of_permits =</span> <span class="fu">n</span>())</span></code></pre></div>
 <ol start="2" style="list-style-type: decimal">
 <li>The first argument of <code>ggplot()</code> should always be the data argument. In what type of form should the data be provided? (hint: <code>?ggplot</code>)</li>
 <li>What function can we use to set the title of a plot? Use the ggplot <a href="https://ggplot2.tidyverse.org/reference/index.html">reference manual</a>, the additional materials, or Google to answer this question.</li>
 </ol>
 </div>
 </div>
-<div id="addggplot" class="section level3" number="2.3.2">
-<h3><span class="header-section-number">2.3.2</span> Additional materials: <code>ggplot()</code> layers and functions</h3>
+<div id="addggplot" class="section level3" number="2.3.3">
+<h3><span class="header-section-number">2.3.3</span> Additional materials: <code>ggplot()</code> layers and functions</h3>
 <p>These are additional materials for when you are working on your assignment and want to change to look of your graph. You can also return to these materials when doing quantitative analyses in different courses.</p>
-<div id="ylab-changes-y-label" class="section level4" number="2.3.2.1">
-<h4><span class="header-section-number">2.3.2.1</span> <code>ylab()</code> changes y label</h4>
+<div id="ylab-changes-y-label" class="section level4" number="2.3.3.1">
+<h4><span class="header-section-number">2.3.3.1</span> <code>ylab()</code> changes y label</h4>
 <p>The last graph had <code>count_of_permits</code> as the label on the y-axis. That doesn’t look right. ggplot automatically took the label from the column name, and made it be the name on the y-axis. We can change that by adding <code>ylab("text")</code>. We do this by adding a <span class="math inline">\(+\)</span> to the last line, then adding <code>ylab()</code></p>
 <div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="week-2-describing-data.html#cb89-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(counts, <span class="fu">aes</span>(<span class="at">x =</span> Category, <span class="at">y =</span> count_of_permits )) <span class="sc">+</span></span>
 <span id="cb89-2"><a href="week-2-describing-data.html#cb89-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
@@ -416,8 +420,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb89-4"><a href="week-2-describing-data.html#cb89-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Number of Film Permits&quot;</span>)</span></code></pre></div>
 <p><img src="quantrma_lab_files/figure-html/1categoryC-1.png" width="672" /></p>
 </div>
-<div id="xlab-changes-x-label" class="section level4" number="2.3.2.2">
-<h4><span class="header-section-number">2.3.2.2</span> <code>xlab()</code> changes x label</h4>
+<div id="xlab-changes-x-label" class="section level4" number="2.3.3.2">
+<h4><span class="header-section-number">2.3.3.2</span> <code>xlab()</code> changes x label</h4>
 <p>Let’s slightly modify the x label too:</p>
 <div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="week-2-describing-data.html#cb90-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(counts, <span class="fu">aes</span>(<span class="at">x =</span> Category, <span class="at">y =</span> count_of_permits )) <span class="sc">+</span></span>
 <span id="cb90-2"><a href="week-2-describing-data.html#cb90-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
@@ -426,8 +430,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb90-5"><a href="week-2-describing-data.html#cb90-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Category of film&quot;</span>)</span></code></pre></div>
 <p><img src="quantrma_lab_files/figure-html/1categoryD-1.png" width="672" /></p>
 </div>
-<div id="ggtitle-adds-title" class="section level4" number="2.3.2.3">
-<h4><span class="header-section-number">2.3.2.3</span> <code>ggtitle()</code> adds title</h4>
+<div id="ggtitle-adds-title" class="section level4" number="2.3.3.3">
+<h4><span class="header-section-number">2.3.3.3</span> <code>ggtitle()</code> adds title</h4>
 <p>Let’s give our graph a title:</p>
 <div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="week-2-describing-data.html#cb91-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(counts, <span class="fu">aes</span>(<span class="at">x =</span> Category, <span class="at">y =</span> count_of_permits )) <span class="sc">+</span></span>
 <span id="cb91-2"><a href="week-2-describing-data.html#cb91-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
@@ -437,8 +441,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb91-6"><a href="week-2-describing-data.html#cb91-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Number of Film permits in NYC by Category&quot;</span>)</span></code></pre></div>
 <p><img src="quantrma_lab_files/figure-html/1categoryE-1.png" width="672" /></p>
 </div>
-<div id="color-adds-color" class="section level4" number="2.3.2.4">
-<h4><span class="header-section-number">2.3.2.4</span> <code>color()</code> adds color</h4>
+<div id="color-adds-color" class="section level4" number="2.3.3.4">
+<h4><span class="header-section-number">2.3.3.4</span> <code>color()</code> adds color</h4>
 <p>Let’s make the bars different colors. To do this, we add new code to the inside of the <code>aes()</code> part:</p>
 <div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="week-2-describing-data.html#cb92-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(counts, <span class="fu">aes</span>(<span class="at">x =</span> Category, <span class="at">y =</span> count_of_permits, <span class="at">color=</span>Category )) <span class="sc">+</span></span>
 <span id="cb92-2"><a href="week-2-describing-data.html#cb92-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
@@ -448,8 +452,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb92-6"><a href="week-2-describing-data.html#cb92-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Number of Film permits in NYC by Category&quot;</span>)</span></code></pre></div>
 <p><img src="quantrma_lab_files/figure-html/1categoryF-1.png" width="672" /></p>
 </div>
-<div id="fill-fills-in-color" class="section level4" number="2.3.2.5">
-<h4><span class="header-section-number">2.3.2.5</span> <code>fill()</code> fills in color</h4>
+<div id="fill-fills-in-color" class="section level4" number="2.3.3.5">
+<h4><span class="header-section-number">2.3.3.5</span> <code>fill()</code> fills in color</h4>
 <p>Let’s make the bars different colors. To do this, we add new code to the inside of the <code>aes()</code> part…Notice I’ve started using new lines to make the code more readable.</p>
 <div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="week-2-describing-data.html#cb93-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(counts, <span class="fu">aes</span>(<span class="at">x =</span> Category, <span class="at">y =</span> count_of_permits, </span>
 <span id="cb93-2"><a href="week-2-describing-data.html#cb93-2" aria-hidden="true" tabindex="-1"></a>                   <span class="at">color=</span>Category, </span>
@@ -461,8 +465,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb93-8"><a href="week-2-describing-data.html#cb93-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Number of Film permits in NYC by Category&quot;</span>)</span></code></pre></div>
 <p><img src="quantrma_lab_files/figure-html/1categoryG-1.png" width="672" /></p>
 </div>
-<div id="get-rid-of-the-legend" class="section level4" number="2.3.2.6">
-<h4><span class="header-section-number">2.3.2.6</span> Get rid of the legend</h4>
+<div id="get-rid-of-the-legend" class="section level4" number="2.3.3.6">
+<h4><span class="header-section-number">2.3.3.6</span> Get rid of the legend</h4>
 <p>Sometimes you just don’t want the legend on the side, to remove it add</p>
 <p><code>theme(legend.position="none")</code></p>
 <div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="week-2-describing-data.html#cb94-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(counts, <span class="fu">aes</span>(<span class="at">x =</span> Category, <span class="at">y =</span> count_of_permits, </span>
@@ -476,8 +480,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb94-9"><a href="week-2-describing-data.html#cb94-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position=</span><span class="st">&quot;none&quot;</span>)</span></code></pre></div>
 <p><img src="quantrma_lab_files/figure-html/1categoryH-1.png" width="672" /></p>
 </div>
-<div id="theme_classic-makes-white-background" class="section level4" number="2.3.2.7">
-<h4><span class="header-section-number">2.3.2.7</span> <code>theme_classic()</code> makes white background</h4>
+<div id="theme_classic-makes-white-background" class="section level4" number="2.3.3.7">
+<h4><span class="header-section-number">2.3.3.7</span> <code>theme_classic()</code> makes white background</h4>
 <p>The rest is often just visual preference. For example, the graph above has this grey grid behind the bars. For a clean classic no nonsense look, use <code>theme_classic()</code> to take away the grid.</p>
 <div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="week-2-describing-data.html#cb95-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(counts, <span class="fu">aes</span>(<span class="at">x =</span> Category, <span class="at">y =</span> count_of_permits, </span>
 <span id="cb95-2"><a href="week-2-describing-data.html#cb95-2" aria-hidden="true" tabindex="-1"></a>                   <span class="at">color=</span>Category, </span>
@@ -491,8 +495,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb95-10"><a href="week-2-describing-data.html#cb95-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code></pre></div>
 <p><img src="quantrma_lab_files/figure-html/1categoryI-1.png" width="672" /></p>
 </div>
-<div id="sometimes-layer-order-matters" class="section level4" number="2.3.2.8">
-<h4><span class="header-section-number">2.3.2.8</span> Sometimes layer order matters</h4>
+<div id="sometimes-layer-order-matters" class="section level4" number="2.3.3.8">
+<h4><span class="header-section-number">2.3.3.8</span> Sometimes layer order matters</h4>
 <p>Interesting, <code>theme_classic()</code> is misbehaving a little bit and incorrectly renders the axis labels and reintroduces the legend. It looks like we have some of our layers out of order, let’s re-order. I just moved <code>theme_classic()</code> to just underneath the <code>geom_bar()</code> line. Now everything get’s drawn properly.</p>
 <div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="week-2-describing-data.html#cb96-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(counts, <span class="fu">aes</span>(<span class="at">x =</span> Category, <span class="at">y =</span> count_of_permits, </span>
 <span id="cb96-2"><a href="week-2-describing-data.html#cb96-2" aria-hidden="true" tabindex="-1"></a>                   <span class="at">color=</span>Category, </span>
@@ -506,8 +510,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb96-10"><a href="week-2-describing-data.html#cb96-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position=</span><span class="st">&quot;none&quot;</span>) </span></code></pre></div>
 <p><img src="quantrma_lab_files/figure-html/1categoryJ-1.png" width="672" /></p>
 </div>
-<div id="font-size" class="section level4" number="2.3.2.9">
-<h4><span class="header-section-number">2.3.2.9</span> Font-size</h4>
+<div id="font-size" class="section level4" number="2.3.3.9">
+<h4><span class="header-section-number">2.3.3.9</span> Font-size</h4>
 <p>Changing font-size is often something you want to do. ggplot2 can do this in different ways. I suggest using the <code>base_size</code> option inside <code>theme_classic()</code>. You set one number for the largest font size in the graph, and everything else gets scaled to fit with that that first number. It’s really convenient. Look for the inside of <code>theme_classic()</code></p>
 <div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="week-2-describing-data.html#cb97-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(counts, <span class="fu">aes</span>(<span class="at">x =</span> Category, <span class="at">y =</span> count_of_permits, </span>
 <span id="cb97-2"><a href="week-2-describing-data.html#cb97-2" aria-hidden="true" tabindex="-1"></a>                   <span class="at">color=</span>Category, </span>
@@ -533,8 +537,8 @@ or make things small… just to see what happens</p>
 <span id="cb98-10"><a href="week-2-describing-data.html#cb98-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position=</span><span class="st">&quot;none&quot;</span>) </span></code></pre></div>
 <p><img src="quantrma_lab_files/figure-html/1categoryL-1.png" width="672" /></p>
 </div>
-<div id="what-are-the-sub-categories-of-films" class="section level4" number="2.3.2.10">
-<h4><span class="header-section-number">2.3.2.10</span> What are the sub-categories of films?</h4>
+<div id="what-are-the-sub-categories-of-films" class="section level4" number="2.3.3.10">
+<h4><span class="header-section-number">2.3.3.10</span> What are the sub-categories of films?</h4>
 <p>Notice the <code>nyc_films</code> data frame also has a column for <code>SubCategoryName</code>. Let’s see what’s going on there with a quick plot.</p>
 <div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="week-2-describing-data.html#cb99-1" aria-hidden="true" tabindex="-1"></a><span class="co"># comments are really useful: R will ignore them, but they can explain to a reader </span></span>
 <span id="cb99-2"><a href="week-2-describing-data.html#cb99-2" aria-hidden="true" tabindex="-1"></a><span class="co"># what is going on in the code</span></span>
@@ -558,8 +562,8 @@ or make things small… just to see what happens</p>
 <p><img src="quantrma_lab_files/figure-html/1subcategory-1.png" width="672" /></p>
 <p>I guess “episodic series” are the most common. Using a graph like this gave us our answer super fast.</p>
 </div>
-<div id="facet_wrap-for-categories-by-different-boroughs" class="section level4" number="2.3.2.11">
-<h4><span class="header-section-number">2.3.2.11</span> <code>facet_wrap()</code> for categories by different boroughs</h4>
+<div id="facet_wrap-for-categories-by-different-boroughs" class="section level4" number="2.3.3.11">
+<h4><span class="header-section-number">2.3.3.11</span> <code>facet_wrap()</code> for categories by different boroughs</h4>
 <p>Let’s see one more really useful thing about ggplot. It’s called <code>facet_wrap()</code>. It’s an ugly word, but you will see that it is very cool, and you can do next-level-super-hero graph styles with <code>facet_wrap</code> that other people can’t do very easily.</p>
 <p>Here’s our question. We know that films are made in different Boroughs, and that films are made in different Categories, but do different Boroughs have different patterns for the kinds of categories of films they request permits for? Are their more TV shows in Brooklyn? How do we find out? Watch, just like this:</p>
 <div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="week-2-describing-data.html#cb100-1" aria-hidden="true" tabindex="-1"></a><span class="co"># get the counts</span></span>
@@ -1175,7 +1179,8 @@ Whoa, that’s a lot of dots! Remember that each country is measured each year. 
 <hr />
 <ol start="12">
 <li id="fn12"><p>To be more exact: a tibble, but the difference with a <code>data.frame</code> is not important for now<a href="week-2-describing-data.html#fnref12" class="footnote-back">↩︎</a></p></li>
-<li id="fn13"><p>It is pretty neat to look and <a href="https://www.r-graph-gallery.com/index.html">see all of the different things you can do with ggplot</a>, it’s very powerful<a href="week-2-describing-data.html#fnref13" class="footnote-back">↩︎</a></p></li>
+<li id="fn13"><p>Since we are using the <code>group_by</code> function, any of the columns would actually count up to the number of permits per borough. Instead of <code>length(Borough)</code> we could also summarize using <code>n()</code>. In fact, <code>n()</code> is the “tidy way” of doing it, but <code>length()</code> is used in the example for illustrative purposes.<a href="week-2-describing-data.html#fnref13" class="footnote-back">↩︎</a></p></li>
+<li id="fn14"><p>It is pretty neat to look and <a href="https://www.r-graph-gallery.com/index.html">see all of the different things you can do with ggplot</a>, it’s very powerful<a href="week-2-describing-data.html#fnref14" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>

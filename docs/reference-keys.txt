@@ -59,6 +59,7 @@ loading-data
 first-look-at-the-data
 data-exercises
 making-graphs
+wrangle-first
 plotting-counts
 plot-exercises
 addggplot

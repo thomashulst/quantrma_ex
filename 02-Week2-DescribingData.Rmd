@@ -64,11 +64,13 @@ Complete the following exercises in your lab template.
 3. You can also load data directly from the internet using `read_csv()`. Use `read_csv()` to load the data from https://github.com/thomashulst/quantrma_lab/raw/master/data/Film_Permits.csv and assign it to the variable `nyc_films2`.
 
 ## Making graphs
+
+### Wrangle first
 Let's walk through a couple questions we might have about the NYC films data and make several graphs to visualize the answers to these questions. We saw there were 50,728 film permits made. We also saw that there were different columns telling us information about each of the film permits. For example, the `Borough` column lists the borough for each request, i.e. whether the permit was for: Manhattan, Brooklyn, Bronx, Queen's, or Staten Island.
 
-We could ask: where are the most film permits being requested (i.e. what borough)? We can find out by using R to plot the data in a bar plot. A bar plot looks a bit like a histogram, but the bars on a bar plot represent the counts of *categorical* data instead of *continuous* data. Before we can make this plot, we need to have R count how many film permits are made in each borough (we surely don't want to do that by hand!).
+We could ask: where are the most film permits being requested (i.e. what borough)? We can find out by using R to plot the data in a bar plot. A bar plot looks a bit like a histogram, but the bars on a bar plot represent the counts of *categorical* data instead of *continuous* data. Before we can make this plot, we need to have R count how many film permits are made in each borough (we surely don't want to do that by hand!). This step is called wrangling (i.e. preparing your data for visualization and/or further analysis), which you might remember from the lecture. 
 
-Run the following code:
+To prepare the `nyc_films` data for plotting, run the following code:
 
 ```{r, eval=TRUE}
 
@@ -80,7 +82,7 @@ counts <- nyc_films %>%
 
 What is happening in the code above? Step through the code line by line to see if you understand it. On the first line, we are using a new operator you haven't encountered before: `%>%`. This operator is called the 'pipe' operator. The pipe operator is part of the `tidyverse` library we loaded before. The pipe operator allows us to clearly express a sequence of multiple operations on a data frame. 
 
-On the first line of the code above, we tell R: use the data frame nyc_films for the next operations and assign the result to the variable counts. In the second line of the code we group the data by each of the five boroughs. On the final line, we summarize the number of times each borough occurs using the `length()` function. We end up with a variable `counts` with two columns: the name of the boroughs (`counts$Borough$`) and the number of permits counted (`counts$count_of_permits`).
+On the first line of the code above, we tell R: use the data frame nyc_films for the next operations and assign the result to the variable counts. In the second line of the code we group the data by each of the five boroughs. On the final line, we summarize the number of times each borough occurs using the `length()` function.^[Since we are using the `group_by` function, any of the columns would actually count up to the number of permits per borough. Instead of `length(Borough)` we could also summarize using `n()`. In fact, `n()` is the "tidy way" of doing it, but `length()` is used in the example for illustrative purposes.] We end up with a variable `counts` with two columns: the name of the boroughs (`counts$Borough`) and the number of permits counted (`counts$count_of_permits`).
 
 The code above is equivalent to the code below which doesn't use the pipe operator, but assigns the outcome of an operation to an intermediate variable. 
 
@@ -160,11 +162,11 @@ For this lab, after completing the Plot exercises below in your lab template, sk
 #### Plot exercises
 Complete the following exercises in your lab template:
 
-1. Explain in your own words what is happening in the code block below. What does the `%>%` operator indicate?
+1. Explain in your own words what is happening in the code block below. What does the `%>%` operator indicate? What about`n()`? 
 ```{r,eval=F,echo=T}
 counts <- nyc_films %>% 
   group_by(Category) %>% 
-  summarize(count_of_permits = length(Category))
+  summarize(count_of_permits = n())
 ```
 2. The first argument of `ggplot()` should always be the data argument. In what type of form should the data be provided? (hint: `?ggplot`)
 3. What function can we use to set the title of a plot? Use the ggplot [reference manual](https://ggplot2.tidyverse.org/reference/index.html), the additional materials, or Google to answer this question.
