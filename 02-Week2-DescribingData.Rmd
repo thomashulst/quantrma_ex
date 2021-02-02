@@ -82,7 +82,7 @@ counts <- nyc_films %>%
 
 What is happening in the code above? Step through the code line by line to see if you understand it. On the first line, we are using a new operator you haven't encountered before: `%>%`. This operator is called the 'pipe' operator. The pipe operator is part of the `tidyverse` library we loaded before. The pipe operator allows us to clearly express a sequence of multiple operations on a data frame. 
 
-On the first line of the code above, we tell R: use the data frame nyc_films for the next operations and assign the result to the variable counts. In the second line of the code we group the data by each of the five boroughs. On the final line, we summarize the number of times each borough occurs using the `length()` function.^[Since we are using the `group_by` function, any of the columns would actually count up to the number of permits per borough. Instead of `length(Borough)` we could also summarize using `n()`. In fact, `n()` is the "tidy way" of doing it, but `length()` is used in the example for illustrative purposes.] We end up with a variable `counts` with two columns: the name of the boroughs (`counts$Borough`) and the number of permits counted (`counts$count_of_permits`).
+On the first line of the code above, we tell R: use the data frame nyc_films for the next operations and assign the result to the variable counts. In the second line of the code we group the data by each of the five boroughs. On the final line, we summarize the number of times each borough occurs using the `length()` function.^[Since we are using the `group_by` function, any of the columns would actually count up to the number of permits per borough. Instead of `length(Borough)` we could also summarize using `n()`. In fact, `n()` is the "tidy way" of doing it, but `length()` is used in this code example for illustrative purposes.] We end up with a variable `counts` with two columns: the name of the boroughs (`counts$Borough`) and the number of permits counted (`counts$count_of_permits`).
 
 The code above is equivalent to the code below which doesn't use the pipe operator, but assigns the outcome of an operation to an intermediate variable. 
 
@@ -162,11 +162,11 @@ For this lab, after completing the Plot exercises below in your lab template, sk
 #### Plot exercises
 Complete the following exercises in your lab template:
 
-1. Explain in your own words what is happening in the code block below. What does the `%>%` operator indicate? What about`n()`? 
+1. Explain in your own words what is happening in the code block below. What does the `%>%` operator indicate?
 ```{r,eval=F,echo=T}
 counts <- nyc_films %>% 
   group_by(Category) %>% 
-  summarize(count_of_permits = n())
+  summarize(count_of_permits = length(Category))
 ```
 2. The first argument of `ggplot()` should always be the data argument. In what type of form should the data be provided? (hint: `?ggplot`)
 3. What function can we use to set the title of a plot? Use the ggplot [reference manual](https://ggplot2.tidyverse.org/reference/index.html), the additional materials, or Google to answer this question.

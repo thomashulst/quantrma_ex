@@ -397,11 +397,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h4><span class="header-section-number">2.3.2.1</span> Plot exercises</h4>
 <p>Complete the following exercises in your lab template:</p>
 <ol style="list-style-type: decimal">
-<li>Explain in your own words what is happening in the code block below. What does the <code>%&gt;%</code> operator indicate? What about<code>n()</code>?</li>
+<li>Explain in your own words what is happening in the code block below. What does the <code>%&gt;%</code> operator indicate?</li>
 </ol>
 <div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="week-2-describing-data.html#cb88-1" aria-hidden="true" tabindex="-1"></a>counts <span class="ot">&lt;-</span> nyc_films <span class="sc">%&gt;%</span> </span>
 <span id="cb88-2"><a href="week-2-describing-data.html#cb88-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Category) <span class="sc">%&gt;%</span> </span>
-<span id="cb88-3"><a href="week-2-describing-data.html#cb88-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">count_of_permits =</span> <span class="fu">n</span>())</span></code></pre></div>
+<span id="cb88-3"><a href="week-2-describing-data.html#cb88-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">count_of_permits =</span> <span class="fu">length</span>(Category))</span></code></pre></div>
 <ol start="2" style="list-style-type: decimal">
 <li>The first argument of <code>ggplot()</code> should always be the data argument. In what type of form should the data be provided? (hint: <code>?ggplot</code>)</li>
 <li>What function can we use to set the title of a plot? Use the ggplot <a href="https://ggplot2.tidyverse.org/reference/index.html">reference manual</a>, the additional materials, or Google to answer this question.</li>
@@ -1179,7 +1179,7 @@ Whoa, that’s a lot of dots! Remember that each country is measured each year. 
 <hr />
 <ol start="12">
 <li id="fn12"><p>To be more exact: a tibble, but the difference with a <code>data.frame</code> is not important for now<a href="week-2-describing-data.html#fnref12" class="footnote-back">↩︎</a></p></li>
-<li id="fn13"><p>Since we are using the <code>group_by</code> function, any of the columns would actually count up to the number of permits per borough. Instead of <code>length(Borough)</code> we could also summarize using <code>n()</code>. In fact, <code>n()</code> is the “tidy way” of doing it, but <code>length()</code> is used in the example for illustrative purposes.<a href="week-2-describing-data.html#fnref13" class="footnote-back">↩︎</a></p></li>
+<li id="fn13"><p>Since we are using the <code>group_by</code> function, any of the columns would actually count up to the number of permits per borough. Instead of <code>length(Borough)</code> we could also summarize using <code>n()</code>. In fact, <code>n()</code> is the “tidy way” of doing it, but <code>length()</code> is used in this code example for illustrative purposes.<a href="week-2-describing-data.html#fnref13" class="footnote-back">↩︎</a></p></li>
 <li id="fn14"><p>It is pretty neat to look and <a href="https://www.r-graph-gallery.com/index.html">see all of the different things you can do with ggplot</a>, it’s very powerful<a href="week-2-describing-data.html#fnref14" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>

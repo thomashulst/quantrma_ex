@@ -55,11 +55,11 @@ Continue this lab by reading Section 2.3 of the lab manual. You don't have to re
 ## Plot exercises
 After reading section 2.3 of the lab manual, complete to following exercises:
 
-1. Explain in your own words what is happening in the code block below. What does the `%>%` operator indicate? What about`n()`? 
+1. Explain in your own words what is happening in the code block below. What does the `%>%` operator indicate? 
 ```{r}
 counts <- nyc_films %>% 
   group_by(Category) %>% 
-  summarize(count_of_permits = n())
+  summarize(count_of_permits = length(Category))
 ```
 2. The first argument of `ggplot()` should always be a data argument. In what type of form should the data be provided? (hint: `?ggplot`)
 3. What function can we use to set the title of a plot? Use the ggplot [reference manual](https://ggplot2.tidyverse.org/reference/index.html), the additional materials, or Google to answer this question.
