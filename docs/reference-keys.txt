@@ -1,10 +1,10 @@
 fig:2rstudiod
 fig:validreliab
-tab:unnamed-chunk-64
+tab:unnamed-chunk-65
 fig:example1
 fig:example2
 fig:1facet
-tab:unnamed-chunk-70
+tab:unnamed-chunk-71
 why-r
 downloading-and-installing-r
 installing-r-on-a-mac
@@ -60,7 +60,7 @@ first-look-at-the-data
 data-exercises
 making-graphs
 plotting-counts
-ggplot-exercises
+plot-exercises
 addggplot
 ylab-changes-y-label
 xlab-changes-x-label

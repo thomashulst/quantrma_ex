@@ -160,7 +160,7 @@ For this lab, after completing the `ggplot()` exercises in your lab template, sk
 #### Plot exercises
 Complete the following exercises in your lab template:
 
-1. Explain in your own words what is happening in the code block below. What does the %>% operator indicate?
+1. Explain in your own words what is happening in the code block below. What does the `%>%` operator indicate?
 ```{r}
 counts <- nyc_films %>% 
   group_by(Borough) %>% 

@@ -55,7 +55,7 @@ Continue this lab by reading Section 2.3 of the lab manual. You don't have to re
 ## Plot exercises
 After reading section 2.3 of the lab manual, complete to following exercises:
 
-1. Explain in your own words what is happening in the code block below. What does the %>% operator indicate?
+1. Explain in your own words what is happening in the code block below. What does the `%>%` operator indicate?
 ```{r}
 counts <- nyc_films %>% 
   group_by(Borough) %>% 
