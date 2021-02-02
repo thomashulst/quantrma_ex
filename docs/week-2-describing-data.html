@@ -388,7 +388,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb87-4"><a href="week-2-describing-data.html#cb87-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_layer</span>()</span></code></pre></div>
 <p>What I want you to focus on in the above description is the <span class="math inline">\(+\)</span> signs. What we are doing with the plus signs is adding layers to plot. The layers get added in the order that they are written (a bit like the <code>%&gt;%</code> operator for data frames). If you look back to our previous code, you will see we add a <code>geom_col</code> layer, then we added another layer to change the rotation of the words on the x-axis. This is how it works.</p>
 <p>Section <a href="week-2-describing-data.html#addggplot">2.3.2</a> below contains <strong>additional</strong> materials which are very helpful when working on your assignments, but are not mandatory for completing this lab. Section <a href="week-2-describing-data.html#addggplot">2.3.2</a> will explain how to add a title to your graph. Or change the labels on the axes. Or add different colors, or change the font-size, or change the background. You can change all of these things by adding different lines to the existing code demonstrated below. We will skip those materials for now.</p>
-<p>For this lab, after completing the <code>ggplot()</code> exercises in your lab template, skip the additional materials in Section <a href="week-2-describing-data.html#addggplot">2.3.2</a> and go directly to Section <a href="week-2-describing-data.html#gaplab">2.4</a>.</p>
+<p>For this lab, after completing the Plot exercises below in your lab template, skip the additional materials in Section <a href="week-2-describing-data.html#addggplot">2.3.2</a> and go directly to Section <a href="week-2-describing-data.html#gaplab">2.4</a>.</p>
 <div id="plot-exercises" class="section level4" number="2.3.1.1">
 <h4><span class="header-section-number">2.3.1.1</span> Plot exercises</h4>
 <p>Complete the following exercises in your lab template:</p>
@@ -396,8 +396,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Explain in your own words what is happening in the code block below. What does the <code>%&gt;%</code> operator indicate?</li>
 </ol>
 <div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="week-2-describing-data.html#cb88-1" aria-hidden="true" tabindex="-1"></a>counts <span class="ot">&lt;-</span> nyc_films <span class="sc">%&gt;%</span> </span>
-<span id="cb88-2"><a href="week-2-describing-data.html#cb88-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Borough) <span class="sc">%&gt;%</span> </span>
-<span id="cb88-3"><a href="week-2-describing-data.html#cb88-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">count_of_permits =</span> <span class="fu">length</span>(Borough))</span></code></pre></div>
+<span id="cb88-2"><a href="week-2-describing-data.html#cb88-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Category) <span class="sc">%&gt;%</span> </span>
+<span id="cb88-3"><a href="week-2-describing-data.html#cb88-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">count_of_permits =</span> <span class="fu">length</span>(Category))</span></code></pre></div>
 <ol start="2" style="list-style-type: decimal">
 <li>The first argument of <code>ggplot()</code> should always be the data argument. In what type of form should the data be provided? (hint: <code>?ggplot</code>)</li>
 <li>What function can we use to set the title of a plot? Use the ggplot <a href="https://ggplot2.tidyverse.org/reference/index.html">reference manual</a>, the additional materials, or Google to answer this question.</li>
@@ -683,12 +683,12 @@ Whoa, that’s a lot of dots! Remember that each country is measured each year. 
 <span id="cb114-7"><a href="week-2-describing-data.html#cb114-7" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(smaller_df, <span class="fu">aes</span>(<span class="at">y=</span> lifeExp, <span class="at">x=</span> year))<span class="sc">+</span></span>
 <span id="cb114-8"><a href="week-2-describing-data.html#cb114-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
 <p><img src="quantrma_lab_files/figure-html/1timeB-1.png" width="672" /></p>
-<p>Note that to filter, we are using the <code>==</code> (is equal to) operator.</p>
-<p>I would say things are looking good for Dutch people, their life expectancy is going up over the years!</p>
+<p>Note that to filter, we are using the <code>==</code> (is equal to) operator. In the next section we will see it is often more useful to use the <code>%in%</code> operator instead.</p>
+<p>Either way, I would say things are looking good for Dutch people, their life expectancy is going up over the years!</p>
 </div>
-<div id="multiple-countries-one-plot" class="section level4" number="2.4.2.3">
+<div id="multiplot" class="section level4" number="2.4.2.3">
 <h4><span class="header-section-number">2.4.2.3</span> Multiple countries, one plot</h4>
-<p>What if we want to look at a few countries together. We can do this too. We just change how we filter the data so more than one country is allowed, then we plot the data. We will also add some nicer color options and make the plot look pretty. First, the code:</p>
+<p>What if we want to look at a few countries together? We can do this too. We just change how we filter the data so more than one country is allowed, then we plot the data. We will also add some nicer color options and make the plot look pretty. First, the code:</p>
 <div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="week-2-describing-data.html#cb115-1" aria-hidden="true" tabindex="-1"></a><span class="co"># filter rows to contain countries of choice</span></span>
 <span id="cb115-2"><a href="week-2-describing-data.html#cb115-2" aria-hidden="true" tabindex="-1"></a><span class="co"># create a vector using c() with countries of choice</span></span>
 <span id="cb115-3"><a href="week-2-describing-data.html#cb115-3" aria-hidden="true" tabindex="-1"></a>countries_of_choice <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Netherlands&quot;</span>,<span class="st">&quot;France&quot;</span>,<span class="st">&quot;Brazil&quot;</span>) </span>
@@ -745,7 +745,7 @@ Whoa, that’s a lot of dots! Remember that each country is measured each year. 
 <p>As we saw in the textbook, we can also describe our data using numbers. In order to do this, we need some numbers first.</p>
 <div id="playing-with-numbers" class="section level3" number="2.5.1">
 <h3><span class="header-section-number">2.5.1</span> Playing with numbers</h3>
-<p>As we’ve seen previously, we can put multiple values in a variable using the <code>c()</code> function:</p>
+<p>As we’ve seen <a href="week-2-describing-data.html#multiplot">previously</a>, we can put multiple values in a variable using the <code>c()</code> function:</p>
 <div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="week-2-describing-data.html#cb118-1" aria-hidden="true" tabindex="-1"></a>my_numbers <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>)</span></code></pre></div>
 <p>There a few handy ways to generate numbers. For example, we can use <code>seq()</code> to generate a sequence of numbers. Here it is making the numbers from 1 to 100:</p>
 <div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="week-2-describing-data.html#cb119-1" aria-hidden="true" tabindex="-1"></a>one_to_one_hundred <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">1</span>,<span class="dv">100</span>,<span class="dv">1</span>)</span></code></pre></div>

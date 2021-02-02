@@ -78,7 +78,7 @@ look-at-the-data
 life-expectancy
 life-expectancy-time-series-plot
 one-country-life-expectancy-by-year
-multiple-countries-one-plot
+multiplot
 geom_line-connecting-the-dots
 graphing-exercises
 using-numbers-to-describe-data

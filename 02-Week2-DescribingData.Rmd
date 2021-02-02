@@ -155,16 +155,16 @@ What I want you to focus on in the above description is the $+$ signs. What we a
 
 Section \@ref(addggplot) below contains **additional** materials which are very helpful when working on your assignments, but are not mandatory for completing this lab. Section \@ref(addggplot) will explain how to add a title to your graph. Or change the labels on the axes. Or add different colors, or change the font-size, or change the background. You can change all of these things by adding different lines to the existing code demonstrated below. We will skip those materials for now.
 
-For this lab, after completing the `ggplot()` exercises in your lab template, skip the additional materials in Section \@ref(addggplot) and go directly to Section \@ref(gaplab).
+For this lab, after completing the Plot exercises below in your lab template, skip the additional materials in Section \@ref(addggplot) and go directly to Section \@ref(gaplab).
 
 #### Plot exercises
 Complete the following exercises in your lab template:
 
 1. Explain in your own words what is happening in the code block below. What does the `%>%` operator indicate?
-```{r}
+```{r,eval=F,echo=T}
 counts <- nyc_films %>% 
-  group_by(Borough) %>% 
-  summarize(count_of_permits = length(Borough))
+  group_by(Category) %>% 
+  summarize(count_of_permits = length(Category))
 ```
 2. The first argument of `ggplot()` should always be the data argument. In what type of form should the data be provided? (hint: `?ggplot`)
 3. What function can we use to set the title of a plot? Use the ggplot [reference manual](https://ggplot2.tidyverse.org/reference/index.html), the additional materials, or Google to answer this question.
@@ -476,12 +476,12 @@ ggplot(smaller_df, aes(y= lifeExp, x= year))+
 
 ```
 
-Note that to filter, we are using the `==` (is equal to) operator. 
+Note that to filter, we are using the `==` (is equal to) operator. In the next section we will see it is often more useful to use the `%in%` operator instead.
 
-I would say things are looking good for Dutch people, their life expectancy is going up over the years!
+Either way, I would say things are looking good for Dutch people, their life expectancy is going up over the years!
 
-#### Multiple countries, one plot
-What if we want to look at a few countries together. We can do this too. We just change how we filter the data so more than one country is allowed, then we plot the data. We will also add some nicer color options and make the plot look pretty. First, the code:
+#### Multiple countries, one plot {#multiplot}
+What if we want to look at a few countries together? We can do this too. We just change how we filter the data so more than one country is allowed, then we plot the data. We will also add some nicer color options and make the plot look pretty. First, the code:
 
 ```{r 1timeC, echo=TRUE,eval=TRUE,warning=F}
 
@@ -544,7 +544,7 @@ Use the code from prior code blocks to solve the extra things we ask you to do f
 As we saw in the textbook, we can also describe our data using numbers. In order to do this, we need some numbers first. 
 
 ### Playing with numbers
-As we've seen previously, we can put multiple values in a variable using the `c()` function:
+As we've seen [previously](#multiplot), we can put multiple values in a variable using the `c()` function:
 ```{r}
 my_numbers <- c(1,2,3,4)
 ```
