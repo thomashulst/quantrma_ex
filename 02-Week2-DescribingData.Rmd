@@ -153,17 +153,23 @@ ggplot(name_of_data, aes(x = name_of_x_variable, y = name_of_y_variable)) +
 
 What I want you to focus on in the above description is the $+$ signs. What we are doing with the plus signs is adding layers to plot. The layers get added in the order that they are written (a bit like the `%>%` operator for data frames). If you look back to our previous code, you will see we add a `geom_col` layer, then we added another layer to change the rotation of the words on the x-axis. This is how it works.
 
-The sections that follow below are additional materials are very helpful when working on your assignments, but we will skip for now. For example, the section below will explain how to add a title to your graph. Or change the labels on the axes? Or add different colors, or change the font-size, or change the background? You can change all of these things by adding different lines to the existing code and this will be demonstrated below.
+Section \@ref(addggplot) below contains **additional** materials which are very helpful when working on your assignments, but are not mandatory for completing this lab. Section \@ref(addggplot) will explain how to add a title to your graph. Or change the labels on the axes. Or add different colors, or change the font-size, or change the background. You can change all of these things by adding different lines to the existing code demonstrated below. We will skip those materials for now.
 
-For this lab however, you can skip the section below and jump to the [section after](#gaplab), after completing the exercises below in your lab template.
+For this lab, after completing the `ggplot()` exercises in your lab template, skip the additional materials in Section \@ref(addggplot) and go directly to Section \@ref(gaplab).
 
-#### `ggplot()` exercises
+#### Plot exercises
 Complete the following exercises in your lab template:
 
-1. The first argument of `ggplot()` should always be the data argument. In what type of form should the data be provided? (hint: `?ggplot`)
-2. What function can we use to set the title of a plot? Use the ggplot [reference manual](https://ggplot2.tidyverse.org/reference/index.html), the additional materials, or Google to answer this question.
+1. Explain in your own words what is happening in the code block below. What does the %>% operator indicate?
+```{r}
+counts <- nyc_films %>% 
+  group_by(Borough) %>% 
+  summarize(count_of_permits = length(Borough))
+```
+2. The first argument of `ggplot()` should always be the data argument. In what type of form should the data be provided? (hint: `?ggplot`)
+3. What function can we use to set the title of a plot? Use the ggplot [reference manual](https://ggplot2.tidyverse.org/reference/index.html), the additional materials, or Google to answer this question.
 
-### Additional materials: `ggplot()` layers and functions
+### Additional materials: `ggplot()` layers and functions {#addggplot}
 These are additional materials for when you are working on your assignment and want to change to look of your graph. You can also return to these materials when doing quantitative analyses in different courses. 
 
 #### `ylab()` changes y label

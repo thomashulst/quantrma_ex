@@ -199,7 +199,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.3" data-path="week-2-describing-data.html"><a href="week-2-describing-data.html#making-graphs"><i class="fa fa-check"></i><b>2.3</b> Making graphs</a>
 <ul>
 <li class="chapter" data-level="2.3.1" data-path="week-2-describing-data.html"><a href="week-2-describing-data.html#plotting-counts"><i class="fa fa-check"></i><b>2.3.1</b> Plotting <code>counts</code></a></li>
-<li class="chapter" data-level="2.3.2" data-path="week-2-describing-data.html"><a href="week-2-describing-data.html#additional-materials-ggplot-layers-and-functions"><i class="fa fa-check"></i><b>2.3.2</b> Additional materials: <code>ggplot()</code> layers and functions</a></li>
+<li class="chapter" data-level="2.3.2" data-path="week-2-describing-data.html"><a href="week-2-describing-data.html#addggplot"><i class="fa fa-check"></i><b>2.3.2</b> Additional materials: <code>ggplot()</code> layers and functions</a></li>
 </ul></li>
 <li class="chapter" data-level="2.4" data-path="week-2-describing-data.html"><a href="week-2-describing-data.html#gaplab"><i class="fa fa-check"></i><b>2.4</b> Gapminder dataset</a>
 <ul>
@@ -387,8 +387,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb87-3"><a href="week-2-describing-data.html#cb87-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_layer</span>()<span class="sc">+</span></span>
 <span id="cb87-4"><a href="week-2-describing-data.html#cb87-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_layer</span>()</span></code></pre></div>
 <p>What I want you to focus on in the above description is the <span class="math inline">\(+\)</span> signs. What we are doing with the plus signs is adding layers to plot. The layers get added in the order that they are written (a bit like the <code>%&gt;%</code> operator for data frames). If you look back to our previous code, you will see we add a <code>geom_col</code> layer, then we added another layer to change the rotation of the words on the x-axis. This is how it works.</p>
-<p>The sections that follow below are additional materials are very helpful when working on your assignments, but we will skip for now. For example, the section below will explain how to add a title to your graph. Or change the labels on the axes? Or add different colors, or change the font-size, or change the background? You can change all of these things by adding different lines to the existing code and this will be demonstrated below.</p>
-<p>For this lab however, you can skip the section below and jump to the <a href="week-2-describing-data.html#gaplab">section after</a>, after completing the exercises below in your lab template.</p>
+<p>Section <a href="week-2-describing-data.html#addggplot">2.3.2</a> below contains <strong>additional</strong> materials which are very helpful when working on your assignments, but are not mandatory for completing this lab. Section <a href="week-2-describing-data.html#addggplot">2.3.2</a> will explain how to add a title to your graph. Or change the labels on the axes. Or add different colors, or change the font-size, or change the background. You can change all of these things by adding different lines to the existing code demonstrated in the section with additional materials. We will skip those materials for now.</p>
+<p>For this lab, after completing the <code>ggplot()</code> exercises in your lab template, skip Section <a href="week-2-describing-data.html#addggplot">2.3.2</a> and go directly to Section <a href="week-2-describing-data.html#gaplab">2.4</a>.</p>
 <div id="ggplot-exercises" class="section level4" number="2.3.1.1">
 <h4><span class="header-section-number">2.3.1.1</span> <code>ggplot()</code> exercises</h4>
 <p>Complete the following exercises in your lab template:</p>
@@ -398,7 +398,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ol>
 </div>
 </div>
-<div id="additional-materials-ggplot-layers-and-functions" class="section level3" number="2.3.2">
+<div id="addggplot" class="section level3" number="2.3.2">
 <h3><span class="header-section-number">2.3.2</span> Additional materials: <code>ggplot()</code> layers and functions</h3>
 <p>These are additional materials for when you are working on your assignment and want to change to look of your graph. You can also return to these materials when doing quantitative analyses in different courses.</p>
 <div id="ylab-changes-y-label" class="section level4" number="2.3.2.1">

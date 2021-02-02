@@ -61,7 +61,7 @@ data-exercises
 making-graphs
 plotting-counts
 ggplot-exercises
-additional-materials-ggplot-layers-and-functions
+addggplot
 ylab-changes-y-label
 xlab-changes-x-label
 ggtitle-adds-title
