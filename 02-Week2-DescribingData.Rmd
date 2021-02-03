@@ -505,7 +505,7 @@ The code above contains two new concepts:
 1. We create a vector of `countries_of_choice` using `c()` (combine). A vector is simply a variable that holds multiple values. 
 2. We use the `%in%` operator to filter the column `country` by our vector `countries_of_choice`. We need to use the `%in%` operator when we filter with a vector (i.e filtering for multiple values) as opposed to the `==` (is equal to) operator we use when filtering for a single value. 
 
-Looking at the plot, we can now see three sets of dots, but which are countries do they represent? Let's color the dots, add a legend and make the graph prettier:
+Looking at the plot, we can now see three sets of dots, but which countries do they represent? Let's color the dots, add a legend and make the graph prettier:
 
 ```{r 1timeD, echo=TRUE,eval=TRUE,warning=F}
 ggplot(smaller_df,aes(y= lifeExp, x= year, 
@@ -538,9 +538,9 @@ With the code examples above, you should be able to make your own graphs to answ
 #### Graphing exercises
 Use the code from prior code blocks to solve the extra things we ask you to do for the following exercises:
 
-1. Make a histogram of GDP per capita in the Gapminder dataset. (hint: see the histogram of life expectancy)
-2. Make a time series plot of GDP per capita by year for the Brazil, Canada, and Mexico using the code above. Make sure to update the title and labels as well.
-3. Make a time series plot of Life Expectancy by year for the continents (hint: use the `group_by()` and `summarise()` functions from grouping and summarizing the NYC film permits).
+1. Make a histogram of GDP per capita in the Gapminder dataset. (hint: see the histogram of life expectancy in Section 2.4.2 for a code example)
+2. Make a time series plot of GDP per capita by year for the Brazil, Canada, and Mexico using the code example in Section 2.4.2.4. Make sure to update the title and labels as well.
+3. Make a time series plot of Life Expectancy by year for the continents (hint: use the `group_by()` and `summarise()` functions. Look at grouping and summarizing the NYC film permits for a code example (Section 2.3.1).
 
 ## Using numbers to describe data
 As we saw in the textbook, we can also describe our data using numbers. In order to do this, we need some numbers first. 
@@ -616,7 +616,7 @@ Above 1 occurs the most, so the mode will be one.
 ### Variation
 We often want to know how variable (i.e. different) the numbers in our data are. We are going to look at descriptive statistics to describe this such as the **range**, **variance**, the **standard deviation**, and a few others.
 
-First, let's remind ourselves what variation looks like (it's when the numbers are different). We will sample 100 numbers from a normal distribution (don't worry about this yet), with a mean of 10, and a standard deviation of 5, and then make a histogram so we can see the variation around 10..
+First, let's remind ourselves what variation looks like (it's when the numbers are different). We will sample 100 numbers from a normal distribution (don't worry about this yet, we will do more of this in later weeks), with a mean of 10, and a standard deviation of 5, and then make a histogram so we can see the variation around 10.
 
 ```{r}
 sample_numbers <- rnorm(100,10,5)
@@ -625,11 +625,19 @@ sample_numbers <- rnorm(100,10,5)
 hist(sample_numbers) 
 ```
 
+Note: `rnorm()` generates a selection of 100 **random** numbers each time you run the function. As such, the numbers will slightly vary from student to student and the example descriptive statistics below.
+
 #### Range
 The range is the minimum and maximum values in the set, we can use the `range` function:
 
 ```{r}
 range(sample_numbers)
+```
+
+Alternatively, when people refer to the range, they can refer to the **difference** between the minimum maximum values, which you could calculate as follows:
+
+```{r}
+diff(range(sample_numbers))
 ```
 
 #### `var()` = variance

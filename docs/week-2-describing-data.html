@@ -709,7 +709,7 @@ Whoa, that’s a lot of dots! Remember that each country is measured each year. 
 <li>We create a vector of <code>countries_of_choice</code> using <code>c()</code> (combine). A vector is simply a variable that holds multiple values.</li>
 <li>We use the <code>%in%</code> operator to filter the column <code>country</code> by our vector <code>countries_of_choice</code>. We need to use the <code>%in%</code> operator when we filter with a vector (i.e filtering for multiple values) as opposed to the <code>==</code> (is equal to) operator we use when filtering for a single value.</li>
 </ol>
-<p>Looking at the plot, we can now see three sets of dots, but which are countries do they represent? Let’s color the dots, add a legend and make the graph prettier:</p>
+<p>Looking at the plot, we can now see three sets of dots, but which countries do they represent? Let’s color the dots, add a legend and make the graph prettier:</p>
 <div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="week-2-describing-data.html#cb116-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(smaller_df,<span class="fu">aes</span>(<span class="at">y=</span> lifeExp, <span class="at">x=</span> year, </span>
 <span id="cb116-2"><a href="week-2-describing-data.html#cb116-2" aria-hidden="true" tabindex="-1"></a>                      <span class="at">group=</span> country, <span class="at">color =</span> country)) <span class="sc">+</span></span>
 <span id="cb116-3"><a href="week-2-describing-data.html#cb116-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span> </span>
@@ -737,9 +737,9 @@ Whoa, that’s a lot of dots! Remember that each country is measured each year. 
 <h4><span class="header-section-number">2.4.2.5</span> Graphing exercises</h4>
 <p>Use the code from prior code blocks to solve the extra things we ask you to do for the following exercises:</p>
 <ol style="list-style-type: decimal">
-<li>Make a histogram of GDP per capita in the Gapminder dataset. (hint: see the histogram of life expectancy)</li>
-<li>Make a time series plot of GDP per capita by year for the Brazil, Canada, and Mexico using the code above. Make sure to update the title and labels as well.</li>
-<li>Make a time series plot of Life Expectancy by year for the continents (hint: use the <code>group_by()</code> and <code>summarise()</code> functions from grouping and summarizing the NYC film permits).</li>
+<li>Make a histogram of GDP per capita in the Gapminder dataset. (hint: see the histogram of life expectancy in Section 2.4.2 for a code example)</li>
+<li>Make a time series plot of GDP per capita by year for the Brazil, Canada, and Mexico using the code example in Section 2.4.2.4. Make sure to update the title and labels as well.</li>
+<li>Make a time series plot of Life Expectancy by year for the continents (hint: use the <code>group_by()</code> and <code>summarise()</code> functions. Look at grouping and summarizing the NYC film permits for a code example (Section 2.3.1).</li>
 </ol>
 </div>
 </div>
@@ -809,34 +809,38 @@ Whoa, that’s a lot of dots! Remember that each country is measured each year. 
 <div id="variation" class="section level3" number="2.5.3">
 <h3><span class="header-section-number">2.5.3</span> Variation</h3>
 <p>We often want to know how variable (i.e. different) the numbers in our data are. We are going to look at descriptive statistics to describe this such as the <strong>range</strong>, <strong>variance</strong>, the <strong>standard deviation</strong>, and a few others.</p>
-<p>First, let’s remind ourselves what variation looks like (it’s when the numbers are different). We will sample 100 numbers from a normal distribution (don’t worry about this yet), with a mean of 10, and a standard deviation of 5, and then make a histogram so we can see the variation around 10..</p>
+<p>First, let’s remind ourselves what variation looks like (it’s when the numbers are different). We will sample 100 numbers from a normal distribution (don’t worry about this yet, we will do more of this in later weeks), with a mean of 10, and a standard deviation of 5, and then make a histogram so we can see the variation around 10.</p>
 <div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="week-2-describing-data.html#cb137-1" aria-hidden="true" tabindex="-1"></a>sample_numbers <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">100</span>,<span class="dv">10</span>,<span class="dv">5</span>)</span>
 <span id="cb137-2"><a href="week-2-describing-data.html#cb137-2" aria-hidden="true" tabindex="-1"></a><span class="co"># instead of using ggplot, we can also use a simpler function go generate a histogram</span></span>
 <span id="cb137-3"><a href="week-2-describing-data.html#cb137-3" aria-hidden="true" tabindex="-1"></a><span class="co"># this is easier than ggplot, but more limited in what we can do with it</span></span>
 <span id="cb137-4"><a href="week-2-describing-data.html#cb137-4" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(sample_numbers) </span></code></pre></div>
 <p><img src="quantrma_lab_files/figure-html/unnamed-chunk-57-1.png" width="672" /></p>
+<p>Note: <code>rnorm()</code> generates a selection of 100 <strong>random</strong> numbers each time you run the function. As such, the numbers will slightly vary from student to student and the example descriptive statistics below.</p>
 <div id="range" class="section level4" number="2.5.3.1">
 <h4><span class="header-section-number">2.5.3.1</span> Range</h4>
 <p>The range is the minimum and maximum values in the set, we can use the <code>range</code> function:</p>
 <div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="week-2-describing-data.html#cb138-1" aria-hidden="true" tabindex="-1"></a><span class="fu">range</span>(sample_numbers)</span></code></pre></div>
 <pre><code>## [1] -1.536652 24.229797</code></pre>
+<p>Alternatively, when people refer to the range, they can refer to the <strong>difference</strong> between the minimum maximum values, which you could calculate as follows:</p>
+<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="week-2-describing-data.html#cb140-1" aria-hidden="true" tabindex="-1"></a><span class="fu">diff</span>(<span class="fu">range</span>(sample_numbers))</span></code></pre></div>
+<pre><code>## [1] 25.76645</code></pre>
 </div>
 <div id="var-variance" class="section level4" number="2.5.3.2">
 <h4><span class="header-section-number">2.5.3.2</span> <code>var()</code> = variance</h4>
 <p>We can find the sample variance using <code>var()</code>:</p>
-<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="week-2-describing-data.html#cb140-1" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(sample_numbers)</span></code></pre></div>
+<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="week-2-describing-data.html#cb142-1" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(sample_numbers)</span></code></pre></div>
 <pre><code>## [1] 22.92941</code></pre>
 <p>Note: the above variance calculation divides by <span class="math inline">\(n-1\)</span> instead of <span class="math inline">\(n\)</span>. We will learn in later weeks why this is often preferred. If you would like to divide by <span class="math inline">\(n\)</span>, you could write your own function based on the following code:</p>
-<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="week-2-describing-data.html#cb142-1" aria-hidden="true" tabindex="-1"></a>x_bar <span class="ot">&lt;-</span> <span class="fu">mean</span>(sample_numbers)</span>
-<span id="cb142-2"><a href="week-2-describing-data.html#cb142-2" aria-hidden="true" tabindex="-1"></a>var_n <span class="ot">&lt;-</span> <span class="fu">sum</span>((sample_numbers <span class="sc">-</span> x_bar)<span class="sc">^</span><span class="dv">2</span>)<span class="sc">/</span><span class="fu">length</span>(sample_numbers)</span></code></pre></div>
+<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="week-2-describing-data.html#cb144-1" aria-hidden="true" tabindex="-1"></a>x_bar <span class="ot">&lt;-</span> <span class="fu">mean</span>(sample_numbers)</span>
+<span id="cb144-2"><a href="week-2-describing-data.html#cb144-2" aria-hidden="true" tabindex="-1"></a>var_n <span class="ot">&lt;-</span> <span class="fu">sum</span>((sample_numbers <span class="sc">-</span> x_bar)<span class="sc">^</span><span class="dv">2</span>)<span class="sc">/</span><span class="fu">length</span>(sample_numbers)</span></code></pre></div>
 </div>
 <div id="sd-standard-deviation" class="section level4" number="2.5.3.3">
 <h4><span class="header-section-number">2.5.3.3</span> <code>sd()</code> = standard deviation</h4>
 <p>We find the sample standard deviation using <code>sd()</code>:</p>
-<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="week-2-describing-data.html#cb143-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(sample_numbers)</span></code></pre></div>
+<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="week-2-describing-data.html#cb145-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(sample_numbers)</span></code></pre></div>
 <pre><code>## [1] 4.788467</code></pre>
 <p>Remember that the standard deviation is just the square root of the variance, see:</p>
-<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="week-2-describing-data.html#cb145-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="fu">var</span>(sample_numbers))</span></code></pre></div>
+<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="week-2-describing-data.html#cb147-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="fu">var</span>(sample_numbers))</span></code></pre></div>
 <pre><code>## [1] 4.788467</code></pre>
 </div>
 </div>
@@ -844,16 +848,16 @@ Whoa, that’s a lot of dots! Remember that each country is measured each year. 
 <h3><span class="header-section-number">2.5.4</span> Descriptives by conditions</h3>
 <p>Sometimes you will have a single variable with some numbers, and you can use the above functions to find the descriptives for that variable. Other times (most often in this course), you will have a big data frame of numbers, with different numbers in different conditions. You will want to find descriptive statistics for each the sets of numbers inside each of the conditions. Fortunately, this is where R really shines, it does it all for you in one go.</p>
 <p>Let’s illustrate the problem. Here I make a date frame with 10 numbers in each condition. There are 10 conditions, each labeled, A, B, C, D, E, F, G, H, I, J.</p>
-<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="week-2-describing-data.html#cb147-1" aria-hidden="true" tabindex="-1"></a>scores <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">100</span>,<span class="dv">10</span>,<span class="dv">5</span>)</span>
-<span id="cb147-2"><a href="week-2-describing-data.html#cb147-2" aria-hidden="true" tabindex="-1"></a>conditions <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">&quot;A&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;C&quot;</span>,<span class="st">&quot;D&quot;</span>,<span class="st">&quot;E&quot;</span>,<span class="st">&quot;F&quot;</span>,<span class="st">&quot;G&quot;</span>,<span class="st">&quot;H&quot;</span>,<span class="st">&quot;I&quot;</span>,<span class="st">&quot;J&quot;</span>), <span class="at">each =</span><span class="dv">10</span>)</span>
-<span id="cb147-3"><a href="week-2-describing-data.html#cb147-3" aria-hidden="true" tabindex="-1"></a>my_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(conditions,scores)</span></code></pre></div>
+<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb149-1"><a href="week-2-describing-data.html#cb149-1" aria-hidden="true" tabindex="-1"></a>scores <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">100</span>,<span class="dv">10</span>,<span class="dv">5</span>)</span>
+<span id="cb149-2"><a href="week-2-describing-data.html#cb149-2" aria-hidden="true" tabindex="-1"></a>conditions <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">&quot;A&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;C&quot;</span>,<span class="st">&quot;D&quot;</span>,<span class="st">&quot;E&quot;</span>,<span class="st">&quot;F&quot;</span>,<span class="st">&quot;G&quot;</span>,<span class="st">&quot;H&quot;</span>,<span class="st">&quot;I&quot;</span>,<span class="st">&quot;J&quot;</span>), <span class="at">each =</span><span class="dv">10</span>)</span>
+<span id="cb149-3"><a href="week-2-describing-data.html#cb149-3" aria-hidden="true" tabindex="-1"></a>my_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(conditions,scores)</span></code></pre></div>
 <p>If you look at the <code>my_df</code> data frame, you will see it has 100 rows, there are 10 rows for each condition with a label in the <code>conditions</code> column, and 10 scores for each condition in the <code>scores</code> column. What if you wanted to know the mean of the scores in each condition? You would want to find 10 means.</p>
 <div id="group_by-and-summarise" class="section level4" number="2.5.4.1">
 <h4><span class="header-section-number">2.5.4.1</span> <code>group_by()</code> and <code>summarise()</code></h4>
 <p>We can easily do everything all at once using the <code>group_by</code> and <code>summarise</code> function from the <code>tidyverse</code> library, as we’ve seen before:</p>
-<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="week-2-describing-data.html#cb148-1" aria-hidden="true" tabindex="-1"></a>my_df <span class="sc">%&gt;%</span></span>
-<span id="cb148-2"><a href="week-2-describing-data.html#cb148-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(conditions) <span class="sc">%&gt;%</span></span>
-<span id="cb148-3"><a href="week-2-describing-data.html#cb148-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">means =</span> <span class="fu">mean</span>(scores))</span></code></pre></div>
+<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="week-2-describing-data.html#cb150-1" aria-hidden="true" tabindex="-1"></a>my_df <span class="sc">%&gt;%</span></span>
+<span id="cb150-2"><a href="week-2-describing-data.html#cb150-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(conditions) <span class="sc">%&gt;%</span></span>
+<span id="cb150-3"><a href="week-2-describing-data.html#cb150-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">means =</span> <span class="fu">mean</span>(scores))</span></code></pre></div>
 <pre><code>## # A tibble: 10 x 2
 ##    conditions means
 ##  * &lt;chr&gt;      &lt;dbl&gt;
@@ -868,13 +872,13 @@ Whoa, that’s a lot of dots! Remember that each country is measured each year. 
 ##  9 I           7.43
 ## 10 J           7.89</code></pre>
 <p>The print out of this looks rather ugly. We can fix that by putting the results of our code into a new variable, then use <code>knitr::kable()</code> to print it out nicely when we <code>knit</code> the document. We can even caption the table by passing a <code>caption</code> argument.</p>
-<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="week-2-describing-data.html#cb150-1" aria-hidden="true" tabindex="-1"></a>summary_df <span class="ot">&lt;-</span> my_df <span class="sc">%&gt;%</span></span>
-<span id="cb150-2"><a href="week-2-describing-data.html#cb150-2" aria-hidden="true" tabindex="-1"></a>               <span class="fu">group_by</span>(conditions) <span class="sc">%&gt;%</span></span>
-<span id="cb150-3"><a href="week-2-describing-data.html#cb150-3" aria-hidden="true" tabindex="-1"></a>               <span class="fu">summarise</span>(<span class="at">means =</span> <span class="fu">mean</span>(scores))</span>
-<span id="cb150-4"><a href="week-2-describing-data.html#cb150-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb150-5"><a href="week-2-describing-data.html#cb150-5" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(summary_df,<span class="at">caption =</span> <span class="st">&quot;Means by condition.&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="week-2-describing-data.html#cb152-1" aria-hidden="true" tabindex="-1"></a>summary_df <span class="ot">&lt;-</span> my_df <span class="sc">%&gt;%</span></span>
+<span id="cb152-2"><a href="week-2-describing-data.html#cb152-2" aria-hidden="true" tabindex="-1"></a>               <span class="fu">group_by</span>(conditions) <span class="sc">%&gt;%</span></span>
+<span id="cb152-3"><a href="week-2-describing-data.html#cb152-3" aria-hidden="true" tabindex="-1"></a>               <span class="fu">summarise</span>(<span class="at">means =</span> <span class="fu">mean</span>(scores))</span>
+<span id="cb152-4"><a href="week-2-describing-data.html#cb152-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb152-5"><a href="week-2-describing-data.html#cb152-5" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(summary_df,<span class="at">caption =</span> <span class="st">&quot;Means by condition.&quot;</span>)</span></code></pre></div>
 <table>
-<caption><span id="tab:unnamed-chunk-65">Table 2.1: </span>Means by condition.</caption>
+<caption><span id="tab:unnamed-chunk-66">Table 2.1: </span>Means by condition.</caption>
 <thead>
 <tr class="header">
 <th align="left">conditions</th>
@@ -928,12 +932,12 @@ Whoa, that’s a lot of dots! Remember that each country is measured each year. 
 <div id="multiple-descriptives" class="section level4" number="2.5.4.2">
 <h4><span class="header-section-number">2.5.4.2</span> Multiple descriptives</h4>
 <p>We can add more than one function, and we’ll get more than one summary returned. Let’s add the standard deviation:</p>
-<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="week-2-describing-data.html#cb151-1" aria-hidden="true" tabindex="-1"></a>summary_df <span class="ot">&lt;-</span> my_df <span class="sc">%&gt;%</span></span>
-<span id="cb151-2"><a href="week-2-describing-data.html#cb151-2" aria-hidden="true" tabindex="-1"></a>               <span class="fu">group_by</span>(conditions) <span class="sc">%&gt;%</span></span>
-<span id="cb151-3"><a href="week-2-describing-data.html#cb151-3" aria-hidden="true" tabindex="-1"></a>               <span class="fu">summarise</span>(<span class="at">means =</span> <span class="fu">mean</span>(scores),</span>
-<span id="cb151-4"><a href="week-2-describing-data.html#cb151-4" aria-hidden="true" tabindex="-1"></a>                         <span class="at">sds =</span> <span class="fu">sd</span>(scores))</span>
-<span id="cb151-5"><a href="week-2-describing-data.html#cb151-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb151-6"><a href="week-2-describing-data.html#cb151-6" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(summary_df)</span></code></pre></div>
+<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="week-2-describing-data.html#cb153-1" aria-hidden="true" tabindex="-1"></a>summary_df <span class="ot">&lt;-</span> my_df <span class="sc">%&gt;%</span></span>
+<span id="cb153-2"><a href="week-2-describing-data.html#cb153-2" aria-hidden="true" tabindex="-1"></a>               <span class="fu">group_by</span>(conditions) <span class="sc">%&gt;%</span></span>
+<span id="cb153-3"><a href="week-2-describing-data.html#cb153-3" aria-hidden="true" tabindex="-1"></a>               <span class="fu">summarise</span>(<span class="at">means =</span> <span class="fu">mean</span>(scores),</span>
+<span id="cb153-4"><a href="week-2-describing-data.html#cb153-4" aria-hidden="true" tabindex="-1"></a>                         <span class="at">sds =</span> <span class="fu">sd</span>(scores))</span>
+<span id="cb153-5"><a href="week-2-describing-data.html#cb153-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb153-6"><a href="week-2-describing-data.html#cb153-6" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(summary_df)</span></code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -996,14 +1000,14 @@ Whoa, that’s a lot of dots! Remember that each country is measured each year. 
 </tbody>
 </table>
 <p>We’ll add the min and the max too:</p>
-<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="week-2-describing-data.html#cb152-1" aria-hidden="true" tabindex="-1"></a>summary_df <span class="ot">&lt;-</span> my_df <span class="sc">%&gt;%</span></span>
-<span id="cb152-2"><a href="week-2-describing-data.html#cb152-2" aria-hidden="true" tabindex="-1"></a>               <span class="fu">group_by</span>(conditions) <span class="sc">%&gt;%</span></span>
-<span id="cb152-3"><a href="week-2-describing-data.html#cb152-3" aria-hidden="true" tabindex="-1"></a>               <span class="fu">summarise</span>(<span class="at">means =</span> <span class="fu">mean</span>(scores),</span>
-<span id="cb152-4"><a href="week-2-describing-data.html#cb152-4" aria-hidden="true" tabindex="-1"></a>                         <span class="at">sds =</span> <span class="fu">sd</span>(scores),</span>
-<span id="cb152-5"><a href="week-2-describing-data.html#cb152-5" aria-hidden="true" tabindex="-1"></a>                         <span class="at">min =</span> <span class="fu">min</span>(scores),</span>
-<span id="cb152-6"><a href="week-2-describing-data.html#cb152-6" aria-hidden="true" tabindex="-1"></a>                         <span class="at">max =</span> <span class="fu">max</span>(scores))</span>
-<span id="cb152-7"><a href="week-2-describing-data.html#cb152-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb152-8"><a href="week-2-describing-data.html#cb152-8" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(summary_df)</span></code></pre></div>
+<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="week-2-describing-data.html#cb154-1" aria-hidden="true" tabindex="-1"></a>summary_df <span class="ot">&lt;-</span> my_df <span class="sc">%&gt;%</span></span>
+<span id="cb154-2"><a href="week-2-describing-data.html#cb154-2" aria-hidden="true" tabindex="-1"></a>               <span class="fu">group_by</span>(conditions) <span class="sc">%&gt;%</span></span>
+<span id="cb154-3"><a href="week-2-describing-data.html#cb154-3" aria-hidden="true" tabindex="-1"></a>               <span class="fu">summarise</span>(<span class="at">means =</span> <span class="fu">mean</span>(scores),</span>
+<span id="cb154-4"><a href="week-2-describing-data.html#cb154-4" aria-hidden="true" tabindex="-1"></a>                         <span class="at">sds =</span> <span class="fu">sd</span>(scores),</span>
+<span id="cb154-5"><a href="week-2-describing-data.html#cb154-5" aria-hidden="true" tabindex="-1"></a>                         <span class="at">min =</span> <span class="fu">min</span>(scores),</span>
+<span id="cb154-6"><a href="week-2-describing-data.html#cb154-6" aria-hidden="true" tabindex="-1"></a>                         <span class="at">max =</span> <span class="fu">max</span>(scores))</span>
+<span id="cb154-7"><a href="week-2-describing-data.html#cb154-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb154-8"><a href="week-2-describing-data.html#cb154-8" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(summary_df)</span></code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -1092,17 +1096,17 @@ Whoa, that’s a lot of dots! Remember that each country is measured each year. 
 <div id="describing-gapminder-with-numbers" class="section level3" number="2.5.5">
 <h3><span class="header-section-number">2.5.5</span> Describing Gapminder with numbers</h3>
 <p>Now that we know how to get descriptive statistics from R, we can do this with some real data. Let’s quickly ask a question about the Gapminder data: what are some descriptives for Life expectancy by continent? The code below was copied from the previous examples with just a few names changed:</p>
-<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="week-2-describing-data.html#cb153-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gapminder)</span>
-<span id="cb153-2"><a href="week-2-describing-data.html#cb153-2" aria-hidden="true" tabindex="-1"></a>gapminder_df <span class="ot">&lt;-</span> gapminder</span>
-<span id="cb153-3"><a href="week-2-describing-data.html#cb153-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb153-4"><a href="week-2-describing-data.html#cb153-4" aria-hidden="true" tabindex="-1"></a>summary_df <span class="ot">&lt;-</span> gapminder_df <span class="sc">%&gt;%</span></span>
-<span id="cb153-5"><a href="week-2-describing-data.html#cb153-5" aria-hidden="true" tabindex="-1"></a>               <span class="fu">group_by</span>(continent) <span class="sc">%&gt;%</span></span>
-<span id="cb153-6"><a href="week-2-describing-data.html#cb153-6" aria-hidden="true" tabindex="-1"></a>               <span class="fu">summarise</span>(<span class="at">means =</span> <span class="fu">mean</span>(lifeExp),</span>
-<span id="cb153-7"><a href="week-2-describing-data.html#cb153-7" aria-hidden="true" tabindex="-1"></a>                         <span class="at">sds =</span> <span class="fu">sd</span>(lifeExp),</span>
-<span id="cb153-8"><a href="week-2-describing-data.html#cb153-8" aria-hidden="true" tabindex="-1"></a>                         <span class="at">min =</span> <span class="fu">min</span>(lifeExp),</span>
-<span id="cb153-9"><a href="week-2-describing-data.html#cb153-9" aria-hidden="true" tabindex="-1"></a>                         <span class="at">max =</span> <span class="fu">max</span>(lifeExp))</span>
-<span id="cb153-10"><a href="week-2-describing-data.html#cb153-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb153-11"><a href="week-2-describing-data.html#cb153-11" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(summary_df)</span></code></pre></div>
+<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="week-2-describing-data.html#cb155-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gapminder)</span>
+<span id="cb155-2"><a href="week-2-describing-data.html#cb155-2" aria-hidden="true" tabindex="-1"></a>gapminder_df <span class="ot">&lt;-</span> gapminder</span>
+<span id="cb155-3"><a href="week-2-describing-data.html#cb155-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb155-4"><a href="week-2-describing-data.html#cb155-4" aria-hidden="true" tabindex="-1"></a>summary_df <span class="ot">&lt;-</span> gapminder_df <span class="sc">%&gt;%</span></span>
+<span id="cb155-5"><a href="week-2-describing-data.html#cb155-5" aria-hidden="true" tabindex="-1"></a>               <span class="fu">group_by</span>(continent) <span class="sc">%&gt;%</span></span>
+<span id="cb155-6"><a href="week-2-describing-data.html#cb155-6" aria-hidden="true" tabindex="-1"></a>               <span class="fu">summarise</span>(<span class="at">means =</span> <span class="fu">mean</span>(lifeExp),</span>
+<span id="cb155-7"><a href="week-2-describing-data.html#cb155-7" aria-hidden="true" tabindex="-1"></a>                         <span class="at">sds =</span> <span class="fu">sd</span>(lifeExp),</span>
+<span id="cb155-8"><a href="week-2-describing-data.html#cb155-8" aria-hidden="true" tabindex="-1"></a>                         <span class="at">min =</span> <span class="fu">min</span>(lifeExp),</span>
+<span id="cb155-9"><a href="week-2-describing-data.html#cb155-9" aria-hidden="true" tabindex="-1"></a>                         <span class="at">max =</span> <span class="fu">max</span>(lifeExp))</span>
+<span id="cb155-10"><a href="week-2-describing-data.html#cb155-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb155-11"><a href="week-2-describing-data.html#cb155-11" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(summary_df)</span></code></pre></div>
 <table>
 <thead>
 <tr class="header">

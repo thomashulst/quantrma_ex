@@ -1,10 +1,10 @@
 fig:2rstudiod
 fig:validreliab
-tab:unnamed-chunk-65
+tab:unnamed-chunk-66
 fig:example1
 fig:example2
 fig:1facet
-tab:unnamed-chunk-71
+tab:unnamed-chunk-72
 why-r
 downloading-and-installing-r
 installing-r-on-a-mac

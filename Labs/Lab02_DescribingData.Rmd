@@ -71,19 +71,19 @@ Continue this lab by reading Section 2.4 of the lab manual and follow along with
 ## Gapminder exercises
 After reading section 2.4 of the lab manual, complete the exercises below. All code exercises can be solved by copy/pasting code from prior examples and changing just 1 or 2 things.  
 
-1. Make a histogram of GDP per capita in the Gapminder dataset. (hint: see the histogram of life expectancy)
+1. Make a histogram of GDP per capita in the Gapminder dataset. (hint: see the histogram of life expectancy in Section 2.4.2 for a code example)
 ```{r}
 
 
 ```
 
-2. Make a time series plot of GDP per capita by year for the Brazil, Canada, and Mexico using the code above. Make sure to update the title and labels as well.
+2. Make a time series plot of GDP per capita by year for the Brazil, Canada, and Mexico using the code example in Section 2.4.2.4. Make sure to update the title and labels as well.
 ```{r}
 
 
 ```
 
-3. Make a time series plot of Life Expectancy by year for the continents (hint: use the `group_by()` and `summarise()` functions from grouping and summarizing the NYC film permits).
+3. Make a time series plot of Life Expectancy by year for the continents (hint: use the `group_by()` and `summarise()` functions. Look at grouping and summarizing the NYC film permits for a code example (Section 2.3.1).
 ```{r}
 
 
