@@ -413,7 +413,7 @@ Figure 3.2: Relationship between mozerella consumption and civil engineering doc
 <span id="cb158-5"><a href="week-3-correlation-and-causation.html#cb158-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x=</span>x,<span class="at">y=</span>y))<span class="sc">+</span></span>
 <span id="cb158-6"><a href="week-3-correlation-and-causation.html#cb158-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
 <span id="cb158-7"><a href="week-3-correlation-and-causation.html#cb158-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">&quot;text&quot;</span>, <span class="at">label=</span> <span class="fu">round</span>(<span class="fu">cor</span>(x,y),<span class="dv">2</span>), <span class="at">x =</span> <span class="dv">2</span>, <span class="at">y =</span> <span class="dv">12</span>)</span></code></pre></div>
-<p><img src="quantrma_lab_files/figure-html/unnamed-chunk-71-1.png" width="672" /></p>
+<p><img src="quantrma_lab_files/figure-html/unnamed-chunk-72-1.png" width="672" /></p>
 <p>Wow, we’re moving fast here. Dissect the code above and see if you understand each step.</p>
 </div>
 <div id="lots-of-scatterplots" class="section level4" number="3.3.1.2">
@@ -506,7 +506,7 @@ Figure 3.5: Facet wrapped scatterplot
 <span id="cb174-7"><a href="week-3-correlation-and-causation.html#cb174-7" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x=</span>x,<span class="at">y=</span>y))<span class="sc">+</span></span>
 <span id="cb174-8"><a href="week-3-correlation-and-causation.html#cb174-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
 <span id="cb174-9"><a href="week-3-correlation-and-causation.html#cb174-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">&quot;text&quot;</span>, <span class="at">label =</span> <span class="fu">cor</span>(x,y), <span class="at">x =</span> <span class="dv">50</span>, <span class="at">y =</span> <span class="dv">2</span>)</span></code></pre></div>
-<p><img src="quantrma_lab_files/figure-html/unnamed-chunk-76-1.png" width="672" /></p>
+<p><img src="quantrma_lab_files/figure-html/unnamed-chunk-77-1.png" width="672" /></p>
 <ol start="4" style="list-style-type: decimal">
 <li>Looking at the plot above, why is it probably not valid to summarise this data using Pearson’s <span class="math inline">\(r\)</span>?</li>
 </ol>
@@ -537,7 +537,7 @@ Figure 3.5: Facet wrapped scatterplot
 <span id="cb177-2"><a href="week-3-correlation-and-causation.html#cb177-2" aria-hidden="true" tabindex="-1"></a>                     <span class="at">y=</span><span class="st">`</span><span class="at">Healthy life expectancy at birth</span><span class="st">`</span>))<span class="sc">+</span></span>
 <span id="cb177-3"><a href="week-3-correlation-and-causation.html#cb177-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
 <span id="cb177-4"><a href="week-3-correlation-and-causation.html#cb177-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code></pre></div>
-<p><img src="quantrma_lab_files/figure-html/unnamed-chunk-79-1.png" width="672" /></p>
+<p><img src="quantrma_lab_files/figure-html/unnamed-chunk-80-1.png" width="672" /></p>
 <div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="week-3-correlation-and-causation.html#cb178-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(whr_data<span class="sc">$</span><span class="st">`</span><span class="at">Social support</span><span class="st">`</span>,</span>
 <span id="cb178-2"><a href="week-3-correlation-and-causation.html#cb178-2" aria-hidden="true" tabindex="-1"></a>    whr_data<span class="sc">$</span><span class="st">`</span><span class="at">Healthy life expectancy at birth</span><span class="st">`</span>)</span></code></pre></div>
 <pre><code>## [1] NA</code></pre>
@@ -567,7 +567,7 @@ Figure 3.5: Facet wrapped scatterplot
 <span id="cb182-11"><a href="week-3-correlation-and-causation.html#cb182-11" aria-hidden="true" tabindex="-1"></a>                       <span class="at">y=</span><span class="st">`</span><span class="at">Healthy life expectancy at birth</span><span class="st">`</span>))<span class="sc">+</span></span>
 <span id="cb182-12"><a href="week-3-correlation-and-causation.html#cb182-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
 <span id="cb182-13"><a href="week-3-correlation-and-causation.html#cb182-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code></pre></div>
-<p><img src="quantrma_lab_files/figure-html/unnamed-chunk-81-1.png" width="672" /></p>
+<p><img src="quantrma_lab_files/figure-html/unnamed-chunk-82-1.png" width="672" /></p>
 <div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="week-3-correlation-and-causation.html#cb183-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(smaller_df<span class="sc">$</span><span class="st">`</span><span class="at">Social support</span><span class="st">`</span>,</span>
 <span id="cb183-2"><a href="week-3-correlation-and-causation.html#cb183-2" aria-hidden="true" tabindex="-1"></a>    smaller_df<span class="sc">$</span><span class="st">`</span><span class="at">Healthy life expectancy at birth</span><span class="st">`</span>)</span></code></pre></div>
 <pre><code>## [1] 0.7200551</code></pre>
@@ -593,7 +593,7 @@ Figure 3.5: Facet wrapped scatterplot
 <span id="cb185-19"><a href="week-3-correlation-and-causation.html#cb185-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method=</span>lm,<span class="at">se=</span><span class="cn">FALSE</span>)<span class="sc">+</span></span>
 <span id="cb185-20"><a href="week-3-correlation-and-causation.html#cb185-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">&quot;text&quot;</span>,<span class="at">label=</span><span class="fu">paste</span>(<span class="st">&quot;Correlation:&quot;</span>,<span class="fu">round</span>(corxy,<span class="dv">2</span>)), <span class="at">x=</span><span class="fl">0.4</span>,<span class="at">y=</span><span class="dv">70</span>) <span class="sc">+</span></span>
 <span id="cb185-21"><a href="week-3-correlation-and-causation.html#cb185-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code></pre></div>
-<p><img src="quantrma_lab_files/figure-html/unnamed-chunk-82-1.png" width="672" /></p>
+<p><img src="quantrma_lab_files/figure-html/unnamed-chunk-83-1.png" width="672" /></p>
 </div>
 <div id="example-question-2" class="section level3" number="3.4.4">
 <h3><span class="header-section-number">3.4.4</span> Example question #2</h3>
@@ -620,7 +620,7 @@ Figure 3.5: Facet wrapped scatterplot
 <span id="cb186-19"><a href="week-3-correlation-and-causation.html#cb186-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method=</span>lm,<span class="at">se=</span><span class="cn">FALSE</span>)<span class="sc">+</span></span>
 <span id="cb186-20"><a href="week-3-correlation-and-causation.html#cb186-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">&quot;text&quot;</span>,<span class="at">label=</span><span class="fu">paste</span>(<span class="st">&quot;Correlation:&quot;</span>,<span class="fu">round</span>(corxy,<span class="dv">2</span>)), <span class="at">x=</span><span class="fl">0.45</span>,<span class="at">y=</span><span class="fl">0.45</span>) <span class="sc">+</span></span>
 <span id="cb186-21"><a href="week-3-correlation-and-causation.html#cb186-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code></pre></div>
-<p><img src="quantrma_lab_files/figure-html/unnamed-chunk-83-1.png" width="672" /></p>
+<p><img src="quantrma_lab_files/figure-html/unnamed-chunk-84-1.png" width="672" /></p>
 <p>There we have it. As positive affect goes up, negative affect goes down. A negative correlation.</p>
 <p>Complete the exercises below in your lab template.</p>
 </div>

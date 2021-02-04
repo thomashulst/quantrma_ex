@@ -745,8 +745,9 @@ Whoa, that’s a lot of dots! Remember that each country is measured each year. 
 <ol style="list-style-type: decimal">
 <li>Make a histogram of GDP per capita in the Gapminder dataset. (hint: see the histogram of life expectancy in Section 2.4.2 for a code example)</li>
 <li>Make a time series plot of GDP per capita by year for the Brazil, Canada, and Mexico using the code example in Section 2.4.2.4. Make sure to update the title and labels as well.</li>
-<li>Make a time series plot of Life Expectancy by year for the continents (hint: use the <code>group_by()</code> and <code>summarise()</code> functions. Look at grouping and summarizing the NYC film permits for a code example (Section 2.3.1).</li>
+<li>Try to recreate time series plot below. The plot is of Life Expectancy by year for each continent. You should use the <code>group_by()</code> and <code>summarise()</code> functions. Have a look at grouping and summarizing the NYC film permits for a code example (Section 2.3.1).</li>
 </ol>
+<p><img src="quantrma_lab_files/figure-html/unnamed-chunk-48-1.png" width="672" /></p>
 </div>
 </div>
 </div>
@@ -820,7 +821,7 @@ Whoa, that’s a lot of dots! Remember that each country is measured each year. 
 <span id="cb137-2"><a href="week-2-describing-data.html#cb137-2" aria-hidden="true" tabindex="-1"></a><span class="co"># instead of using ggplot, we can also use a simpler function go generate a histogram</span></span>
 <span id="cb137-3"><a href="week-2-describing-data.html#cb137-3" aria-hidden="true" tabindex="-1"></a><span class="co"># this is easier than ggplot, but more limited in what we can do with it</span></span>
 <span id="cb137-4"><a href="week-2-describing-data.html#cb137-4" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(sample_numbers) </span></code></pre></div>
-<p><img src="quantrma_lab_files/figure-html/unnamed-chunk-57-1.png" width="672" /></p>
+<p><img src="quantrma_lab_files/figure-html/unnamed-chunk-58-1.png" width="672" /></p>
 <p>Note: <code>rnorm()</code> generates a selection of 100 <strong>random</strong> numbers each time you run the function. As such, the numbers will slightly vary from student to student and the example descriptive statistics below.</p>
 <div id="range" class="section level4" number="2.5.3.1">
 <h4><span class="header-section-number">2.5.3.1</span> Range</h4>
@@ -884,7 +885,7 @@ Whoa, that’s a lot of dots! Remember that each country is measured each year. 
 <span id="cb152-4"><a href="week-2-describing-data.html#cb152-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb152-5"><a href="week-2-describing-data.html#cb152-5" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(summary_df,<span class="at">caption =</span> <span class="st">&quot;Means by condition.&quot;</span>)</span></code></pre></div>
 <table>
-<caption><span id="tab:unnamed-chunk-66">Table 2.1: </span>Means by condition.</caption>
+<caption><span id="tab:unnamed-chunk-67">Table 2.1: </span>Means by condition.</caption>
 <thead>
 <tr class="header">
 <th align="left">conditions</th>

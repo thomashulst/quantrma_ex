@@ -1,6 +1,6 @@
 fig:2rstudiod
 fig:validreliab
-tab:unnamed-chunk-66
+tab:unnamed-chunk-67
 fig:example1
 fig:example2
 fig:1facet

@@ -314,7 +314,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb187-10"><a href="week-4-chance-and-probability-theory.html#cb187-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method=</span>lm, <span class="at">se=</span><span class="cn">FALSE</span>)<span class="sc">+</span></span>
 <span id="cb187-11"><a href="week-4-chance-and-probability-theory.html#cb187-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>conditions)<span class="sc">+</span></span>
 <span id="cb187-12"><a href="week-4-chance-and-probability-theory.html#cb187-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code></pre></div>
-<p><img src="quantrma_lab_files/figure-html/unnamed-chunk-84-1.png" width="672" /></p>
+<p><img src="quantrma_lab_files/figure-html/unnamed-chunk-85-1.png" width="672" /></p>
 <p>You can see that the slope of the blue line is not always flat. Sometimes it looks like there is a correlation, when we know there shouldn’t be. You can keep re-doing this graph, by re-knitting your RMarkdown document, or by pressing the little green play button. This is basically you simulating the experiments as many times as you press the button.</p>
 <div id="chance-exercises" class="section level3" number="4.2.1">
 <h3><span class="header-section-number">4.2.1</span> Chance exercises</h3>
@@ -333,9 +333,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb188-6"><a href="week-4-chance-and-probability-theory.html#cb188-6" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb188-7"><a href="week-4-chance-and-probability-theory.html#cb188-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb188-8"><a href="week-4-chance-and-probability-theory.html#cb188-8" aria-hidden="true" tabindex="-1"></a><span class="fu">min</span>(saved_value)</span></code></pre></div>
-<pre><code>## [1] 203.2123</code></pre>
+<pre><code>## [1] 271.2137</code></pre>
 <div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb190-1"><a href="week-4-chance-and-probability-theory.html#cb190-1" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(saved_value)</span></code></pre></div>
-<pre><code>## [1] 415.8501</code></pre>
+<pre><code>## [1] 368.9636</code></pre>
 <p>The third question is as follows:</p>
 <ol start="3" style="list-style-type: decimal">
 <li>What proportion of correlations (from question 1 and 2) is smaller than -0.3 and larger than +0.3 for n = 10 and n = 25? Create a histogram of the correlations for n = 10 and n = 25 and draw a vertical line at -0.3 and +0.3. Print the found proportions on the plots. Use <code>ggarrange()</code> from the <code>ggpubr</code> library to plot the histograms alongside each other in one figure.</li>
@@ -352,20 +352,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb192-1"><a href="week-4-chance-and-probability-theory.html#cb192-1" aria-hidden="true" tabindex="-1"></a>gumballs <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;A&quot;</span>,<span class="st">&quot;B&quot;</span>)</span>
 <span id="cb192-2"><a href="week-4-chance-and-probability-theory.html#cb192-2" aria-hidden="true" tabindex="-1"></a>sample_of_gumballs <span class="ot">&lt;-</span><span class="fu">sample</span>(gumballs, <span class="dv">10</span>, <span class="at">replace=</span><span class="cn">TRUE</span>)</span>
 <span id="cb192-3"><a href="week-4-chance-and-probability-theory.html#cb192-3" aria-hidden="true" tabindex="-1"></a>sample_of_gumballs</span></code></pre></div>
-<pre><code>##  [1] &quot;B&quot; &quot;B&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;B&quot; &quot;B&quot; &quot;B&quot; &quot;B&quot;</code></pre>
+<pre><code>##  [1] &quot;B&quot; &quot;B&quot; &quot;B&quot; &quot;A&quot; &quot;B&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;B&quot;</code></pre>
 <p>Here the sample function randomly picks A or B each time. We set it do this 10 times, so our sample has 10 things in it. We set <code>replace=TRUE</code> so that after each sample, we put the item back into the gumball machine and start again. Here’s another example with numbers:</p>
 <div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="week-4-chance-and-probability-theory.html#cb194-1" aria-hidden="true" tabindex="-1"></a>some_numbers <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">5</span>)</span>
 <span id="cb194-2"><a href="week-4-chance-and-probability-theory.html#cb194-2" aria-hidden="true" tabindex="-1"></a>sample_of_numbers <span class="ot">&lt;-</span><span class="fu">sample</span>(some_numbers, <span class="dv">20</span>, <span class="at">replace=</span><span class="cn">TRUE</span>)</span>
 <span id="cb194-3"><a href="week-4-chance-and-probability-theory.html#cb194-3" aria-hidden="true" tabindex="-1"></a>sample_of_numbers</span></code></pre></div>
-<pre><code>##  [1] 3 5 5 5 5 5 2 5 5 5 4 1 5 1 2 5 2 5 2 4</code></pre>
+<pre><code>##  [1] 5 5 5 4 1 5 1 2 5 2 5 2 4 1 1 3 5 3 5 5</code></pre>
 <p>Let’s do one more thing with sample. Let’s sample 1000 times from our <code>some_numbers</code> variable, and then look at the histogram</p>
 <div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb196-1"><a href="week-4-chance-and-probability-theory.html#cb196-1" aria-hidden="true" tabindex="-1"></a>some_numbers <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">5</span>)</span>
 <span id="cb196-2"><a href="week-4-chance-and-probability-theory.html#cb196-2" aria-hidden="true" tabindex="-1"></a>sample_of_numbers <span class="ot">&lt;-</span><span class="fu">sample</span>(some_numbers, <span class="dv">1000</span>, <span class="at">replace=</span><span class="cn">TRUE</span>)</span>
 <span id="cb196-3"><a href="week-4-chance-and-probability-theory.html#cb196-3" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(sample_of_numbers)</span></code></pre></div>
-<p><img src="quantrma_lab_files/figure-html/unnamed-chunk-88-1.png" width="672" /></p>
+<p><img src="quantrma_lab_files/figure-html/unnamed-chunk-89-1.png" width="672" /></p>
 <div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb197-1"><a href="week-4-chance-and-probability-theory.html#cb197-1" aria-hidden="true" tabindex="-1"></a><span class="co"># we are using the built in hist() function. we could also use ggplot to generate this histogram:</span></span>
 <span id="cb197-2"><a href="week-4-chance-and-probability-theory.html#cb197-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">data.frame</span>(sample_of_numbers),<span class="fu">aes</span>(<span class="at">x=</span>sample_of_numbers)) <span class="sc">+</span> <span class="fu">geom_histogram</span>()</span></code></pre></div>
-<p><img src="quantrma_lab_files/figure-html/unnamed-chunk-88-2.png" width="672" /></p>
+<p><img src="quantrma_lab_files/figure-html/unnamed-chunk-89-2.png" width="672" /></p>
 <p>We are looking at lots of samples from our little gumball machine of numbers. Notice that as we put more 5s in, more 5s come out of in our big sample of 1000.</p>
 </div>
 <div id="rbinom" class="section level3" number="4.3.2">
@@ -374,11 +374,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>You use <code>rbinom</code> as follows: <code>rbinom(n, size, prob)</code>. <code>n</code> gives the number of flips you want to make. <code>size</code> is the number of coins you want to flip at once. <code>prob</code> is the probability that defines how often a “success” happens. Here’s how we flip one coin 10 times using <code>rbinom</code> (assuming the coin is fair):</p>
 <div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb198-1"><a href="week-4-chance-and-probability-theory.html#cb198-1" aria-hidden="true" tabindex="-1"></a>coin_flips <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(<span class="dv">10</span>,<span class="dv">1</span>,.<span class="dv">5</span>)</span>
 <span id="cb198-2"><a href="week-4-chance-and-probability-theory.html#cb198-2" aria-hidden="true" tabindex="-1"></a>coin_flips</span></code></pre></div>
-<pre><code>##  [1] 0 1 1 0 1 0 0 0 1 0</code></pre>
+<pre><code>##  [1] 0 1 0 0 1 0 0 1 0 0</code></pre>
 <p>We get a bunch of 0s, and 1s. We can pretend 0 = tails, and 1 = heads. If you flip 10 coins, how many heads do you get? We can can do the above again, and then <code>sum(coin_flips)</code>.</p>
 <div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="week-4-chance-and-probability-theory.html#cb200-1" aria-hidden="true" tabindex="-1"></a>coin_flips <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(<span class="dv">10</span>,<span class="dv">1</span>,.<span class="dv">5</span>)</span>
 <span id="cb200-2"><a href="week-4-chance-and-probability-theory.html#cb200-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(coin_flips)</span></code></pre></div>
-<pre><code>## [1] 3</code></pre>
+<pre><code>## [1] 4</code></pre>
 <p>Alright, so we get the sum of the 1s (i.e. the successes), which tells us the number of heads. But, if you keep redoing the above, you’ll get different answers each time. 5 heads will be the most frequent answer, but you will get lots of other answers too.</p>
 <p>We could do this 1000 times over, saving the number of heads for each set of 10 flips. Then we could look at the distribution of those sums. That would tell us about the range of things that can happen when we flip a coin 10 times. We can do that in a <code>for</code> loop like this:</p>
 <div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb202-1"><a href="week-4-chance-and-probability-theory.html#cb202-1" aria-hidden="true" tabindex="-1"></a>save_number_of_heads<span class="ot">&lt;-</span><span class="fu">length</span>(<span class="dv">1000</span>) <span class="co"># make an empty variable to save things in</span></span>
@@ -388,7 +388,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb202-5"><a href="week-4-chance-and-probability-theory.html#cb202-5" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb202-6"><a href="week-4-chance-and-probability-theory.html#cb202-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb202-7"><a href="week-4-chance-and-probability-theory.html#cb202-7" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(save_number_of_heads)</span></code></pre></div>
-<p><img src="quantrma_lab_files/figure-html/unnamed-chunk-91-1.png" width="672" /></p>
+<p><img src="quantrma_lab_files/figure-html/unnamed-chunk-92-1.png" width="672" /></p>
 <p>The histogram shows us the frequency observing different numbers of heads (for 10 flips) across the 1000 simulations. 5 happens the most, but 2 happens sometimes, and so does 8. All of the possibilities seem to happen sometimes, some more than others.</p>
 </div>
 <div id="sample-and-binom-exercises" class="section level3" number="4.3.3">
@@ -406,11 +406,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">4.3.4</span> <code>rnorm()</code></h3>
 <p>We’ll quickly show how to use <code>rnorm(n, mean=0, sd=1)</code> to sample numbers from a normal distribution. It’s similar to <code>rbinom()</code>, but now you are sampling from a normal distribution instead:</p>
 <div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb204-1"><a href="week-4-chance-and-probability-theory.html#cb204-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(<span class="fu">rnorm</span>(<span class="dv">10000</span>,<span class="dv">0</span>,<span class="dv">1</span>))</span></code></pre></div>
-<p><img src="quantrma_lab_files/figure-html/unnamed-chunk-93-1.png" width="672" />
+<p><img src="quantrma_lab_files/figure-html/unnamed-chunk-94-1.png" width="672" />
 There it is, a bell-shaped normal distribution with a mean of 0, and a standard deviation of 1. Just by changing the arguments of the <code>rnorm()</code> function, you can sample numbers from normal distributions with any mean or standard deviation.</p>
 <p>The nice thing about R functions is that they are a bit like Legos, you can put them together and come up with different things. What if wanted to sample from a distribution that looked like a two-humped camel’s back? Just sample from <code>rnorm</code> twice like this… mix away.</p>
 <div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb205-1"><a href="week-4-chance-and-probability-theory.html#cb205-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>( <span class="fu">c</span>( <span class="fu">rnorm</span>(<span class="dv">100</span>,<span class="dv">25</span>,<span class="dv">5</span>), <span class="fu">rnorm</span>(<span class="dv">100</span>,<span class="dv">50</span>,<span class="dv">5</span>)) )</span></code></pre></div>
-<p><img src="quantrma_lab_files/figure-html/unnamed-chunk-94-1.png" width="672" />
+<p><img src="quantrma_lab_files/figure-html/unnamed-chunk-95-1.png" width="672" />
 You can generate as many numbers under a certain distribution as your computer can handle.</p>
 </div>
 <div id="graphing-the-normal-distribution" class="section level3" number="4.3.5">
@@ -423,7 +423,7 @@ You can generate as many numbers under a certain distribution as your computer c
 <span id="cb206-5"><a href="week-4-chance-and-probability-theory.html#cb206-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(normal_df, <span class="fu">aes</span>(<span class="at">x=</span>values,<span class="at">y=</span>normal_dist))<span class="sc">+</span></span>
 <span id="cb206-6"><a href="week-4-chance-and-probability-theory.html#cb206-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>()<span class="sc">+</span></span>
 <span id="cb206-7"><a href="week-4-chance-and-probability-theory.html#cb206-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code></pre></div>
-<p><img src="quantrma_lab_files/figure-html/unnamed-chunk-95-1.png" width="672" /></p>
+<p><img src="quantrma_lab_files/figure-html/unnamed-chunk-96-1.png" width="672" /></p>
 <p>A really nice shaped bell-like thing. This normal distribution has a mean of 0, and standard deviation of 1. The heights of the lines tell you roughly how likely each value is. Notice, it is centered on 0 (most likely that numbers from this distribution will be near 0), and it goes down as numbers get bigger or smaller (so bigger or smaller numbers get less likely). Notice the values don’t go much beyond -4 and +4. This is because those values don’t happen very often. Theoretically any value could happen, but really big or small values have really low probabilities.</p>
 </div>
 <div id="calculating-the-probability-of-specific-ranges." class="section level3" number="4.3.6">
@@ -437,9 +437,9 @@ Well, what is the probability of getting a 2 or greater? That’s a bit harder t
 <div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb209-1"><a href="week-4-chance-and-probability-theory.html#cb209-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="dv">2</span>, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd=</span> <span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## [1] 0.9772499</code></pre>
 <p>That doesn’t seem quite right. R is telling us the probability is 0.977, while we know it should be smaller than 0.5. That’s because by default, <code>pnorm()</code> gives the probability “up to and including” (denoted: P[X ≤ x]). The figure below visualizes what that means:</p>
-<p><img src="quantrma_lab_files/figure-html/unnamed-chunk-98-1.png" width="672" />
-So, to get the probability of getting a 2 or greater, we have to take <span class="math inline">\(1 - 0.9772499 = 0.0227501\)</span>:</p>
 <p><img src="quantrma_lab_files/figure-html/unnamed-chunk-99-1.png" width="672" />
+So, to get the probability of getting a 2 or greater, we have to take <span class="math inline">\(1 - 0.9772499 = 0.0227501\)</span>:</p>
+<p><img src="quantrma_lab_files/figure-html/unnamed-chunk-100-1.png" width="672" />
 Or, we could use the <code>lower.tail</code> argument:</p>
 <div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb211-1"><a href="week-4-chance-and-probability-theory.html#cb211-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="dv">2</span>, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd=</span> <span class="dv">1</span>,<span class="at">lower.tail =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
 <pre><code>## [1] 0.02275013</code></pre>

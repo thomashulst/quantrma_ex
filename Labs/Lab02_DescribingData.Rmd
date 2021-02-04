@@ -83,7 +83,7 @@ After reading section 2.4 of the lab manual, complete the exercises below. All c
 
 ```
 
-3. Make a time series plot of Life Expectancy by year for the continents (hint: use the `group_by()` and `summarise()` functions. Look at grouping and summarizing the NYC film permits for a code example (Section 2.3.1).
+3. Try to recreate time series plot in the lab manual under this exercise. The plot is of Life Expectancy by year for each continent. You should use the `group_by()` and `summarise()` functions. Have a look at grouping and summarizing the NYC film permits for a code example (Section 2.3.1).
 ```{r}
 
 
