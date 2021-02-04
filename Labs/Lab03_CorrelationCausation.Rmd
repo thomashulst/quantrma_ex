@@ -8,7 +8,7 @@ output:
 ---
 
 ```{r setup,include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, eval = TRUE, cache = FALSE, error = TRUE, message = FALSE, warning = TRUE, tidy = TRUE)
+knitr::opts_chunk$set(echo = TRUE, eval = TRUE, cache = FALSE, error = TRUE, message = FALSE, warning = TRUE, tidy = FALSE)
 ```
 
 Welcome to the template file of the third lab! Today is all about correlation and causation. Start this lab by answering the exercises about establishing causal relationships below (Questions 1 to 8).
@@ -58,7 +58,6 @@ Your proposed solution should satisfy the following:
 ## Question 4
 In the case from the previous question: how would you test the empirical validity of competing explanations? For example, how could you make test that exercising a hobby has a stronger effect for non-retirees than it has for retirees? 
 
-
 ## Question 5
 In the previous question, you provided solutions to ambiguously formulated claims of causal relationships, in order to strengthen their empirical validity and to be able to draw meaningful conclusions. However, meaningful conclusions should be obtained from meaningful comparisons. 
 
@@ -67,10 +66,8 @@ According to the textbook, what does a meaningful comparison entail?
 ## Question 6
 According to the textbook, how can we obtain meaningful comparisons?
 
-
 ## Question 7
 The textbook discusses three different types of interventions (independent variables). Briefly describe what they are and provide an example of your own. 
-
 
 ## Question 8
 Read the following two cases and decide whether or not the described experiment is internally valid. *If not*, identify the threat to internal validity by choosing from the options below. 
@@ -108,7 +105,6 @@ cor(x,y)
 # Correlations in R
 
 ## Correlation exercises 
-
 Before completing the exercises below, run the following code chunk. This makes sure all libraries and relevant data files are properly loaded:
 
 ```{r}
@@ -155,7 +151,7 @@ Answer the following questions in your own words:
 2. Explain the difference between a correlation of r = .5, and r = -.5.
 
 ## Data exercise
-You should have all tools available to answer your own question about a relationship in the WHR dataset. This should be a different relationship (and about a different year) than the examples above. You should calculate Pearson's $r$ of this relationship, generate a scatterplot with a best fit line, print the correlation on the scatterplot, and print the mean and standard deviation of both variables in a table. Your code should include all steps, from loading the relevant libraries and data file, to generating all the required output. Use comments throughout your code to explain what your are doing.  
+You should have all tools available to answer your own question about a relationship in the WHR dataset. Answering a question about the WHR dataset is a great way to practice for your assignment. Your question should be about a different relationship (and about a different year) than the examples above. You should calculate Pearson's $r$ of this relationship, generate a scatterplot with a best fit line, print the correlation on the scatterplot, and print the mean and standard deviation of both variables in a table. Your code should include all steps, from loading the relevant libraries and data file, to generating all the required output. Use comments throughout your code to explain what your are doing.  
 
 ```{r}
 
