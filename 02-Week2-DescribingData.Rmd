@@ -348,7 +348,7 @@ ggplot(counts, aes(x = SubCategoryName, y = count_of_permits,
 
 I guess "episodic series" are the most common. Using a graph like this gave us our answer super fast.
 
-#### `facet_wrap()` for categories by different boroughs
+#### `facet_wrap()` for categories by different boroughs {#facetwrap}
 Let's see one more really useful thing about ggplot. It's called `facet_wrap()`. It's an ugly word, but you will see that it is very cool, and you can do next-level-super-hero graph styles with `facet_wrap` that other people can't do very easily. 
 
 Here's our question. We know that films are made in different Boroughs, and that films are made in different Categories, but do different Boroughs have different patterns for the kinds of categories of films they request permits for? Are their more TV shows in Brooklyn? How do we find out? Watch, just like this:

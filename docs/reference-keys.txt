@@ -4,7 +4,8 @@ tab:unnamed-chunk-66
 fig:example1
 fig:example2
 fig:1facet
-tab:unnamed-chunk-72
+fig:1facet2
+fig:1facet3
 why-r
 downloading-and-installing-r
 installing-r-on-a-mac
@@ -73,7 +74,7 @@ theme_classic-makes-white-background
 sometimes-layer-order-matters
 font-size
 what-are-the-sub-categories-of-films
-facet_wrap-for-categories-by-different-boroughs
+facetwrap
 gaplab
 look-at-the-data
 life-expectancy
@@ -101,7 +102,7 @@ describing-gapminder-with-numbers
 descriptive-exercises
 week-3-correlation-and-causation
 learning-goals-2
-part-one-establishing-causal-relationships
+research-methods-1
 question-1-1
 example-1
 example-2
@@ -114,7 +115,7 @@ question-7-1
 question-8
 case-1
 case-2
-part-two-correlations-in-r
+correlations-in-r
 cor-for-correlation
 scatterplots
 lots-of-scatterplots
