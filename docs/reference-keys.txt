@@ -6,6 +6,7 @@ fig:example2
 fig:1facet
 fig:1facet2
 fig:1facet3
+tab:unnamed-chunk-75
 why-r
 downloading-and-installing-r
 installing-r-on-a-mac

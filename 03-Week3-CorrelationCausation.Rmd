@@ -143,7 +143,7 @@ ggplot(df_all, aes(x = x, y = y))+
 This visualizes the relationship between x and y over all conditions, but doesn't allow us to see whether the relationship depends on the condition. If we would want to look at that, we need some way to visually discriminate the conditions on the scatterplot. You could do the following: 
 
 ```{r 1facet2, fig.cap="All conditions in one scatterplot, but conditions are differently colored",warning=F}
-ggplot(df_all, aes(x = x, y = y, group = conditions, color = conditions))+
+ggplot(df_all, aes(x = x, y = y, group = condition, color = condition))+
   geom_point()
 ```
 
@@ -152,7 +152,7 @@ This is a bit better, but it's still not easy to discriminate between conditions
 ```{r 1facet3, fig.cap="Facet wrapped scatterplot",warning=F}
 ggplot(df_all, aes(x = x, y = y))+
   geom_point() +
-  facet_wrap(~conditions)
+  facet_wrap(~condition)
 ```
 
 #### Computing the correlations all at once
@@ -163,7 +163,7 @@ What we will do now is make a table of the correlations in addition to the scatt
 ```{r}
 
 df_cor <- df_all %>% 
-  group_by(conditions) %>%
+  group_by(condition) %>%
   summarise(correlation = cor(x, y))
 
 knitr::kable(df_cor,caption = "Correlation by condition.")
