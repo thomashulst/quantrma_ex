@@ -77,7 +77,7 @@ After reading section 2.4 of the lab manual, complete the exercises below. All c
 
 ```
 
-2. Make a time series plot of GDP per capita by year for the Brazil, Canada, and Mexico using the code example in Section 2.4.2.4. Make sure to update the title and labels as well.
+2. Make a time series plot of GDP per capita by year for Brazil, Canada, and Mexico using the code example in Section 2.4.2.4. Make sure to update the title and labels as well.
 ```{r}
 
 

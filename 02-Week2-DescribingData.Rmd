@@ -3,7 +3,7 @@
 >The commonality between science and art is in trying to see profoundly - to develop strategies of seeing and showing.
 >---Edward Tufte
 
-The purpose of this lab is to show you how to generate graphs and compute basic descriptive statistics, including measures of central tendency (mean, mode, median) and variation (range, variance, standard deviation). We learned in the lecture and from the textbook that data we want to answer questions of, often comes with loads of numbers. Too many numbers to look at all at once. That's one reason we use descriptive statistics. To reduce the big set of numbers to one or two summary numbers or a pretty graph that tells us something about all of the numbers. R can produce descriptive statistics for you in many ways. We'll go over some R basics for descriptive statistics, and then use our new found skills to ask some questions about real data. To get started, download the [lab template here](https://raw.githubusercontent.com/thomashulst/quantrma_lab/master/Labs/Lab02_DescribingData.Rmd) (right click: save as) or from Canvas. Copy the lab template to your lab folder, double-click Labs.proj to start RStudio and open the lab template.
+The purpose of this lab is to show you how to generate graphs and compute basic descriptive statistics, including measures of central tendency (mean, mode, median) and variation (range, variance, standard deviation). We learned in the lecture and from the textbook that data we want to answer questions of, often comes with loads of numbers. Too many numbers to look at all at once. That's one reason we use descriptive statistics. To reduce the big set of numbers to one or two summary numbers or a pretty graph that tells us something about all of the numbers. R can produce descriptive statistics for you in many ways. We'll go over some R basics for descriptive statistics, and then use our new found skills to ask some questions about real data. To get started, download the [lab template here](https://github.com/thomashulst/quantrma_lab/raw/master/Labs/Lab02_DescribingData.Rmd) (right click: save as) or from Canvas. Copy the lab template to your lab folder, double-click Labs.proj to start RStudio and open the lab template.
 
 ## Learning goals
 During this lab you will do the following:
@@ -539,7 +539,7 @@ With the code examples above, you should be able to make your own graphs to answ
 Use the code from prior code blocks to solve the extra things we ask you to do for the following exercises:
 
 1. Make a histogram of GDP per capita in the Gapminder dataset. (hint: see the histogram of life expectancy in Section 2.4.2 for a code example)
-2. Make a time series plot of GDP per capita by year for the Brazil, Canada, and Mexico using the code example in Section 2.4.2.4. Make sure to update the title and labels as well.
+2. Make a time series plot of GDP per capita by year for Brazil, Canada, and Mexico using the code example in Section 2.4.2.4. Make sure to update the title and labels as well.
 3. Try to recreate time series plot below. The plot is of Life Expectancy by year for each continent. You should use the `group_by()` and `summarise()` functions. Have a look at grouping and summarizing the NYC film permits for a code example (Section 2.3.1).
 
 ```{r,echo=F,eval=T}
