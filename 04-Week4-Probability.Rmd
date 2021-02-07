@@ -1,7 +1,7 @@
 # Week 4: Chance and Probability Theory
-This week we learned that we can find correlations by **chance alone**, even when there is no true correlation between the variables. During the first part of this lab we are going to explore this phenomenon further. We will generate some random data and then look at the correlations we calculate. This will serve to develop our intuitions about inferential statistics; the focus of the remainder of this course. In the second part of the lab we are going to dive deeper in generating simulated data, which is very useful in helping us understand real data, and calculate all sorts of things about probability distributions.  
+In the textbook we learned that we can find correlations by **chance alone**, even when there is no true correlation between two variables. During the first part of this lab we are going to explore this phenomenon further. We will generate some random data and then look at the correlations we calculate from random data. This will serve to develop our intuitions about inferential statistics; the focus of the remainder of this course. In the second part of the lab we are going to dive deeper in generating simulated data, which is very useful in helping us understand real data, and calculate all sorts of things about probability distributions.  
 
-To get started, download the [lab template here](https://github.com/thomashulst/quantrma_lab/raw/master/Labs/Lab04_Probability.Rmd) (right click: save as) or from Canvas. Copy the lab template to your lab folder and open Lab.proj.
+To get started, download the [lab template here](https://github.com/thomashulst/quantrma_lab/raw/master/Labs/Lab04_Probability.Rmd) (right click: save as) or from Canvas. Copy the lab template to your lab folder and double click the **Lab project file** (not the .Rmd) to open RStudio. 
 
 ## Learning goals
 During this lab you will do the following:
@@ -10,13 +10,14 @@ During this lab you will do the following:
 2. Learn how to generate simulated data in R
 3. Calculate and work with z-scores in R 
 
-## Part one: correlation and random chance
+## Correlation and random chance
 We saw [in the textbook](https://thomashulst.github.io/quantrma/chance.html#correlation-and-random-chance), that we can find correlations by chance alone, even when there is no true correlation between the variables. For example, suppose we randomly sampled some whole numbers into `x` and `y`. We know they shouldn't be related, because we randomly sampled the numbers. However, chance alone will sometimes create correlations between `x` and `y`. You can demonstrate this to yourself by using the code below. Let's look at 20 "experiments", with 5 random numbers for `x` and `y` each.
 
 ```{r,echo=T,eval=T}
-library(ggplot2)
-x<-round(runif(5*20,1,10)) # runif() draws a random sample from a uniform distribution
-y<-round(runif(5*20,1,10))
+library(tidyverse)
+
+x<-round(rnorm(5*20,5,5)) # rnorm draws random numbers from a normal distribution
+y<-round(rnorm(5*20,5,5)) 
 conditions<-rep(1:20, each=5)
 
 all_df <- data.frame(conditions, x, y)
@@ -29,38 +30,67 @@ ggplot(all_df, aes(x=x,y=y))+
 
 ```
 
-You can see that the slope of the blue line is not always flat. Sometimes it looks like there is a correlation, when we know there shouldn't be. You can keep re-doing this graph, by re-knitting your RMarkdown document, or by pressing the little green play button. This is basically you simulating the experiments as many times as you press the button.
+You can see that the slope of the blue line is not always flat. Sometimes it looks like there is a correlation, when we know in fact the data is completely random. You can keep re-doing this graph, by re-knitting your RMarkdown document, or by pressing the little green play button. This is basically you simulating 20 experiments each time you press the button. Complete the chance exercises below in your RMarkdown template. 
 
 ### Chance exercises
-There are three questions to answer for this exercise. For the first two questions, you will be sampling random numbers from a [uniform distribution](https://en.wikipedia.org/wiki/Continuous_uniform_distribution) a 1000 times. The first two questions are:
+There are four questions to answer for this exercise. For the first two questions, you will be sampling random numbers from a normal distribution a 1000 times. The first two questions are:
 
-1. Estimate the range (minimum and maximum) of correlations that could occur by chance between two variables with n = 10.
-2. Estimate the range (minimum and maximum) of correlations that could occur by chance between two variables with n = 25.
+1. Estimate the range (minimum and maximum) of correlations that could occur by chance between two normally distributed random variables with n = 10.
+2. Estimate the range (minimum and maximum) of correlations that could occur by chance between two normally distributed random variables with n = 25.
 
-Hint: to estimate the range of correlations that chance can produce we could to randomly sample `x` and `y` many times (like in the first example), save the correlation between `x` and `y` each time, then look at the smallest and largest correlation. How can you do this programmatically, without having to press the 'play' button hundreds of times?
+Hint: to estimate the range of correlations that chance can produce we randomly sample `x` and `y` many times (like in the first example), save the correlation between `x` and `y` each time, then look at the smallest and largest correlation. How can you do this programmatically, without having to press the 'play' button hundreds of times?
 
-The answer is using a `for` loop. The code below shows how to repeat everything inside the for loop 5 times. The variable `i` is an index, that goes from 1 to 5. The `saved_value` variable starts out as an empty variable, and then we put a value into it (at index position i, from 1 to 5). In this code, we put the sum of the products of x and y into the `saved_value` variable. At the end of the simulation, the `save_value` variable contains 5 numbers. The `min()` and `max()` functions are used to find the minimum and maximum values for each of the 5 simulations. You should be able to modify this code to answer question 1 and 2.  
+The answer is using a `for` loop. The code below shows how to repeat everything inside the for loop 5 times. The variable `i` is an index, that goes from 1 to 5. The `saved_value` variable starts out as an empty variable, and then we put a value into it (at index position i, from 1 to 5). In this code, we put the sum of the products of x and y into the `saved_value` variable. At the end of the simulation, the `saved_value` variable contains 5 numbers. The `min()` and `max()` functions are used to find the minimum and maximum values for each of the 5 simulations. Modify the following code to answer question 1 and 2.  
 
 ```{r}
-saved_value <- c() #make an empty variable
-for (i in 1:5) {
-  x <- runif(n=10, min=1, max=10)
-  y <- runif(n=10, min=1, max=10)
-  saved_value[i] <- sum(x*y)
+saved_value <- c() # create empty variable
+for (i in 1:5) { # loop over code between {} 5 times
+  x <- rnorm(n=10, mean=0, sd=5) # generate normally distributed random variables
+  y <- rnorm(n=10, mean=0, sd=5)
+  saved_value[i] <- sum(x*y) # save the sum of the product of x*y in saved_value
 }
 
 min(saved_value)
 max(saved_value)
 
 ```
-The third question is as follows:
 
-3. What proportion of correlations (from question 1 and 2) is smaller than -0.3 and larger than +0.3 for n = 10 and n = 25? Create a  histogram of the correlations for n = 10 and n = 25 and draw a vertical line at -0.3 and +0.3. Print the found proportions on the plots. Use `ggarrange()` from the `ggpubr` library to plot the histograms alongside each other in one figure.
+3. What proportion of simulated correlations (from question 1 and 2) is smaller than -0.3 and larger than +0.3 for n = 10 and n = 25? To calculate the proportion use the smaller than (`<`) and greater than (`>`) operators on your vector of correlations like so: `mean(saved_value > 0.3)`
 
-Generating the correct histograms for this question is probably harder than you expect. Remember, programming is an iterative process, you almost never get to the solution in the first go and there are multiple ways to get to the solution. Make liberal use of the help function in R, Google, or ask help from your classmates / the tutor when stuck. 
+4. The histogram below shows the correlations produced by random chance for n = 10. The red lines are set at -0.3 and +0.3. The text indicates the proportion of correlations outside the red lines. Try to recreate the histogram below as closely as possible for n = 25.
 
-## Part two: generating data in R
-There are many ways to make R generate numbers for you. We already looked at using a uniform distribution to generate numbers for our random correlations. In this next part, we will explore additional functions and distributions to generate random numbers.  
+Remember, programming is an iterative process, you almost never get to the solution in the first go. Make liberal use of the help function in R, Google, the tidyverse website and/or the cheatsheets and ask help from your classmates / the tutor when stuck. There are multiple ways to get to the plot below. 
+
+```{r,echo=F,eval=T,warning=F}
+
+# generate correlations
+saved_value10 <- c() # create empty variable
+for (i in 1:1000) {
+  x <- rnorm(n=10, mean=1, sd=10) # n = 10
+  y <- rnorm(n=10, mean=1, sd=10)
+  saved_value10[i] <- cor(x,y)
+}
+
+df_cor <- data.frame(saved_value10)
+# find proportion of correlations below -0.3 and above +0.3
+prop_cor <- mean(saved_value10 < -0.3 | saved_value10 > 0.3)
+
+# n = 10
+ggplot(df_cor, aes(x=saved_value10)) + 
+  geom_histogram(binwidth=0.05,fill="white",color="black") +
+  geom_vline(xintercept = c(-0.3,0.3), colour = "red", linetype = "longdash")+
+  annotate("text",label=prop_cor,x=-0.75,y=50)+
+  xlim(-1,1)+
+  ylim(0,80)+
+  theme_classic()+
+  ggtitle("Histogram of chance correlations for n = 10.")
+
+```
+
+After completing these exercises, continue the lab by reading Section 4.3.
+
+## Generating data with `sample()` and `binom()`
+There are many ways to make R generate numbers for you. We already used normal distribution to generate numbers for our random correlations. In this next part, we will explore additional functions and distributions to generate random numbers and look at `rnorm()` in more detail.  
 
 ### `sample()`
 The sample function is like an endless gumball machine. You put the gumballs inside with different properties, say As and Bs, and then you let sample endlessly take gumballs out. Check it out:
@@ -79,15 +109,15 @@ sample_of_numbers <-sample(some_numbers, 20, replace=TRUE)
 sample_of_numbers
 ```
 
-Let's do one more thing with sample. Let's sample 1000 times from our `some_numbers` variable, and then look at the histogram
+Let's do one more thing with sample. Let's sample 1000 times from our `some_numbers` variable, and then look at the histogram:
 
 ```{r}
 some_numbers <- c(1,2,3,4,5,5,5,5)
 sample_of_numbers <-sample(some_numbers, 1000, replace=TRUE)
-hist(sample_of_numbers)
+sample_df <- data.frame(sample_of_numbers)
 
-# we are using the built in hist() function. we could also use ggplot to generate this histogram:
-ggplot(data.frame(sample_of_numbers),aes(x=sample_of_numbers)) + geom_histogram()
+ggplot(sample_df,aes(x=sample_of_numbers)) + 
+  geom_histogram()
 
 ```
 
@@ -114,14 +144,17 @@ Alright, so we get the sum of the 1s (i.e. the successes), which tells us the nu
  
 We could do this 1000 times over, saving the number of heads for each set of 10 flips. Then we could look at the distribution of those sums. That would tell us about the range of things that can happen when we flip a coin 10 times. We can do that in a `for` loop like this:
 
-```{r}
-save_number_of_heads<-length(1000) # make an empty variable to save things in
+```{r, warning=F}
+number_of_heads<-length(1000) # make an empty variable to save things in
 
 for(i in 1:1000){
-  save_number_of_heads[i] <- sum(rbinom(10,1,.5))
+  number_of_heads[i] <- sum(rbinom(10,1,.5))
 }
 
-hist(save_number_of_heads)
+heads_df <- data.frame(number_of_heads)
+
+ggplot(heads_df,aes(x=number_of_heads)) +
+  geom_histogram(binwidth=1,fill="white",color="black") 
 
 ```
  
@@ -133,22 +166,37 @@ The histogram shows us the frequency observing different numbers of heads (for 1
 sample(c(1:10), 20)
 ```
 
-2. How many sixes do you expect to roll when rolling 1 dice 10,000 times? And how many fives **and** sixes do you expect to roll when rolling 10 dice 10,000 times?
+2. Simulate the amount of sixes you expect to roll when rolling 1 dice 10,000 times. Also simulate the amount of fives **and** sixes you expect to roll when rolling 10 dice 10,000 times? (hint: use `rbinom()` to simulate 10,000 dice rolls and `sum()` to calculate the amount of successes)
 
 3. What is the probability of obtaining exactly 4 heads when flipping 10 fair coins? And what is the probability to obtain **at least** 4 heads (so 4, 5, 6, 7, 8, 9 or 10 heads)? Cf. [the textbook](https://thomashulst.github.io/quantrma/chance.html#working-with-the-binomial-distribution-in-r) when unsure how to use the `binom()` functions.
 
+## Normal distribution
+
 ### `rnorm()`
-We'll quickly show how to use `rnorm(n, mean=0, sd=1)` to sample numbers from a normal distribution. It's similar to `rbinom()`, but now you are sampling from a normal distribution instead:
+You can use `rnorm()` to sample numbers from a normal distribution. It's similar to `rbinom()`, but now you are sampling from a normal distribution instead:
 
 ```{r}
-hist(rnorm(10000,0,1))
+
+sample_numbers <- rnorm(10000,0,1) # sample n = 10,000 numbers with mean = 0 and sd=1
+sample_df <- data.frame(sample_numbers)
+
+ggplot(sample_df,aes(x=sample_numbers)) +
+  geom_histogram(binwidth=0.1,fill="white",color="black") 
+
+
 ```
 There it is, a bell-shaped normal distribution with a mean of 0, and a standard deviation of 1. Just by changing the arguments of the `rnorm()` function, you can sample numbers from normal distributions with any mean or standard deviation. 
 
 The nice thing about R functions is that they are a bit like Legos, you can put them together and come up with different things. What if wanted to sample from a distribution that looked like a two-humped camel's back? Just sample from `rnorm` twice like this... mix away.
 
 ```{r}
-hist( c( rnorm(100,25,5), rnorm(100,50,5)) )
+sample_numbers <- ( c( rnorm(10000,25,7.5), rnorm(10000,50,7.5)) )
+sample_df <- data.frame(sample_numbers)
+
+ggplot(sample_df,aes(x=sample_numbers)) +
+  geom_histogram(binwidth=1,fill="white",color="black") 
+
+
 ```
 You can generate as many numbers under a certain distribution as your computer can handle.
 
@@ -163,7 +211,6 @@ normal_df <-data.frame(values,normal_dist)
 ggplot(normal_df, aes(x=values,y=normal_dist))+
   geom_line()+
   theme_classic()
-
 
 ```
 
@@ -249,6 +296,8 @@ pnorm(2, mean = 0, sd= 1,lower.tail = FALSE)
 So, the probability of getting a 2 or greater is .0227 (not very probable)
 
 ### `norm()` exercises
+Complete the following exercises in your RMarkdown template. 
+
 Run the following bit of code, which samples 20 random numbers from a normal distribution, a couple of times and look at the results. 
 
 1. What do you think the function `set.seed()` does? When do you think this could be useful?
@@ -258,14 +307,18 @@ some_numbers <- rnorm(20,50,25) # 20 numbers, mean = 50, s.d. = 25
 print(some_numbers)
 ```
 
-2. Suppose the mean of a normal distribution is 25 ($\mu = 25$) and the standard deviation is 3 ($\sigma=3$). Calculate the probability of obtaining a value between 22 and 28 using R.
+2. Suppose the mean of a normal distribution is 25 ($\mu = 25$) and the standard deviation is 3 ($\sigma=3$). Calculate the probability of obtaining a value between 22 and 28 using R. (hint: `pnorm()`)
 
-3. Based on what you know about the standard normal distribution, could you have figured this out without calculations?
+3. Based on what you know about the standard normal distribution, could you answer question 2 without calculations?
  
-4. Use R to calculate the probability of obtaining a value higher than 29.5 for this normal distribution.
+4. Use R to calculate the probability of obtaining a value **higher than 29.5** for the normal distribution with $\mu = 25$ and $\sigma=3$. (hint: `pnorm()`)
 
-### z-scores
-We just spent a bunch of time looking at a very special normal distribution, the one where the mean = 0, and the standard deviation = 1. This special normal distribution is called the **standard normal distribution**. Often, we are not dealing with a normal distribution exactly like this. For example, someone might say, I got a number, it's 545. It came from a normal distribution with mean = 600, and standard deviation = 25. So, does 545 happen a lot or not? The numbers don't tell you right away. But if we were talking about the standard normal distribution with mean = 0 and standard deviation = 1, and I told I got a number -2.2 from that distribution, you would know directly that -2.2 doesn't happen a lot.
+Continue the lab by reading section 4.5 of the lab manual.
+
+## z-scores
+A normal distribution with mean = 0 and the standard deviation = 1 is called the **standard normal distribution**. Often, we are not dealing with a normal distribution exactly like this. 
+
+For example, someone might say, I got a number, it's 545. It came from a normal distribution with mean = 600, and standard deviation = 25. Does the number 545 happen a lot or not? The numbers don't tell you right away. But if we were talking about the standard normal distribution with mean = 0 and standard deviation = 1, and I told I got a number -2.2 from that distribution, you would know directly that -2.2 doesn't happen a lot.
 
 z-scores are a way of transforming one set of numbers into the standard normal distribution. To [calculate z-scores](https://thomashulst.github.io/quantrma/chance.html#z-scores) we take the following steps:
 
@@ -294,15 +347,17 @@ print(differences)
 z_scores<-differences/my_sd
 print(z_scores)
 ```
-Done. Now you have converted your original numbers into what we call standardized scores (or z-scores). They are standardized to have the same properties (assumed properties) as a normal distribution with mean = 0, and standard deviation = 1. 
+Done. Now you have converted your original numbers into what we call standardized scores (or z-scores). They are standardized to have the same (assumed) properties of a normal distribution with mean = 0, and standard deviation = 1. 
 
 ### z-score exercises
-[Right click and download this](https://github.com/thomashulst/quantrma_lab/blob/master/data/spssdata/StatsGrades.sav?raw=true) SPSS file containing 49 students’ exam grades (let’s say it’s the final exam for a statistics class). You have likely never worked with an SPSS (.sav) file before, but still, with a quick Google search, you should be able to find a library and function to load the data into R. Remember, you can install packages using `install.packages()` and load a library with `library()`. Make sure the .sav is in your working directory so you can load it into R. 
+Complete the following exercises in your RMarkdown template.
+
+[Right click and download this](https://github.com/thomashulst/quantrma_lab/blob/master/data/spssdata/StatsGrades.sav?raw=true) SPSS file containing 49 students’ exam grades (let’s say it’s the final exam for a statistics class). You have likely never worked with an SPSS (.sav) file before, but still, with a quick Google search, [I was able to find a library and function to load the data into R by looking at the first answer at StackOverflow](https://stackoverflow.com/questions/33026167/reading-sav-file-into-r). Remember, you can install packages using `install.packages()` and load a library with `library()`. Make sure the .sav is in your lab directory so you can load it into R. 
 
 Once you have successfully loaded the data into R:
 
-1. Create a table containing the mean and standard deviation for this sample of scores. Also produce a frequency histogram of the grades. How does the distribution of grades look?
-2. Transform each student’s score into a Z-score. Now, plot the frequency histogram of this Z-score distribution. Compare it to the raw score distribution. How are they the same? How are they different?
-3. Imagine you are a student in this class who received a 90 on this exam. However, the Professor has decided to grade on a curve, such that only the top 10% of the class receives an A (this professor only gives whole grades, no minuses or pluses). Calculate the z-score that corresponds to a raw score of 90 on this exam. Will you get an A with this grade? Why or why not?
+1. Create a table containing the mean and standard deviation for this sample of scores. Also produce a histogram of the grades. How does the distribution of grades look with a binwidth of 5?
+2. Transform each student’s score into a Z-score. Now, plot the frequency histogram of this Z-score distribution with a binwidth of 0.5. Compare it to the raw score distribution. How are they the same? How are they different?
+3. Imagine you are a student in this class who received a 90 on this exam. However, the Professor has decided to grade on a curve, such that only the top 10% of the class receives an A. Calculate the z-score that corresponds to a raw score of 90 on this exam. Will you get an A with this grade? Why or why not?
 
 When you have completed all exercises and are happy with your progress today, please knit your document and submit it to Canvas. If you finish before the time is up, start with the required readings of Week 5, work on your assignment, or help out your fellow students.

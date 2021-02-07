@@ -131,12 +131,13 @@ theory-exercises
 data-exercise
 week-4-chance-and-probability-theory
 learning-goals-3
-part-one-correlation-and-random-chance
+correlation-and-random-chance
 chance-exercises
-part-two-generating-data-in-r
+generating-data-with-sample-and-binom
 sample
 rbinom
 sample-and-binom-exercises
+normal-distribution
 rnorm
 graphing-the-normal-distribution
 calculating-the-probability-of-specific-ranges.
