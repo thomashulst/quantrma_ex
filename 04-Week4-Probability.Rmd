@@ -11,7 +11,7 @@ During this lab you will do the following:
 3. Calculate and work with z-scores in R 
 
 ## Correlation and random chance
-We saw [in the textbook](https://thomashulst.github.io/quantrma/chance.html#correlation-and-random-chance), that we can find correlations by chance alone, even when there is no true correlation between the variables. For example, suppose we randomly sampled some whole numbers into `x` and `y`. We know they shouldn't be related, because we randomly sampled the numbers. However, chance alone will sometimes create correlations between `x` and `y`. You can demonstrate this to yourself by using the code below. Let's look at 20 "experiments", with 5 random numbers for `x` and `y` each.
+We saw [in the textbook](https://thomashulst.github.io/quantrma/chance.html#correlation-and-random-chance), that we can find correlations by chance alone, even when there is no true correlation between the variables. For example, suppose we randomly sampled some numbers into `x` and `y`. We know they shouldn't be related, because we randomly sampled the numbers. However, chance alone will sometimes create correlations between `x` and `y`. You can demonstrate this to yourself by using the code below. Let's look at 20 "experiments", with 5 random numbers for `x` and `y` each.
 
 ```{r,echo=T,eval=T}
 library(tidyverse)
@@ -20,8 +20,10 @@ x<-round(rnorm(5*20,5,5)) # rnorm draws random numbers from a normal distributio
 y<-round(rnorm(5*20,5,5)) 
 conditions<-rep(1:20, each=5)
 
+# put data in data.frame
 all_df <- data.frame(conditions, x, y)
 
+# plot 20 scatterplots with best fit line
 ggplot(all_df, aes(x=x,y=y))+
   geom_point()+
   geom_smooth(method=lm, se=FALSE)+
@@ -33,7 +35,7 @@ ggplot(all_df, aes(x=x,y=y))+
 You can see that the slope of the blue line is not always flat. Sometimes it looks like there is a correlation, when we know in fact the data is completely random. You can keep re-doing this graph, by re-knitting your RMarkdown document, or by pressing the little green play button. This is basically you simulating 20 experiments each time you press the button. Complete the chance exercises below in your RMarkdown template. 
 
 ### Chance exercises
-There are four questions to answer for this exercise. For the first two questions, you will be sampling random numbers from a normal distribution a 1000 times. The first two questions are:
+For the first two exercises, you will be sampling random numbers from a normal distribution a 1000 times. We provide some hints and example code two answer the exercises below.
 
 1. Estimate the range (minimum and maximum) of correlations that could occur by chance between two normally distributed random variables with n = 10.
 2. Estimate the range (minimum and maximum) of correlations that could occur by chance between two normally distributed random variables with n = 25.
@@ -50,12 +52,15 @@ for (i in 1:5) { # loop over code between {} 5 times
   saved_value[i] <- sum(x*y) # save the sum of the product of x*y in saved_value
 }
 
-min(saved_value)
-max(saved_value)
+min_value <- min(saved_value)
+max_value <- max(saved_value)
+
+print(min_value)
+print(max_value)
 
 ```
 
-3. What proportion of simulated correlations (from question 1 and 2) is smaller than -0.3 and larger than +0.3 for n = 10 and n = 25? To calculate the proportion use the smaller than (`<`) and greater than (`>`) operators on your vector of correlations like so: `mean(saved_value > 0.3)`
+3. What proportion of simulated correlations (from question 1 and 2) is smaller than -0.3 and larger than +0.3 for n = 10 and n = 25? To calculate the proportion use the smaller than (`<`) and greater than (`>`) operators on your vector of correlations like so: `mean(saved_value < 0.3)`
 
 4. The histogram below shows the correlations produced by random chance for n = 10. The red lines are set at -0.3 and +0.3. The text indicates the proportion of correlations outside the red lines. Try to recreate the histogram below as closely as possible for n = 25.
 
@@ -185,6 +190,7 @@ ggplot(sample_df,aes(x=sample_numbers)) +
 
 
 ```
+
 There it is, a bell-shaped normal distribution with a mean of 0, and a standard deviation of 1. Just by changing the arguments of the `rnorm()` function, you can sample numbers from normal distributions with any mean or standard deviation. 
 
 The nice thing about R functions is that they are a bit like Legos, you can put them together and come up with different things. What if wanted to sample from a distribution that looked like a two-humped camel's back? Just sample from `rnorm` twice like this... mix away.
@@ -352,11 +358,11 @@ Done. Now you have converted your original numbers into what we call standardize
 ### z-score exercises
 Complete the following exercises in your RMarkdown template.
 
-[Right click and download this](https://github.com/thomashulst/quantrma_lab/blob/master/data/spssdata/StatsGrades.sav?raw=true) SPSS file containing 49 students’ exam grades (let’s say it’s the final exam for a statistics class). You have likely never worked with an SPSS (.sav) file before, but still, with a quick Google search, [I was able to find a library and function to load the data into R by looking at the first answer at StackOverflow](https://stackoverflow.com/questions/33026167/reading-sav-file-into-r). Remember, you can install packages using `install.packages()` and load a library with `library()`. Make sure the .sav is in your lab directory so you can load it into R. 
+[Right click and download this](https://github.com/thomashulst/quantrma_lab/blob/master/data/spssdata/StatsGrades.sav?raw=true) SPSS file containing 49 students’ exam grades (let’s say it’s the final exam for a statistics class). You have likely never worked with an SPSS (.sav) file before, but luckily a library that can load SPSS files was installed when installing the tidyverse. To load this package (it is not loaded by default with `library(tidyverse)`), use `library(haven)`. Make sure the .sav is in your lab directory so you can load it into R. 
 
 Once you have successfully loaded the data into R:
 
-1. Create a table containing the mean and standard deviation for this sample of scores. Also produce a histogram of the grades. How does the distribution of grades look with a binwidth of 5?
+1. Create a table containing the mean and standard deviation for this sample of scores. Also produce a histogram of the grades. How does the distribution of grades look when you plot your histogram with a binwidth of 5?
 2. Transform each student’s score into a Z-score. Now, plot the frequency histogram of this Z-score distribution with a binwidth of 0.5. Compare it to the raw score distribution. How are they the same? How are they different?
 3. Imagine you are a student in this class who received a 90 on this exam. However, the Professor has decided to grade on a curve, such that only the top 10% of the class receives an A. Calculate the z-score that corresponds to a raw score of 90 on this exam. Will you get an A with this grade? Why or why not?
 

@@ -847,7 +847,7 @@ Whoa, that’s a lot of dots! Remember that each country is measured each year. 
 <p>We can find the sample variance using <code>var()</code>:</p>
 <div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="week-2-describing-data.html#cb142-1" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(sample_numbers)</span></code></pre></div>
 <pre><code>## [1] 22.92941</code></pre>
-<p>Note: the above variance calculation divides by <span class="math inline">\(n-1\)</span> instead of <span class="math inline">\(n\)</span>. We will learn in later weeks why this is often preferred. If you would like to divide by <span class="math inline">\(n\)</span>, you could write your own function based on the following code:</p>
+<p>Note: the above variance calculation divides by <span class="math inline">\(N-1\)</span> instead of <span class="math inline">\(N\)</span>. We will learn in later weeks why this is often preferred. If you would like to divide by <span class="math inline">\(N\)</span>, you could write your own function based on the following code:</p>
 <div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="week-2-describing-data.html#cb144-1" aria-hidden="true" tabindex="-1"></a>x_bar <span class="ot">&lt;-</span> <span class="fu">mean</span>(sample_numbers)</span>
 <span id="cb144-2"><a href="week-2-describing-data.html#cb144-2" aria-hidden="true" tabindex="-1"></a>var_n <span class="ot">&lt;-</span> <span class="fu">sum</span>((sample_numbers <span class="sc">-</span> x_bar)<span class="sc">^</span><span class="dv">2</span>)<span class="sc">/</span><span class="fu">length</span>(sample_numbers)</span></code></pre></div>
 </div>

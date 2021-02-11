@@ -667,7 +667,7 @@ We can find the sample variance using `var()`:
 var(sample_numbers)
 ```
 
-Note: the above variance calculation divides by $n-1$ instead of $n$. We will learn in later weeks why this is often preferred. If you would like to divide by $n$, you could write your own function based on the following code:
+Note: the above variance calculation divides by $N-1$ instead of $N$. We will learn in later weeks why this is often preferred. If you would like to divide by $N$, you could write your own function based on the following code:
 
 ```{r}
 x_bar <- mean(sample_numbers)
