@@ -52,7 +52,7 @@ Your proposed solution should satisfy the following:
 - Solution: 
 
 ### Question 4
-In the case from the previous question: how would you test the empirical validity of competing explanations? For example, how could you make test that exercising a hobby has a stronger effect for non-retirees than it has for retirees? 
+In the case from the previous question: how would you test the empirical validity of competing explanations? For example, how could you test that exercising a hobby has a stronger effect for non-retirees than it has for retirees? 
 
 ### Question 5
 In the previous question, you provided solutions to ambiguously formulated claims of causal relationships, in order to strengthen their empirical validity and to be able to draw meaningful conclusions. However, meaningful conclusions should be obtained from meaningful comparisons. 

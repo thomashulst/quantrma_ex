@@ -1,39 +1,42 @@
-# Week 1: Introduction[^Adapted2]
-This first lab consists of several distinct parts. In the first part we will take some time to get acquainted with RMarkdown files. In the next part will work on several exercises related to the readings about research methods. In the final part you be introduced to programming concepts in R. This lab assumes you have read the required readings of [Week 1](https://thomashulst.github.io/quantrma/Introduction.html) and completed the [Getting started](https://thomashulst.github.io/quantrma_lab/getting-started-adapted1.html) guide. You will complete each lab by writing your notes and R code in an RMarkdown document and uploading the results to Canvas. You should have setup your files as described [in this part](https://thomashulst.github.io/quantrma_lab/getting-started-adapted1.html#how-to-complete-the-labs) of the Getting started section. 
+# Week 1: Introduction[^week1-introduction-1]
+
+[^week1-introduction-1]: The R part of this lab was adapted from the book by Danielle Navarro
+
+This first lab consists of several distinct parts. In the first part we will take some time to get acquainted with RMarkdown files. In the next part will work on several exercises related to the readings about research methods. In the final part you be introduced to programming concepts in R. This lab assumes you have read the required readings of [Week 1](https://thomashulst.github.io/quantrma/Introduction.html) and completed the [Getting started](https://thomashulst.github.io/quantrma_lab/getting-started-adapted1.html) guide. You will complete each lab by writing your notes and R code in an RMarkdown document and uploading the results to Canvas. You should have setup your files as described [in this part](https://thomashulst.github.io/quantrma_lab/getting-started-adapted1.html#how-to-complete-the-labs) of the Getting started section.
 
 When we made this course, we assumed that most students would be unfamiliar with R, and might even be frightened of it. Don't worry. It's going to be easier than you think. We know that it will seem challenging at first. But, we think that with lots of working examples, you will get the hang of it, and by the end of the course you will be able to do things you might never have dreamed you can do. It's really a fantastic skill to learn, even if you aren't planning on going on to do research.
 
 Before getting started we want to set a couple of expectations:
 
-1. Expect things to break. This is the nature of using computers to do stuff. When things break, it is easy to get frustrated. It is not always immediately obvious why something is not working (even for tutors), but in the end, having things break will help you better understand the materials.
-2. Self direct your learning. Do you understand all materials of a week? Set yourself a programming challenge that goes further than the intended learning goals. Do you find a particular concept difficult? Ask someone else to help you. Use one of the additional learning resources on Canvas, or Google for a website/video explaining the concept. 
-3. The only way to learn is by doing, for this course even more so than other courses. Please follow the materials of the labs and try not to skip any exercises or code examples. If you do skip parts of a lab, you might quickly find yourself unable to understand more advanced concepts later on.
-4. You will soon learn that the depth of this course is essentially limitless and there is almost always more than one way to answer something, or even a "correct answer" at all. This is part of the fun! It is impossible to remember everything R can do, so one of the most important skills you can develop is knowing how and where to search for things you do not know. 
+1.  Expect things to break. This is the nature of using computers to do stuff. When things break, it is easy to get frustrated. It is not always immediately obvious why something is not working (even for tutors), but in the end, having things break will help you better understand the materials.
+2.  Self direct your learning. Do you understand all materials of a week? Set yourself a programming challenge that goes further than the intended learning goals. Do you find a particular concept difficult? Ask someone else to help you. Use one of the additional learning resources on Canvas, or Google for a website/video explaining the concept.
+3.  The only way to learn is by doing, for this course even more so than other courses. Please follow the materials of the labs and try not to skip any exercises or code examples. If you do skip parts of a lab, you might quickly find yourself unable to understand more advanced concepts later on.
+4.  You will soon learn that the depth of this course is essentially limitless and there is almost always more than one way to answer something, or even a "correct answer" at all. This is part of the fun! It is impossible to remember everything R can do, so one of the most important skills you can develop is knowing how and where to search for things you do not know.
 
 Having set your expectations, let's get started with the first lab!
 
-[^Adapted2]: The R part of this lab was adapted from the book by Danielle Navarro
-
 ## Learning goals
+
 During this lab you will do the following:
 
-1. Learn how to use this lab manual and the lab template
-2. Learn RMarkdown basics and how to knit an RMarkdown document 
-3. Discuss fundamental concepts of research methods and design
-4. Take your first steps in R and RStudio
-5. Learn about operators, functions, variables and comments in R
-6. Learn about getting help in R and debugging common errors 
+1.  Learn how to use this lab manual and the lab template
+2.  Learn RMarkdown basics and how to knit an RMarkdown document
+3.  Discuss fundamental concepts of research methods and design
+4.  Take your first steps in R and RStudio
+5.  Learn about operators, functions, variables and comments in R
+6.  Learn about getting help in R and debugging common errors
 
 ## How to use this lab manual
-The lab manual is your reference guide for completing the lab exercises. The template you download for a lab contains the exercises and will guide you through the materials of each lab. In the template we will reference to particular parts of the lab manual you **should read** and parts of the lab manual with  **additional materials**. These additional materials help you extend your understanding of the materials and can be very useful working on your assignments during this course, or while conducting quantitative analyses in different courses. 
 
-Follow the steps below to open R Studio and your template for this lab: 
+The lab manual is your reference guide for completing the lab exercises. The template you download for a lab contains the exercises and will guide you through the materials of each lab. In the template we will reference to particular parts of the lab manual you **should read** and parts of the lab manual with **additional materials**. These additional materials help you extend your understanding of the materials and can be very useful working on your assignments during this course, or while conducting quantitative analyses in different courses.
 
-1. Double-click the "Labs.Rproj" file in the Labs_Template directory (i.e., the place where you downloaded and unzipped the [Labs_Template.zip](https://github.com/thomashulst/quantrma_lab/raw/master/Labs_Template.zip) file)
-2. RStudio should now start
-3. You should see some files and a data folder inside the "Labs_Template" folder (bottom right pane)
-4. Click the lab template file (Lab01_Introduction.Rmd) and it will load into the editor window
-5. You should keep your notes, copy/paste R code, and answer the questions of this lab in the lab template.
+Follow the steps below to open R Studio and your template for this lab:
+
+1.  Double-click the "Labs.Rproj" file in the Labs_Template directory (i.e., the place where you downloaded and unzipped the [Labs_Template.zip](https://github.com/thomashulst/quantrma_lab/raw/master/Labs_Template.zip) file)
+2.  RStudio should now start
+3.  You should see some files and a data folder inside the "Labs_Template" folder (bottom right pane)
+4.  Click the lab template file (Lab01_Introduction.Rmd) and it will load into the editor window
+5.  You should keep your notes, copy/paste R code, and answer the questions of this lab in the lab template.
 
 Once you have opened the template your RStudio should look something like this:
 
@@ -44,32 +47,33 @@ knitr::include_graphics('figures/template.png')
 The upper left window pane is the place where the template has opened. Switch over to that window now and start reading the template.
 
 ## RMarkdown basics
-As we mentioned in the [Getting started](https://thomashulst.github.io/quantrma_lab/getting-started-adapted1.html) guide, RMarkdown  allows you to combine two kinds of writing:
 
-1. writing normal text, with headers, sub-headers, and paragraphs
-2. R code to conduct analyses
+As we mentioned in the [Getting started](https://thomashulst.github.io/quantrma_lab/getting-started-adapted1.html) guide, RMarkdown allows you to combine two kinds of writing:
 
-This makes RMarkdown documents really useful for conducting quantitative research. You get the keep your analyses and written text in one place, and you can easily share your work with collaborators that can reproduce the analyses you have conducted. RMarkdown documents are also really versatile. In fact, both the textbook, as well as this lab manual, were written in RMarkdown. 
+1.  writing normal text, with headers, sub-headers, and paragraphs
+2.  R code to conduct analyses
+
+This makes RMarkdown documents really useful for conducting quantitative research. You get the keep your analyses and written text in one place, and you can easily share your work with collaborators that can reproduce the analyses you have conducted. RMarkdown documents are also really versatile. In fact, both the textbook, as well as this lab manual, were written in RMarkdown.
 
 If you are used to working with a word processor like Microsoft Word, you might need a few minutes to get used to writing documents in RMarkdown, but you will quickly pick this up. The key difference is that RMarkdown keeps two things separate: your text and the formatting of your text, so you do not directly see how your text will look like in the final document. Let's see what I mean by looking at an example. If I want to **embolden** a word, I write the following in my RMarkdown document:
 
-- This is a \*\*bold\*\* word.
+-   This is a \*\*bold\*\* word.
 
 Which will be displayed in my final document as:
 
-- This is a **bold** word. 
+-   This is a **bold** word.
 
 A similar thing goes for *italicizing* a word:
 
-- \*This is displayed in italics\*
+-   \*This is displayed in italics\*
 
 Which will display as:
 
-- *This is displayed in italics*
+-   *This is displayed in italics*
 
-The list of things you can do to format your text in RMarkdown is extensive. You can find a cheatsheet with all the things you can do [here](https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf) or download the cheatsheet from Canvas. 
+The list of things you can do to format your text in RMarkdown is extensive. You can find a cheatsheet with all the things you can do [here](https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf) or download the cheatsheet from Canvas.
 
-To include R code in your RMarkdown document, which we are going to do all the time during the labs and assignments, you should use an R code chunk. You can do that by inserting three backticks (```` ``` ````) followed by \{r} (to indicate you are going to run R code). You finish a code chunk with another three backticks (```` ``` ````). In your RMarkdown document this will look as follows:
+To include R code in your RMarkdown document, which we are going to do all the time during the labs and assignments, you should use an R code chunk. You can do that by inserting three backticks (```` ``` ````) followed by {r} (to indicate you are going to run R code). You finish a code chunk with another three backticks (```` ``` ````). In your RMarkdown document this will look as follows:
 
 ```{r chunk, fig.cap="", echo=FALSE,eval=TRUE,out.width="100%"}
 knitr::include_graphics('figures/chunk.png')
@@ -77,14 +81,14 @@ knitr::include_graphics('figures/chunk.png')
 
 Which will display as:
 
-``` {r}
+```{r}
 # My first code chunk!
 50 + 25
 ```
 
-Make sure you start and close each code chunk with the three backticks (```` ``` ````). If you don't do that, RStudio doesn't know where your code starts and ends and will get utterly confused and start shouting errors and warnings at you. This is one of those mistakes that is really easy to make, but can take you forever to figure out, especially when you are just beginning with RMarkdown.  
+Make sure you start and close each code chunk with the three backticks (```` ``` ````). If you don't do that, RStudio doesn't know where your code starts and ends and will get utterly confused and start shouting errors and warnings at you. This is one of those mistakes that is really easy to make, but can take you forever to figure out, especially when you are just beginning with RMarkdown.
 
-By the way, do you see the green play button in the code chunk? If you press that, RStudio will execute the R code in your code chunk and display the result. You will likely use this button all the time during the labs, to check if your solutions to the exercises are correct. 
+By the way, do you see the green play button in the code chunk? If you press that, RStudio will execute the R code in your code chunk and display the result. You will likely use this button all the time during the labs, to check if your solutions to the exercises are correct.
 
 There's one final concept about RMarkdown we need to introduce before you can get started with the remainder of this lab. This has to do with "knitting documents". Knitting is the process of taking your text and RMarkdown markup and merge everything together to output it to a file. Knitting is done by pressing the knit button:
 
@@ -92,37 +96,44 @@ There's one final concept about RMarkdown we need to introduce before you can ge
 knitr::include_graphics('figures/knit.png')
 ```
 
-Knitting creates a formatted document which can be displayed by other programs. By default, the document is knitted as a .html file  (which can be read by any web browser), but you can also knit your RMarkdown documents as a Word document (.docx). To do so, press the downward arrow next to the knitting symbol and select "Knit to Word". For your lab submission, you should submit a .docx file to Canvas. 
+Knitting creates a formatted document which can be displayed by other programs. By default, the document is knitted as a .html file (which can be read by any web browser), but you can also knit your RMarkdown documents as a Word document (.docx). To do so, press the downward arrow next to the knitting symbol and select "Knit to Word". For your lab submission, you should submit a .docx file to Canvas.
 
-You should now be ready to complete the RMarkdown exercises in your template file, so switch over to RStudio! 
+You should now be ready to complete the RMarkdown exercises in your template file, so switch over to RStudio!
 
 #### RMarkdown exercises
-1. What does the # symbol do in RMarkdown? What about two ##? 
-2. Insert an R code chunk to calculate the result of 10 + 20.
-3. Knit your document to a Word file and have a look at the result. 
 
-## Research methods 
-Discuss the questions about research methods below in your breakout room and register the answers in the R Markdown template. 
+1.  What does the \# symbol do in RMarkdown? What about two \#\#?
+2.  Insert an R code chunk to calculate the result of 10 + 20.
+3.  Knit your document to a Word file and have a look at the result.
 
-### Question 1 
-In the required readings of this week we called to process of clarifying abstract concepts and translating them into specific, observable measures **operationalization**. Operationalization involves both a **nominal** and an **operational** definition. Describe in your own words what these terms mean. 
+## Research methods
+
+Discuss the questions about research methods below in your breakout room and register the answers in the R Markdown template.
+
+### Question 1
+
+In the required readings of this week we called to process of clarifying abstract concepts and translating them into specific, observable measures **operationalization**. Operationalization involves both a **nominal** and an **operational** definition. Describe in your own words what these terms mean.
 
 ### Question 2
+
 Two different definitions of **emotional well-being** are provided by the Mental Health Foundation. For each of the following definitions, decide whether it constitutes a nominal or an operational definition:
 
-a. "A positive sense of well-being which enables an individual to be able to function in society and meet the demands of everyday life."
-b. "People in good mental health have the ability to recover effectively from illness, change or misfortune."
+a.  "A positive sense of well-being which enables an individual to be able to function in society and meet the demands of everyday life."
+b.  "People in good mental health have the ability to recover effectively from illness, change or misfortune."
 
 ### Question 3
+
 Two different definitions of **financial literacy** can be found in literature. For each of the following definitions, decide whether it constitutes a nominal or an operational definition:
 
-a. "The ability to read, analyze, manage and communicate about the personal financial conditions that affect material well-being."
-b. "The ability to manage effectively personal savings, credits and borrowed money as well as personal investments."
+a.  "The ability to read, analyze, manage and communicate about the personal financial conditions that affect material well-being."
+b.  "The ability to manage effectively personal savings, credits and borrowed money as well as personal investments."
 
 ### Question 4
-Suppose you want to study financial literacy, given the numerous benefits it brings to society, and given the documented lack of financial education. Would you use the following operational definition of financial literacy: “The ability to correctly predict short term fluctuations in the stock market?"
+
+Suppose you want to study financial literacy, given the numerous benefits it brings to society, and given the documented lack of financial education. Would you use the following operational definition of financial literacy: "The ability to correctly predict short term fluctuations in the stock market?"
 
 ### Question 5
+
 The graph below is a visual representation of the concepts of measure validity and reliability.
 
 ```{r validreliab, fig.cap="A visual representation of the concepts measure validity and reliability. Imagine the theoretical construct you want to measure is the bullseye of the dartboard and the dots represent an attempt at measurement. Illustration adapted from an illustration by Nevit Dilmen, Wikimedia Commons.", echo=FALSE,eval=TRUE,dev='png'}
@@ -131,41 +142,46 @@ knitr::include_graphics('figures/ValidReliab.png')
 
 For each one of the three statements below, indicate whether it corresponds to dart board A, B, C or none.
 
-* The measure of our concept is valid, but not reliable.
-* The measure of our concept is reliable, but not valid.
-* The measure of our concept is neither valid, not reliable.
-* The measure of our concept is both valid and reliable.
+-   The measure of our concept is valid, but not reliable.
+-   The measure of our concept is reliable, but not valid.
+-   The measure of our concept is neither valid, not reliable.
+-   The measure of our concept is both valid and reliable.
 
 ### Question 6
-The National Health Care Institute of the Netherlands partners with local schools to provide a weekly physical exercise program for children ages 6-14. The sessions are designed to last throughout the whole academic year, and they will take place in afternoon hours. They also consist of both a theoretical and a practical part. In the theoretical part, volunteers strive to increase children’s exercise habits by teaching them about the benefits of regular exercise, whereas in the practical part, they organize various age-appropriate sports activities for children to participate in. Changes in exercise habits are measured via a questionnaire at the end of the program. However, the program manager is concerned that the questionnaire is not producing high-quality observations, particularly for questions that ask children about their exercise habits before participating in the program. Assuming the problem is with measurement and not with the program design:
 
-* What is the most likely measurement problem? Reliability or validity?
-* What type of error is most likely producing this problem? Constant error, random error and/or correlated error? 
-* How might the program address this measurement problem?
-  
+The National Health Care Institute of the Netherlands partners with local schools to provide a weekly physical exercise program for children ages 6-14. The sessions are designed to last throughout the whole academic year, and they will take place in afternoon hours. They also consist of both a theoretical and a practical part. In the theoretical part, volunteers strive to increase children's exercise habits by teaching them about the benefits of regular exercise, whereas in the practical part, they organize various age-appropriate sports activities for children to participate in. Changes in exercise habits are measured via a questionnaire at the end of the program. However, the program manager is concerned that the questionnaire is not producing high-quality observations, particularly for questions that ask children about their exercise habits before participating in the program. Assuming the problem is with measurement and not with the program design:
+
+-   What is the most likely measurement problem? Reliability or validity?
+-   What type of error is most likely producing this problem? Constant error, random error and/or correlated error?
+-   How might the program address this measurement problem?
+
 ### Question 7
+
 The Dutch Environmental Assessment Agency aims to identify sections of Dutch rivers for stream bank restoration. The goal of this work is to create stream bank conditions that can lead to eventual water quality improvements. Crews of national service volunteers implement remediation in accordance with the waterway management plan, including removal of trash and debris from stream banks, removal of invasive plants, reintroduction of native plants, and erosion abatement. Land managers from the Ministry of Infrastructure and Water Management inspect project sites within two weeks of project completion. The assessment instrument used by land managers contains checkbox items to indicate whether various remediation actions were taken but does not provide a way to assess the quality of these remediation actions with respect to environmental standards. This problem should be of high concern to the land managers, given the fact that high quality environmental standards are hard to meet, even when all the appropriate actions have been taken. Assuming the problem is with measurement and not with the program design:
 
-* What is the most likely measurement problem? Reliability or validity?
-* What type of error is most likely producing this problem? Constant error, random error and/or correlated error? 
-* How might the program address this measurement problem?
+-   What is the most likely measurement problem? Reliability or validity?
+-   What type of error is most likely producing this problem? Constant error, random error and/or correlated error?
+-   How might the program address this measurement problem?
 
 ## Basic R
-This part of the lab manual will introduce you to the very basics of R. You are urged to follow along with the examples in your own RStudio window. The answers to the exercises should be registered in the RMarkdown template. 
 
-During this part of the lab, we’ll spend a bit of time using R as a simple calculator, since that’s the easiest thing to do with R, just to give you a feel for what it’s like to work in R. In [the Getting started](https://thomashulst.github.io/quantrma_lab/getting-started-adapted1.html) guide we learned to execute our first command in R, by typing 10 + 20 in the console and pressing enter. Try it out in the console of RStudio: 
+This part of the lab manual will introduce you to the very basics of R. You are urged to follow along with the examples in your own RStudio window. The answers to the exercises should be registered in the RMarkdown template.
+
+During this part of the lab, we'll spend a bit of time using R as a simple calculator, since that's the easiest thing to do with R, just to give you a feel for what it's like to work in R. In [the Getting started](https://thomashulst.github.io/quantrma_lab/getting-started-adapted1.html) guide we learned to execute our first command in R, by typing 10 + 20 in the console and pressing enter. Try it out in the console of RStudio:
 
 ```{r}
 10+20
 ```
 
-You can also type the command above in a code block in your template file and execute it there. That way, when you knit the template, the code examples are also included in your notes, which can be very helpful for working on your assignments or preparing for your exam. 
+You can also type the command above in a code block in your template file and execute it there. That way, when you knit the template, the code examples are also included in your notes, which can be very helpful for working on your assignments or preparing for your exam.
 
-### Doing simple calculations with R{#arithmetic}
-First, let's learn how to use one of the most powerful piece of statistical software in the world as a €2 calculator. So far, all we know how to do is addition. Clearly, a calculator that only did addition would be a bit stupid, so I should tell you about how to perform other simple calculations using R. But first, some more terminology. Addition is an example of an "operation" that you can perform (specifically, an arithmetic operation), and the ***operator*** that performs it is `+`. To people with a programming or mathematics background, this terminology probably feels pretty natural, but to other people it might feel like I'm trying to make something very simple (addition) sound more complicated than it is (by calling it an arithmetic operation). To some extent, that's true: if addition was the only operation that we were interested in, it'd be a bit silly to introduce all this extra terminology. However, as we go along, we'll start using more and more different kinds of operations, so it's probably a good idea to get the language straight now, while we're still talking about very familiar concepts like addition! 
+### Doing simple calculations with R {#arithmetic}
 
-#### Adding, subtracting, multiplying and dividing
-So, now that we have the terminology, let's learn how to perform some arithmetic operations in R. To that end, the table below lists the operators that correspond to the basic arithmetic we learned in primary school: addition, subtraction, multiplication and division. 
+First, let's learn how to use one of the most powerful piece of statistical software in the world as a €2 calculator. So far, all we know how to do is addition. Clearly, a calculator that only did addition would be a bit stupid, so I should tell you about how to perform other simple calculations using R. But first, some more terminology. Addition is an example of an "operation" that you can perform (specifically, an arithmetic operation), and the ***operator*** that performs it is `+`. To people with a programming or mathematics background, this terminology probably feels pretty natural, but to other people it might feel like I'm trying to make something very simple (addition) sound more complicated than it is (by calling it an arithmetic operation). To some extent, that's true: if addition was the only operation that we were interested in, it'd be a bit silly to introduce all this extra terminology. However, as we go along, we'll start using more and more different kinds of operations, so it's probably a good idea to get the language straight now, while we're still talking about very familiar concepts like addition!
+
+#### Adding, subtracting, multiplying and dividing {#basicoperators}
+
+So, now that we have the terminology, let's learn how to perform some arithmetic operations in R. To that end, the table below lists the operators that correspond to the basic arithmetic we learned in primary school: addition, subtraction, multiplication and division.
 
 ```{r arithmetic1, echo=FALSE}
 knitr::kable(rbind(
@@ -184,9 +200,10 @@ As you can see, R uses fairly standard symbols to denote each of the different o
 57 * 61
 ```
 
-So that's handy. 
+So that's handy.
 
-#### Doing calculations in the right order{#bedmas}
+#### Doing calculations in the right order {#bedmas}
+
 Okay. At this point, you know how to take one of the most powerful pieces of statistical software in the world, and use it as a €2 calculator. And as a bonus, you've learned a few very basic programming concepts. That's not nothing (you could argue that you've just saved yourself €2) but on the other hand, it's not very much either. In order to use R more effectively, we need to introduce more programming concepts.
 
 In most situations where you would want to use a calculator, you might want to do multiple calculations. R lets you do this, just by typing in longer commands.
@@ -195,9 +212,11 @@ In most situations where you would want to use a calculator, you might want to d
 1 + 2 * 4
 ```
 
-Clearly, this isn't a problem for R either. However, it's worth stopping for a second, and thinking about what R just did. Clearly, since it gave us an answer of `9` it must have multiplied `2 * 4` (to get an interim answer of 8) and then added 1 to that. But, suppose it had decided to just go from left to right: if R had decided instead to add `1+2` (to get an interim answer of 3) and then multiplied by 4, it would have come up with an answer of `12`. 
+Clearly, this isn't a problem for R either. However, it's worth stopping for a second, and thinking about what R just did. Clearly, since it gave us an answer of `9` it must have multiplied `2 * 4` (to get an interim answer of 8) and then added 1 to that. But, suppose it had decided to just go from left to right: if R had decided instead to add `1+2` (to get an interim answer of 3) and then multiplied by 4, it would have come up with an answer of `12`.
 
-To answer this, you need to know the **_order of operations_** that R uses. It's actually the same order that (most of) you got taught when you were in high school: the "**_BEDMAS_**" order^[Alternatively: **PEMDAS**: Parentheses, Exponents, Multiplication, Division, Addition, Subtraction]. That is, first calculate things inside **B**rackets `()`, then calculate **E**xponents `^`, then **D**ivision `/` and **M**ultiplication `*`, then **A**ddition `+` and **S**ubtraction `-`. So, to continue the example above, if we want to force R to calculate the `1+2` part before the multiplication, all we would have to do is enclose it in brackets:
+To answer this, you need to know the ***order of operations*** that R uses. It's actually the same order that (most of) you got taught when you were in high school: the "***BEDMAS***" order[^week1-introduction-2]. That is, first calculate things inside **B**rackets `()`, then calculate **E**xponents `^`, then **D**ivision `/` and **M**ultiplication `*`, then **A**ddition `+` and **S**ubtraction `-`. So, to continue the example above, if we want to force R to calculate the `1+2` part before the multiplication, all we would have to do is enclose it in brackets:
+
+[^week1-introduction-2]: Alternatively: **PEMDAS**: Parentheses, Exponents, Multiplication, Division, Addition, Subtraction
 
 ```{r}
 (1 + 2) * 4 
@@ -209,24 +228,25 @@ This is a fairly useful thing to be able to do. The only other thing I should po
 4 / 2 * 3
 ```
 
-All of the above being said, it's helpful to remember that *brackets always come first*. So, if you're ever unsure about what order R will do things in, an easy solution is to enclose the thing *you* want it to do first in brackets.  There's nothing stopping you from typing `(4 / 2) * 3`. By enclosing the division in brackets we make it clear which thing is supposed to happen first. In this instance you wouldn't have needed to, since R would have done the division first anyway, but when you're first starting out it's better to make sure R does what you want!
+All of the above being said, it's helpful to remember that *brackets always come first*. So, if you're ever unsure about what order R will do things in, an easy solution is to enclose the thing *you* want it to do first in brackets. There's nothing stopping you from typing `(4 / 2) * 3`. By enclosing the division in brackets we make it clear which thing is supposed to happen first. In this instance you wouldn't have needed to, since R would have done the division first anyway, but when you're first starting out it's better to make sure R does what you want!
 
 #### Arithmetics exercises
-Complete the following exercises in your lab template. 
 
-1. Take your favorite number to the third power.
-2. Calculate the number of seconds in a year, on the simplifying assumption that a year contains exactly 365 days.
-3. Use R to calculate solution to `6/2*(1+2)`. Why is the solution not `1`?
+Complete the following exercises in your lab template.
 
-### Using functions to do calculations{#usingfunctions}
-The symbols `+`, `-`, `*` and so on are examples of operators. As we've seen, you can do quite a lot of calculations just by using these operators. However, in order to do more advanced calculations (and later on, to do actual statistics), you're going to need to start using **_functions_**. To get started, suppose I wanted to take the square root of 225. The  square root, in case your high school maths is a bit rusty, is just the opposite of squaring a number. So, for instance, since "5 squared is 25" I can say that "5 is the square root of 25". The usual notation for this is 
+1.  Take your favorite number to the third power.
+2.  Calculate the number of seconds in a year, on the simplifying assumption that a year contains exactly 365 days.
+3.  Use R to calculate solution to `6/2*(1+2)`. Why is the solution not `1`?
+
+### Using functions to do calculations {#usingfunctions}
+
+The symbols `+`, `-`, `*` and so on are examples of operators. As we've seen, you can do quite a lot of calculations just by using these operators. However, in order to do more advanced calculations (and later on, to do actual statistics), you're going to need to start using ***functions***. To get started, suppose I wanted to take the square root of 225. The square root, in case your high school maths is a bit rusty, is just the opposite of squaring a number. So, for instance, since "5 squared is 25" I can say that "5 is the square root of 25". The usual notation for this is
 
 $$
 \sqrt{25} = 5
 $$
 
-though sometimes you'll also see it written like this
-$25^{0.5} = 5.$
+though sometimes you'll also see it written like this $25^{0.5} = 5.$
 
 To calculate the square root of 25, I can do it in my head pretty easily, since I memorised my multiplication tables when I was a kid. It gets harder when the numbers get bigger, and pretty much impossible if they're not whole numbers. This is where something like R comes in very handy. Let's say I wanted to calculate $\sqrt{225}$, the square root of 225. There's two ways I could do this using R. Firstly, since the square root of 255 is the same thing as raising 225 to the power of 0.5, I could use the power operator `^`, just like we did earlier:
 
@@ -240,9 +260,9 @@ However, there's a second way that we can do this, since R also provides a ***sq
 sqrt(225)
 ```
 
-When we use a function to do something, we generally refer to this as **_calling_** the function, and the values that we type into the function (there can be more than one) are referred to as the **_arguments_** of that function. 
+When we use a function to do something, we generally refer to this as ***calling*** the function, and the values that we type into the function (there can be more than one) are referred to as the ***arguments*** of that function.
 
-Obviously, the `sqrt()` function doesn't really give us any new functionality, since we already knew how to do square root calculations by using the power operator `^`, though I do think it looks nicer when we use `sqrt()`. However, there are lots of other functions in R: in fact, almost everything of interest that we'll use during our statistical analyses is an R function of some kind. For example, one function that can come in handy is the **absolute value function**. Compared to the square root function, it’s extremely simple: it just converts negative numbers to positive numbers, and leaves positive numbers alone. Calculating absolute values in R is pretty easy, since R provides the `abs` function that you can use for this purpose. For instance:
+Obviously, the `sqrt()` function doesn't really give us any new functionality, since we already knew how to do square root calculations by using the power operator `^`, though I do think it looks nicer when we use `sqrt()`. However, there are lots of other functions in R: in fact, almost everything of interest that we'll use during our statistical analyses is an R function of some kind. For example, one function that can come in handy is the **absolute value function**. Compared to the square root function, it's extremely simple: it just converts negative numbers to positive numbers, and leaves positive numbers alone. Calculating absolute values in R is pretty easy, since R provides the `abs` function that you can use for this purpose. For instance:
 
 ```{r}
 abs(-13)
@@ -254,24 +274,28 @@ Before moving on, it's worth noting that -- in the same way that R allows us to 
 sqrt( 1 + abs(-8) )
 ```
 
-When R executes this command, starts out by calculating the value of `abs(-8)`, which produces an intermediate value of `8`. Having done so, the command simplifies to `sqrt( 1 + 8 )`. 
+When R executes this command, starts out by calculating the value of `abs(-8)`, which produces an intermediate value of `8`. Having done so, the command simplifies to `sqrt( 1 + 8 )`.
 
-#### Multiple arguments
+#### Multiple arguments {#multiarg}
+
 There's two more fairly important things that you need to understand about how functions work in R, and that's the use of "named" arguments, and default values" for arguments. Not surprisingly, that's not to say that this is the last we'll hear about how functions work, but they are the last things we desperately need to discuss in order to get you started. To understand what these two concepts are all about, I'll introduce another function. The `round()` function can be used to round some value to the nearest whole number. For example, I could type this:
 
 ```{r}
 round(3.1415)
 ```
-Pretty straightforward, really. However, suppose I only wanted to round it to two decimal places: that is, I want to get `3.14` as the output. The `round()` function supports this, by allowing you to input a second argument to the function that specifies the number of decimal places that you want to round the number to. In other words, I could do this: 
+
+Pretty straightforward, really. However, suppose I only wanted to round it to two decimal places: that is, I want to get `3.14` as the output. The `round()` function supports this, by allowing you to input a second argument to the function that specifies the number of decimal places that you want to round the number to. In other words, I could do this:
 
 ```{r}
 round(3.1415, 2)
 ```
 
-What's happening here is that I've specified *two* arguments: the first argument is the number that needs to be rounded (i.e., `3.1415`), the second argument is the number of decimal places that it should be rounded to (i.e., `2`), and the two arguments are separated by a comma. 
+What's happening here is that I've specified *two* arguments: the first argument is the number that needs to be rounded (i.e., `3.1415`), the second argument is the number of decimal places that it should be rounded to (i.e., `2`), and the two arguments are separated by a comma.
 
 #### Argument names
+
 In this simple example, it's quite easy to remember which one argument comes first and which one comes second, but for more complicated functions this is not easy. Fortunately, most R functions make use of ***argument names***. For the `round()` function, for example the number that needs to be rounded is specified using the `x` argument, and the number of decimal points that you want it rounded to is specified using the `digits` argument. Because we have these names available to us, we can specify the arguments to the function by name. We do so like this:
+
 ```{r}
 round(x = 3.1415, digits = 2)
 ```
@@ -293,42 +317,49 @@ round( 2, 3.14165 )
 ```
 
 #### Getting help with functions
+
 How do you find out what the correct order is or what arguments a function uses? There's a few different ways, but the easiest one is to look at the help documentation for the function. You can look up the documentation of any function by typing a question mark (?) and the function name as follows:
 
 ```{r}
 ?round
 ```
 
-I have somewhat mixed feelings about the help documentation in R. On the plus side, there’s a lot of it, and it’s very thorough. On the minus side, there’s a lot of it, and it’s very thorough. There’s so much help documentation that it sometimes doesn’t help, and most of it is written with an advanced user in mind. 
+I have somewhat mixed feelings about the help documentation in R. On the plus side, there's a lot of it, and it's very thorough. On the minus side, there's a lot of it, and it's very thorough. There's so much help documentation that it sometimes doesn't help, and most of it is written with an advanced user in mind.
 
-Now, it's probably beginning to dawn on you that there are going to be a *lot* of R functions, all of which have their own arguments. You're probably also worried that you're going to have to remember all of them! Thankfully, it's not that bad. In fact, very few data analysts bother to try to remember all the commands. What they really do is use tricks to make their lives easier. The first trick is using the `?` command shown above to display the documentation on a particular function. Another trick is to use two question marks (`??`) to launch a search to all mentions of the word after `??` in the R documentation. The final, and arguably most important trick, is to use the internet. If you don't know how a particular R function works, or you want to do something in R but are unsure how, [Google it](https://www.google.com/search?q=round+numbers+in+r). 
+Now, it's probably beginning to dawn on you that there are going to be a *lot* of R functions, all of which have their own arguments. You're probably also worried that you're going to have to remember all of them! Thankfully, it's not that bad. In fact, very few data analysts bother to try to remember all the commands. What they really do is use tricks to make their lives easier. The first trick is using the `?` command shown above to display the documentation on a particular function. Another trick is to use two question marks (`??`) to launch a search to all mentions of the word after `??` in the R documentation. The final, and arguably most important trick, is to use the internet. If you don't know how a particular R function works, or you want to do something in R but are unsure how, [Google it](https://www.google.com/search?q=round+numbers+in+r).
 
-#### Function exercises
-Complete the following exercises in your lab template. 
+#### Function exercises {#functex}
 
-1. Use a function to calculate the square root of your favorite number.
-2. How many arguments does the function `log()` take?
-3. Use R to execute the following command: `rep("hello!",100)`. What does the `rep()` function do? Could you rewrite the command to use argument names?
+Complete the following exercises in your lab template.
 
-### Storing a number as a variable{#assign}
-One of the most important things to be able to do in R (or any programming language, for that matter) is to store information in **_variables_**. Variables in R aren't exactly the same thing as the variables we talked about in the chapter on research methods, but they are similar. At a conceptual level you can think of a variable as *label* for a certain piece of information, or even several different pieces of information. When doing statistical analysis in R all of your data (the variables you measured in your study) will be stored as variables in R, but as well see later in the book you'll find that you end up creating variables for other things too. However, before we delve into all the messy details of data sets and statistical analysis, let's look at the very basics for how we create variables and work with them. 
+1.  Use a function to calculate the square root of your favorite number.
+2.  How many arguments does the function `log()` take?
+3.  Use R to execute the following command: `rep("hello!",100)`. What does the `rep()` function do? Could you rewrite the command to use argument names?
+
+### Storing a number as a variable {#assign}
+
+One of the most important things to be able to do in R (or any programming language, for that matter) is to store information in ***variables***. Variables in R aren't exactly the same thing as the variables we talked about in the chapter on research methods, but they are similar. At a conceptual level you can think of a variable as *label* for a certain piece of information, or even several different pieces of information. When doing statistical analysis in R all of your data (the variables you measured in your study) will be stored as variables in R, but as well see later in the book you'll find that you end up creating variables for other things too. However, before we delve into all the messy details of data sets and statistical analysis, let's look at the very basics for how we create variables and work with them.
 
 #### Variable assignment using `<-`
+
 Since we've been working with numbers so far, let's start by creating variables to store our numbers. And since most people like concrete examples, let's invent one.
 
-Suppose I'm trying to calculate how much money I'm going to make from selling my book about statistics. There's several different numbers I might want to store. Firstly, I need to figure out how many copies I'll sell. The book I'm writing isn't exactly *Harry Potter*, so let's assume I'm only going to sell one copy per student in my class. That's about 200 sales, so let's create a variable called `sales`. What I want to do is assign a **_value_** to my variable `sales`, and that value should be `200`. We do this by using the **_assignment operator_**, which is `<-`. Here's how we do it:
+Suppose I'm trying to calculate how much money I'm going to make from selling my book about statistics. There's several different numbers I might want to store. Firstly, I need to figure out how many copies I'll sell. The book I'm writing isn't exactly *Harry Potter*, so let's assume I'm only going to sell one copy per student in my class. That's about 200 sales, so let's create a variable called `sales`. What I want to do is assign a ***value*** to my variable `sales`, and that value should be `200`. We do this by using the ***assignment operator***, which is `<-`. Here's how we do it:
 
 ```{r}
 sales <- 200
 ```
 
-When you hit enter, R doesn't print out any output.^[If you are using RStudio, and the "environment" panel is visible when you typed the command, then you probably saw something happening there. That's to be expected, and is quite helpful.] It just gives you another command prompt. However, behind the scenes R has created a variable called `sales` and given it a value of `200`. You can check that this has happened by asking R to print the variable on screen. And the simplest way to do *that* is to type the name of the variable and hit enter.
+When you hit enter, R doesn't print out any output.[^week1-introduction-3] It just gives you another command prompt. However, behind the scenes R has created a variable called `sales` and given it a value of `200`. You can check that this has happened by asking R to print the variable on screen. And the simplest way to do *that* is to type the name of the variable and hit enter.
+
+[^week1-introduction-3]: If you are using RStudio, and the "environment" panel is visible when you typed the command, then you probably saw something happening there. That's to be expected, and is quite helpful.
 
 ```{r}
 sales
 ```
 
 #### Doing calculations using variables
+
 Okay, let's get back to my original story. In my quest to become rich, I've written this statistics textbook. To figure out how good a strategy this is, I've started creating some variables in R. In addition to defining a `sales` variable that counts the number of copies I'm going to sell, I can also create a variable called `royalty`, indicating how much money I get per copy. Let's say that my royalties are about €7 per book:
 
 ```{r}
@@ -362,19 +393,23 @@ revenue <- revenue + 550
 revenue
 ```
 
-In this calculation, R has taken the old value of `revenue` (i.e., 1400) and added 550 to that value, producing a value of 1950. This new value is assigned to the `revenue` variable, overwriting its previous value. In any case, we now know that I'm expecting to make €1950 off this. Hurray! 
+In this calculation, R has taken the old value of `revenue` (i.e., 1400) and added 550 to that value, producing a value of 1950. This new value is assigned to the `revenue` variable, overwriting its previous value. In any case, we now know that I'm expecting to make €1950 off this. Hurray!
 
-#### Exercises variables
-Complete the following exercises in your lab template. 
+#### Exercises variables {#variablesex}
 
-1. Assign your favorite number to the variable `fav_num`.
-2. Assign a sequence of numbers from 1 to 10 the variable `seq_10` (hint: `seq()`).
-3. Multiply `fav_num` with `seq_10` and save the result in a variable called fav_num_seq10. ^[The output of this operation should result in a so-called *vector* of 10 numbers. We will encounter vectors later in the course, but basically a vector is a variable that can store multiple values.] 
+Complete the following exercises in your lab template.
 
-### Using comments
-Another very useful feature of R is the comment character, #. It has a simple meaning in R: it tells R to ignore everything else you’ve written on the line after the # character. You won’t have much need of the # character immediately, but it’s very when writing longer scripts. For instance, if you read this:
+1.  Assign your favorite number to the variable `fav_num`.
+2.  Assign a sequence of numbers from 1 to 10 the variable `seq_10` (hint: `seq()`).
+3.  Multiply `fav_num` with `seq_10` and save the result in a variable called fav_num_seq10. [^week1-introduction-4]
 
-```{r
+[^week1-introduction-4]: The output of this operation should result in a so-called *vector* of 10 numbers. We will encounter vectors later in the course, but basically a vector is a variable that can store multiple values.
+
+### Using comments {#usecomments}
+
+Another very useful feature of R is the comment character, \#. It has a simple meaning in R: it tells R to ignore everything else you've written on the line after the \# character. You won't have much need of the \# character immediately, but it's very when writing longer scripts. For instance, if you read this:
+
+``` {.{r}
 seeker <- 3.1415           # create the first variable
 lover <- 2.7183            # create the second variable
 keeper <- seeker * lover   # now multiply them to create a third one
@@ -382,21 +417,24 @@ print(keeper)              # print out the value of 'keeper'
 }
 ```
 
-it’s a lot easier to understand what I’m doing than if I just write this:
+it's a lot easier to understand what I'm doing than if I just write this:
 
-```{r
+``` {.{r}
 seeker <- 3.1415
 lover <- 2.7183
 keeper <- seeker * lover
 print(keeper)    
 ```
+
 Commenting makes any code a little easier to understand.
 
 ### R is pretty stupid?
-There are a couple of things you should keep in mind when working with R. The first thing is that, while R is good software, it's still software. To some extent, I'm stating the obvious here, but it's important. The people who wrote R are smart. You, the user, are smart. But R itself is dumb. And because it's dumb, it has to be mindlessly obedient. It does *exactly* what you ask it to do. There is  no equivalent to "autocorrect" in R, and for good reason. When doing advanced stuff -- and even the simplest of statistics is pretty advanced in a lot of ways -- it's dangerous to let a mindless automaton like R try to overrule the human user. But because of this, it's your responsibility to be careful. Always make sure you type *exactly what you mean*. When dealing with computers, it's not enough to type "approximately" the right thing. In general, you absolutely *must* be precise in what you say to R ... like all machines it is too stupid to be anything other than absurdly literal in its interpretation.
+
+There are a couple of things you should keep in mind when working with R. The first thing is that, while R is good software, it's still software. To some extent, I'm stating the obvious here, but it's important. The people who wrote R are smart. You, the user, are smart. But R itself is dumb. And because it's dumb, it has to be mindlessly obedient. It does *exactly* what you ask it to do. There is no equivalent to "autocorrect" in R, and for good reason. When doing advanced stuff -- and even the simplest of statistics is pretty advanced in a lot of ways -- it's dangerous to let a mindless automaton like R try to overrule the human user. But because of this, it's your responsibility to be careful. Always make sure you type *exactly what you mean*. When dealing with computers, it's not enough to type "approximately" the right thing. In general, you absolutely *must* be precise in what you say to R ... like all machines it is too stupid to be anything other than absurdly literal in its interpretation.
 
 #### Typos
-R takes it on faith that you meant to type *exactly* what you did type. For example, suppose that you forgot to hit the shift key when trying to type `+`, and as a result your command ended up being `10 = 20` rather than `10 + 20`. 
+
+R takes it on faith that you meant to type *exactly* what you did type. For example, suppose that you forgot to hit the shift key when trying to type `+`, and as a result your command ended up being `10 = 20` rather than `10 + 20`.
 
 ```{r,eval=FALSE}
 10 = 20
@@ -410,9 +448,10 @@ Even more subtle is the fact that some typos won't produce errors at all, becaus
 10 - 20
 ```
 
-In this case, R produces the right answer, but to the the wrong question. 
+In this case, R produces the right answer, but to the the wrong question.
 
 #### R is flexible with spacing?
+
 I should point out that there are some exceptions. Or, more accurately, there are some situations in which R does show a bit more flexibility than my previous description suggests. The first thing R is smart enough to do is ignore redundant spacing. What I mean by this is that, when I typed `10 + 20` before, I could equally have done this
 
 ```{r}
@@ -420,6 +459,7 @@ I should point out that there are some exceptions. Or, more accurately, there ar
 ```
 
 or this
+
 ```{r}
 10+20
 ```
@@ -446,87 +486,88 @@ will produce exactly the same response. However, what we can't do is insert spac
 citat ion()
 ```
 
-Throughout this lab manual you will see varied uses of spacing, just to give you a feel for the different ways in which spacing can be used. We'll try not to do it too much though, since it's generally considered to be good practice to be consistent in how you format your commands. 
+Throughout this lab manual you will see varied uses of spacing, just to give you a feel for the different ways in which spacing can be used. We'll try not to do it too much though, since it's generally considered to be good practice to be consistent in how you format your commands.
 
 #### R knows you're not finished?
-One more thing we should point out. If you hit enter in a situation where it's "obvious" to R that you haven't actually finished typing the command, R is just smart enough to keep waiting. For example, if you type `10 + ` and then press enter, even R is smart enough to realise that you probably wanted to type in another number. So here's what happens:
 
-```
-> 10+
-+ 
-```
+One more thing we should point out. If you hit enter in a situation where it's "obvious" to R that you haven't actually finished typing the command, R is just smart enough to keep waiting. For example, if you type `10 +` and then press enter, even R is smart enough to realise that you probably wanted to type in another number. So here's what happens:
+
+    > 10+
+    + 
 
 and there's a blinking cursor next to the plus sign. What this means is that R is still waiting for you to finish. It "thinks" you're still typing your command, so it hasn't tried to execute it yet. In other words, this plus sign is actually another command prompt. It's different from the usual one (i.e., the `>` symbol) to remind you that R is going to "add" whatever you type now to what you typed last time. For example, if we then go on to type `20` and hit enter, what we get is this:
 
-```
-> 10 +
-+ 20
-[1] 30
-```
+    > 10 +
+    + 20
+    [1] 30
 
-And as far as R is concerned, this is *exactly* the same as if you had typed `10 + 20`. Similarly, consider the `citation()` command that we talked about in the previous section. Suppose you hit enter after typing `citation(`. Once again, R is smart enough to realise that there must be more coming -- since you need to add the `)` character --  so it waits. We can even hit enter several times and it will keep waiting: 
-```
-> citation(
-+ 
-+ 
-+ )
-```
+And as far as R is concerned, this is *exactly* the same as if you had typed `10 + 20`. Similarly, consider the `citation()` command that we talked about in the previous section. Suppose you hit enter after typing `citation(`. Once again, R is smart enough to realise that there must be more coming -- since you need to add the `)` character -- so it waits. We can even hit enter several times and it will keep waiting:
+
+    > citation(
+    + 
+    + 
+    + )
+
 We'll make use of this a lot in this book. A lot of the commands that we'll have to type are pretty long, and they're visually a bit easier to read if we break it up over several lines. If you start doing this yourself, you'll eventually get yourself in trouble (it happens to us all). Maybe you start typing a command, and then you realise you've screwed up. For example,
 
-```
-> citblation( 
-+ 
-+ 
-```
-You'd probably prefer R not to try running this command, right? If you want to get out of this situation, just hit the 'escape' key.^[If you're running R from the terminal rather than from RStudio, escape doesn't work: use CTRL-C instead.] R will return you to the normal command prompt (i.e. `>`) *without* attempting to execute the botched command.
+    > citblation( 
+    + 
+    + 
 
-That being said, it's not often the case that R is smart enough to tell that there's more coming.
-For instance, in the same way that I can't add a space in the middle of a word, I can't hit enter in the middle of a word either. If we hit enter after typing `citat` we get an error, because R thinks we're interested in an "object" called `citat` and can't find it:
+You'd probably prefer R not to try running this command, right? If you want to get out of this situation, just hit the 'escape' key.[^week1-introduction-5] R will return you to the normal command prompt (i.e. `>`) *without* attempting to execute the botched command.
 
-```
-> citat
-Error: object 'citat' not found
-```
+[^week1-introduction-5]: If you're running R from the terminal rather than from RStudio, escape doesn't work: use CTRL-C instead.
+
+That being said, it's not often the case that R is smart enough to tell that there's more coming. For instance, in the same way that I can't add a space in the middle of a word, I can't hit enter in the middle of a word either. If we hit enter after typing `citat` we get an error, because R thinks we're interested in an "object" called `citat` and can't find it:
+
+    > citat
+    Error: object 'citat' not found
 
 What about if we typed `citation` and hit enter? In this case we get something very odd, something that we definitely *don't* want, at least at this stage. Here's what happens:
 
-```
-citation
-## function (package = "base", lib.loc = NULL, auto = NULL) 
-## {
-##     dir <- system.file(package = package, lib.loc = lib.loc)
-##     if (dir == "") 
-##         stop(gettextf("package '%s' not found", package), domain = NA)
+    citation
+    ## function (package = "base", lib.loc = NULL, auto = NULL) 
+    ## {
+    ##     dir <- system.file(package = package, lib.loc = lib.loc)
+    ##     if (dir == "") 
+    ##         stop(gettextf("package '%s' not found", package), domain = NA)
 
-BLAH BLAH BLAH
-```
-where the `BLAH BLAH BLAH` goes on for rather a long time, and you don't know enough R yet to understand what all this gibberish actually means (of course, it doesn't actually say BLAH BLAH BLAH - it says some other things we don't understand or need to know that I've edited for length) This incomprehensible output can be quite intimidating to novice users, and unfortunately it's very easy to forget to type the parentheses; so almost certainly you'll do this by accident. Do not panic when this happens. Simply ignore the gibberish.  As you become more experienced this gibberish will start to make sense, and you'll find it quite handy to print this stuff out.^[For advanced users: yes, as you've probably guessed, R is printing out the source code for the function.]  But for now just try to remember to add the parentheses when typing your commands.
+    BLAH BLAH BLAH
+
+where the `BLAH BLAH BLAH` goes on for rather a long time, and you don't know enough R yet to understand what all this gibberish actually means (of course, it doesn't actually say BLAH BLAH BLAH - it says some other things we don't understand or need to know that I've edited for length) This incomprehensible output can be quite intimidating to novice users, and unfortunately it's very easy to forget to type the parentheses; so almost certainly you'll do this by accident. Do not panic when this happens. Simply ignore the gibberish. As you become more experienced this gibberish will start to make sense, and you'll find it quite handy to print this stuff out.[^week1-introduction-6] But for now just try to remember to add the parentheses when typing your commands.
+
+[^week1-introduction-6]: For advanced users: yes, as you've probably guessed, R is printing out the source code for the function.
 
 #### Common mistakes exercises
-Complete the following exercises in your lab template. 
+
+Complete the following exercises in your lab template.
 
 Figure out what is wrong with the following R commands and try to fix them:
 
-1. Mistake 1
+1.  Mistake 1
+
 ```{r,eval=FALSE}
 x <- 1
 y <- 5
 x*z
 ```
 
-2. Mistake 2
+2.  Mistake 2
+
 ```{r,eval=FALSE}
 
 x <- Seq(1,10)
 
 ```
 
-3. Mistake 3
+3.  Mistake 3
+
 ```{r,eval=FALSE}
 x <- sqrt(seq(1,10)
 ```
 
-4. Mistake 4
+4.  Mistake 4
+
 ```{r,eval=FALSE}
 This is actually my favorite number:
 fav_num <- 2.718

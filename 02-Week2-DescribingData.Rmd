@@ -14,7 +14,7 @@ During this lab you will do the following:
 4. Compute measures of central tendency and variation using R
 5. Answer some questions about data using descriptive statistics
 
-## Loading data 
+## Loading data {#loadingdata}
 In order to load data, we need to have some data first... It turns out that NYC makes a lot of data about a lot things [open and free for anyone to download and look at](https://opendata.cityofnewyork.us). I searched through the data, and found a data file that lists the locations of film permits for shooting movies all throughout the different boroughs of NYC. There are multiple ways to load this data into R and we are going to look at one way below. 
 
 If you have downloaded the [Labs_Template.zip](https://github.com/thomashulst/quantrma_lab/raw/master/Labs_Template.zip) file, then you should have the data file in the data folder of your Labs project. Assuming you are working in the lab directory, use the following commands to load the data into RStudio:
