@@ -29,7 +29,7 @@ Try to understand what is happening in the code above. We first load something c
 
 If you are having issues getting the data loaded, talk to your tutor.
 
-### First look at the data
+### First look at the data {#firstlook}
 You will be downloading and analyzing all kinds of data files this quad. After loading a file, it is always a good idea to have a first look at your data and see what you've got.
 
 In the top right-hand corner of the RStudio window, in the environment tab, you should now see a variable called `nyc_films`. If you click it, it will show you the contents of the data in a new window. The data is stored in something we call a `data.frame`^[To be more exact: a tibble, but the difference with a `data.frame` is not important for now]. It's R lingo, for the thing that contains the data. Notice it is shaped like a rectangle, with rows going across, and columns going up and down. It looks kind of like an excel spreadsheet if you are familiar with Excel.
@@ -65,7 +65,7 @@ Complete the following exercises in your lab template.
 
 ## Making graphs
 
-### Wrangle first
+### Wrangle first {#wranglefirst}
 Let's walk through a couple questions we might have about the NYC films data and make several graphs to visualize the answers to these questions. We saw there were 50,728 film permits made. We also saw that there were different columns telling us information about each of the film permits. For example, the `Borough` column lists the borough for each request, i.e. whether the permit was for: Manhattan, Brooklyn, Bronx, Queen's, or Staten Island.
 
 We could ask: where are the most film permits being requested (i.e. what borough)? We can find out by using R to plot the data in a bar plot. A bar plot looks a bit like a histogram, but the bars on a bar plot represent the counts of *categorical* data instead of *continuous* data. Before we can make this plot, we need to have R count how many film permits are made in each borough (we surely don't want to do that by hand!). This step is called wrangling (i.e. preparing your data for visualization and/or further analysis), which you might remember from the lecture. 
@@ -93,7 +93,7 @@ counts <- summarize(nyc_films_grouped, count_of_permits = length(Borough))
 
 The difference between the first or second code block might seem a bit confusing or arbitrary, as both methods generate the same result, but when performing many operations on a data frame, the pipe operator results in much more efficient and readable code. Either way, if you click on the `counts` variable in your environment, you will see the five boroughs listed, along with the counts for how many film permits were requested in each Borough. Those are the numbers we want to plot in a graph.
 
-### Plotting `counts`
+### Plotting `counts` {#plotcounts}
 We actually make the plot using `ggplot()`. `ggplot` is also part of the `tidyverse` and is very powerful once you get the hand of it, but it can be a bit intimidating in the beginning^[It is pretty neat to look and [see all of the different things you can do with ggplot](https://www.r-graph-gallery.com/index.html), it's very powerful]. Like previous code examples, it helps if we demonstrate the code first and you follow along by copy/pasting and executing the code. You can then go very quickly to answering your own questions about data, by making minor adjustments to the code examples. 
 
 Here's the code to make the plot:
@@ -463,7 +463,7 @@ ggplot(gapminder_df, aes(y= lifeExp, x= year))+
 ```
 Whoa, that's a lot of dots! Remember that each country is measured each year. So, the bands of dots you see, show the life expectancies for the whole range of countries within each year of the database. There is a big spread inside each year. But, on the whole it looks like groups of dots slowly go up over years.
 
-#### One country, life expectancy by year
+#### One country, life expectancy by year {#onecountry}
 I'm from The Netherlands, so maybe I want to know if life expectancy for Dutch people is going up over the years. To find out the answer for one country, we need to split the full data set into another smaller data set that only contains data for The Netherlands. In other words, we want only the rows where the word "Netherlands" is found in the `country` column. We will use the `filter` function for this:
 
 ```{r 1timeB, echo=TRUE,eval=TRUE}
@@ -583,14 +583,14 @@ rep(1,25)
 all_together_now <- c(rep(10,5),rep(1,25)) 
 ```
 
-#### Sum
+#### Sum {#returnsum}
 Let's play with the numbers 1 to 100. First, let's use the `sum()` function to add them up:
 ```{r}
 one_to_one_hundred <- seq(1,100,1)
 sum(one_to_one_hundred)
 ```
 
-#### Length
+#### Length {#returnlength}
 We put 100 numbers into the variable `one_to_one_hundred`. We know how many numbers there are in there. How can we get R to tell us? We use `length()` for that:
 ```{r}
 length(one_to_one_hundred)
@@ -598,7 +598,7 @@ length(one_to_one_hundred)
 
 ### Central Tendency
 
-#### Mean
+#### Mean {#returnmean}
 Remember the mean of some numbers is their sum, divided by the number of numbers. We can compute the mean like this:
 ```{r}
 sum(one_to_one_hundred)/length(one_to_one_hundred)
@@ -609,7 +609,7 @@ Or, we could just use the `mean()` function like this:
 mean(one_to_one_hundred)
 ```
 
-#### Median
+#### Median {#returnmedian}
 The median is the number in the exact middle of the numbers ordered from smallest to largest. If there are an even number of numbers (no number in the middle), then we take the number in between the two (decimal .5). Use the `median` function. There's only 3 numbers here. The middle one is 2, that should be the median
 
 ```{r}
@@ -647,7 +647,7 @@ hist(sample_numbers)
 
 Note: `rnorm()` generates a selection of 100 **random** numbers each time you run the function. As such, the numbers will slightly vary from student to student and the example descriptive statistics below.
 
-#### Range
+#### Range {#returnrange}
 The range is the minimum and maximum values in the set, we can use the `range` function:
 
 ```{r}
@@ -660,7 +660,7 @@ Alternatively, when people refer to the range, they can refer to the **differenc
 diff(range(sample_numbers))
 ```
 
-#### `var()` = variance
+#### `var()` = variance {#returnvar}
 We can find the sample variance using `var()`:
 
 ```{r}
@@ -674,8 +674,7 @@ x_bar <- mean(sample_numbers)
 var_n <- sum((sample_numbers - x_bar)^2)/length(sample_numbers)
 ```
 
-#### `sd()` = standard deviation
-
+#### `sd()` = standard deviation {#returnsd}
 We find the sample standard deviation using `sd()`:
 ```{r}
 sd(sample_numbers)
@@ -686,7 +685,7 @@ Remember that the standard deviation is just the square root of the variance, se
 sqrt(var(sample_numbers))
 ```
 
-### Descriptives by conditions
+### Descriptives by conditions {#descbycond}
 Sometimes you will have a single variable with some numbers, and you can use the above functions to find the descriptives for that variable. Other times (most often in this course), you will have a big data frame of numbers, with different numbers in different conditions. You will want to find descriptive statistics for each the sets of numbers inside each of the conditions. Fortunately, this is where R really shines, it does it all for you in one go. 
 
 Let's illustrate the problem. Here I make a date frame with 10 numbers in each condition. There are 10 conditions, each labeled, A, B, C, D, E, F, G, H, I, J.
@@ -699,7 +698,7 @@ my_df <- data.frame(conditions,scores)
 
 If you look at the `my_df` data frame, you will see it has 100 rows, there are 10 rows for each condition with a label in the `conditions` column, and 10 scores for each condition in the `scores` column. What if you wanted to know the mean of the scores in each condition? You would want to find 10 means.
 
-#### `group_by()` and `summarise()`
+#### `group_by()` and `summarise()` {#groupsumknit}
 We can easily do everything all at once using the `group_by` and `summarise` function from the `tidyverse` library, as we've seen before:
 
 ```{r}

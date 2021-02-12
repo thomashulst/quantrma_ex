@@ -90,7 +90,7 @@ Psychoanalysts at two different hospitals were asked to judge the well-being of 
 ## Correlations in R
 In this part of the lab we will use R to explore correlations between two variables. Make sure you really follow along with the code examples given.
 
-### `cor()` for correlation
+### `cor()` for correlation {#corforcor}
 R has the `cor` function for computing **Pearson**'s $r$ between any two variables. In fact this same function can compute other versions of correlation as well (Spearman and Kendall), but we'll skip those here. To use the function you just need two variables with numbers in them like this:
 
 ```{r}
@@ -99,7 +99,7 @@ y  <- c(6,5,8,7,9,7,8,10,13)
 cor(x,y)
 ```
 
-#### Scatterplots
+#### Scatterplots {#scatterannote}
 Let's take our toy example, and plot the data in a scatterplot using ggplot2. Let's also return the correlation and print it on the scatter plot. Remember, ggplot2 wants the data in a `data.frame`, so we first put our x and y variables in a data frame.
 
 ```{r, warning=F, message=F}
@@ -114,7 +114,7 @@ ggplot(df, aes(x=x,y=y))+
 
 Wow, we're moving fast here. Dissect the code above and see if you understand each step.
 
-#### Lots of scatterplots
+#### Lots of scatterplots {#lotsofscatter}
 Before we move on to real data, let's use some fake data first. Often we will have many measures of X and Y, split between a few different conditions, for example, condition A, B, C, or D. Let's make some fake data for X and Y, for each condition A, B, C, and D. 
 
 ```{r}
