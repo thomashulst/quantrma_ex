@@ -26,7 +26,7 @@ Did you finish reading the RMarkdown basics section in the lab manual? If so, an
 
 Continue with answering the exercises about research methods below.
 
-# Research methods
+# Research methods: measurement
 You should be able to answer the following questions based on the required readings of this week. Discuss the questions below in your breakout room and write down your answers in this document. 
 
 ## Question 1

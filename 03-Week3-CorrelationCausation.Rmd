@@ -10,7 +10,8 @@ During this lab you will do the following:
 2. Discuss the possible meaning of correlations that you observe
 3. Learn how to compute and visualize Pearson's $r$ between two variables in R 
 
-## Research methods
+## Research methods: causality
+Discuss the research methods questions about causality in your breakout room and register the answers in the R Markdown template.
 
 ### Question 1
 Take a close look at the following two examples. Each example consists of a graph showing the fluctuation of two variables and a statement suggesting how to interpret such evidence. Are these statements correct? Explain your answer. 

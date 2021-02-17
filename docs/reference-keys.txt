@@ -27,7 +27,7 @@ learning-goals
 how-to-use-this-lab-manual
 rmarkdown-basics
 rmarkdown-exercises
-research-methods
+research-methods-measurement
 question-1
 question-2
 question-3
@@ -103,7 +103,7 @@ describing-gapminder-with-numbers
 descriptive-exercises
 week-3-correlation-and-causation
 learning-goals-2
-research-methods-1
+research-methods-causality
 question-1-1
 example-1
 example-2

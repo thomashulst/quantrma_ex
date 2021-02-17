@@ -173,7 +173,9 @@ sample(c(1:10), 20)
 
 2. Simulate the amount of sixes you expect to roll when rolling 1 dice 10,000 times. Also simulate the amount of fives **and** sixes you expect to roll when rolling 10 dice 10,000 times? (hint: use `rbinom()` to simulate 10,000 dice rolls and `sum()` to calculate the amount of successes)
 
-3. What is the probability of obtaining exactly 4 heads when flipping 10 fair coins? And what is the probability to obtain **at least** 4 heads (so 4, 5, 6, 7, 8, 9 or 10 heads)? Cf. [the textbook](https://thomashulst.github.io/quantrma/chance.html#working-with-the-binomial-distribution-in-r) when unsure how to use the `binom()` functions.
+3. What is the probability of obtaining exactly 4 heads when flipping 10 fair coins? And what is the probability to obtain **at most** 4 heads (so 0, 1, 2, 3, or 4 heads)? Cf. [the textbook](https://thomashulst.github.io/quantrma/chance.html#working-with-the-binomial-distribution-in-r) when unsure how to use the `binom()` functions.
+
+4. What is the probability to obtain **at least** 4 heads (so 4, 5, 6, 7, 8, 9, or 10 heads). You can calculate this probability in two ways, either by using `pbinom()` with an additional argument, or by using your answers from question 3. 
 
 ## Normal distribution
 

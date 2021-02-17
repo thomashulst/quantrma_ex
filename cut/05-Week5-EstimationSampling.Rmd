@@ -1,0 +1,131 @@
+# Week 5: Estimation and Sampling Theory
+In the textbook we learned that we can use various concepts from sampling theory (e.g. the law of large numbers, sampling distributions and the central limit theory) to estimate something about a **population** from a **sample**.
+
+In the first part of the lab we are going to discuss sampling theory and sampling distributions in more detail. During the second part of the lab we are going to use R to estimate things about a population from real data. You might notice this lab is more theory heavy than previous weeks, but we are setting you up for next week, when we are going to apply our knowledge of sampling theory and estimation to do statistical testing. 
+
+To get started, download the [lab template here](https://github.com/thomashulst/quantrma_lab/raw/master/Labs/Lab05_EstimationSampling.Rmd) (right click: save as) or from Canvas. Copy the lab template to your lab folder and double click the **Lab project file** (not the .Rmd) to open RStudio. 
+
+## Learning goals
+During this lab you will do the following:
+
+1. 
+2. 
+3. 
+
+## Research methods: sampling
+
+### Question 1
+What is the difference between a population and a sample? Explain in your own words. 
+
+### Question 2
+What type of sampling is conducted in the two cases below:
+
+Case 1: Simple random sample (tax data or something)
+
+Case 2: Stratified (male/females)
+
+### Question 3
+Identify the source of sampling bias in the following two cases. Explain whether this is a threat to the validity of the study.
+
+Case 1: Convenience no problem (me asking students about visual illusion)
+
+Case 2: Convenience (snowball student surveys)
+
+### Question 4
+What is the difference between a population parameter and a sample statistic? Explain in your own words. 
+
+### Question 5
+In the example below we have R toss a **fair** coin ten times and calculate the mean amount of heads (i.e. $$\frac{\text{number of heads}}{\text{number of flips}}$$). 
+
+```{r,echo=T}
+set.seed(123)
+theta <- 0.5 # fair coin so P(Heads) = 0.5
+N <- 10 # number of flips
+
+flips <- rbinom(n = N, size = 1, prob = theta)
+print(flips)
+print(mean(flips))
+```
+The mean of heads flipped in this example works out to be $$\frac{\text{6 heads}}{\text{10flips}} = 0.6$$. 
+
+1. In the long run, what do you expect the mean of heads to be? Why?
+2. Adjust the code to flip 100 coins and 10,000 coins respectively. What is the mean of heads for 100 and 10,000 coins?
+3. Explain why the mean of heads gets closer and closer to $0.5$ as the sample size increases.
+
+### Question 5
+What is the difference between the **distribution of your sample** and the **sampling distribution of the sample mean**? How does a sampling distribution relate to the population? Explain in your own words.
+
+### Question 6
+Consider the following two distributions. The first distribution is the **sampling distribution of the sample mean** of rolling one die 100,000 times. Of course, the sample mean of rolling one die is just going to be the value of the roll.
+
+```{r}
+# set parameters of imaginary experiment
+n_rolls <- 100000
+n_dice <- 1
+
+# sample 100,000 dice rolls (single die)
+mean_rolls <- replicate(n_rolls, mean(sample(1:6, size = n_dice, replace = TRUE)))
+
+# plot histogram of sample means
+# sample mean of 1 die is simply the value of the face 
+dice_rolls <- data.frame(mean_rolls)
+ggplot(dice_rolls,aes(x=mean_rolls)) + 
+  geom_histogram(binwidth = 1,fill="white",color="black")
+
+
+```
+
+The second distribution is the  **sampling distribution of the sample mean** of rolling two dice 100,000 times. Here, we have R roll 4 dice 100,000 times and calculate the mean of each sample of 4 dice. 
+
+```{r}
+# set parameters of imaginary experiment
+n_rolls <- 100000
+n_dice <- 4
+
+# sample 100,000 dice rolls (four dice)
+mean_rolls <- replicate(n_rolls, mean(sample(1:6, size = n_dice, replace = TRUE)))
+
+# plot histogram of sample means
+dice_rolls <- data.frame(mean_rolls)
+ggplot(dice_rolls,aes(x=mean_rolls)) + 
+  geom_histogram(binwidth = 0.25,fill="white",color="black")
+
+
+```
+
+1. Why does the shape of the second distribution differ from the first distribution? 
+2. What is the relationship between the sample size (i.e. the amount of dice rolled per sample) and the standard deviation of the sampling distribution? 
+
+### Question 7
+Suppose we have information about the height of all Dutch males over 18 years of age. Height is normally distributed; the mean height and standard deviation of the population is as follows:
+
+$$\mu = 180 cm$$
+$$ \sigma = 10 cm$$
+1. What is the standard deviation of the sampling distribution of the sample mean when samples of size 16 are randomly drawn from the population?
+2. What is the standard deviation of the sampling distribution of the sample mean when samples of size 100 are randomly drawn from the population?
+
+### Question 8
+Suppose you collect the mean reaction time in a sample of 9 participants with a mean of 200ms ($$\bar{X} = 200ms$$). You know the true population standard deviation is equal to 25 ms ($$\sigma = 25ms$$). As such, the 95% confidence interval you calculate is equal to:
+
+$$ \mbox{CI}_{95} = \bar{X} \pm \left( 1.96 \times \frac{\sigma}{\sqrt{N}} \right) = 200 \pm \left( 1.96 \times \frac{25}{\sqrt{9}} \right) = [183.67; 216.33]$$
+
+What happens to the confidence interval of the mean if the sample size increases to 25? Why? 
+
+## Real data 
+Let's take a look at some real (sample) data and estimate something about the population. The data we are going to use is from an experiment investigating the Stroop effect. In the experiment, ... “Stand by your Stroop: Standing up enhances selective attention and cognitive control”
+
+Pictures of congruent and incongruent.
+
+
+
+### Real data exercises
+1. Calculate $$\bar{X}$$ and $$\hat{\mu}$$. 
+2. What is the qualitative difference between $$\bar{X}$$ and $$\hat{\mu}$$? In what way does $$\hat{mu}$$ differ from $$\mu$$?
+3. Calculate $$s$$ and $$\hat{\sigma}$$ (see week 2).
+4. What is the qualitative difference between $$s$$ and $$\hat{\sigma}$$? In what way does $$\hat{\sigma}$$ differ from $$\sigma$$?
+
+Calculate the confidence interval (tdist)
+
+Plot bar plot + CI or SEM
+
+When you have completed all exercises and are happy with your progress today, please knit your document and submit it to Canvas. If you finish before the time is up, start with the required readings of Week 5, work on your assignment, or help out your fellow students.

@@ -13,7 +13,7 @@ knitr::opts_chunk$set(echo = TRUE, eval = TRUE, cache = FALSE, error = TRUE, mes
 
 Welcome to the template file of the third lab! Today is all about correlation and causation. Start this lab by answering the exercises about establishing causal relationships below (Questions 1 to 8).
 
-# Research methods
+# Research methods: causality
 
 ## Question 1
 Take a close look at the following two examples. Each example consists of a graph showing the fluctuation of two variables and a statement suggesting how to interpret such evidence. Are these statements correct? Explain your answer. 

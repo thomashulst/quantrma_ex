@@ -170,7 +170,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.1" data-path="week-1-introductionweek1-introduction-1.html"><a href="week-1-introductionweek1-introduction-1.html#learning-goals"><i class="fa fa-check"></i><b>1.1</b> Learning goals</a></li>
 <li class="chapter" data-level="1.2" data-path="week-1-introductionweek1-introduction-1.html"><a href="week-1-introductionweek1-introduction-1.html#how-to-use-this-lab-manual"><i class="fa fa-check"></i><b>1.2</b> How to use this lab manual</a></li>
 <li class="chapter" data-level="1.3" data-path="week-1-introductionweek1-introduction-1.html"><a href="week-1-introductionweek1-introduction-1.html#rmarkdown-basics"><i class="fa fa-check"></i><b>1.3</b> RMarkdown basics</a></li>
-<li class="chapter" data-level="1.4" data-path="week-1-introductionweek1-introduction-1.html"><a href="week-1-introductionweek1-introduction-1.html#research-methods"><i class="fa fa-check"></i><b>1.4</b> Research methods</a>
+<li class="chapter" data-level="1.4" data-path="week-1-introductionweek1-introduction-1.html"><a href="week-1-introductionweek1-introduction-1.html#research-methods-measurement"><i class="fa fa-check"></i><b>1.4</b> Research methods: measurement</a>
 <ul>
 <li class="chapter" data-level="1.4.1" data-path="week-1-introductionweek1-introduction-1.html"><a href="week-1-introductionweek1-introduction-1.html#question-1"><i class="fa fa-check"></i><b>1.4.1</b> Question 1</a></li>
 <li class="chapter" data-level="1.4.2" data-path="week-1-introductionweek1-introduction-1.html"><a href="week-1-introductionweek1-introduction-1.html#question-2"><i class="fa fa-check"></i><b>1.4.2</b> Question 2</a></li>
@@ -219,7 +219,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3" data-path="week-3-correlation-and-causation.html"><a href="week-3-correlation-and-causation.html"><i class="fa fa-check"></i><b>3</b> Week 3: Correlation and Causation</a>
 <ul>
 <li class="chapter" data-level="3.1" data-path="week-3-correlation-and-causation.html"><a href="week-3-correlation-and-causation.html#learning-goals-2"><i class="fa fa-check"></i><b>3.1</b> Learning goals</a></li>
-<li class="chapter" data-level="3.2" data-path="week-3-correlation-and-causation.html"><a href="week-3-correlation-and-causation.html#research-methods-1"><i class="fa fa-check"></i><b>3.2</b> Research methods</a>
+<li class="chapter" data-level="3.2" data-path="week-3-correlation-and-causation.html"><a href="week-3-correlation-and-causation.html#research-methods-causality"><i class="fa fa-check"></i><b>3.2</b> Research methods: causality</a>
 <ul>
 <li class="chapter" data-level="3.2.1" data-path="week-3-correlation-and-causation.html"><a href="week-3-correlation-and-causation.html#question-1-1"><i class="fa fa-check"></i><b>3.2.1</b> Question 1</a></li>
 <li class="chapter" data-level="3.2.2" data-path="week-3-correlation-and-causation.html"><a href="week-3-correlation-and-causation.html#question-2-1"><i class="fa fa-check"></i><b>3.2.2</b> Question 2</a></li>
@@ -421,7 +421,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb197-1"><a href="week-4-chance-and-probability-theory.html#cb197-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>), <span class="dv">20</span>)</span></code></pre></div>
 <ol start="2" style="list-style-type: decimal">
 <li><p>Simulate the amount of sixes you expect to roll when rolling 1 dice 10,000 times. Also simulate the amount of fives <strong>and</strong> sixes you expect to roll when rolling 10 dice 10,000 times? (hint: use <code>rbinom()</code> to simulate 10,000 dice rolls and <code>sum()</code> to calculate the amount of successes)</p></li>
-<li><p>What is the probability of obtaining exactly 4 heads when flipping 10 fair coins? And what is the probability to obtain <strong>at least</strong> 4 heads (so 4, 5, 6, 7, 8, 9 or 10 heads)? Cf. <a href="https://thomashulst.github.io/quantrma/chance.html#working-with-the-binomial-distribution-in-r">the textbook</a> when unsure how to use the <code>binom()</code> functions.</p></li>
+<li><p>What is the probability of obtaining exactly 4 heads when flipping 10 fair coins? And what is the probability to obtain <strong>at most</strong> 4 heads (so 0, 1, 2, 3, or 4 heads)? Cf. <a href="https://thomashulst.github.io/quantrma/chance.html#working-with-the-binomial-distribution-in-r">the textbook</a> when unsure how to use the <code>binom()</code> functions.</p></li>
+<li><p>What is the probability to obtain <strong>at least</strong> 4 heads (so 4, 5, 6, 7, 8, 9, or 10 heads). You can calculate this probability in two ways, either by using <code>pbinom()</code> with an additional argument, or by using your answers from question 3.</p></li>
 </ol>
 </div>
 </div>

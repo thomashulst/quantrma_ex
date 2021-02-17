@@ -106,9 +106,9 @@ You should now be ready to complete the RMarkdown exercises in your template fil
 2.  Insert an R code chunk to calculate the result of 10 + 20.
 3.  Knit your document to a Word file and have a look at the result.
 
-## Research methods
+## Research methods: measurement
 
-Discuss the questions about research methods below in your breakout room and register the answers in the R Markdown template.
+Discuss the research methods questions about measurement in your breakout room and register the answers in the R Markdown template.
 
 ### Question 1
 
