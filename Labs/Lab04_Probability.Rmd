@@ -79,7 +79,7 @@ sample(c(1:10), 20)
 
 ```
 
-4. What is the probability to obtain **at least** 4 heads (so 4, 5, 6, 7, 8, 9, or 10 heads). You can calculate this probability in two ways, either by using `pbinom()` with an additional argument, or by using your answers from question 3. 
+4. What is the probability to obtain **at least** 4 heads (so 4, 5, 6, 7, 8, 9, or 10 heads) when flipping 10 fair coins? You can calculate this probability in two ways, either by using `pbinom()` with an additional argument, or by using your answers from question 3. 
 
 ```{r}
 

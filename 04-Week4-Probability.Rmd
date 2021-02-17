@@ -175,7 +175,7 @@ sample(c(1:10), 20)
 
 3. What is the probability of obtaining exactly 4 heads when flipping 10 fair coins? And what is the probability to obtain **at most** 4 heads (so 0, 1, 2, 3, or 4 heads)? Cf. [the textbook](https://thomashulst.github.io/quantrma/chance.html#working-with-the-binomial-distribution-in-r) when unsure how to use the `binom()` functions.
 
-4. What is the probability to obtain **at least** 4 heads (so 4, 5, 6, 7, 8, 9, or 10 heads). You can calculate this probability in two ways, either by using `pbinom()` with an additional argument, or by using your answers from question 3. 
+4. What is the probability to obtain **at least** 4 heads (so 4, 5, 6, 7, 8, 9, or 10 heads) when flipping 10 fair coins? You can calculate this probability in two ways, either by using `pbinom()` with an additional argument, or by using your answers from question 3. 
 
 ## Normal distribution
 
