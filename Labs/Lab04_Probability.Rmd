@@ -11,7 +11,7 @@ output:
 knitr::opts_chunk$set(echo = TRUE, eval = TRUE, cache = FALSE, error = TRUE, message = FALSE, warning = TRUE, tidy = FALSE)
 ```
 
-Welcome to the template file of the third lab! Today is all about chance and probability theory. Start this lab by reading Section 4.2 of the lab manual. Make sure you follow along with the code examples given in the lab manual. 
+Welcome to the template file of the fourth lab! Today is all about chance and probability theory. Start this lab by reading Section 4.2 of the lab manual. Make sure you follow along with the code examples given in the lab manual. 
 
 ```{r}
 # Run this code chunk to make sure the tidyverse is loaded in your R session. 
