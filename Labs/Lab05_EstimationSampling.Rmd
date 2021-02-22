@@ -9,6 +9,7 @@ output:
 
 ```{r setup,include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, eval = TRUE, cache = FALSE, error = TRUE, message = FALSE, warning = TRUE, tidy = FALSE)
+library(tidyverse)
 ```
 
 Welcome to the template file of the fifth lab! Today is about estimation and sampling theory. Before we start with the actual lab, we are going to collect some data. The data will be used later on in this lab. Make sure you have completed [the experiment](https://www.psytoolkit.org/experiment-library/experiment_stroop.html) and have registered your reaction times in the online spreadsheet provided by your tutor. Your tutor will compile an excel file with the experimental data to complete the exercises at the end of this lab.
@@ -76,7 +77,7 @@ print(mean(flips))
 
 In this example that works out to be: 6 heads/10 flips = 0.6
 
-1. In the long run, what do you expect the proportion of heads to be? Why?
+1. In the long run, what do you expect the proportion of heads to be?
 
 
 2. Adjust the code above to flip 100 coins and 10,000 coins respectively. What is the proportion of heads for 100 and 10,000 coins?
@@ -168,11 +169,11 @@ To load and pivot the Stroop data, execute the following code:
 ```{r}
 library(readxl)
 # read_xlsx depends on where you have placed and how you have named your file
-df_stroop <- read_xlsx("data/stroop.xlsx") 
-df_stroop_long <- pivot_longer(df_stroop,cols = c(Congruent,Incongruent),names_to = "Condition",values_to = "RT")
+df_stroop_wide <- read_xlsx("data/stroop.xlsx") 
+df_stroop_long <- pivot_longer(df_stroop_wide,cols = c(Congruent,Incongruent),names_to = "Condition",values_to = "RT")
 ```
 
-1. Calculate the mean and standard deviation of the Stroop effect (i.e. the difference between the incongruent and congruent condition). 
+1. Calculate the mean and standard deviation of the Stroop effect (i.e. the difference between the incongruent and congruent condition). There are several ways to achieve this and you can use either the wide format or long format data. Of course, there are differences how to approach this based on the format of your data. Pick the option that suits you most.
 
 ```{r}
 
@@ -187,11 +188,11 @@ df_stroop_long <- pivot_longer(df_stroop,cols = c(Congruent,Incongruent),names_t
 3. Why do you need to use a t-distribution for calculating the confidence interval in this particular instance?
 
 
-4. This next exercise is combining everything we have learned so far. 
+This next exercise is combining everything we have learned so far. 
 
 Have a look at the [following paper](https://www.researchgate.net/profile/David_Rosenbaum6/publication/320070495_Stand_by_Your_Stroop_Standing_Up_Enhances_Selective_Attention_and_Cognitive_Control/links/5a82b4f10f7e9bda869fac5b/Stand-by-Your-Stroop-Standing-Up-Enhances-Selective-Attention-and-Cognitive-Control.pdf). The authors of this paper investigated the Stroop effect in two different conditions and the main results are summarized in Figure 1.
 
-Adjust/complete the code example below to recreate Figure 1 of the paper linked. We only have two conditions, so your figure will only include two bars + errorbars (congruent and incongruent).
+4. Adjust/complete the code example below to recreate Figure 1 of the paper linked. We only have two conditions, so your figure will only include two bars + errorbars (congruent and incongruent).
 
 ```{r}
 df_summary <- df_stroop_long %>%
