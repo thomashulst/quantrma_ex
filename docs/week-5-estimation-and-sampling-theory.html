@@ -556,7 +556,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tbody>
 </table>
 <p>Both tables contain the same data, but Table <a href="week-5-estimation-and-sampling-theory.html#tab:wide">5.1</a> is in wide format, while Table <a href="week-5-estimation-and-sampling-theory.html#tab:long">5.2</a> is in long format.</p>
-<p>There are various advantages working with data in a long format (<a href="http://www.jstatsoft.org/v59/i10/paper">explained here</a>), but what is important to know is that <strong>most</strong> operations on your data are easier in the long format, while <strong>some</strong> operations are easier in the wide format. You can switch between data formats using <code>pivot_longer()</code> (wide to long) and <code>pivot_wider()</code> (long to wide) functions.</p>
+<p>There are various advantages working with data in a long format (<a href="http://www.jstatsoft.org/v59/i10/paper">explained here</a>), but what is important to know is that <strong>most</strong> operations on your data are easier in the long format, while <strong>some</strong> operations are easier in the wide format. Furthermore, tidyverse functions like <code>ggplot()</code> expect data in the long format, so it’s important to learn how to go from wide format data to long format data (and vice versa). To functions to switch between data formats are <code>pivot_longer()</code> (wide to long) and <code>pivot_wider()</code> (long to wide).</p>
 <p>To change the format of our data from wide to long, we use the <code>pivot_longer()</code> function as follows:</p>
 <div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb227-1"><a href="week-5-estimation-and-sampling-theory.html#cb227-1" aria-hidden="true" tabindex="-1"></a>df_stroop_long <span class="ot">&lt;-</span> df_stroop_wide <span class="sc">%&gt;%</span> </span>
 <span id="cb227-2"><a href="week-5-estimation-and-sampling-theory.html#cb227-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(Congruent,Incongruent),<span class="at">names_to =</span> <span class="st">&quot;Condition&quot;</span>,<span class="at">values_to =</span> <span class="st">&quot;RT&quot;</span>)</span>
@@ -616,7 +616,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 5           5         1200           1500            1.2               1.5 
 ## 6           6         1100           1350            1.1               1.35
 ## # … with 1 more variable: RT_sec_diff &lt;dbl&gt;</code></pre>
-<p>Notice that the expression <code>RT_sec_Congruent - RT_sec_Incongruent</code> in <code>mutate()</code> only made sense in the context of wide format data. The lesson is that you should pay attention to the format of your data, as the format determines how to perform certain operations on your data.</p>
+<p>Notice that the particular expression <code>RT_sec_Congruent - RT_sec_Incongruent</code> in <code>mutate()</code> only made sense in the context of wide format data.</p>
+<p>We could have achieved the above with different operations on the long format data, but the lesson is that you should pay attention to the format of your data: not all data you import is in the long format, while some functions require it, and the format of your data dictates how and which operations you can perform.</p>
 <p>Complete the Stroop data exercises below in your lab template.</p>
 <div id="stroop-data-exercises" class="section level3" number="5.4.1">
 <h3><span class="header-section-number">5.4.1</span> Stroop data exercises</h3>
