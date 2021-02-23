@@ -64,7 +64,7 @@ In this example that works out to be: $\frac{\text{6 heads}}{\text{10flips}} = 0
 ### Question 6
 What is the difference between the **distribution of your sample** and the **sampling distribution of the sample mean**? How does a sampling distribution relate to the population? Explain in your own words.
 
-### Question 7
+### Question 7 {#q7rep}
 Consider the following two distributions. The first distribution is the **sampling distribution of the sample mean** of rolling one die 100,000 times. Of course, the sample mean of rolling one die is just the value of a single roll.
 
 ```{r}
@@ -120,7 +120,7 @@ Suppose you collect the mean reaction time in a sample of 9 participants with a 
 1. What is the 95% confidence interval for the mean of this sample?
 2. What happens to the confidence interval of the mean if the sample size increases to 25?  
 
-## Stroop data 
+## Stroop data {#stroopdata}
 Let's have a look at the data from our experiment and estimate something about the population based on our sample^[Example adapted from Lab 10 in "Answering questions with data" by Matthew Crump]. In a typical Stroop experiment, subjects name the color of words as fast as they can. The trick is that sometimes the color of the word is the same as the name of the word, and sometimes it is not, like you've probably noticed. Here is an example of the what you saw:
 
 ```{r, out.width="50%", fig.align='center',echo=F}

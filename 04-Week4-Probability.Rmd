@@ -34,7 +34,7 @@ ggplot(all_df, aes(x=x,y=y))+
 
 You can see that the slope of the blue line is not always flat. Sometimes it looks like there is a correlation, when we know in fact the data is completely random. You can keep re-doing this graph, by re-knitting your RMarkdown document, or by pressing the little green play button. This is basically you simulating 20 experiments each time you press the button. Complete the chance exercises below in your RMarkdown template. 
 
-### Chance exercises
+### Chance exercises {#chanceex}
 For the first two exercises, you will be sampling random numbers from a normal distribution a 1000 times. We provide some hints and example code two answer the exercises below.
 
 1. Estimate the range (minimum and maximum) of correlations that could occur by chance between two normally distributed random variables with n = 10.
@@ -97,7 +97,7 @@ After completing these exercises, continue the lab by reading Section 4.3.
 ## Generating data with `sample()` and `binom()`
 There are many ways to make R generate numbers for you. We already used normal distribution to generate numbers for our random correlations. In this next part, we will explore additional functions and distributions to generate random numbers and look at `rnorm()` in more detail.  
 
-### `sample()`
+### `sample()` {#samplefunc}
 The sample function is like an endless gumball machine. You put the gumballs inside with different properties, say As and Bs, and then you let sample endlessly take gumballs out. Check it out:
 
 ```{r}
@@ -128,7 +128,7 @@ ggplot(sample_df,aes(x=sample_of_numbers)) +
 
 We are looking at lots of samples from our little gumball machine of numbers. Notice that as we put more 5s in, more 5s come out of in our big sample of 1000.
 
-### `rbinom()`
+### `rbinom()` {#rbinom}
 You can think of the binomial distribution as a coin flipping distribution. Or dice roll distribution. Or anything you can define a number of "successes" for. For example, when flipping a coin, we could consider flipping heads a "success". 
 
 You use `rbinom` as follows: `rbinom(n, size, prob)`. `n` gives the number of flips you want to make. `size` is the number of coins you want to flip at once. `prob` is the probability that defines how often a "success" happens. Here's how we flip one coin 10 times using `rbinom` (assuming the coin is fair):
@@ -224,7 +224,7 @@ ggplot(normal_df, aes(x=values,y=normal_dist))+
 
 A really nice shaped bell-like thing. This normal distribution has a mean of 0, and standard deviation of 1. The heights of the lines tell you roughly how likely each value is. Notice, it is centered on 0 (most likely that numbers from this distribution will be near 0), and it goes down as numbers get bigger or smaller (so bigger or smaller numbers get less likely). Notice the values don't go much beyond -4 and +4. This is because those values don't happen very often. Theoretically any value could happen, but really big or small values have really low probabilities.
 
-### Calculating the probability of specific ranges.
+### Calculating the probability of specific ranges. {#pnorm}
 We can use R to tell us about the probability of getting numbers in a certain range. For example, when you think about it, it should be obvious that you have a 50% probability of getting the number 0 or lower. Half of the distribution is 0 or lower, so you have a 50% probability.
 
 We can use the `pnorm()` function to confirm this:
@@ -303,7 +303,7 @@ pnorm(2, mean = 0, sd= 1,lower.tail = FALSE)
 
 So, the probability of getting a 2 or greater is .0227 (not very probable)
 
-### `norm()` exercises
+### `norm()` exercises {#normex}
 Complete the following exercises in your RMarkdown template. 
 
 Run the following bit of code, which samples 20 random numbers from a normal distribution, a couple of times and look at the results. 

@@ -223,7 +223,7 @@ glimpse(whr_data)
 
 You should be able to see that there is data for many different countries, across a few different years. There are lots of different kinds of measures, and each are given a name. You can find in the [World Happiness Report](https://worldhappiness.report) what each of the measures represent. For now, I'll show you some examples of asking questions about relationships between variables within this data, then you get to ask and answer your own question.
 
-### Example question #1
+### Example question #1 {#exampleq1}
 For the year 2017, does a countries measure for "Social support" correlate with that countries measure for "Healthy life expectancy at birth"?
 
 Let's find out. We make the scatter plot and then calculate the correlation. We did something similar in the textbook, so the following should look familiar to you: 
