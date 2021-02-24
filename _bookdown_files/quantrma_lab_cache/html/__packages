@@ -1,0 +1,14 @@
+base
+data.table
+dplyr
+ggplot2
+gapminder
+ggpubr
+tidyverse
+tibble
+tidyr
+readr
+purrr
+stringr
+forcats
+readxl
