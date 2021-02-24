@@ -1,14 +1,12 @@
 base
-data.table
-dplyr
-ggplot2
-gapminder
-ggpubr
 tidyverse
+ggplot2
 tibble
 tidyr
 readr
 purrr
+dplyr
 stringr
 forcats
+gapminder
 readxl
