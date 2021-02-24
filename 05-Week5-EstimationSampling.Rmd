@@ -148,15 +148,15 @@ Data entered into excel is often in the wide format, but a lot of functions in R
 ```{r wide,echo=F}
 # example from https://sejdemyr.github.io/r-tutorials/basics/wide-and-long/
 country_long <- data.frame(
-    expand.grid(country = c("Sweden", "Denmark", "Norway"), year = 1994:1996),
+    expand.grid(country = c("Sweden", "Denmark", "Norway"), year = 1995:1997),
     avgtemp = round(runif(9, 3, 12), 0)
     )
 
 country_wide <- data.frame(
     country = c("Sweden", "Denmark", "Norway"),
-    avgtemp.1994 = country_long$avgtemp[1:3],
-    avgtemp.1995 = country_long$avgtemp[4:6],
-    avgtemp.1996 = country_long$avgtemp[7:9])
+    avgtemp.1995 = country_long$avgtemp[1:3],
+    avgtemp.1996 = country_long$avgtemp[4:6],
+    avgtemp.1997 = country_long$avgtemp[7:9])
 
 knitr::kable(country_wide,col.names = c("Country","1995","1996","1997"),caption="Average temperature in three countries for 1995-1997 in wide format")
 
