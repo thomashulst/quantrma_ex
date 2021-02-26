@@ -1,0 +1,235 @@
+---
+title: "Lab 6 - Hypothesis Testing"
+author: "Student Name"
+date: "`r Sys.Date()`"
+output:
+  word_document:
+    toc: yes
+---
+
+```{r setup,include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, eval = TRUE, cache = FALSE, error = TRUE, message = FALSE, warning = TRUE, tidy = FALSE)
+library(tidyverse)
+```
+
+Welcome to the template file of the sixth lab! Today is all about hypothesis testing. Start this lab by answering the questions about hypothesis testing below (Questions 1-9).
+
+## Research methods: hypothesis testing
+
+### Question 1
+What is a **research** hypothesis? What is a **statistical** hypothesis? What is the difference between the two? Explain in your own words.
+
+
+
+### Question 2
+What is the null and alternative hypothesis of the following cases:
+
+#### Case 1
+You flip a coin 50 times and count the number of heads flipped ($X = 12$). Suppose you want to conduct a hypothesis test to determine if the underlying probability of flipping heads for this particular coin is equal to $0.30$. 
+
+
+
+
+#### Case 2
+A random survey of 75 death row inmates revealed that the mean length of time on death row is 17.4 years with a standard deviation of 6.3 years. Suppose you want to conduct a hypothesis test to determine if the mean time on death row is 15 years.^[Case from [*Introductory Statistics*](https://opentextbc.ca/introstatopenstax/front-matter/preface/) by OpenStax]
+
+
+
+
+#### Case 3
+You are a researcher investigating the effect of age on working memory. You have collected data on how many random digits can be remembered for a brief period of time in a group of 20 young adults ($\bar{X} = 7.2$ digits) and 20 elderly participants ($\bar{X} = 6.9$ digits). The standard deviation is 1 digit in both groups. Suppose you want to conduct a hypothesis test to determine if young adults have a *better* working memory than elderly.
+
+
+
+
+#### Case 4
+A course coordinator is interested if their course about statistics actually has an effect on the statistical ability of students. The course coordinator has 200 students take a quiz about statistics before the course starts (mean pre-course quiz grade = 50 points) and has the same students take a quiz after completion of the course (mean post-course quiz grade = 75 points). The course coordinator made sure the questions were different between the quizzes, but equivalent in difficulty. The standard deviation of the difference is 10 points. Suppose the course coordinator wants to conduct a hypothesis test to determine if the course had *any* effect on the statistical ability of students (i.e. quiz grades getting better or worse).
+
+
+
+
+### Question 3
+What is the appropriate statistical test to conduct for each of the statistical hypotheses stated in Question 2? Explain why a particular statistical test is appropriate. Assume the population standard deviation is unknown for case 2, 3 and 4. 
+
+
+
+
+### Question 4
+What is meant by the critical region for a test statistic? What does it mean if the test statistic of your sample falls within the critical region? Explain in your own words. 
+
+
+
+
+### Question 5
+What is the meaning of the p-value of a statistical test? Explain in your own words.
+
+
+
+
+
+### Question 6
+The following is the output of the statistical tests which tested the hypotheses of the cases stated in Question 2. Comment on the results of each statistical test. Do you reject or retain the null hypothesis in each case?
+
+#### Case 1
+
+    > binom.test(X,N,theta)
+    
+    Exact binomial test
+    
+    data:  X and N
+    number of successes = 12, number of trials = 50, p-value = 0.4407
+    alternative hypothesis: true probability of success is not equal to 0.3
+    95 percent confidence interval:
+      0.1306099 0.3816907
+    sample estimates:
+    probability of success 
+      0.24 
+
+
+
+
+
+
+#### Case 2
+
+    > t.test(time_deathrow, mu = 15)
+    
+    One Sample t-test
+    
+    data:  time_deathrow
+    t = 3.2991, df = 74, p-value = 0.001493
+    alternative hypothesis: true mean is not equal to 15
+    95 percent confidence interval:
+      15.9505 18.8495
+    sample estimates:
+    mean of x 
+     17.4 
+
+
+
+
+
+#### Case 3
+
+    > t.test(young_adults,elderly,alternative = "greater")
+
+    Welch Two Sample t-test
+    
+    data:  young_adults and elderly
+    t = 0.94868, df = 38, p-value = 0.1744
+    alternative hypothesis: true difference in means is greater than 0
+    95 percent confidence interval:
+      -0.2331456        Inf
+    sample estimates:
+    mean of x mean of y 
+      7.2       6.9 
+
+
+
+
+
+#### Case 4
+
+    > t.test(pre,post,paired =T)
+    
+    Paired t-test
+
+    data:  pre and post
+    t = -80.58, df = 199, p-value < 2.2e-16
+    alternative hypothesis: true difference in means is not equal to 0
+    95 percent confidence interval:
+      -25.6118 -24.3882
+    sample estimates:
+    mean of the differences 
+      -25
+
+
+
+
+### Question 7
+What does it mean if the result of a statistical test is significant? Does statistical significance say anything about whether the result is important? 
+
+
+
+
+### Question 8
+What type of error is committed in the following cases? Which type of error has a greater consequence in this particular case?
+
+#### Case 1
+You are a beginning rock climber and have bought some second hand climbing equipment on Marktplaats. Assume your null hypothesis about the safety of the rock climbing equipment is: the climbing equipment is safe. What type of error do you commit if you think the rock climbing equipment is not safe, when in fact it is safe? 
+
+
+
+
+#### Case 2
+You are a beginning rock climber and have bought some second hand climbing equipment on Marktplaats. Assume your null hypothesis about the safety of the rock climbing equipment is: the climbing equipment is safe. What type of error do you commit if you think the rock climbing equipment is safe, when in fact it is not safe? 
+
+
+
+
+
+### Question 9
+What does the power of a statistical test refer to? Explain in your own words.
+
+
+
+
+After answering the questions above, continue this lab by reading Section 6.3 of the lab manual.
+
+## $t$-test exercises
+After reading Section 6.3 of the lab manual, complete the following exercises.
+
+To load and pivot the Stroop data, execute the following code:
+
+```{r}
+library(readxl)
+# read_xlsx depends on where you have placed and how you have named your file
+df_stroop_wide <- read_xlsx("data/stroop.xlsx") 
+df_stroop_long <- pivot_longer(df_stroop_wide,cols = c(Congruent,Incongruent),names_to = "Condition",values_to = "RT")
+```
+
+A colleague hypothesizes that the average reaction time for the Congruent condition is 1000ms in the population ($\mu = 1000$). Suppose you want to test if there is a statistically significant difference between the mean reaction time in the Congruent condition of your sample and the mean of the population.
+
+1. State the null and alternative hypothesis for this test.
+
+
+2. Conduct the appropriate statistical test to test these hypotheses.
+
+```{r}
+
+```
+
+3. What do you conclude about the null hypothesis? 
+
+We continue working with the Stroop data from last week, but this time we are interested in testing if there is a statistically significant difference in reaction time between the Congruent and Incongruent condition. We strongly expect a positive difference and only want to test positive Stroop effects (i.e. Incogruent - Congruent > 0). Complete the following exercises: 
+
+1. State the null and alternative hypothesis for this test. 
+
+
+2. Conduct the appropriate statistical test to test these hypotheses.
+
+```{r}
+
+```
+
+3. What do you conclude about the null hypothesis? 
+
+
+
+Finally, we are going to finish this lab by do something "illegal". Don't worry, you aren't going to get arrested, but I do want you to understand the gravity of the statistical crime we are going to commit. It's for a good reason, so we are allowing it for once...
+
+We know the data in the Stroop experiment was collected in pairs: you took part in both the Congruent and Incongruent condition. However, how would we analyze the Stroop data if we disregard this fact and pretend the data was collected in independent groups instead? So, let's pretend, for didactic purposes, the reaction times for the Congruent condition were collected in one group of students and the Incongruent condition in a different group of students. 
+
+1. State the null and alternative hypothesis for this test. 
+
+
+2. Conduct the appropriate statistical test to test these hypotheses.
+
+```{r}
+
+```
+
+3. What do you conclude about the null hypothesis? 
+
+
+When you have completed all exercises and are happy with your progress today, please knit your document and submit it to Canvas. If you finish before the time is up, think about what topics from this course you would like to revise, work on your assignment, or help out your fellow students.

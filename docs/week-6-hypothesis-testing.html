@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title> 5 Week 5: Estimation and Sampling Theory | Lab manual QuantRMA</title>
+  <title> 6 Week 6: Hypothesis Testing | Lab manual QuantRMA</title>
   <meta name="description" content="The lab manual for quantitative research methods and data analysis at EUC. This text was adapted from “Answering questions with data: Lab Manual” by Matthew J.C. Crump and colleagues (https://crumplab.github.io/statistics/)" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content=" 5 Week 5: Estimation and Sampling Theory | Lab manual QuantRMA" />
+  <meta property="og:title" content=" 6 Week 6: Hypothesis Testing | Lab manual QuantRMA" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content=" 5 Week 5: Estimation and Sampling Theory | Lab manual QuantRMA" />
+  <meta name="twitter:title" content=" 6 Week 6: Hypothesis Testing | Lab manual QuantRMA" />
   
   <meta name="twitter:description" content="The lab manual for quantitative research methods and data analysis at EUC. This text was adapted from “Answering questions with data: Lab Manual” by Matthew J.C. Crump and colleagues (https://crumplab.github.io/statistics/)" />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="week-4-chance-and-probability-theory.html"/>
-<link rel="next" href="week-6-hypothesis-testing.html"/>
+<link rel="prev" href="week-5-estimation-and-sampling-theory.html"/>
+<link rel="next" href="function-list.html"/>
 <script src="libs/header-attrs-2.6/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -341,338 +341,208 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="week-5-estimation-and-sampling-theory" class="section level1" number="5">
-<h1><span class="header-section-number"> 5</span> Week 5: Estimation and Sampling Theory</h1>
-<p>In the textbook we learned that we can use various concepts from sampling theory (e.g. the law of large numbers, sampling distributions and the central limit theorem) to estimate something about a <strong>population</strong> from a <strong>sample</strong>. In the first part of the lab we are going to discuss sampling theory and sampling distributions in more detail. During the second part of the lab we are going to use R to estimate things about a population using our own data data. You will notice this lab contains fewer “ready-made” code examples for you to copy/paste and adjust than in previous weeks. As we progress through the course, we expect you to be able to code more “from scratch” (with the help of a few hints), based on what you’ve learned in previous weeks and the resources available to you.</p>
-<p>To get started, download the <a href="https://github.com/thomashulst/quantrma_lab/raw/master/Labs/Lab05_EstimationSampling.Rmd">lab template here</a> (right click: save as) or from Canvas. Copy the lab template to your lab folder and double click the <strong>Lab project file</strong> (not the .Rmd) to open RStudio.</p>
-<div id="learning-goals-4" class="section level2" number="5.1">
-<h2><span class="header-section-number">5.1</span> Learning goals</h2>
+<div id="week-6-hypothesis-testing" class="section level1" number="6">
+<h1><span class="header-section-number"> 6</span> Week 6: Hypothesis Testing</h1>
+<p>You’ve made it to the final lab of this course! This week is all about hypothesis testing, one of the most ubiquitous elements of statistical theory, and the conclusion to your journey into inferential statistics (for now…). Almost any quantitative research paper you will read will feature a hypothesis test in one form or another. Furthermore, the quantitative research you might conduct in other courses and/or your capstone will rely heavily on the framework hypothesis testing. During this lab we will first discuss the theories at the foundation of hypothesis testing. In the second part of the lab we are going to practice with conducting null hypothesis significance tests (NHSTs) in R.</p>
+<p>To get started, download the <a href="https://github.com/thomashulst/quantrma_lab/raw/master/Labs/Lab06_HypothesisTesting.Rmd">lab template here</a> (right click: save as) or from Canvas. Copy the lab template to your lab folder and double click the <strong>Lab project file</strong> (not the .Rmd) to open RStudio.</p>
+<div id="learning-goals-5" class="section level2" number="6.1">
+<h2><span class="header-section-number">6.1</span> Learning goals</h2>
 <p>During this lab you will do the following:</p>
 <ol style="list-style-type: decimal">
-<li>Discuss various concepts related to sampling theory, sampling distributions and estimation</li>
-<li>Work with real data to estimate population parameters from a sample using R</li>
+<li>Discuss various concepts related to hypothesis testing</li>
+<li>Conduct one-sample, paired-samples and independent samples <span class="math inline">\(t\)</span>-tests in R</li>
 </ol>
 </div>
-<div id="collecting-some-data" class="section level2" number="5.2">
-<h2><span class="header-section-number">5.2</span> Collecting some data</h2>
-<p>Make sure you have completed <a href="https://www.psytoolkit.org/experiment-library/experiment_stroop.html">the experiment</a> and have registered your reaction times in the online spreadsheet provided by your tutor. Completing the experiment should take approximately 5 minutes. Your tutor will compile an excel file with the experimental data to complete the exercises at the end of this lab.</p>
+<div id="research-methods-hypothesis-testing" class="section level2" number="6.2">
+<h2><span class="header-section-number">6.2</span> Research methods: hypothesis testing</h2>
+<div id="question-1-3" class="section level3" number="6.2.1">
+<h3><span class="header-section-number">6.2.1</span> Question 1</h3>
+<p>What is a <strong>research</strong> hypothesis? What is a <strong>statistical</strong> hypothesis? What is the difference between the two? Explain in your own words.</p>
 </div>
-<div id="research-methods-sampling-theory" class="section level2" number="5.3">
-<h2><span class="header-section-number">5.3</span> Research methods: sampling theory</h2>
-<div id="question-1-2" class="section level3" number="5.3.1">
-<h3><span class="header-section-number">5.3.1</span> Question 1</h3>
-<p>What is the difference between a population and a sample? Explain in your own words.</p>
+<div id="question-2-3" class="section level3" number="6.2.2">
+<h3><span class="header-section-number">6.2.2</span> Question 2</h3>
+<p>What is the null and alternative hypothesis of the following cases:</p>
+<div id="case-1-3" class="section level4" number="6.2.2.1">
+<h4><span class="header-section-number">6.2.2.1</span> Case 1</h4>
+<p>You flip a coin 50 times and count the number of heads flipped (<span class="math inline">\(X = 12\)</span>). Suppose you want to conduct a hypothesis test to determine if the underlying probability of flipping heads for this particular coin is equal to <span class="math inline">\(0.30\)</span>.</p>
 </div>
-<div id="question-2-2" class="section level3" number="5.3.2">
-<h3><span class="header-section-number">5.3.2</span> Question 2</h3>
-<p>Identify what type of sampling is conducted in the two cases below. Why is the sampling strategy in case 2 preferred when your population is not homogeneous?</p>
-<div id="case-1-1" class="section level4" number="5.3.2.1">
-<h4><span class="header-section-number">5.3.2.1</span> Case 1</h4>
-<p>Suppose a researcher is interested in the average annual income of people living in The Netherlands. The researcher contacts the Belastingdienst (the Dutch tax authorities) to obtain a sample of income data. The Belastingdienst agrees to share 1,000 (anonymized) tax returns. The tax returns are selected completely at random and each member of the population has an equal probability of being sampled.</p>
+<div id="case-2-3" class="section level4" number="6.2.2.2">
+<h4><span class="header-section-number">6.2.2.2</span> Case 2</h4>
+<p>A random survey of 75 death row inmates revealed that the mean length of time on death row is 17.4 years with a standard deviation of 6.3 years. Suppose you want to conduct a hypothesis test to determine if the mean time on death row is 15 years.<a href="#fn16" class="footnote-ref" id="fnref16"><sup>16</sup></a></p>
 </div>
-<div id="case-2-1" class="section level4" number="5.3.2.2">
-<h4><span class="header-section-number">5.3.2.2</span> Case 2</h4>
-<p>You work for a polling organization in the USA and are tasked with surveying the popularity of the current president. You have resources to survey 500 participants. Instead of selecting 500 participants completely at random from the population, you make an effort to (randomly) sample 100 participants from rural areas and 400 participants from urban areas (the approximate ratio between rural inhabitants and urban inhabitants in the USA).</p>
+<div id="case-3" class="section level4" number="6.2.2.3">
+<h4><span class="header-section-number">6.2.2.3</span> Case 3</h4>
+<p>You are a researcher investigating the effect of age on working memory. You have collected data on how many random digits can be remembered for a brief period of time in a group of 20 young adults (<span class="math inline">\(\bar{X} = 7.2\)</span> digits) and 20 elderly participants (<span class="math inline">\(\bar{X} = 6.9\)</span> digits). The standard deviation is 1 digit in both groups. Suppose you want to conduct a hypothesis test to determine if young adults have a <em>better</em> working memory than elderly.</p>
 </div>
-</div>
-<div id="question-3-2" class="section level3" number="5.3.3">
-<h3><span class="header-section-number">5.3.3</span> Question 3</h3>
-<p>Identify the source of sampling bias in the following two cases. Explain whether sampling bias could be a threat to the validity of each study.</p>
-<div id="case-1-2" class="section level4" number="5.3.3.1">
-<h4><span class="header-section-number">5.3.3.1</span> Case 1</h4>
-<p>The course coordinator of a large course at EUC is investigating optical illusions. During a lecture, they include a slide containing a Ponzo illusion (see image below). Afterwards, they ask students whether the yellow lines are of equal length or not and they register the answers.</p>
-<p><img src="https://www.illusionsindex.org/images/illusions/ponzo/ponzolarge.jpg" width="50%" style="display: block; margin: auto;" /></p>
-</div>
-<div id="case-2-2" class="section level4" number="5.3.3.2">
-<h4><span class="header-section-number">5.3.3.2</span> Case 2</h4>
-<p>A capstone student wants to investigate the use of recreational drugs by students in The Netherlands. They send out a survey about recreational drug use to 30 of their friends currently studying at EUC. They also ask their friends to forward the survey to anyone they know currently studying in The Netherlands.</p>
+<div id="case-4" class="section level4" number="6.2.2.4">
+<h4><span class="header-section-number">6.2.2.4</span> Case 4</h4>
+<p>A course coordinator is interested if their course about statistics actually has an effect on the statistical ability of students. The course coordinator has 200 students take a quiz about statistics before the course starts (mean pre-course quiz grade = 50 points) and has the same students take a quiz after completion of the course (mean post-course quiz grade = 75 points). The course coordinator made sure the questions were different between the quizzes, but equivalent in difficulty. The standard deviation of the difference is 10 points. Suppose the course coordinator wants to conduct a hypothesis test to determine if the course had <em>any</em> effect on the statistical ability of students (i.e. quiz grades getting better or worse).</p>
 </div>
 </div>
-<div id="question-4-2" class="section level3" number="5.3.4">
-<h3><span class="header-section-number">5.3.4</span> Question 4</h3>
-<p>What is the difference between a population parameter and a sample statistic? Explain in your own words.</p>
+<div id="question-3-3" class="section level3" number="6.2.3">
+<h3><span class="header-section-number">6.2.3</span> Question 3</h3>
+<p>What is the appropriate statistical test to conduct for each of the statistical hypotheses stated in Question 2? Explain why a particular statistical test is appropriate. Assume the population standard deviation is unknown for case 2, 3 and 4.</p>
 </div>
-<div id="question-5-2" class="section level3" number="5.3.5">
-<h3><span class="header-section-number">5.3.5</span> Question 5</h3>
-<p>In the example below we have R toss a <strong>fair</strong> coin ten times and calculate the mean amount of heads. The mean amount of heads (i.e. the proportion of heads) is calculated by: <span class="math inline">\(\frac{\text{number of heads}}{\text{number of flips}}\)</span></p>
-<div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb218-1"><a href="week-5-estimation-and-sampling-theory.html#cb218-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
-<span id="cb218-2"><a href="week-5-estimation-and-sampling-theory.html#cb218-2" aria-hidden="true" tabindex="-1"></a>theta <span class="ot">&lt;-</span> <span class="fl">0.5</span> <span class="co"># fair coin so P(Heads) = 0.5</span></span>
-<span id="cb218-3"><a href="week-5-estimation-and-sampling-theory.html#cb218-3" aria-hidden="true" tabindex="-1"></a>N <span class="ot">&lt;-</span> <span class="dv">10</span> <span class="co"># number of flips</span></span>
-<span id="cb218-4"><a href="week-5-estimation-and-sampling-theory.html#cb218-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb218-5"><a href="week-5-estimation-and-sampling-theory.html#cb218-5" aria-hidden="true" tabindex="-1"></a>flips <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(<span class="at">n =</span> N, <span class="at">size =</span> <span class="dv">1</span>, <span class="at">prob =</span> theta)</span>
-<span id="cb218-6"><a href="week-5-estimation-and-sampling-theory.html#cb218-6" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(flips)</span></code></pre></div>
-<pre><code>##  [1] 0 1 0 1 1 0 1 1 1 0</code></pre>
-<div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb220-1"><a href="week-5-estimation-and-sampling-theory.html#cb220-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">mean</span>(flips))</span></code></pre></div>
-<pre><code>## [1] 0.6</code></pre>
-<p>In this example that works out to be: <span class="math inline">\(\frac{\text{6 heads}}{\text{10flips}} = 0.6\)</span></p>
+<div id="question-4-3" class="section level3" number="6.2.4">
+<h3><span class="header-section-number">6.2.4</span> Question 4</h3>
+<p>What is meant by the critical region for a test statistic? What does it mean if the test statistic of your sample falls within the critical region? Explain in your own words.</p>
+</div>
+<div id="question-5-3" class="section level3" number="6.2.5">
+<h3><span class="header-section-number">6.2.5</span> Question 5</h3>
+<p>What is the meaning of the p-value of a statistical test? Explain in your own words.</p>
+</div>
+<div id="question-6-3" class="section level3" number="6.2.6">
+<h3><span class="header-section-number">6.2.6</span> Question 6</h3>
+<p>The following is the output of the statistical tests which tested the hypotheses of the cases stated in Question 2. Comment on the results of each statistical test. Do you reject or retain the null hypothesis in each case?</p>
+<div id="case-1-4" class="section level4" number="6.2.6.1">
+<h4><span class="header-section-number">6.2.6.1</span> Case 1</h4>
+<pre><code>&gt; binom.test(X,N,theta)
+
+Exact binomial test
+
+data:  X and N
+number of successes = 12, number of trials = 50, p-value = 0.4407
+alternative hypothesis: true probability of success is not equal to 0.3
+95 percent confidence interval:
+  0.1306099 0.3816907
+sample estimates:
+probability of success 
+  0.24 </code></pre>
+</div>
+<div id="case-2-4" class="section level4" number="6.2.6.2">
+<h4><span class="header-section-number">6.2.6.2</span> Case 2</h4>
+<pre><code>&gt; t.test(time_deathrow, mu = 15)
+
+One Sample t-test
+
+data:  time_deathrow
+t = 3.2991, df = 74, p-value = 0.001493
+alternative hypothesis: true mean is not equal to 15
+95 percent confidence interval:
+  15.9505 18.8495
+sample estimates:
+mean of x 
+ 17.4 </code></pre>
+</div>
+<div id="case-3-1" class="section level4" number="6.2.6.3">
+<h4><span class="header-section-number">6.2.6.3</span> Case 3</h4>
+<pre><code>&gt; t.test(young_adults,elderly,alternative = &quot;greater&quot;)
+
+Welch Two Sample t-test
+
+data:  young_adults and elderly
+t = 0.94868, df = 38, p-value = 0.1744
+alternative hypothesis: true difference in means is greater than 0
+95 percent confidence interval:
+  -0.2331456        Inf
+sample estimates:
+mean of x mean of y 
+  7.2       6.9 </code></pre>
+</div>
+<div id="case-4-1" class="section level4" number="6.2.6.4">
+<h4><span class="header-section-number">6.2.6.4</span> Case 4</h4>
+<pre><code>&gt; t.test(pre,post,paired =T)
+
+Paired t-test
+
+data:  pre and post
+t = -80.58, df = 199, p-value &lt; 2.2e-16
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+  -25.6118 -24.3882
+sample estimates:
+mean of the differences 
+  -25</code></pre>
+</div>
+</div>
+<div id="question-7-2" class="section level3" number="6.2.7">
+<h3><span class="header-section-number">6.2.7</span> Question 7</h3>
+<p>What does it mean if the result of a statistical test is significant? Does statistical significance say anything about whether the result is important?</p>
+</div>
+<div id="question-8-2" class="section level3" number="6.2.8">
+<h3><span class="header-section-number">6.2.8</span> Question 8</h3>
+<p>What type of error is committed in the following cases? Which type of error has a greater consequence in this particular case?</p>
+<div id="case-1-5" class="section level4" number="6.2.8.1">
+<h4><span class="header-section-number">6.2.8.1</span> Case 1</h4>
+<p>You are a beginning rock climber and have bought some second hand climbing equipment on Marktplaats. Assume your null hypothesis about the safety of the rock climbing equipment is: the climbing equipment is safe. What type of error do you commit if you think the rock climbing equipment is not safe, when in fact it is safe?</p>
+</div>
+<div id="case-2-5" class="section level4" number="6.2.8.2">
+<h4><span class="header-section-number">6.2.8.2</span> Case 2</h4>
+<p>You are a beginning rock climber and have bought some second hand climbing equipment on Marktplaats. Assume your null hypothesis about the safety of the rock climbing equipment is: the climbing equipment is safe. What type of error do you commit if you think the rock climbing equipment is safe, when in fact it is not safe?</p>
+</div>
+</div>
+<div id="question-9-1" class="section level3" number="6.2.9">
+<h3><span class="header-section-number">6.2.9</span> Question 9</h3>
+<p>What does the power of a statistical test refer to? Explain in your own words.</p>
+</div>
+</div>
+<div id="t-tests-in-r" class="section level2" number="6.3">
+<h2><span class="header-section-number">6.3</span> <span class="math inline">\(t\)</span>-tests in R</h2>
+<p>I’ll be honest. Conducting a <span class="math inline">\(t\)</span>-test in R can be slightly painful. Part of that has to do with the fact that the <code>t.test()</code> function was not really written with “tidy data” in mind (which we have become used to over the past couple of weeks), but also because it can do more than just one thing. It can actually do three different types of <span class="math inline">\(t\)</span>-test (more even, but we focus on the three here) so the function is quite specific in how it expects its arguments depending on which test you want it to perform. How to use <code>t.test()</code> is actually explained quite extensively <a href="https://thomashulst.github.io/quantrma/week-6-hypothesis-testingweek6-hypothesistesting-1.html#doing-the-test-in-r">in the textbook</a>, so I will not go over all the details here, but I will highlight some useful tips while conducting <span class="math inline">\(t\)</span>-tests in R.</p>
+<p>Remember the three types of <span class="math inline">\(t\)</span>-test we can conduct are: the one-sample <span class="math inline">\(t\)</span>-test, the paired samples <span class="math inline">\(t\)</span>-test and the independent samples <span class="math inline">\(t\)</span>-test. The one-sample <span class="math inline">\(t\)</span>-test is simplest to use in R. Suppose we want to compare the mean grade of one group of students to a hypothesized mean. In that case, <code>t.test()</code> expects two arguments: <code>x</code> (a vector with your data) and <code>mu</code> (the value of the null hypothesis).</p>
+<div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb240-1"><a href="week-6-hypothesis-testing.html#cb240-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb240-2"><a href="week-6-hypothesis-testing.html#cb240-2" aria-hidden="true" tabindex="-1"></a>grades <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="at">n =</span> <span class="dv">10</span>, <span class="dv">75</span>, <span class="dv">5</span>) <span class="co"># generate 10 grades</span></span>
+<span id="cb240-3"><a href="week-6-hypothesis-testing.html#cb240-3" aria-hidden="true" tabindex="-1"></a>null <span class="ot">&lt;-</span> <span class="dv">60</span> <span class="co"># value of null hypothesis</span></span>
+<span id="cb240-4"><a href="week-6-hypothesis-testing.html#cb240-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb240-5"><a href="week-6-hypothesis-testing.html#cb240-5" aria-hidden="true" tabindex="-1"></a>results <span class="ot">&lt;-</span> <span class="fu">t.test</span>(<span class="at">x =</span> grades, <span class="at">mu =</span> null)</span>
+<span id="cb240-6"><a href="week-6-hypothesis-testing.html#cb240-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb240-7"><a href="week-6-hypothesis-testing.html#cb240-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(results)</span></code></pre></div>
+<pre><code>## 
+##  One Sample t-test
+## 
+## data:  grades
+## t = 10.194, df = 9, p-value = 3.049e-06
+## alternative hypothesis: true mean is not equal to 60
+## 95 percent confidence interval:
+##  71.96165 78.78461
+## sample estimates:
+## mean of x 
+##  75.37313</code></pre>
+<p>We have saved the results of the <span class="math inline">\(t\)</span>-test in a variable called <code>results</code>. If we want to work with a specific result (for example the confidence interval), we can do that as follows:</p>
+<div class="sourceCode" id="cb242"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb242-1"><a href="week-6-hypothesis-testing.html#cb242-1" aria-hidden="true" tabindex="-1"></a>results<span class="sc">$</span>conf.int</span></code></pre></div>
+<pre><code>## [1] 71.96165 78.78461
+## attr(,&quot;conf.level&quot;)
+## [1] 0.95</code></pre>
+<p>More will follow shortly.</p>
+</div>
+<div id="stroop-data" class="section level2" number="6.4">
+<h2><span class="header-section-number">6.4</span> Stroop data</h2>
+<p>We are going to have another look at the Stroop experiment data from last week. The Stroop data should still be saved in your lab folder, so load the data as we did during the last lab:</p>
+<div class="sourceCode" id="cb244"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb244-1"><a href="week-6-hypothesis-testing.html#cb244-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb244-2"><a href="week-6-hypothesis-testing.html#cb244-2" aria-hidden="true" tabindex="-1"></a><span class="co"># read_xlsx depends on where you have placed and how you have named your file</span></span>
+<span id="cb244-3"><a href="week-6-hypothesis-testing.html#cb244-3" aria-hidden="true" tabindex="-1"></a>df_stroop_wide <span class="ot">&lt;-</span> <span class="fu">read_xlsx</span>(<span class="st">&quot;data/stroop.xlsx&quot;</span>) </span>
+<span id="cb244-4"><a href="week-6-hypothesis-testing.html#cb244-4" aria-hidden="true" tabindex="-1"></a>df_stroop_long <span class="ot">&lt;-</span> <span class="fu">pivot_longer</span>(df_stroop_wide,<span class="at">cols =</span> <span class="fu">c</span>(Congruent,Incongruent),<span class="at">names_to =</span> <span class="st">&quot;Condition&quot;</span>,<span class="at">values_to =</span> <span class="st">&quot;RT&quot;</span>)</span></code></pre></div>
+<p>If you don’t have a copy of last week’s data saved, you can download an example file from Canvas under the lecture for Week 6.</p>
+<div id="t-test-exercises" class="section level3" number="6.4.1">
+<h3><span class="header-section-number">6.4.1</span> <span class="math inline">\(t\)</span>-test exercises</h3>
+<p>A colleague hypothesizes that the average reaction time for the Congruent condition is 1000ms in the population (<span class="math inline">\(\mu = 1000\)</span>). Suppose you want to test if there is a statistically significant difference between the mean reaction time in the Congruent condition of your sample and the mean of the population.</p>
 <ol style="list-style-type: decimal">
-<li>In the long run, what do you expect the proportion of heads to be?</li>
-<li>Adjust the code above to flip 100 coins and 10,000 coins respectively. What is the proportion of heads for 100 and 10,000 coins?</li>
-<li>Explain why the proportion of heads gets closer and closer to <span class="math inline">\(0.5\)</span> as the sample size increases.</li>
+<li>State the null and alternative hypothesis for this test.</li>
+<li>Conduct the appropriate statistical test to test these hypotheses.</li>
+<li>What do you conclude about the null hypothesis?</li>
 </ol>
-</div>
-<div id="question-6-2" class="section level3" number="5.3.6">
-<h3><span class="header-section-number">5.3.6</span> Question 6</h3>
-<p>What is the difference between the <strong>distribution of your sample</strong> and the <strong>sampling distribution of the sample mean</strong>? How does a sampling distribution relate to the population? Explain in your own words.</p>
-</div>
-<div id="q7rep" class="section level3" number="5.3.7">
-<h3><span class="header-section-number">5.3.7</span> Question 7</h3>
-<p>Consider the following two distributions. The first distribution is the <strong>sampling distribution of the sample mean</strong> of rolling one die 100,000 times. Of course, the sample mean of rolling one die is just the value of a single roll.</p>
-<div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb222-1"><a href="week-5-estimation-and-sampling-theory.html#cb222-1" aria-hidden="true" tabindex="-1"></a><span class="co"># set parameters of imaginary dice rolling experiment</span></span>
-<span id="cb222-2"><a href="week-5-estimation-and-sampling-theory.html#cb222-2" aria-hidden="true" tabindex="-1"></a>n_rolls <span class="ot">&lt;-</span> <span class="dv">100000</span></span>
-<span id="cb222-3"><a href="week-5-estimation-and-sampling-theory.html#cb222-3" aria-hidden="true" tabindex="-1"></a>n_dice <span class="ot">&lt;-</span> <span class="dv">1</span></span>
-<span id="cb222-4"><a href="week-5-estimation-and-sampling-theory.html#cb222-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb222-5"><a href="week-5-estimation-and-sampling-theory.html#cb222-5" aria-hidden="true" tabindex="-1"></a><span class="co"># sample 100,000 dice rolls (single die)</span></span>
-<span id="cb222-6"><a href="week-5-estimation-and-sampling-theory.html#cb222-6" aria-hidden="true" tabindex="-1"></a>mean_rolls <span class="ot">&lt;-</span> <span class="fu">replicate</span>(n_rolls, <span class="fu">mean</span>(<span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="at">size =</span> n_dice, <span class="at">replace =</span> <span class="cn">TRUE</span>)))</span>
-<span id="cb222-7"><a href="week-5-estimation-and-sampling-theory.html#cb222-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb222-8"><a href="week-5-estimation-and-sampling-theory.html#cb222-8" aria-hidden="true" tabindex="-1"></a><span class="co"># plot histogram of sample means</span></span>
-<span id="cb222-9"><a href="week-5-estimation-and-sampling-theory.html#cb222-9" aria-hidden="true" tabindex="-1"></a><span class="co"># sample mean of 1 die is simply the value of a single roll</span></span>
-<span id="cb222-10"><a href="week-5-estimation-and-sampling-theory.html#cb222-10" aria-hidden="true" tabindex="-1"></a>dice_rolls <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(mean_rolls)</span>
-<span id="cb222-11"><a href="week-5-estimation-and-sampling-theory.html#cb222-11" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dice_rolls,<span class="fu">aes</span>(<span class="at">x=</span>mean_rolls)) <span class="sc">+</span> </span>
-<span id="cb222-12"><a href="week-5-estimation-and-sampling-theory.html#cb222-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">1</span>,<span class="at">fill=</span><span class="st">&quot;white&quot;</span>,<span class="at">color=</span><span class="st">&quot;black&quot;</span>)</span></code></pre></div>
-<p><img src="quantrma_lab_files/figure-html/unnamed-chunk-110-1.png" width="672" /></p>
-<p>The second distribution is the <strong>sampling distribution of the sample mean</strong> of rolling four dice 100,000 times. Here, we have R roll 4 dice 100,000 times and calculate the mean of each sample of 4 dice.</p>
-<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb223-1"><a href="week-5-estimation-and-sampling-theory.html#cb223-1" aria-hidden="true" tabindex="-1"></a><span class="co"># set parameters of imaginary experiment</span></span>
-<span id="cb223-2"><a href="week-5-estimation-and-sampling-theory.html#cb223-2" aria-hidden="true" tabindex="-1"></a>n_rolls <span class="ot">&lt;-</span> <span class="dv">100000</span></span>
-<span id="cb223-3"><a href="week-5-estimation-and-sampling-theory.html#cb223-3" aria-hidden="true" tabindex="-1"></a>n_dice <span class="ot">&lt;-</span> <span class="dv">4</span></span>
-<span id="cb223-4"><a href="week-5-estimation-and-sampling-theory.html#cb223-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb223-5"><a href="week-5-estimation-and-sampling-theory.html#cb223-5" aria-hidden="true" tabindex="-1"></a><span class="co"># sample 100,000 dice rolls (four dice)</span></span>
-<span id="cb223-6"><a href="week-5-estimation-and-sampling-theory.html#cb223-6" aria-hidden="true" tabindex="-1"></a>mean_rolls <span class="ot">&lt;-</span> <span class="fu">replicate</span>(n_rolls, <span class="fu">mean</span>(<span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="at">size =</span> n_dice, <span class="at">replace =</span> <span class="cn">TRUE</span>)))</span>
-<span id="cb223-7"><a href="week-5-estimation-and-sampling-theory.html#cb223-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb223-8"><a href="week-5-estimation-and-sampling-theory.html#cb223-8" aria-hidden="true" tabindex="-1"></a><span class="co"># plot histogram of sample means</span></span>
-<span id="cb223-9"><a href="week-5-estimation-and-sampling-theory.html#cb223-9" aria-hidden="true" tabindex="-1"></a>dice_rolls <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(mean_rolls)</span>
-<span id="cb223-10"><a href="week-5-estimation-and-sampling-theory.html#cb223-10" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dice_rolls,<span class="fu">aes</span>(<span class="at">x=</span>mean_rolls)) <span class="sc">+</span> </span>
-<span id="cb223-11"><a href="week-5-estimation-and-sampling-theory.html#cb223-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">0.25</span>,<span class="at">fill=</span><span class="st">&quot;white&quot;</span>,<span class="at">color=</span><span class="st">&quot;black&quot;</span>)</span></code></pre></div>
-<p><img src="quantrma_lab_files/figure-html/unnamed-chunk-111-1.png" width="672" /></p>
+<p>We continue working with the Stroop data from last week, but this time we are interested in testing if there is a statistically significant difference in reaction time between the Congruent and Incongruent condition. We strongly expect a positive difference and only want to test positive Stroop effects (i.e. Incogruent - Congruent &gt; 0). Complete the following exercises:</p>
 <ol style="list-style-type: decimal">
-<li>Why does the shape of the second distribution differ from the first distribution?</li>
-<li>What is the relationship between the sample size (i.e. the amount of dice rolled per sample) and the standard deviation of the sampling distribution?</li>
+<li>State the null and alternative hypothesis for this test.</li>
+<li>Conduct the appropriate statistical test to test these hypotheses.</li>
+<li>What do you conclude about the null hypothesis?</li>
 </ol>
-</div>
-<div id="question-8-1" class="section level3" number="5.3.8">
-<h3><span class="header-section-number">5.3.8</span> Question 8</h3>
-<p>Suppose we have information about the height of all Dutch males over 18 years of age. Height is normally distributed; the mean height and standard deviation of the population is as follows:</p>
-<p><span class="math display">\[\mu = 180 cm\]</span>
-<span class="math display">\[ \sigma = 10 cm\]</span></p>
+<p>Finally, we are going to finish this lab by do something “illegal.” Don’t worry, you aren’t going to get arrested, but I do want you to understand the gravity of the statistical crime we are going to commit. It’s for a good reason, so we are allowing it for once…</p>
+<p>We know the data in the Stroop experiment was collected in pairs: you took part in both the Congruent and Incongruent condition. However, how would we analyze the Stroop data if we disregard this fact and pretend the data was collected in independent groups instead? So, let’s pretend, for didactic purposes, the reaction times for the Congruent condition were collected in one group of students and the Incongruent condition in a different group of students.</p>
 <ol style="list-style-type: decimal">
-<li>What is the standard deviation of the sampling distribution of the sample mean when samples of size 16 are randomly drawn from the population?</li>
-<li>What is the standard deviation of the sampling distribution of the sample mean when samples of size 100 are randomly drawn from the population?</li>
+<li>State the null and alternative hypothesis for this test.</li>
+<li>Conduct the appropriate statistical test to test these hypotheses.</li>
+<li>What do you conclude about the null hypothesis?</li>
 </ol>
-</div>
-<div id="question-9" class="section level3" number="5.3.9">
-<h3><span class="header-section-number">5.3.9</span> Question 9</h3>
-<p>Suppose you collect the mean reaction time in a sample of 9 participants with a mean of 200ms (<span class="math inline">\(\bar{X} = 200 \text{ ms}\)</span>). You know the true population standard deviation is equal to 25 ms (<span class="math inline">\(\sigma = 25 \text{ ms}\)</span>).</p>
-<ol style="list-style-type: decimal">
-<li>What is the 95% confidence interval for the mean of this sample?</li>
-<li>What happens to the confidence interval of the mean if the sample size increases to 25?</li>
-</ol>
-</div>
-</div>
-<div id="stroopdata" class="section level2" number="5.4">
-<h2><span class="header-section-number">5.4</span> Stroop data</h2>
-<p>Let’s have a look at the data from our experiment and estimate something about the population based on our sample<a href="#fn15" class="footnote-ref" id="fnref15"><sup>15</sup></a>. In a typical Stroop experiment, subjects name the color of words as fast as they can. The trick is that sometimes the color of the word is the same as the name of the word, and sometimes it is not, like you’ve probably noticed. Here is an example of the what you saw:</p>
-<p><img src="figures/Stroop.png" width="50%" style="display: block; margin: auto;" /></p>
-<p>Congruent trials occur when the color and word match. So, the correct answers for each of the congruent stimuli shown would be to say, red, green, blue and yellow. Incongruent trials occur when the color and word mismatch. The correct answers for each of the incongruent stimuli would be: blue, yellow, red, green. What happens is that people are faster to name the color of the congruent items compared to the color of the incongruent items. This difference (incongruent reaction time - congruent reaction time) is called the Stroop effect.</p>
-<p>The data your tutor provided can be loaded as follows:</p>
-<div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb224-1"><a href="week-5-estimation-and-sampling-theory.html#cb224-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
-<span id="cb224-2"><a href="week-5-estimation-and-sampling-theory.html#cb224-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Depending where you have placed and how you have named your file</span></span>
-<span id="cb224-3"><a href="week-5-estimation-and-sampling-theory.html#cb224-3" aria-hidden="true" tabindex="-1"></a>df_stroop_wide <span class="ot">&lt;-</span> <span class="fu">read_xlsx</span>(<span class="st">&quot;data/stroop.xlsx&quot;</span>) </span></code></pre></div>
-<p>Having a quick look at the dataframe will reveal the data is formatted in a so-called “wide” format. That is, each row are the repeated responses of a single participant and each response is in a separate column (variable).</p>
-<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb225-1"><a href="week-5-estimation-and-sampling-theory.html#cb225-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df_stroop_wide)</span></code></pre></div>
-<pre><code>## # A tibble: 6 x 3
-##   Participant Congruent Incongruent
-##         &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt;
-## 1           1      1200        1500
-## 2           2      1100        1350
-## 3           3       900        1000
-## 4           4       555        1111
-## 5           5      1200        1500
-## 6           6      1100        1350</code></pre>
-<p>Data entered into excel is often in the wide format, but a lot of functions in R require data to be in a so-called “long” format. In the long format, each variable forms a column, each observation forms a row, and each cell is a single measurement. To give a concrete example, compare the table of the average yearly temperature in three countries below:</p>
-<table>
-<caption><span id="tab:wide">Table 5.1: </span>Average temperature in three countries for 1995-1997 in wide format</caption>
-<thead>
-<tr class="header">
-<th align="left">Country</th>
-<th align="right">1995</th>
-<th align="right">1996</th>
-<th align="right">1997</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">Sweden</td>
-<td align="right">5</td>
-<td align="right">12</td>
-<td align="right">4</td>
-</tr>
-<tr class="even">
-<td align="left">Denmark</td>
-<td align="right">5</td>
-<td align="right">7</td>
-<td align="right">8</td>
-</tr>
-<tr class="odd">
-<td align="left">Norway</td>
-<td align="right">3</td>
-<td align="right">11</td>
-<td align="right">9</td>
-</tr>
-</tbody>
-</table>
-<p>with the following table:</p>
-<table>
-<caption><span id="tab:long">Table 5.2: </span>Average temperature in three countries for 1995-1997 in long format</caption>
-<thead>
-<tr class="header">
-<th align="left">Country</th>
-<th align="right">Year</th>
-<th align="right">Average temperature</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">Sweden</td>
-<td align="right">1995</td>
-<td align="right">5</td>
-</tr>
-<tr class="even">
-<td align="left">Denmark</td>
-<td align="right">1995</td>
-<td align="right">5</td>
-</tr>
-<tr class="odd">
-<td align="left">Norway</td>
-<td align="right">1995</td>
-<td align="right">3</td>
-</tr>
-<tr class="even">
-<td align="left">Sweden</td>
-<td align="right">1996</td>
-<td align="right">12</td>
-</tr>
-<tr class="odd">
-<td align="left">Denmark</td>
-<td align="right">1996</td>
-<td align="right">7</td>
-</tr>
-<tr class="even">
-<td align="left">Norway</td>
-<td align="right">1996</td>
-<td align="right">11</td>
-</tr>
-<tr class="odd">
-<td align="left">Sweden</td>
-<td align="right">1997</td>
-<td align="right">4</td>
-</tr>
-<tr class="even">
-<td align="left">Denmark</td>
-<td align="right">1997</td>
-<td align="right">8</td>
-</tr>
-<tr class="odd">
-<td align="left">Norway</td>
-<td align="right">1997</td>
-<td align="right">9</td>
-</tr>
-</tbody>
-</table>
-<p>Both tables contain the same data, but Table <a href="week-5-estimation-and-sampling-theory.html#tab:wide">5.1</a> is in wide format, while Table <a href="week-5-estimation-and-sampling-theory.html#tab:long">5.2</a> is in long format.</p>
-<p>There are various advantages working with data in a long format (<a href="http://www.jstatsoft.org/v59/i10/paper">explained here</a>), but what is important to know is that <strong>most</strong> operations on your data are easier in the long format, while <strong>some</strong> operations are easier in the wide format. Furthermore, tidyverse functions like <code>ggplot()</code> expect data in the long format, so it’s important to learn how to go from wide format data to long format data (and vice versa). To functions to switch between data formats are <code>pivot_longer()</code> (wide to long) and <code>pivot_wider()</code> (long to wide).</p>
-<p>To change the format of our data from wide to long, we use the <code>pivot_longer()</code> function as follows:</p>
-<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb227-1"><a href="week-5-estimation-and-sampling-theory.html#cb227-1" aria-hidden="true" tabindex="-1"></a>df_stroop_long <span class="ot">&lt;-</span> df_stroop_wide <span class="sc">%&gt;%</span> </span>
-<span id="cb227-2"><a href="week-5-estimation-and-sampling-theory.html#cb227-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(Congruent,Incongruent),<span class="at">names_to =</span> <span class="st">&quot;Condition&quot;</span>,<span class="at">values_to =</span> <span class="st">&quot;RT&quot;</span>)</span>
-<span id="cb227-3"><a href="week-5-estimation-and-sampling-theory.html#cb227-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb227-4"><a href="week-5-estimation-and-sampling-theory.html#cb227-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df_stroop_long)</span></code></pre></div>
-<pre><code>## # A tibble: 6 x 3
-##   Participant Condition      RT
-##         &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt;
-## 1           1 Congruent    1200
-## 2           1 Incongruent  1500
-## 3           2 Congruent    1100
-## 4           2 Incongruent  1350
-## 5           3 Congruent     900
-## 6           3 Incongruent  1000</code></pre>
-<p>Our data is now in the long format, like Table <a href="week-5-estimation-and-sampling-theory.html#tab:long">5.2</a>.</p>
-<p>Let’s perform some operations on our data. The reaction times in our Stroop experiment are given in milliseconds, which is how reaction times are usually represented, but suppose we want to convert them to seconds instead. The <code>mutate()</code> function allows us to do that easily in long format data as follows:</p>
-<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb229-1"><a href="week-5-estimation-and-sampling-theory.html#cb229-1" aria-hidden="true" tabindex="-1"></a>df_stroop_long_sec <span class="ot">&lt;-</span> df_stroop_long <span class="sc">%&gt;%</span> </span>
-<span id="cb229-2"><a href="week-5-estimation-and-sampling-theory.html#cb229-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">RT_sec =</span> RT <span class="sc">/</span> <span class="dv">1000</span>)</span>
-<span id="cb229-3"><a href="week-5-estimation-and-sampling-theory.html#cb229-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb229-4"><a href="week-5-estimation-and-sampling-theory.html#cb229-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df_stroop_long_sec)</span></code></pre></div>
-<pre><code>## # A tibble: 6 x 4
-##   Participant Condition      RT RT_sec
-##         &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt;  &lt;dbl&gt;
-## 1           1 Congruent    1200   1.2 
-## 2           1 Incongruent  1500   1.5 
-## 3           2 Congruent    1100   1.1 
-## 4           2 Incongruent  1350   1.35
-## 5           3 Congruent     900   0.9 
-## 6           3 Incongruent  1000   1</code></pre>
-<p>Note: <code>mutate()</code> creates an additional variable (<code>RT_sec</code>) with the reaction times in seconds and preserves the variable <code>RT</code>. Use <code>transmute()</code> if you would like to drop the existing reaction time variable (<code>RT</code>) from your dataframe.</p>
-<p>To pivot back from the long format to the wide format, we can use <code>pivot_wider()</code> as follows:</p>
-<div class="sourceCode" id="cb231"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb231-1"><a href="week-5-estimation-and-sampling-theory.html#cb231-1" aria-hidden="true" tabindex="-1"></a>df_stroop_wide_sec <span class="ot">&lt;-</span> df_stroop_long_sec <span class="sc">%&gt;%</span> </span>
-<span id="cb231-2"><a href="week-5-estimation-and-sampling-theory.html#cb231-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> Condition, <span class="at">values_from =</span> <span class="fu">c</span>(RT,RT_sec))</span>
-<span id="cb231-3"><a href="week-5-estimation-and-sampling-theory.html#cb231-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb231-4"><a href="week-5-estimation-and-sampling-theory.html#cb231-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df_stroop_wide_sec)</span></code></pre></div>
-<pre><code>## # A tibble: 6 x 5
-##   Participant RT_Congruent RT_Incongruent RT_sec_Congruent RT_sec_Incongruent
-##         &lt;dbl&gt;        &lt;dbl&gt;          &lt;dbl&gt;            &lt;dbl&gt;              &lt;dbl&gt;
-## 1           1         1200           1500            1.2                 1.5 
-## 2           2         1100           1350            1.1                 1.35
-## 3           3          900           1000            0.9                 1   
-## 4           4          555           1111            0.555               1.11
-## 5           5         1200           1500            1.2                 1.5 
-## 6           6         1100           1350            1.1                 1.35</code></pre>
-<p>Now, let’s perform an operation on the wide format data. Suppose we want to calculate the difference between the Congruent and Incongruent condition in seconds. This can be achieved in wide format data with <code>mutate()</code> as follows:</p>
-<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb233-1"><a href="week-5-estimation-and-sampling-theory.html#cb233-1" aria-hidden="true" tabindex="-1"></a>df_stroop_wide_sec_diff <span class="ot">&lt;-</span> df_stroop_wide_sec <span class="sc">%&gt;%</span> </span>
-<span id="cb233-2"><a href="week-5-estimation-and-sampling-theory.html#cb233-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">RT_sec_diff =</span> RT_sec_Congruent <span class="sc">-</span> RT_sec_Incongruent)</span>
-<span id="cb233-3"><a href="week-5-estimation-and-sampling-theory.html#cb233-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb233-4"><a href="week-5-estimation-and-sampling-theory.html#cb233-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df_stroop_wide_sec_diff)</span></code></pre></div>
-<pre><code>## # A tibble: 6 x 6
-##   Participant RT_Congruent RT_Incongruent RT_sec_Congruent RT_sec_Incongru…
-##         &lt;dbl&gt;        &lt;dbl&gt;          &lt;dbl&gt;            &lt;dbl&gt;            &lt;dbl&gt;
-## 1           1         1200           1500            1.2               1.5 
-## 2           2         1100           1350            1.1               1.35
-## 3           3          900           1000            0.9               1   
-## 4           4          555           1111            0.555             1.11
-## 5           5         1200           1500            1.2               1.5 
-## 6           6         1100           1350            1.1               1.35
-## # … with 1 more variable: RT_sec_diff &lt;dbl&gt;</code></pre>
-<p>Notice that the particular expression <code>RT_sec_Congruent - RT_sec_Incongruent</code> in <code>mutate()</code> only made sense in the context of wide format data.</p>
-<p>We could have achieved the above with different operations on the long format data, but the lesson is that you should pay attention to the format of your data: not all data you import is in the long format, while some functions require it, and the format of your data dictates how and which operations you can perform.</p>
-<p>Complete the Stroop data exercises below in your lab template.</p>
-<div id="stroop-data-exercises" class="section level3" number="5.4.1">
-<h3><span class="header-section-number">5.4.1</span> Stroop data exercises</h3>
-<ol style="list-style-type: decimal">
-<li>Calculate the mean and standard deviation of the Stroop effect (i.e. the difference between the incongruent and congruent condition). There are several ways to achieve this and you can use either the wide format or long format data. Of course, there are differences how to approach this based on the format of your data. Pick the option that suits you most.</li>
-<li>Calculate the 95% confidence interval of the Stroop effect (hint: use <code>qt()</code> with the appropriate degrees of freedom to find the correct value for a 95% confidence interval).</li>
-<li>Why do you need to use a t-distribution for calculating the confidence interval in this particular instance?</li>
-</ol>
-<p>This next exercise is combining everything we have learned so far.</p>
-<p>Have a look at the <a href="https://www.researchgate.net/profile/David_Rosenbaum6/publication/320070495_Stand_by_Your_Stroop_Standing_Up_Enhances_Selective_Attention_and_Cognitive_Control/links/5a82b4f10f7e9bda869fac5b/Stand-by-Your-Stroop-Standing-Up-Enhances-Selective-Attention-and-Cognitive-Control.pdf">following paper</a>. The authors of this paper investigated the Stroop effect in two different conditions and the main results are summarized in Figure 1.</p>
-<ol start="4" style="list-style-type: decimal">
-<li>Adjust/complete the code example below to recreate Figure 1 of the paper linked. We only have two conditions, so your figure will only include two bars + errorbars (congruent and incongruent).</li>
-</ol>
-<div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb235-1"><a href="week-5-estimation-and-sampling-theory.html#cb235-1" aria-hidden="true" tabindex="-1"></a>df_summary <span class="ot">&lt;-</span> df_stroop_long <span class="sc">%&gt;%</span></span>
-<span id="cb235-2"><a href="week-5-estimation-and-sampling-theory.html#cb235-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(...) <span class="sc">%&gt;%</span></span>
-<span id="cb235-3"><a href="week-5-estimation-and-sampling-theory.html#cb235-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n =</span> ...,</span>
-<span id="cb235-4"><a href="week-5-estimation-and-sampling-theory.html#cb235-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">meanRT =</span> ...,</span>
-<span id="cb235-5"><a href="week-5-estimation-and-sampling-theory.html#cb235-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">sdRT =</span> ...) <span class="sc">%&gt;%</span></span>
-<span id="cb235-6"><a href="week-5-estimation-and-sampling-theory.html#cb235-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">se =</span> ...)</span>
-<span id="cb235-7"><a href="week-5-estimation-and-sampling-theory.html#cb235-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb235-8"><a href="week-5-estimation-and-sampling-theory.html#cb235-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df_summary , <span class="fu">aes</span>(<span class="at">x=</span>... ,<span class="at">y=</span> ...)) <span class="sc">+</span></span>
-<span id="cb235-9"><a href="week-5-estimation-and-sampling-theory.html#cb235-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
-<span id="cb235-10"><a href="week-5-estimation-and-sampling-theory.html#cb235-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> ... , <span class="at">ymax =</span> ... ))</span></code></pre></div>
-<p>When you have completed all exercises and are happy with your progress today, please knit your document and submit it to Canvas. If you finish before the time is up, start with the required readings of Week 6, work on your assignment, or help out your fellow students.</p>
+<p>When you have completed all exercises and are happy with your progress today, please knit your document and submit it to Canvas. If you finish before the time is up, think about what topics from this course you would like to revise, work on your assignment, or help out your fellow students.</p>
 
 </div>
 </div>
 </div>
 <div class="footnotes">
 <hr />
-<ol start="15">
-<li id="fn15"><p>Example adapted from Lab 10 in “Answering questions with data” by Matthew Crump<a href="week-5-estimation-and-sampling-theory.html#fnref15" class="footnote-back">↩︎</a></p></li>
+<ol start="16">
+<li id="fn16"><p>Case from <a href="https://opentextbc.ca/introstatopenstax/front-matter/preface/"><em>Introductory Statistics</em></a> by OpenStax<a href="week-6-hypothesis-testing.html#fnref16" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
@@ -680,8 +550,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="week-4-chance-and-probability-theory.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="week-6-hypothesis-testing.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="week-5-estimation-and-sampling-theory.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="function-list.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
