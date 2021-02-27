@@ -182,11 +182,14 @@ After reading Section 6.3 of the lab manual, complete the following exercises.
 To load and pivot the Stroop data, execute the following code:
 
 ```{r}
+library(tidyverse)
 library(readxl)
 # read_xlsx depends on where you have placed and how you have named your file
 df_stroop_wide <- read_xlsx("data/stroop.xlsx") 
 df_stroop_long <- pivot_longer(df_stroop_wide,cols = c(Congruent,Incongruent),names_to = "Condition",values_to = "RT")
 ```
+
+If you don't have a copy of last week's data saved, you can download an example file from Canvas under the lecture for Week 6.
 
 A colleague hypothesizes that the average reaction time for the Congruent condition is 1000ms in the population ($\mu = 1000$). Suppose you want to test if there is a statistically significant difference between the mean reaction time in the Congruent condition of your sample and the mean of the population.
 
@@ -218,7 +221,7 @@ We continue working with the Stroop data from last week, but this time we are in
 
 Finally, we are going to finish this lab by do something "illegal". Don't worry, you aren't going to get arrested, but I do want you to understand the gravity of the statistical crime we are going to commit. It's for a good reason, so we are allowing it for once...
 
-We know the data in the Stroop experiment was collected in pairs: you took part in both the Congruent and Incongruent condition. However, how would we analyze the Stroop data if we disregard this fact and pretend the data was collected in independent groups instead? So, let's pretend, for didactic purposes, the reaction times for the Congruent condition were collected in one group of students and the Incongruent condition in a different group of students. 
+We know the data in the Stroop experiment was collected in pairs: you took part in both the Congruent and Incongruent condition. However, how to analyze the Stroop data if we disregard this fact and pretend the data was collected in independent groups instead? So, let's pretend, for didactic purposes, the reaction times for the Congruent condition were collected in one group of students and the Incongruent condition in a different group of students. 
 
 1. State the null and alternative hypothesis for this test. 
 

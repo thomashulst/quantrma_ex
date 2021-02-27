@@ -343,7 +343,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="week-6-hypothesis-testing" class="section level1" number="6">
 <h1><span class="header-section-number"> 6</span> Week 6: Hypothesis Testing</h1>
-<p>You’ve made it to the final lab of this course! This week is all about hypothesis testing, one of the most ubiquitous elements of statistical theory, and the conclusion to your journey into inferential statistics (for now…). Almost any quantitative research paper you will read will feature a hypothesis test in one form or another. Furthermore, the quantitative research you might conduct in other courses and/or your capstone will rely heavily on the framework hypothesis testing. During this lab we will first discuss the theories at the foundation of hypothesis testing. In the second part of the lab we are going to practice with conducting null hypothesis significance tests (NHSTs) in R.</p>
+<p>You’ve made it to the final lab of this course, yay!</p>
+<p>The lab this week will be all about hypothesis testing, one of the most ubiquitous elements of statistical theory, and the conclusion of your journey into inferential statistics (for now…). Almost any quantitative research paper you read will feature a hypothesis test in one form or another. Moreover, the quantitative research you are going to conduct in other courses or capstone will likely rely heavily on the framework of hypothesis testing. During this lab we will first discuss the theories at the foundation of hypothesis testing. In the second part of the lab we are going to practice conducting null hypothesis significance tests (NHSTs) in R.</p>
 <p>To get started, download the <a href="https://github.com/thomashulst/quantrma_lab/raw/master/Labs/Lab06_HypothesisTesting.Rmd">lab template here</a> (right click: save as) or from Canvas. Copy the lab template to your lab folder and double click the <strong>Lab project file</strong> (not the .Rmd) to open RStudio.</p>
 <div id="learning-goals-5" class="section level2" number="6.1">
 <h2><span class="header-section-number">6.1</span> Learning goals</h2>
@@ -461,7 +462,7 @@ mean of the differences
 </div>
 <div id="question-8-2" class="section level3" number="6.2.8">
 <h3><span class="header-section-number">6.2.8</span> Question 8</h3>
-<p>What type of error is committed in the following cases? Which type of error has a greater consequence in this particular case?</p>
+<p>What type of error is committed in the following cases? Which type of error has a greater consequence in this particular case?<a href="#fn17" class="footnote-ref" id="fnref17"><sup>17</sup></a></p>
 <div id="case-1-5" class="section level4" number="6.2.8.1">
 <h4><span class="header-section-number">6.2.8.1</span> Case 1</h4>
 <p>You are a beginning rock climber and have bought some second hand climbing equipment on Marktplaats. Assume your null hypothesis about the safety of the rock climbing equipment is: the climbing equipment is safe. What type of error do you commit if you think the rock climbing equipment is not safe, when in fact it is safe?</p>
@@ -478,40 +479,161 @@ mean of the differences
 </div>
 <div id="t-tests-in-r" class="section level2" number="6.3">
 <h2><span class="header-section-number">6.3</span> <span class="math inline">\(t\)</span>-tests in R</h2>
-<p>I’ll be honest. Conducting a <span class="math inline">\(t\)</span>-test in R can be slightly painful. Part of that has to do with the fact that the <code>t.test()</code> function was not really written with “tidy data” in mind (which we have become used to over the past couple of weeks), but also because it can do more than just one thing. It can actually do three different types of <span class="math inline">\(t\)</span>-test (more even, but we focus on the three here) so the function is quite specific in how it expects its arguments depending on which test you want it to perform. How to use <code>t.test()</code> is actually explained quite extensively <a href="https://thomashulst.github.io/quantrma/week-6-hypothesis-testingweek6-hypothesistesting-1.html#doing-the-test-in-r">in the textbook</a>, so I will not go over all the details here, but I will highlight some useful tips while conducting <span class="math inline">\(t\)</span>-tests in R.</p>
-<p>Remember the three types of <span class="math inline">\(t\)</span>-test we can conduct are: the one-sample <span class="math inline">\(t\)</span>-test, the paired samples <span class="math inline">\(t\)</span>-test and the independent samples <span class="math inline">\(t\)</span>-test. The one-sample <span class="math inline">\(t\)</span>-test is simplest to use in R. Suppose we want to compare the mean grade of one group of students to a hypothesized mean. In that case, <code>t.test()</code> expects two arguments: <code>x</code> (a vector with your data) and <code>mu</code> (the value of the null hypothesis).</p>
+<p>I’ll be honest. Conducting a <span class="math inline">\(t\)</span>-test in R is sometimes slightly bothersome. Part of that has to do with the fact that the <code>t.test()</code> function was not really written with “tidy data” in mind (which we have become used to over the past couple of weeks), but also because <code>t.test()</code> can do more than just one thing. The function can actually do several different <span class="math inline">\(t\)</span>-tests, so to use it you have to be quite specific in setting its arguments, depending on which <span class="math inline">\(t\)</span>-test you want to perform. How to use <code>t.test()</code> is actually explained quite extensively <a href="https://thomashulst.github.io/quantrma/week-6-hypothesis-testingweek6-hypothesistesting-1.html#introducing-the-t-test">in the textbook</a>, so I will not go over all the details here, but I will highlight some important tips to succesfully conduct <span class="math inline">\(t\)</span>-tests in R.</p>
+<p>Remember the three types of <span class="math inline">\(t\)</span>-test we can conduct are: the <a href="https://thomashulst.github.io/quantrma/week-6-hypothesis-testingweek6-hypothesistesting-1.html#doing-the-test-in-r">one-sample <span class="math inline">\(t\)</span>-test</a>, the <a href="https://thomashulst.github.io/quantrma/week-6-hypothesis-testingweek6-hypothesistesting-1.html#doing-the-test-in-r">paired samples <span class="math inline">\(t\)</span>-test</a> and the <a href="https://thomashulst.github.io/quantrma/week-6-hypothesis-testingweek6-hypothesistesting-1.html#doing-the-test-in-r-1">independent samples <span class="math inline">\(t\)</span>-test</a>. I will focus on using the independent samples <span class="math inline">\(t\)</span>-test here and how to use to other <span class="math inline">\(t\)</span>-tests should follow from that. More details on how to use the different <span class="math inline">\(t\)</span>-tests are given in the relevant sections of the textbook.</p>
+<p>Suppose we want to compare the mean grade of one group of students to a different group of students. Maybe the two groups were instructed using a different method (a “classic” method and a “modern” method) and we have some reason to believe the instruction method has an effect on the exam grade. We conduct an independent samples <span class="math inline">\(t\)</span>-test as follows:</p>
 <div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb240-1"><a href="week-6-hypothesis-testing.html#cb240-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
-<span id="cb240-2"><a href="week-6-hypothesis-testing.html#cb240-2" aria-hidden="true" tabindex="-1"></a>grades <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="at">n =</span> <span class="dv">10</span>, <span class="dv">75</span>, <span class="dv">5</span>) <span class="co"># generate 10 grades</span></span>
-<span id="cb240-3"><a href="week-6-hypothesis-testing.html#cb240-3" aria-hidden="true" tabindex="-1"></a>null <span class="ot">&lt;-</span> <span class="dv">60</span> <span class="co"># value of null hypothesis</span></span>
+<span id="cb240-2"><a href="week-6-hypothesis-testing.html#cb240-2" aria-hidden="true" tabindex="-1"></a>classic <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="at">n =</span> <span class="dv">10</span>, <span class="at">mean =</span> <span class="dv">70</span>, <span class="at">sd =</span> <span class="dv">7</span>) <span class="co"># generate 10 grades for the classic group</span></span>
+<span id="cb240-3"><a href="week-6-hypothesis-testing.html#cb240-3" aria-hidden="true" tabindex="-1"></a>modern <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="at">n =</span> <span class="dv">10</span>, <span class="at">mean =</span> <span class="dv">75</span>, <span class="at">sd =</span> <span class="dv">7</span>) <span class="co"># generate 10 grades for the modern group</span></span>
 <span id="cb240-4"><a href="week-6-hypothesis-testing.html#cb240-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb240-5"><a href="week-6-hypothesis-testing.html#cb240-5" aria-hidden="true" tabindex="-1"></a>results <span class="ot">&lt;-</span> <span class="fu">t.test</span>(<span class="at">x =</span> grades, <span class="at">mu =</span> null)</span>
+<span id="cb240-5"><a href="week-6-hypothesis-testing.html#cb240-5" aria-hidden="true" tabindex="-1"></a>results <span class="ot">&lt;-</span> <span class="fu">t.test</span>(classic,modern)</span>
 <span id="cb240-6"><a href="week-6-hypothesis-testing.html#cb240-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb240-7"><a href="week-6-hypothesis-testing.html#cb240-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(results)</span></code></pre></div>
 <pre><code>## 
-##  One Sample t-test
+##  Welch Two Sample t-test
 ## 
-## data:  grades
-## t = 10.194, df = 9, p-value = 3.049e-06
-## alternative hypothesis: true mean is not equal to 60
+## data:  classic and modern
+## t = -1.9029, df = 17.872, p-value = 0.07329
+## alternative hypothesis: true difference in means is not equal to 0
 ## 95 percent confidence interval:
-##  71.96165 78.78461
+##  -12.4973418   0.6213934
 ## sample estimates:
-## mean of x 
-##  75.37313</code></pre>
-<p>We have saved the results of the <span class="math inline">\(t\)</span>-test in a variable called <code>results</code>. If we want to work with a specific result (for example the confidence interval), we can do that as follows:</p>
+## mean of x mean of y 
+##  70.52238  76.46035</code></pre>
+<p>I want to briefly explain some of the arguments <code>t.test()</code> can take before having a detailed look at the results. All arguments were set at their default in the example above (i.e. they were not explicitly changed from the default setting), but sometimes you have to change an argument from its default depending on the <span class="math inline">\(t\)</span>-test you are conducting. The most common arguments to change are:</p>
+<ul>
+<li><code>alternative</code>: specify which alternative hypothesis to test. By default you test a two-sided hypothesis (“two.sided”), but you can also test a one-sided hypothesis (“greater” or “less”).</li>
+<li><code>mu</code>: specify the value of mu for the null hypothesis (one-sample <span class="math inline">\(t\)</span>-test) or the difference between groups (independent or paired-samples <span class="math inline">\(t\)</span>-test). The value of mu is 0 by default.</li>
+<li><code>paired</code>: indicate whether the groups are paired or not (not paired by default, i.e. independent)</li>
+<li><code>conf.level</code>: set the confidence level of the confidence interval (0.95 by default)</li>
+</ul>
+<p>With that out of the way, let’s focus on the results of the independent samples <span class="math inline">\(t\)</span>-test above. The <span class="math inline">\(t\)</span>-test tested whether the difference between groups was equal to 0 or not (two-sided). The output reveals we shouldn’t reject the null hypothesis, because our p-value is not smaller than the value of <span class="math inline">\(\alpha\)</span> commonly used (0.05). We saved the results of the <span class="math inline">\(t\)</span>-test in a variable called <code>results</code>. If we want to select a specific result of the <span class="math inline">\(t\)</span>-test (for example the confidence interval), we can do that as follows:</p>
 <div class="sourceCode" id="cb242"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb242-1"><a href="week-6-hypothesis-testing.html#cb242-1" aria-hidden="true" tabindex="-1"></a>results<span class="sc">$</span>conf.int</span></code></pre></div>
 <pre><code>## [1] 71.96165 78.78461
 ## attr(,&quot;conf.level&quot;)
 ## [1] 0.95</code></pre>
-<p>More will follow shortly.</p>
+<p>The output of a <span class="math inline">\(t\)</span>-test doesn’t look very pretty and you might want to make it a bit more aesthetically pleasing before you incorporate this result in a research paper. You can do this by putting the results of the <span class="math inline">\(t\)</span>-test in a dataframe and printing it as a table as follows:</p>
+<div class="sourceCode" id="cb244"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb244-1"><a href="week-6-hypothesis-testing.html#cb244-1" aria-hidden="true" tabindex="-1"></a>results_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(results<span class="sc">$</span>statistic,</span>
+<span id="cb244-2"><a href="week-6-hypothesis-testing.html#cb244-2" aria-hidden="true" tabindex="-1"></a>                         results<span class="sc">$</span>parameter,</span>
+<span id="cb244-3"><a href="week-6-hypothesis-testing.html#cb244-3" aria-hidden="true" tabindex="-1"></a>                         results<span class="sc">$</span>p.value,</span>
+<span id="cb244-4"><a href="week-6-hypothesis-testing.html#cb244-4" aria-hidden="true" tabindex="-1"></a>                         results<span class="sc">$</span>conf.int[<span class="dv">1</span>],</span>
+<span id="cb244-5"><a href="week-6-hypothesis-testing.html#cb244-5" aria-hidden="true" tabindex="-1"></a>                         results<span class="sc">$</span>conf.int[<span class="dv">2</span>])</span>
+<span id="cb244-6"><a href="week-6-hypothesis-testing.html#cb244-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb244-7"><a href="week-6-hypothesis-testing.html#cb244-7" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(results_df,<span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">&quot;Statistic&quot;</span>,<span class="st">&quot;d.f.&quot;</span>,<span class="st">&quot;p&quot;</span>,<span class="st">&quot;CI lower&quot;</span>,<span class="st">&quot;CI upper&quot;</span>))</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="right">Statistic</th>
+<th align="right">d.f.</th>
+<th align="right">p</th>
+<th align="right">CI lower</th>
+<th align="right">CI upper</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">t</td>
+<td align="right">-1.902867</td>
+<td align="right">17.87244</td>
+<td align="right">0.0732939</td>
+<td align="right">-12.49734</td>
+<td align="right">0.6213934</td>
+</tr>
+</tbody>
+</table>
+<p>While this is all working quite nicely, the data provided to <code>t.test()</code> in the example above was in the form of two vectors. The data type we have been working with most during this course is a data frame. For example, the Gapminder and Stroop data are in the form of a data frame. We need to wrangle a bit with our data frames before <code>t.test()</code> will work with it. I will briefly demonstrate how to use <code>t.test()</code> with data frames in wide and long format in the examples below. First, with a wide format:</p>
+<div class="sourceCode" id="cb245"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb245-1"><a href="week-6-hypothesis-testing.html#cb245-1" aria-hidden="true" tabindex="-1"></a><span class="co"># For this example, we put grades_1 and grades_2 in a data frame as follows:</span></span>
+<span id="cb245-2"><a href="week-6-hypothesis-testing.html#cb245-2" aria-hidden="true" tabindex="-1"></a>df_grades <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(classic, modern)</span>
+<span id="cb245-3"><a href="week-6-hypothesis-testing.html#cb245-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb245-4"><a href="week-6-hypothesis-testing.html#cb245-4" aria-hidden="true" tabindex="-1"></a><span class="co"># This data frame is in a wide format:</span></span>
+<span id="cb245-5"><a href="week-6-hypothesis-testing.html#cb245-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df_grades)</span></code></pre></div>
+<pre><code>##    classic   modern
+## 1 66.07667 83.56857
+## 2 68.38876 77.51870
+## 3 80.91096 77.80540
+## 4 70.49356 75.77478
+## 5 70.90501 71.10911
+## 6 82.00545 87.50839</code></pre>
+<div class="sourceCode" id="cb247"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb247-1"><a href="week-6-hypothesis-testing.html#cb247-1" aria-hidden="true" tabindex="-1"></a><span class="co"># We can use t.test() with a data frame in wide format as follows:</span></span>
+<span id="cb247-2"><a href="week-6-hypothesis-testing.html#cb247-2" aria-hidden="true" tabindex="-1"></a>results <span class="ot">&lt;-</span> <span class="fu">t.test</span>(df_grades<span class="sc">$</span>classic, df_grades<span class="sc">$</span>modern)</span>
+<span id="cb247-3"><a href="week-6-hypothesis-testing.html#cb247-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(results)</span></code></pre></div>
+<pre><code>## 
+##  Welch Two Sample t-test
+## 
+## data:  df_grades$classic and df_grades$modern
+## t = -1.9029, df = 17.872, p-value = 0.07329
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  -12.4973418   0.6213934
+## sample estimates:
+## mean of x mean of y 
+##  70.52238  76.46035</code></pre>
+<p>So far, so good. What if our data frame has a long format?</p>
+<div class="sourceCode" id="cb249"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb249-1"><a href="week-6-hypothesis-testing.html#cb249-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb249-2"><a href="week-6-hypothesis-testing.html#cb249-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Pivot our data frame from wide to long:</span></span>
+<span id="cb249-3"><a href="week-6-hypothesis-testing.html#cb249-3" aria-hidden="true" tabindex="-1"></a>df_grades_long <span class="ot">&lt;-</span> df_grades <span class="sc">%&gt;%</span> <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(classic,modern), <span class="at">names_to =</span> <span class="st">&quot;Instruction&quot;</span>, <span class="at">values_to =</span> <span class="st">&quot;Grade&quot;</span>)</span>
+<span id="cb249-4"><a href="week-6-hypothesis-testing.html#cb249-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb249-5"><a href="week-6-hypothesis-testing.html#cb249-5" aria-hidden="true" tabindex="-1"></a><span class="co"># This data frame is in a long format:</span></span>
+<span id="cb249-6"><a href="week-6-hypothesis-testing.html#cb249-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df_grades_long)</span></code></pre></div>
+<pre><code>## # A tibble: 6 x 2
+##   Instruction Grade
+##   &lt;chr&gt;       &lt;dbl&gt;
+## 1 classic      66.1
+## 2 modern       83.6
+## 3 classic      68.4
+## 4 modern       77.5
+## 5 classic      80.9
+## 6 modern       77.8</code></pre>
+<p>We can use t.test() with a data frame in long format in two ways. The first way is not the preferred way of doing it, but I will show it for the sake of completeness. It goes as follows:</p>
+<div class="sourceCode" id="cb251"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb251-1"><a href="week-6-hypothesis-testing.html#cb251-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Select data of the classic instruction group</span></span>
+<span id="cb251-2"><a href="week-6-hypothesis-testing.html#cb251-2" aria-hidden="true" tabindex="-1"></a>classic_group <span class="ot">&lt;-</span> df_grades_long <span class="sc">%&gt;%</span> </span>
+<span id="cb251-3"><a href="week-6-hypothesis-testing.html#cb251-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Instruction <span class="sc">==</span> <span class="st">&quot;classic&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb251-4"><a href="week-6-hypothesis-testing.html#cb251-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Grade)</span>
+<span id="cb251-5"><a href="week-6-hypothesis-testing.html#cb251-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb251-6"><a href="week-6-hypothesis-testing.html#cb251-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Select data of the modern instruction group</span></span>
+<span id="cb251-7"><a href="week-6-hypothesis-testing.html#cb251-7" aria-hidden="true" tabindex="-1"></a>modern_group <span class="ot">&lt;-</span> df_grades_long <span class="sc">%&gt;%</span> </span>
+<span id="cb251-8"><a href="week-6-hypothesis-testing.html#cb251-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Instruction <span class="sc">==</span> <span class="st">&quot;modern&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb251-9"><a href="week-6-hypothesis-testing.html#cb251-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Grade)</span>
+<span id="cb251-10"><a href="week-6-hypothesis-testing.html#cb251-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb251-11"><a href="week-6-hypothesis-testing.html#cb251-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Do the t-test</span></span>
+<span id="cb251-12"><a href="week-6-hypothesis-testing.html#cb251-12" aria-hidden="true" tabindex="-1"></a>results <span class="ot">&lt;-</span> <span class="fu">t.test</span>(classic_group<span class="sc">$</span>Grade, modern_group<span class="sc">$</span>Grade)</span>
+<span id="cb251-13"><a href="week-6-hypothesis-testing.html#cb251-13" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(results)</span></code></pre></div>
+<pre><code>## 
+##  Welch Two Sample t-test
+## 
+## data:  classic_group$Grade and modern_group$Grade
+## t = -1.9029, df = 17.872, p-value = 0.07329
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  -12.4973418   0.6213934
+## sample estimates:
+## mean of x mean of y 
+##  70.52238  76.46035</code></pre>
+<p>The preferred way is actually using the <code>formula</code> and <code>data</code> arguments of <code>t.test()</code>:</p>
+<div class="sourceCode" id="cb253"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb253-1"><a href="week-6-hypothesis-testing.html#cb253-1" aria-hidden="true" tabindex="-1"></a>results <span class="ot">&lt;-</span> <span class="fu">t.test</span>(<span class="at">formula =</span> Grade <span class="sc">~</span> Instruction, <span class="at">data =</span> df_grades_long)</span>
+<span id="cb253-2"><a href="week-6-hypothesis-testing.html#cb253-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(results)</span></code></pre></div>
+<pre><code>## 
+##  Welch Two Sample t-test
+## 
+## data:  Grade by Instruction
+## t = -1.9029, df = 17.872, p-value = 0.07329
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  -12.4973418   0.6213934
+## sample estimates:
+## mean in group classic  mean in group modern 
+##              70.52238              76.46035</code></pre>
+<p>This way of doing a <span class="math inline">\(t\)</span>-test is especially relevant for you when working with the Gapminder data in your assignment, which is a data frame in long format.</p>
 </div>
 <div id="stroop-data" class="section level2" number="6.4">
 <h2><span class="header-section-number">6.4</span> Stroop data</h2>
-<p>We are going to have another look at the Stroop experiment data from last week. The Stroop data should still be saved in your lab folder, so load the data as we did during the last lab:</p>
-<div class="sourceCode" id="cb244"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb244-1"><a href="week-6-hypothesis-testing.html#cb244-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
-<span id="cb244-2"><a href="week-6-hypothesis-testing.html#cb244-2" aria-hidden="true" tabindex="-1"></a><span class="co"># read_xlsx depends on where you have placed and how you have named your file</span></span>
-<span id="cb244-3"><a href="week-6-hypothesis-testing.html#cb244-3" aria-hidden="true" tabindex="-1"></a>df_stroop_wide <span class="ot">&lt;-</span> <span class="fu">read_xlsx</span>(<span class="st">&quot;data/stroop.xlsx&quot;</span>) </span>
-<span id="cb244-4"><a href="week-6-hypothesis-testing.html#cb244-4" aria-hidden="true" tabindex="-1"></a>df_stroop_long <span class="ot">&lt;-</span> <span class="fu">pivot_longer</span>(df_stroop_wide,<span class="at">cols =</span> <span class="fu">c</span>(Congruent,Incongruent),<span class="at">names_to =</span> <span class="st">&quot;Condition&quot;</span>,<span class="at">values_to =</span> <span class="st">&quot;RT&quot;</span>)</span></code></pre></div>
+<p>Let’s have another look at the Stroop experiment data from last week. The Stroop data should still be saved in your lab folder, so load the data as we did during the last lab:</p>
+<div class="sourceCode" id="cb255"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb255-1"><a href="week-6-hypothesis-testing.html#cb255-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb255-2"><a href="week-6-hypothesis-testing.html#cb255-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb255-3"><a href="week-6-hypothesis-testing.html#cb255-3" aria-hidden="true" tabindex="-1"></a><span class="co"># read_xlsx depends on where you have placed and how you have named your file</span></span>
+<span id="cb255-4"><a href="week-6-hypothesis-testing.html#cb255-4" aria-hidden="true" tabindex="-1"></a>df_stroop_wide <span class="ot">&lt;-</span> <span class="fu">read_xlsx</span>(<span class="st">&quot;data/stroop.xlsx&quot;</span>) </span>
+<span id="cb255-5"><a href="week-6-hypothesis-testing.html#cb255-5" aria-hidden="true" tabindex="-1"></a>df_stroop_long <span class="ot">&lt;-</span> <span class="fu">pivot_longer</span>(df_stroop_wide,<span class="at">cols =</span> <span class="fu">c</span>(Congruent,Incongruent),<span class="at">names_to =</span> <span class="st">&quot;Condition&quot;</span>,<span class="at">values_to =</span> <span class="st">&quot;RT&quot;</span>)</span></code></pre></div>
 <p>If you don’t have a copy of last week’s data saved, you can download an example file from Canvas under the lecture for Week 6.</p>
 <div id="t-test-exercises" class="section level3" number="6.4.1">
 <h3><span class="header-section-number">6.4.1</span> <span class="math inline">\(t\)</span>-test exercises</h3>
@@ -528,7 +650,7 @@ mean of the differences
 <li>What do you conclude about the null hypothesis?</li>
 </ol>
 <p>Finally, we are going to finish this lab by do something “illegal.” Don’t worry, you aren’t going to get arrested, but I do want you to understand the gravity of the statistical crime we are going to commit. It’s for a good reason, so we are allowing it for once…</p>
-<p>We know the data in the Stroop experiment was collected in pairs: you took part in both the Congruent and Incongruent condition. However, how would we analyze the Stroop data if we disregard this fact and pretend the data was collected in independent groups instead? So, let’s pretend, for didactic purposes, the reaction times for the Congruent condition were collected in one group of students and the Incongruent condition in a different group of students.</p>
+<p>We know the data in the Stroop experiment was collected in pairs: you took part in both the Congruent and Incongruent condition. However, how to analyze the Stroop data if we disregard this fact and pretend the data was collected in independent groups instead? So, let’s pretend, for didactic purposes, the reaction times for the Congruent condition were collected in one group of students and the Incongruent condition in a different group of students.</p>
 <ol style="list-style-type: decimal">
 <li>State the null and alternative hypothesis for this test.</li>
 <li>Conduct the appropriate statistical test to test these hypotheses.</li>
@@ -543,6 +665,7 @@ mean of the differences
 <hr />
 <ol start="16">
 <li id="fn16"><p>Case from <a href="https://opentextbc.ca/introstatopenstax/front-matter/preface/"><em>Introductory Statistics</em></a> by OpenStax<a href="week-6-hypothesis-testing.html#fnref16" class="footnote-back">↩︎</a></p></li>
+<li id="fn17"><p>Cases from <a href="https://opentextbc.ca/introstatopenstax/front-matter/preface/"><em>Introductory Statistics</em></a> by OpenStax<a href="week-6-hypothesis-testing.html#fnref17" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>

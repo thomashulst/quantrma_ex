@@ -1,5 +1,7 @@
 # Week 6: Hypothesis Testing
-You've made it to the final lab of this course! This week is all about hypothesis testing, one of the most ubiquitous elements of statistical theory, and the conclusion to your journey into inferential statistics (for now...). Almost any quantitative research paper you will read will feature a hypothesis test in one form or another. Furthermore, the quantitative research you might conduct in other courses and/or your capstone will rely heavily on the framework hypothesis testing. During this lab we will first discuss the theories at the foundation of hypothesis testing. In the second part of the lab we are going to practice with conducting null hypothesis significance tests (NHSTs) in R. 
+You've made it to the final lab of this course, yay! 
+
+The lab this week will be all about hypothesis testing, one of the most ubiquitous elements of statistical theory, and the conclusion of your journey into inferential statistics (for now...). Almost any quantitative research paper you read will feature a hypothesis test in one form or another. Moreover, the quantitative research you are going to conduct in other courses or capstone will likely rely heavily on the framework of hypothesis testing. During this lab we will first discuss the theories at the foundation of hypothesis testing. In the second part of the lab we are going to practice conducting null hypothesis significance tests (NHSTs) in R. 
 
 To get started, download the [lab template here](https://github.com/thomashulst/quantrma_lab/raw/master/Labs/Lab06_HypothesisTesting.Rmd) (right click: save as) or from Canvas. Copy the lab template to your lab folder and double click the **Lab project file** (not the .Rmd) to open RStudio. 
 
@@ -107,7 +109,7 @@ The following is the output of the statistical tests which tested the hypotheses
 What does it mean if the result of a statistical test is significant? Does statistical significance say anything about whether the result is important? 
 
 ### Question 8
-What type of error is committed in the following cases? Which type of error has a greater consequence in this particular case?
+What type of error is committed in the following cases? Which type of error has a greater consequence in this particular case?^[Cases from [*Introductory Statistics*](https://opentextbc.ca/introstatopenstax/front-matter/preface/) by OpenStax]
 
 #### Case 1
 You are a beginning rock climber and have bought some second hand climbing equipment on Marktplaats. Assume your null hypothesis about the safety of the rock climbing equipment is: the climbing equipment is safe. What type of error do you commit if you think the rock climbing equipment is not safe, when in fact it is safe? 
@@ -119,21 +121,29 @@ You are a beginning rock climber and have bought some second hand climbing equip
 What does the power of a statistical test refer to? Explain in your own words.
 
 ## $t$-tests in R
-I'll be honest. Conducting a $t$-test in R can be slightly painful. Part of that has to do with the fact that the `t.test()` function was not really written with "tidy data" in mind (which we have become used to over the past couple of weeks), but also because it can do more than just one thing. It can actually do three different types of $t$-test (more even, but we focus on the three here) so the function is quite specific in how it expects its arguments depending on which test you want it to perform. How to use `t.test()` is actually explained quite extensively [in the textbook](https://thomashulst.github.io/quantrma/week-6-hypothesis-testingweek6-hypothesistesting-1.html#doing-the-test-in-r), so I will not go over all the details here, but I will highlight some useful tips while conducting $t$-tests in R. 
+I'll be honest. Conducting a $t$-test in R is sometimes slightly bothersome. Part of that has to do with the fact that the `t.test()` function was not really written with "tidy data" in mind (which we have become used to over the past couple of weeks), but also because `t.test()` can do more than just one thing. The function can actually do several different $t$-tests, so to use it you have to be quite specific in setting its arguments, depending on which $t$-test you want to perform. How to use `t.test()` is actually explained quite extensively [in the textbook](https://thomashulst.github.io/quantrma/week-6-hypothesis-testingweek6-hypothesistesting-1.html#introducing-the-t-test), so I will not go over all the details here, but I will highlight some important tips to succesfully conduct $t$-tests in R. 
 
-Remember the three types of $t$-test we can conduct are: the one-sample $t$-test, the paired samples $t$-test and the independent samples $t$-test. The one-sample $t$-test is simplest to use in R. Suppose we want to compare the mean grade of one group of students to a hypothesized mean. In that case, `t.test()` expects two arguments: `x` (a vector with your data) and `mu` (the value of the null hypothesis).  
+Remember the three types of $t$-test we can conduct are: the [one-sample $t$-test](https://thomashulst.github.io/quantrma/week-6-hypothesis-testingweek6-hypothesistesting-1.html#doing-the-test-in-r), the [paired samples $t$-test](https://thomashulst.github.io/quantrma/week-6-hypothesis-testingweek6-hypothesistesting-1.html#doing-the-test-in-r) and the [independent samples $t$-test](https://thomashulst.github.io/quantrma/week-6-hypothesis-testingweek6-hypothesistesting-1.html#doing-the-test-in-r-1). I will focus on using the independent samples $t$-test here and how to use to other $t$-tests should follow from that. More details on how to use the different $t$-tests are given in the relevant sections of the textbook. 
+
+Suppose we want to compare the mean grade of one group of students to a different group of students. Maybe the two groups were instructed using a different method (a "classic" method and a "modern" method) and we have some reason to believe the instruction method has an effect on the exam grade. We conduct an independent samples $t$-test as follows:
 
 ```{r,echo=T}
 set.seed(123)
-grades <- rnorm(n = 10, 75, 5) # generate 10 grades
-null <- 60 # value of null hypothesis
+classic <- rnorm(n = 10, mean = 70, sd = 7) # generate 10 grades for the classic group
+modern <- rnorm(n = 10, mean = 75, sd = 7) # generate 10 grades for the modern group
 
-results <- t.test(x = grades, mu = null)
+results <- t.test(classic,modern)
 
 print(results)
 ```
+I want to briefly explain some of the arguments `t.test()` can take before having a detailed look at the results. All arguments were set at their default in the example above (i.e. they were not explicitly changed from the default setting), but sometimes you have to change an argument from its default depending on the $t$-test you are conducting. The most common arguments to change are:
 
-We have saved the results of the $t$-test in a variable called `results`. If we want to work with a specific result (for example the confidence interval), we can do that as follows:
+- `alternative`: specify which alternative hypothesis to test. By default you test a two-sided hypothesis ("two.sided"), but you can also test a one-sided hypothesis ("greater" or "less").
+- `mu `: specify the value of mu for the null hypothesis (one-sample $t$-test) or the difference between groups (independent or paired-samples $t$-test). The value of mu is 0 by default. 
+- `paired`: indicate whether the groups are paired or not (not paired by default, i.e. independent)
+- `conf.level`: set the confidence level of the confidence interval (0.95 by default)
+
+With that out of the way, let's focus on the results of the independent samples $t$-test above. The $t$-test tested whether the difference between groups was equal to 0 or not (two-sided). The output reveals we shouldn't reject the null hypothesis, because our p-value is not smaller than the value of $\alpha$ commonly used (0.05). We saved the results of the $t$-test in a variable called `results`. If we want to select a specific result of the $t$-test (for example the confidence interval), we can do that as follows:
 
 ```{r,echo=T}
 
@@ -141,12 +151,79 @@ results$conf.int
 
 ```
 
-More will follow shortly.
+The output of a $t$-test doesn't look very pretty and you might want to make it a bit more aesthetically pleasing before you incorporate this result in a research paper. You can do this by putting the results of the $t$-test in a dataframe and printing it as a table as follows:
+
+```{r,echo=T}
+
+results_df <- data.frame(results$statistic,
+                         results$parameter,
+                         results$p.value,
+                         results$conf.int[1],
+                         results$conf.int[2])
+
+knitr::kable(results_df,col.names = c("Statistic","d.f.","p","CI lower","CI upper"))
+```
+While this is all working quite nicely, the data provided to `t.test()` in the example above was in the form of two vectors. The data type we have been working with most during this course is a data frame. For example, the Gapminder and Stroop data are in the form of a data frame. We need to wrangle a bit with our data frames before `t.test()` will work with it. I will briefly demonstrate how to use `t.test()` with data frames in wide and long format in the examples below. First, with a wide format:
+
+```{r, echo = T}
+
+# For this example, we put grades_1 and grades_2 in a data frame as follows:
+df_grades <- data.frame(classic, modern)
+
+# This data frame is in a wide format:
+head(df_grades)
+
+# We can use t.test() with a data frame in wide format as follows:
+results <- t.test(df_grades$classic, df_grades$modern)
+print(results)
+
+```
+
+So far, so good. What if our data frame has a long format?
+
+```{r, echo = T,warning=F}
+library(tidyverse)
+# Pivot our data frame from wide to long:
+df_grades_long <- df_grades %>% pivot_longer(cols = c(classic,modern), names_to = "Instruction", values_to = "Grade")
+
+# This data frame is in a long format:
+head(df_grades_long)
+```
+
+We can use t.test() with a data frame in long format in two ways. The first way is not the preferred way of doing it, but I will show it for the sake of completeness. It goes as follows: 
+
+```{r, echo = T}
+# Select data of the classic instruction group
+classic_group <- df_grades_long %>% 
+  filter(Instruction == "classic") %>%
+  select(Grade)
+
+# Select data of the modern instruction group
+modern_group <- df_grades_long %>% 
+  filter(Instruction == "modern") %>%
+  select(Grade)
+
+# Do the t-test
+results <- t.test(classic_group$Grade, modern_group$Grade)
+print(results)
+```
+
+The preferred way is actually using the `formula` and `data` arguments of `t.test()`:
+
+```{r,echo=T}
+
+results <- t.test(formula = Grade ~ Instruction, data = df_grades_long)
+print(results)
+
+```
+
+This way of doing a $t$-test is especially relevant for you when working with the Gapminder data in your assignment, which is a data frame in long format. 
 
 ## Stroop data
-We are going to have another look at the Stroop experiment data from last week. The Stroop data should still be saved in your lab folder, so load the data as we did during the last lab:
+Let's have another look at the Stroop experiment data from last week. The Stroop data should still be saved in your lab folder, so load the data as we did during the last lab:
 
-```{r}
+```{r,echo =T, warning =F}
+library(tidyverse)
 library(readxl)
 # read_xlsx depends on where you have placed and how you have named your file
 df_stroop_wide <- read_xlsx("data/stroop.xlsx") 
@@ -170,7 +247,7 @@ We continue working with the Stroop data from last week, but this time we are in
 
 Finally, we are going to finish this lab by do something "illegal". Don't worry, you aren't going to get arrested, but I do want you to understand the gravity of the statistical crime we are going to commit. It's for a good reason, so we are allowing it for once...
 
-We know the data in the Stroop experiment was collected in pairs: you took part in both the Congruent and Incongruent condition. However, how would we analyze the Stroop data if we disregard this fact and pretend the data was collected in independent groups instead? So, let's pretend, for didactic purposes, the reaction times for the Congruent condition were collected in one group of students and the Incongruent condition in a different group of students. 
+We know the data in the Stroop experiment was collected in pairs: you took part in both the Congruent and Incongruent condition. However, how to analyze the Stroop data if we disregard this fact and pretend the data was collected in independent groups instead? So, let's pretend, for didactic purposes, the reaction times for the Congruent condition were collected in one group of students and the Incongruent condition in a different group of students. 
 
 1. State the null and alternative hypothesis for this test. 
 2. Conduct the appropriate statistical test to test these hypotheses.
