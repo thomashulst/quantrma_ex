@@ -120,7 +120,7 @@ You are a beginning rock climber and have bought some second hand climbing equip
 ### Question 9
 What does the power of a statistical test refer to? Explain in your own words.
 
-## $t$-tests in R
+## $t$-tests in R {#ttestR}
 I'll be honest. Conducting a $t$-test in R is sometimes slightly bothersome. Part of that has to do with the fact that the `t.test()` function was not really written with "tidy data" in mind (which we have become used to over the past couple of weeks), but also because `t.test()` can do more than just one thing. The function can actually do several different $t$-tests, so to use it you have to be quite specific in setting its arguments, depending on which $t$-test you want to perform. How to use `t.test()` is actually explained quite extensively [in the textbook](https://thomashulst.github.io/quantrma/week-6-hypothesis-testingweek6-hypothesistesting-1.html#introducing-the-t-test), so I will not go over all the details here, but I will highlight some important tips to succesfully conduct $t$-tests in R. 
 
 Remember the three types of $t$-test we can conduct are: the [one-sample $t$-test](https://thomashulst.github.io/quantrma/week-6-hypothesis-testingweek6-hypothesistesting-1.html#doing-the-test-in-r), the [paired samples $t$-test](https://thomashulst.github.io/quantrma/week-6-hypothesis-testingweek6-hypothesistesting-1.html#doing-the-test-in-r) and the [independent samples $t$-test](https://thomashulst.github.io/quantrma/week-6-hypothesis-testingweek6-hypothesistesting-1.html#doing-the-test-in-r-1). I will focus on using the independent samples $t$-test here and how to use to other $t$-tests should follow from that. More details on how to use the different $t$-tests are given in the relevant sections of the textbook. 
@@ -247,7 +247,7 @@ We continue working with the Stroop data from last week, but this time we are in
 
 Finally, we are going to finish this lab by do something "illegal". Don't worry, you aren't going to get arrested, but I do want you to understand the gravity of the statistical crime we are going to commit. It's for a good reason, so we are allowing it for once...
 
-We know the data in the Stroop experiment was collected in pairs: you took part in both the Congruent and Incongruent condition. However, how to analyze the Stroop data if we disregard this fact and pretend the data was collected in independent groups instead? So, let's pretend, for didactic purposes, the reaction times for the Congruent condition were collected in one group of students and the Incongruent condition in a different group of students. 
+We know the data in the Stroop experiment was collected in pairs: you took part in both the Congruent and Incongruent condition. However, how to analyze the Stroop data if we disregard this fact and pretend the data was collected in independent groups instead? So, let's pretend, for didactic purposes, the reaction times for the Congruent condition were collected in one group of students and the Incongruent condition in a different group of students. We want to test if there is a difference between the two groups.
 
 1. State the null and alternative hypothesis for this test. 
 2. Conduct the appropriate statistical test to test these hypotheses.

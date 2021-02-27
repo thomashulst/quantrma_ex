@@ -221,7 +221,7 @@ We continue working with the Stroop data from last week, but this time we are in
 
 Finally, we are going to finish this lab by do something "illegal". Don't worry, you aren't going to get arrested, but I do want you to understand the gravity of the statistical crime we are going to commit. It's for a good reason, so we are allowing it for once...
 
-We know the data in the Stroop experiment was collected in pairs: you took part in both the Congruent and Incongruent condition. However, how to analyze the Stroop data if we disregard this fact and pretend the data was collected in independent groups instead? So, let's pretend, for didactic purposes, the reaction times for the Congruent condition were collected in one group of students and the Incongruent condition in a different group of students. 
+We know the data in the Stroop experiment was collected in pairs: you took part in both the Congruent and Incongruent condition. However, how to analyze the Stroop data if we disregard this fact and pretend the data was collected in independent groups instead? So, let's pretend, for didactic purposes, the reaction times for the Congruent condition were collected in one group of students and the Incongruent condition in a different group of students. We want to test if there is a difference between the two groups.
 
 1. State the null and alternative hypothesis for this test. 
 

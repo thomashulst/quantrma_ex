@@ -306,7 +306,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.2.8" data-path="week-6-hypothesis-testing.html"><a href="week-6-hypothesis-testing.html#question-8-2"><i class="fa fa-check"></i><b>6.2.8</b> Question 8</a></li>
 <li class="chapter" data-level="6.2.9" data-path="week-6-hypothesis-testing.html"><a href="week-6-hypothesis-testing.html#question-9-1"><i class="fa fa-check"></i><b>6.2.9</b> Question 9</a></li>
 </ul></li>
-<li class="chapter" data-level="6.3" data-path="week-6-hypothesis-testing.html"><a href="week-6-hypothesis-testing.html#t-tests-in-r"><i class="fa fa-check"></i><b>6.3</b> <span class="math inline">\(t\)</span>-tests in R</a></li>
+<li class="chapter" data-level="6.3" data-path="week-6-hypothesis-testing.html"><a href="week-6-hypothesis-testing.html#ttestR"><i class="fa fa-check"></i><b>6.3</b> <span class="math inline">\(t\)</span>-tests in R</a></li>
 <li class="chapter" data-level="6.4" data-path="week-6-hypothesis-testing.html"><a href="week-6-hypothesis-testing.html#stroop-data"><i class="fa fa-check"></i><b>6.4</b> Stroop data</a>
 <ul>
 <li class="chapter" data-level="6.4.1" data-path="week-6-hypothesis-testing.html"><a href="week-6-hypothesis-testing.html#t-test-exercises"><i class="fa fa-check"></i><b>6.4.1</b> <span class="math inline">\(t\)</span>-test exercises</a></li>
@@ -319,6 +319,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.3" data-path="function-list.html"><a href="function-list.html#week-3"><i class="fa fa-check"></i><b>7.3</b> Week 3</a></li>
 <li class="chapter" data-level="7.4" data-path="function-list.html"><a href="function-list.html#week-4"><i class="fa fa-check"></i><b>7.4</b> Week 4</a></li>
 <li class="chapter" data-level="7.5" data-path="function-list.html"><a href="function-list.html#week-5"><i class="fa fa-check"></i><b>7.5</b> Week 5</a></li>
+<li class="chapter" data-level="7.6" data-path="function-list.html"><a href="function-list.html#week-6"><i class="fa fa-check"></i><b>7.6</b> Week 6</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>8</b> References</a></li>
 <li class="divider"></li>
@@ -483,18 +484,18 @@ Figure 3.2: Relationship between mozerella consumption and civil engineering doc
 <p>We now have a data frame with 40 (random) observations over 4 different conditions:</p>
 <div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="week-3-correlation-and-causation.html#cb160-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df_all)</span></code></pre></div>
 <pre><code>##   condition           x           y
-## 1         A  1.15294283 -0.54671054
-## 2         A -2.75534778  0.78033222
-## 3         A  0.96713046 -0.08038262
-## 4         A -0.01241593 -1.21569040
-## 5         A  1.04315851  0.35492939
-## 6         A -0.64981975 -0.36557823</code></pre>
+## 1         A -1.54327472 -0.64351596
+## 2         A  0.24561730 -0.03965385
+## 3         A -0.41669764  0.04187070
+## 4         A  1.75543817 -1.76778338
+## 5         A -0.30153620  1.07142229
+## 6         A  0.06555146 -0.88003239</code></pre>
 <div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="week-3-correlation-and-causation.html#cb162-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(df_all)</span></code></pre></div>
 <pre><code>## Rows: 40
 ## Columns: 3
 ## $ condition &lt;chr&gt; &quot;A&quot;, &quot;A&quot;, &quot;A&quot;, &quot;A&quot;, &quot;A&quot;, &quot;A&quot;, &quot;A&quot;, &quot;A&quot;, &quot;A&quot;, &quot;A&quot;, &quot;B&quot;, &quot;B&quot;,…
-## $ x         &lt;dbl&gt; 1.15294283, -2.75534778, 0.96713046, -0.01241593, 1.0431585…
-## $ y         &lt;dbl&gt; -0.54671054, 0.78033222, -0.08038262, -1.21569040, 0.354929…</code></pre>
+## $ x         &lt;dbl&gt; -1.54327472, 0.24561730, -0.41669764, 1.75543817, -0.301536…
+## $ y         &lt;dbl&gt; -0.64351596, -0.03965385, 0.04187070, -1.76778338, 1.071422…</code></pre>
 <p>If we were to make a scatterplot of this dataframe to look at the relationship between the x and y variable, we could do the following:</p>
 <div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="week-3-correlation-and-causation.html#cb164-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df_all, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y))<span class="sc">+</span></span>
 <span id="cb164-2"><a href="week-3-correlation-and-causation.html#cb164-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
@@ -544,19 +545,19 @@ Figure 3.5: Facet wrapped scatterplot
 <tbody>
 <tr class="odd">
 <td align="left">A</td>
-<td align="right">-0.1661140</td>
+<td align="right">0.0078731</td>
 </tr>
 <tr class="even">
 <td align="left">B</td>
-<td align="right">0.1351127</td>
+<td align="right">-0.3662290</td>
 </tr>
 <tr class="odd">
 <td align="left">C</td>
-<td align="right">0.1828359</td>
+<td align="right">-0.2538217</td>
 </tr>
 <tr class="even">
 <td align="left">D</td>
-<td align="right">0.1508357</td>
+<td align="right">0.0633313</td>
 </tr>
 </tbody>
 </table>

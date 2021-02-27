@@ -306,7 +306,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.2.8" data-path="week-6-hypothesis-testing.html"><a href="week-6-hypothesis-testing.html#question-8-2"><i class="fa fa-check"></i><b>6.2.8</b> Question 8</a></li>
 <li class="chapter" data-level="6.2.9" data-path="week-6-hypothesis-testing.html"><a href="week-6-hypothesis-testing.html#question-9-1"><i class="fa fa-check"></i><b>6.2.9</b> Question 9</a></li>
 </ul></li>
-<li class="chapter" data-level="6.3" data-path="week-6-hypothesis-testing.html"><a href="week-6-hypothesis-testing.html#t-tests-in-r"><i class="fa fa-check"></i><b>6.3</b> <span class="math inline">\(t\)</span>-tests in R</a></li>
+<li class="chapter" data-level="6.3" data-path="week-6-hypothesis-testing.html"><a href="week-6-hypothesis-testing.html#ttestR"><i class="fa fa-check"></i><b>6.3</b> <span class="math inline">\(t\)</span>-tests in R</a></li>
 <li class="chapter" data-level="6.4" data-path="week-6-hypothesis-testing.html"><a href="week-6-hypothesis-testing.html#stroop-data"><i class="fa fa-check"></i><b>6.4</b> Stroop data</a>
 <ul>
 <li class="chapter" data-level="6.4.1" data-path="week-6-hypothesis-testing.html"><a href="week-6-hypothesis-testing.html#t-test-exercises"><i class="fa fa-check"></i><b>6.4.1</b> <span class="math inline">\(t\)</span>-test exercises</a></li>
@@ -319,6 +319,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.3" data-path="function-list.html"><a href="function-list.html#week-3"><i class="fa fa-check"></i><b>7.3</b> Week 3</a></li>
 <li class="chapter" data-level="7.4" data-path="function-list.html"><a href="function-list.html#week-4"><i class="fa fa-check"></i><b>7.4</b> Week 4</a></li>
 <li class="chapter" data-level="7.5" data-path="function-list.html"><a href="function-list.html#week-5"><i class="fa fa-check"></i><b>7.5</b> Week 5</a></li>
+<li class="chapter" data-level="7.6" data-path="function-list.html"><a href="function-list.html#week-6"><i class="fa fa-check"></i><b>7.6</b> Week 6</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>8</b> References</a></li>
 <li class="divider"></li>
@@ -477,7 +478,7 @@ mean of the differences
 <p>What does the power of a statistical test refer to? Explain in your own words.</p>
 </div>
 </div>
-<div id="t-tests-in-r" class="section level2" number="6.3">
+<div id="ttestR" class="section level2" number="6.3">
 <h2><span class="header-section-number">6.3</span> <span class="math inline">\(t\)</span>-tests in R</h2>
 <p>I’ll be honest. Conducting a <span class="math inline">\(t\)</span>-test in R is sometimes slightly bothersome. Part of that has to do with the fact that the <code>t.test()</code> function was not really written with “tidy data” in mind (which we have become used to over the past couple of weeks), but also because <code>t.test()</code> can do more than just one thing. The function can actually do several different <span class="math inline">\(t\)</span>-tests, so to use it you have to be quite specific in setting its arguments, depending on which <span class="math inline">\(t\)</span>-test you want to perform. How to use <code>t.test()</code> is actually explained quite extensively <a href="https://thomashulst.github.io/quantrma/week-6-hypothesis-testingweek6-hypothesistesting-1.html#introducing-the-t-test">in the textbook</a>, so I will not go over all the details here, but I will highlight some important tips to succesfully conduct <span class="math inline">\(t\)</span>-tests in R.</p>
 <p>Remember the three types of <span class="math inline">\(t\)</span>-test we can conduct are: the <a href="https://thomashulst.github.io/quantrma/week-6-hypothesis-testingweek6-hypothesistesting-1.html#doing-the-test-in-r">one-sample <span class="math inline">\(t\)</span>-test</a>, the <a href="https://thomashulst.github.io/quantrma/week-6-hypothesis-testingweek6-hypothesistesting-1.html#doing-the-test-in-r">paired samples <span class="math inline">\(t\)</span>-test</a> and the <a href="https://thomashulst.github.io/quantrma/week-6-hypothesis-testingweek6-hypothesistesting-1.html#doing-the-test-in-r-1">independent samples <span class="math inline">\(t\)</span>-test</a>. I will focus on using the independent samples <span class="math inline">\(t\)</span>-test here and how to use to other <span class="math inline">\(t\)</span>-tests should follow from that. More details on how to use the different <span class="math inline">\(t\)</span>-tests are given in the relevant sections of the textbook.</p>
@@ -509,7 +510,7 @@ mean of the differences
 </ul>
 <p>With that out of the way, let’s focus on the results of the independent samples <span class="math inline">\(t\)</span>-test above. The <span class="math inline">\(t\)</span>-test tested whether the difference between groups was equal to 0 or not (two-sided). The output reveals we shouldn’t reject the null hypothesis, because our p-value is not smaller than the value of <span class="math inline">\(\alpha\)</span> commonly used (0.05). We saved the results of the <span class="math inline">\(t\)</span>-test in a variable called <code>results</code>. If we want to select a specific result of the <span class="math inline">\(t\)</span>-test (for example the confidence interval), we can do that as follows:</p>
 <div class="sourceCode" id="cb242"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb242-1"><a href="week-6-hypothesis-testing.html#cb242-1" aria-hidden="true" tabindex="-1"></a>results<span class="sc">$</span>conf.int</span></code></pre></div>
-<pre><code>## [1] 71.96165 78.78461
+<pre><code>## [1] -12.4973418   0.6213934
 ## attr(,&quot;conf.level&quot;)
 ## [1] 0.95</code></pre>
 <p>The output of a <span class="math inline">\(t\)</span>-test doesn’t look very pretty and you might want to make it a bit more aesthetically pleasing before you incorporate this result in a research paper. You can do this by putting the results of the <span class="math inline">\(t\)</span>-test in a dataframe and printing it as a table as follows:</p>
@@ -650,7 +651,7 @@ mean of the differences
 <li>What do you conclude about the null hypothesis?</li>
 </ol>
 <p>Finally, we are going to finish this lab by do something “illegal.” Don’t worry, you aren’t going to get arrested, but I do want you to understand the gravity of the statistical crime we are going to commit. It’s for a good reason, so we are allowing it for once…</p>
-<p>We know the data in the Stroop experiment was collected in pairs: you took part in both the Congruent and Incongruent condition. However, how to analyze the Stroop data if we disregard this fact and pretend the data was collected in independent groups instead? So, let’s pretend, for didactic purposes, the reaction times for the Congruent condition were collected in one group of students and the Incongruent condition in a different group of students.</p>
+<p>We know the data in the Stroop experiment was collected in pairs: you took part in both the Congruent and Incongruent condition. However, how to analyze the Stroop data if we disregard this fact and pretend the data was collected in independent groups instead? So, let’s pretend, for didactic purposes, the reaction times for the Congruent condition were collected in one group of students and the Incongruent condition in a different group of students. We want to test if there is a difference between the two groups.</p>
 <ol style="list-style-type: decimal">
 <li>State the null and alternative hypothesis for this test.</li>
 <li>Conduct the appropriate statistical test to test these hypotheses.</li>

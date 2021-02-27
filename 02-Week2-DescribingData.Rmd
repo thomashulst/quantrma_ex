@@ -322,7 +322,7 @@ ggplot(counts, aes(x = Category, y = count_of_permits,
 #### What are the sub-categories of films?
 Notice the `nyc_films` data frame also has a column for `SubCategoryName`. Let's see what's going on there with a quick plot.
 
-```{r 1subcategory, echo=TRUE,eval=TRUE,tidy=TRUE}
+```{r 1subcategory, echo=TRUE,eval=TRUE,tidy=FALSE}
 
 # comments are really useful: R will ignore them, but they can explain to a reader 
 # what is going on in the code
