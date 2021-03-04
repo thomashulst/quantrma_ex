@@ -12,7 +12,7 @@ During this lab you will do the following:
 ## Collecting some data
 Make sure you have completed [the experiment](https://www.psytoolkit.org/experiment-library/experiment_stroop.html) and have registered your reaction times in the online spreadsheet provided by your tutor. Completing the experiment should take approximately 5 minutes. Your tutor will compile an excel file with the experimental data to complete the exercises at the end of this lab.
 
-## Research methods: sampling theory
+## Statistical theory: sampling and estimation
 
 ### Question 1
 What is the difference between a population and a sample? Explain in your own words. 

@@ -11,7 +11,7 @@ During this lab you will do the following:
 1. Discuss various concepts related to hypothesis testing
 2. Conduct one-sample, paired-samples and independent samples $t$-tests in R
 
-## Research methods: hypothesis testing
+## Statistical theory: hypothesis testing
 
 ### Question 1
 What is a **research** hypothesis? What is a **statistical** hypothesis? What is the difference between the two? Explain in your own words.
@@ -167,7 +167,7 @@ While this is all working quite nicely, the data provided to `t.test()` in the e
 
 ```{r, echo = T}
 
-# For this example, we put grades_1 and grades_2 in a data frame as follows:
+# For this example, we put classic and modern in a data frame as follows:
 df_grades <- data.frame(classic, modern)
 
 # This data frame is in a wide format:

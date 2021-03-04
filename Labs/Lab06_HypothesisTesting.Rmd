@@ -14,7 +14,7 @@ library(tidyverse)
 
 Welcome to the template file of the sixth lab! Today is all about hypothesis testing. Start this lab by answering the questions about hypothesis testing below (Questions 1-9).
 
-## Research methods: hypothesis testing
+## Statistical theory: hypothesis testing
 
 ### Question 1
 What is a **research** hypothesis? What is a **statistical** hypothesis? What is the difference between the two? Explain in your own words.

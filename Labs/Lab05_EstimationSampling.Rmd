@@ -16,7 +16,7 @@ Welcome to the template file of the fifth lab! Today is about estimation and sam
 
 After registering your reaction times in the online spreadsheet, continue this lab by answering the questions about sampling theory and sampling distributions below (Questions 1 to 9).
 
-## Research methods: sampling theory
+## Statistical theory: sampling and estimation
 
 ### Question 1
 What is the difference between a population and a sample? Explain in your own words. 

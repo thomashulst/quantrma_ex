@@ -149,7 +149,7 @@ z-score-exercises
 week-5-estimation-and-sampling-theory
 learning-goals-4
 collecting-some-data
-research-methods-sampling-theory
+statistical-theory-sampling-and-estimation
 question-1-2
 question-2-2
 case-1-1
@@ -167,7 +167,7 @@ stroopdata
 stroop-data-exercises
 week-6-hypothesis-testing
 learning-goals-5
-research-methods-hypothesis-testing
+statistical-theory-hypothesis-testing
 question-1-3
 question-2-3
 case-1-3
