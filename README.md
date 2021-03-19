@@ -1,3 +1,5 @@
+These course materials were used during academic year 2020/2021. The materials will stay online for the foreseeable future, but will no longer be updated. A new course website will be created for academic year 2021/2022. 
+
 ## Important notes
 This is the lab manual for Quantitative Research Methods & Analysis at EUC. As with the textbook, this manual was adapted from "Answering questions with data" by Mattew J.C. Crump. 
 

@@ -483,19 +483,19 @@ Figure 3.2: Relationship between mozerella consumption and civil engineering doc
 <span id="cb159-5"><a href="week-3-correlation-and-causation.html#cb159-5" aria-hidden="true" tabindex="-1"></a>df_all <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(condition, x, y)</span></code></pre></div>
 <p>We now have a data frame with 40 (random) observations over 4 different conditions:</p>
 <div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="week-3-correlation-and-causation.html#cb160-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df_all)</span></code></pre></div>
-<pre><code>##   condition           x           y
-## 1         A -1.54327472 -0.64351596
-## 2         A  0.24561730 -0.03965385
-## 3         A -0.41669764  0.04187070
-## 4         A  1.75543817 -1.76778338
-## 5         A -0.30153620  1.07142229
-## 6         A  0.06555146 -0.88003239</code></pre>
+<pre><code>##   condition           x          y
+## 1         A  1.19955455 -0.1248665
+## 2         A -1.71143716 -0.6168875
+## 3         A -1.00018053  0.2541530
+## 4         A  0.48148618 -1.1838535
+## 5         A -0.09775389 -0.9559277
+## 6         A -2.66701580 -1.2558958</code></pre>
 <div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="week-3-correlation-and-causation.html#cb162-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(df_all)</span></code></pre></div>
 <pre><code>## Rows: 40
 ## Columns: 3
 ## $ condition &lt;chr&gt; &quot;A&quot;, &quot;A&quot;, &quot;A&quot;, &quot;A&quot;, &quot;A&quot;, &quot;A&quot;, &quot;A&quot;, &quot;A&quot;, &quot;A&quot;, &quot;A&quot;, &quot;B&quot;, &quot;B&quot;,…
-## $ x         &lt;dbl&gt; -1.54327472, 0.24561730, -0.41669764, 1.75543817, -0.301536…
-## $ y         &lt;dbl&gt; -0.64351596, -0.03965385, 0.04187070, -1.76778338, 1.071422…</code></pre>
+## $ x         &lt;dbl&gt; 1.19955455, -1.71143716, -1.00018053, 0.48148618, -0.097753…
+## $ y         &lt;dbl&gt; -0.12486652, -0.61688746, 0.25415301, -1.18385347, -0.95592…</code></pre>
 <p>If we were to make a scatterplot of this dataframe to look at the relationship between the x and y variable, we could do the following:</p>
 <div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="week-3-correlation-and-causation.html#cb164-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df_all, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y))<span class="sc">+</span></span>
 <span id="cb164-2"><a href="week-3-correlation-and-causation.html#cb164-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
@@ -545,19 +545,19 @@ Figure 3.5: Facet wrapped scatterplot
 <tbody>
 <tr class="odd">
 <td align="left">A</td>
-<td align="right">0.0078731</td>
+<td align="right">0.4917795</td>
 </tr>
 <tr class="even">
 <td align="left">B</td>
-<td align="right">-0.3662290</td>
+<td align="right">0.7524485</td>
 </tr>
 <tr class="odd">
 <td align="left">C</td>
-<td align="right">-0.2538217</td>
+<td align="right">-0.2953659</td>
 </tr>
 <tr class="even">
 <td align="left">D</td>
-<td align="right">0.0633313</td>
+<td align="right">0.4449637</td>
 </tr>
 </tbody>
 </table>

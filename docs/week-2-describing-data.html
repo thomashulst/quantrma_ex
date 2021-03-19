@@ -883,16 +883,16 @@ Whoa, that’s a lot of dots! Remember that each country is measured each year. 
 <h4><span class="header-section-number">2.5.3.1</span> Range</h4>
 <p>The range is the minimum and maximum values in the set, we can use the <code>range</code> function:</p>
 <div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="week-2-describing-data.html#cb138-1" aria-hidden="true" tabindex="-1"></a><span class="fu">range</span>(sample_numbers)</span></code></pre></div>
-<pre><code>## [1] -4.001076 23.523570</code></pre>
+<pre><code>## [1]  1.004229 29.809107</code></pre>
 <p>Alternatively, when people refer to the range, they can refer to the <strong>difference</strong> between the minimum maximum values, which you could calculate as follows:</p>
 <div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="week-2-describing-data.html#cb140-1" aria-hidden="true" tabindex="-1"></a><span class="fu">diff</span>(<span class="fu">range</span>(sample_numbers))</span></code></pre></div>
-<pre><code>## [1] 27.52465</code></pre>
+<pre><code>## [1] 28.80488</code></pre>
 </div>
 <div id="returnvar" class="section level4" number="2.5.3.2">
 <h4><span class="header-section-number">2.5.3.2</span> <code>var()</code> = variance</h4>
 <p>We can find the sample variance using <code>var()</code>:</p>
 <div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="week-2-describing-data.html#cb142-1" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(sample_numbers)</span></code></pre></div>
-<pre><code>## [1] 26.51253</code></pre>
+<pre><code>## [1] 26.67956</code></pre>
 <p>Note: the above variance calculation divides by <span class="math inline">\(N-1\)</span> instead of <span class="math inline">\(N\)</span>. We will learn in later weeks why this is often preferred. If you would like to divide by <span class="math inline">\(N\)</span>, you could write your own function based on the following code:</p>
 <div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="week-2-describing-data.html#cb144-1" aria-hidden="true" tabindex="-1"></a>x_bar <span class="ot">&lt;-</span> <span class="fu">mean</span>(sample_numbers)</span>
 <span id="cb144-2"><a href="week-2-describing-data.html#cb144-2" aria-hidden="true" tabindex="-1"></a>var_n <span class="ot">&lt;-</span> <span class="fu">sum</span>((sample_numbers <span class="sc">-</span> x_bar)<span class="sc">^</span><span class="dv">2</span>)<span class="sc">/</span><span class="fu">length</span>(sample_numbers)</span></code></pre></div>
@@ -901,10 +901,10 @@ Whoa, that’s a lot of dots! Remember that each country is measured each year. 
 <h4><span class="header-section-number">2.5.3.3</span> <code>sd()</code> = standard deviation</h4>
 <p>We find the sample standard deviation using <code>sd()</code>:</p>
 <div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="week-2-describing-data.html#cb145-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(sample_numbers)</span></code></pre></div>
-<pre><code>## [1] 5.149032</code></pre>
+<pre><code>## [1] 5.165226</code></pre>
 <p>Remember that the standard deviation is just the square root of the variance, see:</p>
 <div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="week-2-describing-data.html#cb147-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="fu">var</span>(sample_numbers))</span></code></pre></div>
-<pre><code>## [1] 5.149032</code></pre>
+<pre><code>## [1] 5.165226</code></pre>
 </div>
 </div>
 <div id="descbycond" class="section level3" number="2.5.4">
@@ -924,16 +924,16 @@ Whoa, that’s a lot of dots! Remember that each country is measured each year. 
 <pre><code>## # A tibble: 10 x 2
 ##    conditions means
 ##  * &lt;chr&gt;      &lt;dbl&gt;
-##  1 A           8.65
-##  2 B          10.3 
-##  3 C           8.64
-##  4 D           7.58
-##  5 E           8.01
-##  6 F          12.7 
-##  7 G          10.9 
-##  8 H          10.8 
-##  9 I           8.25
-## 10 J          11.2</code></pre>
+##  1 A           6.43
+##  2 B           9.86
+##  3 C          11.1 
+##  4 D          12.1 
+##  5 E           8.66
+##  6 F          11.0 
+##  7 G          10.1 
+##  8 H          10.2 
+##  9 I          10.9 
+## 10 J           8.87</code></pre>
 <p>The print out of this looks rather ugly. We can fix that by putting the results of our code into a new variable, then use <code>knitr::kable()</code> to print it out nicely when we <code>knit</code> the document. We can even caption the table by passing a <code>caption</code> argument.</p>
 <div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="week-2-describing-data.html#cb152-1" aria-hidden="true" tabindex="-1"></a>summary_df <span class="ot">&lt;-</span> my_df <span class="sc">%&gt;%</span></span>
 <span id="cb152-2"><a href="week-2-describing-data.html#cb152-2" aria-hidden="true" tabindex="-1"></a>               <span class="fu">group_by</span>(conditions) <span class="sc">%&gt;%</span></span>
@@ -951,43 +951,43 @@ Whoa, that’s a lot of dots! Remember that each country is measured each year. 
 <tbody>
 <tr class="odd">
 <td align="left">A</td>
-<td align="right">8.650075</td>
+<td align="right">6.434879</td>
 </tr>
 <tr class="even">
 <td align="left">B</td>
-<td align="right">10.348819</td>
+<td align="right">9.858190</td>
 </tr>
 <tr class="odd">
 <td align="left">C</td>
-<td align="right">8.636692</td>
+<td align="right">11.062653</td>
 </tr>
 <tr class="even">
 <td align="left">D</td>
-<td align="right">7.575312</td>
+<td align="right">12.063631</td>
 </tr>
 <tr class="odd">
 <td align="left">E</td>
-<td align="right">8.012845</td>
+<td align="right">8.659427</td>
 </tr>
 <tr class="even">
 <td align="left">F</td>
-<td align="right">12.704092</td>
+<td align="right">10.961566</td>
 </tr>
 <tr class="odd">
 <td align="left">G</td>
-<td align="right">10.947437</td>
+<td align="right">10.066427</td>
 </tr>
 <tr class="even">
 <td align="left">H</td>
-<td align="right">10.831774</td>
+<td align="right">10.159905</td>
 </tr>
 <tr class="odd">
 <td align="left">I</td>
-<td align="right">8.247200</td>
+<td align="right">10.857577</td>
 </tr>
 <tr class="even">
 <td align="left">J</td>
-<td align="right">11.210203</td>
+<td align="right">8.868094</td>
 </tr>
 </tbody>
 </table>
@@ -1012,53 +1012,53 @@ Whoa, that’s a lot of dots! Remember that each country is measured each year. 
 <tbody>
 <tr class="odd">
 <td align="left">A</td>
-<td align="right">8.650075</td>
-<td align="right">5.918725</td>
+<td align="right">6.434879</td>
+<td align="right">5.915104</td>
 </tr>
 <tr class="even">
 <td align="left">B</td>
-<td align="right">10.348819</td>
-<td align="right">5.368277</td>
+<td align="right">9.858190</td>
+<td align="right">6.175905</td>
 </tr>
 <tr class="odd">
 <td align="left">C</td>
-<td align="right">8.636692</td>
-<td align="right">5.005915</td>
+<td align="right">11.062653</td>
+<td align="right">4.060548</td>
 </tr>
 <tr class="even">
 <td align="left">D</td>
-<td align="right">7.575312</td>
-<td align="right">3.615807</td>
+<td align="right">12.063631</td>
+<td align="right">3.796526</td>
 </tr>
 <tr class="odd">
 <td align="left">E</td>
-<td align="right">8.012845</td>
-<td align="right">4.990326</td>
+<td align="right">8.659427</td>
+<td align="right">5.264645</td>
 </tr>
 <tr class="even">
 <td align="left">F</td>
-<td align="right">12.704092</td>
-<td align="right">3.859653</td>
+<td align="right">10.961566</td>
+<td align="right">3.492853</td>
 </tr>
 <tr class="odd">
 <td align="left">G</td>
-<td align="right">10.947437</td>
-<td align="right">5.314344</td>
+<td align="right">10.066427</td>
+<td align="right">6.586015</td>
 </tr>
 <tr class="even">
 <td align="left">H</td>
-<td align="right">10.831774</td>
-<td align="right">4.747304</td>
+<td align="right">10.159905</td>
+<td align="right">5.114754</td>
 </tr>
 <tr class="odd">
 <td align="left">I</td>
-<td align="right">8.247200</td>
-<td align="right">3.928279</td>
+<td align="right">10.857577</td>
+<td align="right">4.373630</td>
 </tr>
 <tr class="even">
 <td align="left">J</td>
-<td align="right">11.210203</td>
-<td align="right">2.991912</td>
+<td align="right">8.868094</td>
+<td align="right">3.872606</td>
 </tr>
 </tbody>
 </table>
@@ -1084,73 +1084,73 @@ Whoa, that’s a lot of dots! Remember that each country is measured each year. 
 <tbody>
 <tr class="odd">
 <td align="left">A</td>
-<td align="right">8.650075</td>
-<td align="right">5.918725</td>
-<td align="right">-1.8412307</td>
-<td align="right">16.55486</td>
+<td align="right">6.434879</td>
+<td align="right">5.915104</td>
+<td align="right">-0.860523</td>
+<td align="right">15.69073</td>
 </tr>
 <tr class="even">
 <td align="left">B</td>
-<td align="right">10.348819</td>
-<td align="right">5.368277</td>
-<td align="right">0.7222403</td>
-<td align="right">17.22044</td>
+<td align="right">9.858190</td>
+<td align="right">6.175905</td>
+<td align="right">-1.474144</td>
+<td align="right">20.48493</td>
 </tr>
 <tr class="odd">
 <td align="left">C</td>
-<td align="right">8.636692</td>
-<td align="right">5.005915</td>
-<td align="right">-0.0879887</td>
-<td align="right">14.64073</td>
+<td align="right">11.062653</td>
+<td align="right">4.060548</td>
+<td align="right">5.240914</td>
+<td align="right">18.93747</td>
 </tr>
 <tr class="even">
 <td align="left">D</td>
-<td align="right">7.575312</td>
-<td align="right">3.615807</td>
-<td align="right">1.9555239</td>
-<td align="right">12.98550</td>
+<td align="right">12.063631</td>
+<td align="right">3.796526</td>
+<td align="right">5.316051</td>
+<td align="right">16.63234</td>
 </tr>
 <tr class="odd">
 <td align="left">E</td>
-<td align="right">8.012845</td>
-<td align="right">4.990326</td>
-<td align="right">0.5507754</td>
-<td align="right">15.74269</td>
+<td align="right">8.659427</td>
+<td align="right">5.264645</td>
+<td align="right">1.066329</td>
+<td align="right">19.31286</td>
 </tr>
 <tr class="even">
 <td align="left">F</td>
-<td align="right">12.704092</td>
-<td align="right">3.859653</td>
-<td align="right">6.8802416</td>
-<td align="right">19.46132</td>
+<td align="right">10.961566</td>
+<td align="right">3.492853</td>
+<td align="right">4.624445</td>
+<td align="right">16.97146</td>
 </tr>
 <tr class="odd">
 <td align="left">G</td>
-<td align="right">10.947437</td>
-<td align="right">5.314344</td>
-<td align="right">2.7553011</td>
-<td align="right">21.06175</td>
+<td align="right">10.066427</td>
+<td align="right">6.586015</td>
+<td align="right">-3.836238</td>
+<td align="right">18.93662</td>
 </tr>
 <tr class="even">
 <td align="left">H</td>
-<td align="right">10.831774</td>
-<td align="right">4.747304</td>
-<td align="right">3.9007942</td>
-<td align="right">19.89446</td>
+<td align="right">10.159905</td>
+<td align="right">5.114754</td>
+<td align="right">3.051798</td>
+<td align="right">19.82208</td>
 </tr>
 <tr class="odd">
 <td align="left">I</td>
-<td align="right">8.247200</td>
-<td align="right">3.928279</td>
-<td align="right">3.3162190</td>
-<td align="right">16.98491</td>
+<td align="right">10.857577</td>
+<td align="right">4.373630</td>
+<td align="right">2.274259</td>
+<td align="right">16.58054</td>
 </tr>
 <tr class="even">
 <td align="left">J</td>
-<td align="right">11.210203</td>
-<td align="right">2.991912</td>
-<td align="right">7.6615892</td>
-<td align="right">15.60591</td>
+<td align="right">8.868094</td>
+<td align="right">3.872606</td>
+<td align="right">3.236036</td>
+<td align="right">15.23494</td>
 </tr>
 </tbody>
 </table>
